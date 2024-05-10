@@ -23,9 +23,9 @@ parameters: |
   basePath: "/dynamic_provisioning" # optional
 
   ## For Azure Storage Account Mount
-  resourceGroup: rg-connectivity-hub-ncus-01 # Name of the RG in which the Storage Acc is residing
-  secretName: via-dev-docs-volume-secret  # Name of the secret to use (the secret should contain storage account name and key)
-  shareName: via-dev-docs-share  # Name of the Azure file share
+  resourceGroup: rg-duplo-storage-account # Name of the RG in which the Storage Acc is residing
+  secretName: storage-account-volume-secret  # Name of the secret to use (the secret should contain storage account name and key)
+  shareName: storage-account-file-share  # Name of the Azure file share
   ```
 storageClassAnnotations: |
   Kubernetes annotations in key value format. Sample value is like below
