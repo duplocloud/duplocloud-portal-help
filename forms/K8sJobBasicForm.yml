@@ -12,13 +12,13 @@ restartPolicy: |
 Retries: |
   Set the retry limit. Once the BackoffLimit is reached the Job will be marked as failed.
 envVariables: |
-    Environment variables to be passed to the jobs in the YAML format.
-      ```yaml
-       - Name: VARIABLE1
-         Value: abc.com
-       - Name: VARIABLE2
-         Value: test_value
-      ```
+  Environment variables to be passed to the jobs in the YAML format.
+  ```yaml
+  - Name: VARIABLE1
+    Value: abc.com
+  - Name: VARIABLE2
+    Value: test_value
+  ```
 ContainerName: Specify Name of the Container.
 command: |
   Specify the command attribute for the container.
