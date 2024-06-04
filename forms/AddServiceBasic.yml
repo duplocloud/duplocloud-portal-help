@@ -153,6 +153,11 @@ EnvVariablesK8s: |-
     configMapKeyRef:
       name: env-config
       key: log_level
+  # using downward api
+  - name: MY_NODE_NAME
+    valueFrom:
+    fieldRef:
+      fieldPath: spec.nodeName
   ```
 NetworkMode: If host network is selected then the container will share the same
   networking stack as host. This means any port in the container is accessible
