@@ -187,13 +187,15 @@ otherDockerConfig: |
     sets a few labels
   ```js
   {
-  "Entrypoint": "["/bin/bash", "-c",
-    "sleep 1h"],
-  "Labels": {
-  "com.example.vendor": "Acme",
-  "com.example.license":
-    "GPL",
-  "com.example.version": "1.0"
-  }
+    "Entrypoint": [
+      "/bin/bash",
+      "-c",
+      "sleep 1h"
+    ],
+    "Labels": {
+      "com.example.vendor": "Acme",
+      "com.example.license": "GPL",
+      "com.example.version": "1.0"
+    }
   }
   ```
