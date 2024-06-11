@@ -1,0 +1,6 @@
+bucketName: Specify the name of the bucket.
+EnableVersioning: Select to enable bucket's Versioning configuration.
+AllowPublicAccess: Select to enable  public access to a bucket.
+Labels: Specify key/value label pairs to assign to the bucket.
+MultiRegion:  Select Multi-Region for availability across largest area.
+Region: Select single Region.
