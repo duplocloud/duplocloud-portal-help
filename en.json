@@ -131,9 +131,9 @@
                 "AllowPublicAccess": "Select to enable  public access to a bucket.",
                 "Labels": "Specify key/value label pairs to assign to the bucket.",
                 "MultiRegion": "(Optional) Multi-Region for availability across largest area. If Location Type input not provided, by default Bucket will be created in `us (Multiple Regions in United States)`.",
-                "Region": "(Optional) Select Single Region. Once submited, value cannot be edited.",
-                "RegionOptions": "Select Region. Once submited, value cannot be edited.",
-                "MultiRegionOptions": "Select Region.  Once submited, value cannot be edited."
+                "Region": "(Optional) Select Single Region. Once submitted, value cannot be edited.",
+                "RegionOptions": "Select Region. Once submitted, value cannot be edited.",
+                "MultiRegionOptions": "Select Region. If not provided Bucket will be created in `us (Multiple Regions in United States)`. Once submitted, value cannot be edited."
             },
             "AddStorageClass": {
                 "name": "Storage Class Name.",
