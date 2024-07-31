@@ -274,6 +274,15 @@
                 "EnableCisCloudTrailCloudWatchAlarms": "Enables CIS CloudTrail CloudWatch Alarms in all AWS regions managed by DuploCloud.\n\nEnabling this feature and specifying an email address to receive alerts will satisfy AWS CIS controls 3.1 through 3.14.\n",
                 "CisCloudWatchAlarmNotificationEmail": "Specifies an email address that should receive the CIS CloudTrail CloudWatch Alarms.\n\nIn order to satisfy AWS CIS controls 3.1 through 3.14, the email recipient must first confirm the subscription to receive the alerts from AWS."
             },
+            "S3bucketReplication": {
+                "Name": "Specify replica rule name.",
+                "selectTenant": "Select the Tenant.",
+                "destinationS3": "Select the destination S3 bucket for replication",
+                "Priority": "Specify the Priority associated with the rule. Priority must be unique between multiple rules.",
+                "DeleteMarkerReplication": "Enable/Disable if delete markers needs be replicated.",
+                "changeStorage": "Select to set the Storage Class used to store the object.",
+                "StorageClass": "Select the Storage Class from the supported list to store the objects."
+            },
             "databrick": {
                 "Name": "Enter Databricks workspace name.",
                 "Tier": "Choose between Standard or Premium. View Pricing details [here](https://azure.microsoft.com/en-us/pricing/details/databricks/).",
