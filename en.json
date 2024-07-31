@@ -609,7 +609,9 @@
             },
             "AddSNS": {
                 "Name": "The name of the SNS topic.",
-                "KmsKeyId": "Select the KMS key for encryption."
+                "KmsKeyId": "Select the KMS key for encryption.",
+                "FifoTopic": "Enable to create a SNS FIFO topic.",
+                "ContentBasedDeduplication": "When selected, enables content-based deduplication for FIFO topics."
             },
             "lbrule": {
                 "itemConditionType0": "Following types of Rule Conditions are supported:\n1. **Path:** Route based on path patterns in the request URLs.\n2. **Host Header:** Route based on the host name of each request.\n3. **Source IP:** Route based on the source IP address of each request.\n4. **HTTP Request Method:** Route based on the HTTP request method of each request.\nFor details, refer [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules).\n",

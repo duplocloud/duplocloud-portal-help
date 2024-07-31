@@ -1,3 +1,4 @@
 Name: The name of the SNS topic.
 KmsKeyId: Select the KMS key for encryption.
-
+FifoTopic: Enable to create a SNS FIFO topic.
+ContentBasedDeduplication: When selected, enables content-based deduplication for FIFO topics.
