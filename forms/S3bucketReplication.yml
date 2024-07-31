@@ -1,0 +1,7 @@
+Name: Specify replica rule name.
+selectTenant: Select the Tenant.
+destinationS3: Select the destination S3 bucket for replication
+Priority: Specify the Priority associated with the rule. Priority must be unique between multiple rules.
+DeleteMarkerReplication: Enable/Disable if delete markers needs be replicated. 
+changeStorage: Select to set the Storage Class used to store the object.
+StorageClass: Select the Storage Class from the supported list to store the objects.
