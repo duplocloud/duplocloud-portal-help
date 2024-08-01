@@ -352,7 +352,7 @@
                 "joinDomainType": "(optional). Select Domain Type for the host.",
                 "timezone": "Select the timezone for the host.",
                 "base64": "Base64 encoded user data.",
-                "securityType": "Select `Standard` or `Trusted Launch` securit type. Defaults to `Standard`.\nUse Trusted Launch for the security of `Generation 2` virtual machines (VMs). [Supported Sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#virtual-machines-sizes)\n",
+                "securityType": "Select `Standard` or `Trusted Launch` security type. Defaults to `Standard`.\nUse Trusted Launch for the security of `Generation 2` virtual machines (VMs). [Supported Sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#virtual-machines-sizes)\n",
                 "secureboot": "Select to enable Secure Boot for your VM.",
                 "vtpm": "Select to enable virtual Trusted Platform Module (vTPM) for Azure VM."
             },
