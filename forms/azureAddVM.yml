@@ -25,3 +25,4 @@ securityType: |
  Use Trusted Launch for the security of `Generation 2` virtual machines (VMs). [Supported Sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#virtual-machines-sizes)
 secureboot: Select to enable Secure Boot for your VM.
 vtpm: Select to enable virtual Trusted Platform Module (vTPM) for Azure VM.
+encryptAtHost: Select to enable Encryption at host.
