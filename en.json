@@ -573,7 +573,8 @@
                 "EnableIamAuth": "Enable to set IAM database authentication. For supported regions and engine versions, refer [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.html)",
                 "BackupRetentionPeriod": "Specify in days for automated backups. Valid values 1-35. (Optional)If not specified, by default Backup Retention Day would be set as 1.",
                 "AvailabilityZone": "Select an Availability Zone (AZ).",
-                "CACertificateIdentifier": "Select Certificate authority."
+                "CACertificateIdentifier": "Select Certificate authority.",
+                "EnableMultiAZ": "Enable Multi Availability Zone."
             },
             "selectIotDeviePackageCert": {
                 "certificateId": "Choose the certificate to download the device package."
@@ -624,6 +625,11 @@
                 "Priority": "(Optional) Priority would be added by DuploCloud when not entered. Note- A listener can't have multiple rules with the same priority.",
                 "tgForwardActionArn": "Select the Target Group to which to route the traffic.",
                 "itemVal00": "Enter Value applicable as per the Rule Condition selected. For details, refer [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules)."
+            },
+            "addLogDeliveryConfiguration": {
+                "LogFormat": "Select Log Format. Supported format are `TEXT` and `JSON`.",
+                "LogType": "Select Log Type `engine log` and `slow log`.",
+                "LogGroup": "Sepcify Cloud Watch Log Group. If the Log Group don not exist, will create a new log group."
             },
             "AddServiceAdvanced": {
                 "VolumeMappingsK8s": "Volumes and Volume mount setting in the Duplo simplied format. If you specify Volumes here, Duplo will take care of configuring pod volumes and volume mounts.\n```yaml\n---\n# Statefulset using EBS volume\n- AccessMode: ReadWriteOnce\n  Name: data\n  Path: /attachedvolume\n  Size: 10Gi\n# Deployment using host directory mount in read-only mode\n- Name: rootfs   # Name of the volume\n  Path: /rootfs  # Path in the container\n  ReadOnly: true # Set if it is readonly mount\n  Spec:          # K8s Defined volumes\n    HostPath:\n      Path: /    # Path on the host\n# Deployment using host directory mount in read-write mode\n- Name: var-run\n  Path: /var/run\n  Spec:\n    HostPath:\n      Path: /var/run\n# Deployment mounting secret into directory\n- Name: nginx\n  Path: /etc/nginx/conf.d\n  Spec:\n    Secret:\n      SecretName: nginx\n# Deployment mounting config map into directory\n- Name: nginx\n  Path: /etc/nginx/conf.d\n  Spec:\n    ConfigMap:\n      Name: nginx\n# Deployment using PersistentVolumeClaim. \n- Name: nginx\n  Path: /usr/share/nginx/html\n  Spec:\n    PersistentVolumeClaim:\n      claimName: efs-claim\n```",
@@ -714,7 +720,8 @@
                 "NoOfShards": "Specify number of Shards for Cluster.",
                 "SnapshotName": "Select the snapshot/backup you want to use for creating redis.",
                 "SnapshotRetentionLimit": "Specify retention limit in days. Accepted values - 1-35.",
-                "Kms": "Select KMS Key."
+                "Kms": "Select KMS Key.",
+                "LogDeliveryConfiguration": "Enables exporting engine logs and slow logs to Amazon CloudWatch Logs. Select `CloudWatch` to configure."
             },
             "AddDynamoDB": {
                 "Name": "Specify unique name of the table.",
