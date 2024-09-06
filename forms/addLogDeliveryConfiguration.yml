@@ -1,3 +1,3 @@
 LogFormat: Select Log Format. Supported format are `TEXT` and `JSON`.
 LogType: Select Log Type `engine log` and `slow log`.
-LogGroup: Sepcify Cloud Watch Log Group. If the Log Group don not exist, will create a new log group.
+LogGroup: Sepcify Cloud Watch Log Group. If the Log Group do not exist, will create a new log group.
