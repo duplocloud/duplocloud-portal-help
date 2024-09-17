@@ -12,4 +12,5 @@ ScaleSetPriority: |
     1. **Regular**: Creates a regular agent pool node with standard priority.
     2. **Spot**: Create Spot AKS agent pool nodes.
 ScaleSetEvictionPolicy: The eviction policy define what happens when Azure evicts.
-SpotMaxPrice: (Optional) Defines the max price when creating or adding a Spot VM agent pool 
+SpotMaxPrice: (Optional) Defines the max price when creating or adding a Spot VM agent pool.
+MaxPods: Enter the maximum number of pods per node. Default is 30.

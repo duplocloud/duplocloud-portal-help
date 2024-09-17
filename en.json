@@ -418,7 +418,8 @@
                 "AvailabilityZones": "(Optional)Select availability zones your AKS agent pool nodes.",
                 "ScaleSetPriority": "The Virtual Machine Scale Set priority.\n  1. **Regular**: Creates a regular agent pool node with standard priority.\n  2. **Spot**: Create Spot AKS agent pool nodes.\n",
                 "ScaleSetEvictionPolicy": "The eviction policy define what happens when Azure evicts.",
-                "SpotMaxPrice": "(Optional) Defines the max price when creating or adding a Spot VM agent pool"
+                "SpotMaxPrice": "(Optional) Defines the max price when creating or adding a Spot VM agent pool.",
+                "MaxPods": "Enter the maximum number of pods per node. Default is 30."
             },
             "redisInstance": {
                 "Name": "The ID of the instance or a fully qualified identifier for the instance.",
