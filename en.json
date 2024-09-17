@@ -415,7 +415,7 @@
                 "AllocationTag": "Allocation tags is the simplest way to constraint containers/pods with hosts/nodes. DuploCloud/Kubernetes Orchestrator will make sure containers will run on the hosts having same allocation tags.",
                 "enableAutoScaling": "Enable this when you want kubernetes cluster to sized correctly for the current running workloads.",
                 "azureAddAgentPoolMaxPods": "Specify to adjust the maximum number of pods per node.",
-                "AvailabilityZones": "(Optional)Select availability zones your AKS agent pool nodes.",
+                "AvailabilityZones": "(Optional)Select availability zones for your AKS agent pool nodes.",
                 "ScaleSetPriority": "The Virtual Machine Scale Set priority.\n  1. **Regular**: Creates a regular agent pool node with standard priority.\n  2. **Spot**: Create Spot AKS agent pool nodes.\n",
                 "ScaleSetEvictionPolicy": "The eviction policy define what happens when Azure evicts.",
                 "SpotMaxPrice": "(Optional) Defines the max price when creating or adding a Spot VM agent pool.",
