@@ -142,13 +142,13 @@ EnvVariablesK8s: |-
   - Name: DB_PASSWORD
     Value: mypassword
   # using secrets
-  - name: SECRET_USERNAME
+  - Name: SECRET_USERNAME
     valueFrom:
       secretKeyRef:
         name: mysecret
         key: username
   # using ConfigMap data 
-  - name: LOG_LEVEL
+  - Name: LOG_LEVEL
     valueFrom:
     configMapKeyRef:
       name: env-config
