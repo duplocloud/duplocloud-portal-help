@@ -143,16 +143,16 @@ EnvVariablesK8s: |-
     Value: mypassword
   # using secrets
   - Name: SECRET_USERNAME
-    valueFrom:
+    ValueFrom:
       secretKeyRef:
         name: mysecret
         key: username
   # using ConfigMap data 
   - Name: LOG_LEVEL
-    valueFrom:
-    configMapKeyRef:
-      name: env-config
-      key: log_level
+    ValueFrom:
+      configMapKeyRef:
+        name: env-config
+        key: log_level
   ```
 NetworkMode: If host network is selected then the container will share the same
   networking stack as host. This means any port in the container is accessible
