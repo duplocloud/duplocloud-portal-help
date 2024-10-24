@@ -304,6 +304,16 @@
                 "secretProviderClassAnnotations": "Key Value pair of annotations to be added to SecretProviderClass\nSample Value Can be as bellow\n```yaml\nkey1: value1\nkey2: value2\n```\n",
                 "secretProviderClassLabels": "Key Value pair of labels to be added to SecretProviderClass\nSample Value Can be as bellow\n```yaml\nkey1: value1\nkey2: value2\n```"
             },
+            "addHelmRelease": {
+                "Name": "Provide Name for the Helm Chart.",
+                "ReleaseName": "Provide release name to identify specific deployment of helm chart.",
+                "ChartName": "Provide  unique name to specify the name of the chart.",
+                "ChartVersion": "Specify Helm Chart Version.",
+                "ChartReconcileStrategy": "Defaults to `Chart Version`. No new chart artifact is produced on updates to the source unless the version is changed in HelmRepository.\nUse `Revision` to produce new chart artifact on change in source revision.",
+                "SourceType": "Set as default HelmRepository.",
+                "SourceName": "Select the Helm Repo configured from the list.",
+                "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n  replicaCount: 2\n  serviceAccount:\n    create: true\n```"
+            },
             "airflow_add_sub_form_basics": {
                 "Name": "The name of the Apache Airflow Environment.",
                 "AirflowVersion_other": "Airflow version of your environment, will be set by default to the latest version that MWAA supports.",
@@ -835,6 +845,10 @@
                 "useSpotInstancesCheck1": "Enable to launch hosts using Spot Instances.",
                 "maximumSpotPrice": "(Optional) If not specified, Default price would be referred.\nIf user wants to set, specify price in dollars, example- `0.0245`. Refer Spot Instance pricing [here](https://aws.amazon.com/ec2/spot/pricing/).\n",
                 "canScaleFromZero": "Enable the Scale From Zero (BETA) feature so DuploCloud can scale up the initial host in the ASG whenever it detects that an otherwise unschedulable pod would be able to run on such a host."
+            },
+            "AddK8sHelmRepo": {
+                "Name": "Specify name of the Helm Repository.",
+                "URL": "Sepcify Helm Repository URL. example- `https://helm.github.io/examples`."
             },
             "AddPVC": {
                 "name": "Name for Persistent Volume Claim.",

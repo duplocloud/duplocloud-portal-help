@@ -1,0 +1,2 @@
+Name: Specify name of the Helm Repository.
+URL: Sepcify Helm Repository URL. example- `https://helm.github.io/examples`.
