@@ -1,0 +1,17 @@
+Name: Provide Name for the Helm Chart.
+ReleaseName: Provide release name to identify specific deployment of helm chart.
+ChartName: Provide  unique name to specify the name of the chart.
+ChartVersion: Specify Helm Chart Version.
+ChartReconcileStrategy: |-
+  Defaults to `Chart Version`. No new chart artifact is produced on updates to the source unless the version is changed in HelmRepository.
+  Use `Revision` to produce new chart artifact on change in source revision.
+SourceType: Set as default HelmRepository. 
+SourceName: Select the Helm Repo configured from the list.
+Values: |-
+  Specify in yaml format. This field allows users to customize Helm charts. 
+  Example
+  ```yaml
+    replicaCount: 2
+    serviceAccount:
+      create: true
+  ```
