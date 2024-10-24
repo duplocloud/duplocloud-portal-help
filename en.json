@@ -848,7 +848,7 @@
             },
             "AddK8sHelmRepo": {
                 "Name": "Specify name of the Helm Repository.",
-                "URL": "Sepcify Helm Repository URL. example- `https://helm.github.io/examples`."
+                "URL": "Specify Helm Repository URL. example- `https://helm.github.io/examples`."
             },
             "AddPVC": {
                 "name": "Name for Persistent Volume Claim.",
