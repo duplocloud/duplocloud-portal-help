@@ -183,6 +183,7 @@ envVariables: |
        "plugins.security.disabled" : "true",
        "compatibility.override_main_response_version" : "true"
   }
+  ```
 ReplicaPlacement: |
   Select replication placement strategy.
   1. **First Available**: Replicas are not required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.
