@@ -275,7 +275,7 @@
                 "CisCloudWatchAlarmNotificationEmail": "Specifies an email address that should receive the CIS CloudTrail CloudWatch Alarms.\n\nIn order to satisfy AWS CIS controls 3.1 through 3.14, the email recipient must first confirm the subscription to receive the alerts from AWS."
             },
             "S3bucketReplication": {
-                "Name": "Specify replica rule name.",
+                "Name": "Specify rule name.",
                 "selectTenant": "Select the Tenant.",
                 "destinationS3": "Select the destination S3 bucket for replication",
                 "Priority": "Specify the Priority associated with the rule. Priority must be unique between multiple rules.",

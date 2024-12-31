@@ -1,4 +1,4 @@
-Name: Specify replica rule name.
+Name: Specify rule name.
 selectTenant: Select the Tenant.
 destinationS3: Select the destination S3 bucket for replication
 Priority: Specify the Priority associated with the rule. Priority must be unique between multiple rules.
