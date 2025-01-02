@@ -224,7 +224,7 @@
                 "Schema": "Select the Schema.\n1. **None**: Pub/Sub will write the message bytes to a column called data of the selected BigQuery table.\n2. **Use Topic Schema**: Pub/Sub will use the schema of the attached topic, which must be compatible with the BigQuery table schema.\n3. **Use Table Schema**: Pub/Sub will use the schema of the BigQuery table.\n",
                 "TableName": "Specify the name of the table to which to write data.",
                 "DropUnknownFields": "(Optional). When Enabled, if `Use Topic Schema` or `Use Tpoic Schema` is used, any fields that are a part of the topic schema or message schema that are not part of the BigQuery table schema are dropped when writing to BigQuery.",
-                "WriteMetadata": "(Optional) When Enabled, writes the subscription name, messageId, publishTime, attributes, and orderingKey to additional columns in the table.",
+                "WriteMetadata": "(Optional) When Enabled, writes the subscription_name, message_id, publishTime, attributes, and publish_time to additional columns in the table.",
                 "Bucket": "Select the Cloud Storage Bucket.",
                 "PushEndpoint": "Specify a URL locating the endpoint to which messages should be pushed.",
                 "Attributes": "Specify attributes in json format.\n```js\n{\n    \"foo\": \"bar\"\n}\n```"
