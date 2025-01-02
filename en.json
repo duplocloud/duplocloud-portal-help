@@ -216,6 +216,19 @@
                 "canSend": "Enable to configure authorization rule to have Send permissions to the ServiceBus Queue.",
                 "canListen": "Enable to configure authorization rule to have Listen permissions to the ServiceBus Queue."
             },
+            "AddGcpSubscription": {
+                "Name": "Name of the subscription.",
+                "Topic": "Select the Pub Sub Topic for reference.",
+                "DeliveryType": "Select the Delivery Type.",
+                "AcknowledgementDeadline": "Default is 10 seconds. This value is the maximum time after a subscriber receives a message before the subscriber should acknowledge the message.",
+                "Schema": "Select the Schema.\n1. **None**: Pub/Sub will write the message bytes to a column called data of the selected BigQuery table.\n2. **Use Topic Schema**: Pub/Sub will use the schema of the attached topic, which must be compatible with the BigQuery table schema.\n3. **Use Table Schema**: Pub/Sub will use the schema of the BigQuery table.\n",
+                "TableName": "Specify the name of the table to which to write data.",
+                "DropUnknownFields": "(Optional). When Enabled, if `Use Topic Schema` or `Use Tpoic Schema` is used, any fields that are a part of the topic schema or message schema that are not part of the BigQuery table schema are dropped when writing to BigQuery.",
+                "WriteMetadata": "(Optional) When Enabled, writes the subscription name, messageId, publishTime, attributes, and orderingKey to additional columns in the table.",
+                "Bucket": "Select the Cloud Storage Bucket.",
+                "PushEndpoint": "Specify a URL locating the endpoint to which messages should be pushed.",
+                "Attributes": "Specify attributes in json format.\n```js\n{\n    \"foo\": \"bar\"\n}\n```"
+            },
             "AddMySQLFlexi": {
                 "Name": "Specify the name which should be used for this MySQL Flexible Server.",
                 "AdminUsername": "Specify the Administrator Login for the MySQL Flexible Server.",
