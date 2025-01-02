@@ -2,6 +2,10 @@
     "lang": "en",
     "data": {
         "FORM": {
+            "topic": {
+                "Name": "Name of the Pub/Sub Topic.",
+                "Labels": "Specify key/value pair."
+            },
             "appserviceplan": {
                 "name": "Specify the name which should be used for this Service Plan.",
                 "platform": "Select the O/S type for the App Services to be hosted in this plan. Supported values include `Windows` and `Linux`.",
