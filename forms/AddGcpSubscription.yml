@@ -9,7 +9,7 @@ Schema: |
   3. **Use Table Schema**: Pub/Sub will use the schema of the BigQuery table.
 TableName: Specify the name of the table to which to write data.
 DropUnknownFields: (Optional). When Enabled, if `Use Topic Schema` or `Use Tpoic Schema` is used, any fields that are a part of the topic schema or message schema that are not part of the BigQuery table schema are dropped when writing to BigQuery.
-WriteMetadata: (Optional) When Enabled, writes the subscription name, messageId, publishTime, attributes, and orderingKey to additional columns in the table.
+WriteMetadata: (Optional) When Enabled, writes the subscription_name, message_id, publishTime, attributes, and publish_time to additional columns in the table.
 Bucket: Select the Cloud Storage Bucket.
 PushEndpoint: Specify a URL locating the endpoint to which messages should be pushed.
 Attributes: |
