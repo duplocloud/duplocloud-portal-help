@@ -837,7 +837,10 @@
                 "ContentBasedDuplication": "Enables content-based deduplication for FIFO queues.",
                 "DuplicationScope": "Specifies whether message deduplication occurs at the message group or queue level.",
                 "FIFOthroughput": "Specifies whether the FIFO queue throughput quota applies to the entire queue or per message group.",
-                "DelaySeconds": "Set the Delivery Delay when sending a message to a queue in seconds. Default is `0`.  Maximum delay can be set is of 15 minutes (`900` seconds)."
+                "DelaySeconds": "Set the Delivery Delay when sending a message to a queue in seconds. Default is `0`.  Maximum delay can be set is of 15 minutes (`900` seconds).",
+                "needsDeadLetterQueueConfiguration": "Enable Dead-letter queue configuration.",
+                "DeadLetterTargetQueueName": "Select the target SQS.",
+                "MaxMessageTimesReceivedBeforeDeadLetterQueue": "Enter Maximum receives. Value should be between 1 and 1000."
             },
             "AddEC2Host": {
                 "Name": "Friendly name for host. User provided name will be appended by prefix as \"duploservice-<tenant_name>-\".",
