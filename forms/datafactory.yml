@@ -1,0 +1,2 @@
+Name: Specify the name of the Data Factory. Data Factory names must be globally unique.
+PublicEndpoint: Enable/Disable for Data Factory visibility to the public network.
