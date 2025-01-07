@@ -1,0 +1,6 @@
+Name: Specify the name of the Container Registry. 
+Tier: Specify the SKU name of the container registry.
+AdminUserEnabled: Select to enable the admin user.
+AnonymousPullEnabled: Select to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.
+DataEndpointEnabled: Select to enable dedicated data endpoints for this Container Registry. This is only supported on resources with the `Premium` SKU
+PublicNetworkAccess: Select to enable/disable public network access for the container registry.

@@ -635,6 +635,14 @@
                 "otherContainerConfig": "Additional Container Configurations. add here.\n```yaml\nimagePullPolicy: Always\nresources: {}\nterminationMessagePath: /dev/termination-log\nterminationMessagePolicy: File\nvolumeMounts:\n- mountPath: /opt\n  name: my-volume\n```\n",
                 "AllocationTags": "Allocation tags is the simplest way to constraint containers/pods with hosts/nodes. DuploCloud/Kubernetes Orchestrator will make sure containers will run on the hosts having same allocation tags."
             },
+            "AddContainerRegistry": {
+                "Name": "Specify the name of the Container Registry.",
+                "Tier": "Specify the SKU name of the container registry.",
+                "AdminUserEnabled": "Select to enable the admin user.",
+                "AnonymousPullEnabled": "Select to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.",
+                "DataEndpointEnabled": "Select to enable dedicated data endpoints for this Container Registry. This is only supported on resources with the `Premium` SKU",
+                "PublicNetworkAccess": "Select to enable/disable public network access for the container registry."
+            },
             "topicRule": {
                 "Name": "Specify the name of the rule.",
                 "Description": "Add description to the rule.",
@@ -879,6 +887,10 @@
                 "resources": "Claims, like Pods, can request specific quantities of a resource. In this case, the request is for storage. The same **[resource model]**(https://github.com/kubernetes/design-proposals-archive/blob/main/scheduling/resources.md) applies to both volumes and claims.\nSample Value\n```yml\nrequests:\n  storage: 10Gi\n```\n",
                 "pvcAnnotations": "Kubernetes annotations in key value format. Sample value is like below\n```yml\nkey1: value1\nkey2: value2\n```\n",
                 "pvcLabels": "Kubernetes labels in key value format. Sample value is like below\n```yml\nkey1: value1\nkey2: value2\n```"
+            },
+            "datafactory": {
+                "Name": "Specify the name of the Data Factory. Data Factory names must be globally unique.",
+                "PublicEndpoint": "Enable/Disable for Data Factory visibility to the public network."
             }
         }
     }
