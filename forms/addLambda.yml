@@ -36,3 +36,6 @@ ImageConfiguration: |
   ```
 ImageUri: Enter the ECR image URI containing the function's deployment package.
 EphemeralStorage: Specify Ephemeral Storage in MB, allows you to configure the storage upto 10240 MB. The default value set to 512 MB.
+DeadLetterQueue: Select SQS queue or SNS Topic to send events from an an asynchronous invocation. 
+MaximumRetryAttempts: Specify the maximum number of times to retry when the function returns an error.
+MaximumEventAgeInSeconds: Specify the maximum amount of time in seconds to keep unprocessed events in the queue.
