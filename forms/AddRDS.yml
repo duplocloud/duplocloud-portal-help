@@ -23,3 +23,6 @@ BackupRetentionPeriod: Specify in days for automated backups. Valid values 1-35.
 AvailabilityZone: Select an Availability Zone (AZ).
 CACertificateIdentifier: Select Certificate authority.
 EnableMultiAZ:  Enable Multi Availability Zone.
+DatabaseName: Specify a name for your Database.
+EnablePerformanceInsights: Enable Performance Insights.
+PerformanceInsightsRetentionPeriod: Specify the amount of time in days to retain Performance Insights data. Defaults to 7 Days.
