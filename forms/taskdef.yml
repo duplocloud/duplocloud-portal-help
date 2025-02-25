@@ -118,3 +118,4 @@ volumes: |
 Essential_1: |
   If enabled, container fails or stops for any reason, all other containers that are part of the task are stopped. 
   If disabled, then its failure doesn't affect the rest of the containers in a task.
+OperatingSystemArchitecture: Select the Operating system/Architecture configuration for the task definition.
