@@ -46,7 +46,7 @@
                 "UnHealthyThresholdCount": "The number of consecutive health check failures required before considering a target unhealthy.",
                 "HealthCheckTimeoutSeconds": "The amount of time, in seconds, during which no response means a failed health check.",
                 "HealthCheckIntervalSeconds": "The approximate amount of time between health checks of an individual target.",
-                "HttpSuccessCode": "The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, \"200,202\") or a range of values (for example, \"200-299\").",
+                "HttpSuccessCode": "The HTTP codes to use when checking for a successful response from a target. You can specify multiple values (for example, \"200,202\").",
                 "GrpcSuccessCode": "The gRPC codes to use when checking for a successful response from a target. You can specify multiple values (for example, \"20,25\") or a range of values (for example, \"0-99\"). Only applicable when protocol version is selected as **GRPc**."
             },
             "dataPipelineAddImport": {
