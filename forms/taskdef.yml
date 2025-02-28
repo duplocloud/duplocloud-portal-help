@@ -9,7 +9,7 @@ environmentvars: |
   ```js
   [
     {
-      "Name": "<env_var_name>"
+      "Name": "<env_var_name>",
       "Value": "<env_var_value>"
     }
   ]

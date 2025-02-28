@@ -1,0 +1,45 @@
+Name: Specify a name for your task definition. Up to 255 letters (uppercase and lowercase), numbers, hyphens, and underscores are allowed.
+OperatingSystemArchitecture: Select the Operating system/Architecture configuration for the task definition.
+memory: The amount of memory (in MiB) used by the task. It can be expressed as an integer using MiB, for example 1024, or as a string using GB, for example '1GB' or '1 gb'.
+vcpus: The number of CPU units used by the task. It can be expressed as an integer using CPU units, for example 1024, or as a string using vCPUs, for example '1 vCPU' or '1 vcpu'.
+volumes: |
+  Volumes which can be mounted within container as documented [here](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#volumes) in a json format.
+  Sample Value with all the possible options can look like as below.
+  ```js
+  [ 
+    { 
+      "dockerVolumeConfiguration": { 
+          "autoprovision": boolean,
+          "driver": "string",
+          "driverOpts": { 
+            "string" : "string" 
+          },
+          "labels": { 
+            "string" : "string" 
+          },
+          "scope": "string"
+      },
+      "efsVolumeConfiguration": { 
+          "authorizationConfig": { 
+            "accessPointId": "string",
+            "iam": "string"
+          },
+          "fileSystemId": "string",
+          "rootDirectory": "string",
+          "transitEncryption": "string",
+          "transitEncryptionPort": number
+      },
+      "fsxWindowsFileServerVolumeConfiguration": { 
+          "authorizationConfig": { 
+            "credentialsParameter": "string",
+            "domain": "string"
+          },
+          "fileSystemId": "string",
+          "rootDirectory": "string"
+      },
+      "host": { 
+          "sourcePath": "string"
+      },
+      "name": "string"
+    }
+  ]
