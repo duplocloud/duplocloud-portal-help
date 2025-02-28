@@ -1,0 +1,118 @@
+ContainerName_0: Name of the Container.
+Port: Port mappings allow containers to access ports on the host container instance to send or receive traffic.
+Protocol: Protocol for this port.
+Image: Image for your docker container.
+environmentvars: |
+  Environment variables to be passed to the container in the JSON format as below.
+  ```js
+  [
+    {
+      "Name": "<env_var_name>",
+      "Value": "<env_var_value>"
+    }
+  ]
+  ```
+command: |
+  The command that is passed to the container. This parameter maps to **Cmd** in the Create a container section of the Docker Remote API and the COMMAND parameter to docker run. For more information about the Docker CMD parameter, click[here](https://docs.docker.com/engine/reference/builder/#cmd).
+  Following is the example value to make you container sleep for debugging.
+  ```js
+  [
+    "sleep",
+    "500000"
+  ]
+  ```
+healthcheck: |
+  Health check configuration which helps to determine if container is healthy in a JSON format. JSON has following attributes.
+  1. **command**: A string array representing the command that the container runs to determine if it is healthy. The string array can start with CMD to execute the command arguments directly, or CMD-SHELL to run the command with the container's default shell. If neither is specified, CMD is used by default.
+  2. **interval**: The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.
+  3. **timeout**: The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.
+  4. **retries**: The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is three retries.
+  5. **startPeriod**: The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.
+  Following is the example to perform health check by calling an API
+  ```js
+  {
+    "command" : [ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]
+    "interval": 20,
+    "timeout" : 5,
+    "retries" : 10,
+    "startPeriod" : 20
+  }
+  ```
+Secret: |
+  This is another way of setting up the environment values from AWS secrets in a JSON format. 
+  ```js
+  [
+      {
+          "Name": "<env_var_name>",
+          "ValueFrom": "<aws_secret_arn>:<key_in_aws_secret>::"
+      },
+      {
+          "Name": "DB_HOST",
+          "ValueFrom": "arn:aws:secretsmanager:us-west-2:2432432434343:secret:db-secret:DB_HOST::"
+      }
+  ]
+  ```
+containerotherconfig: |
+  All other advance properties documented [here](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html) applicable only for the Fargate in a JSON format.
+  Sample value can look like below.
+  ```js
+  {
+    "LogConfiguration": {
+        "LogDriver": {
+            "Value": "awslogs"
+        },
+        "Options": {
+            "awslogs-create-group": "true",
+            "awslogs-group": "/ecs/duploservices-nonprod-api",
+            "awslogs-region": "us-west-2",
+            "awslogs-stream-prefix": "ecs"
+        },
+        "SecretOptions": []
+    }
+  }
+  ```
+volumes: |
+  Volumes which can be mounted within container as documented [here](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#volumes) in a json format.
+  Sample Value with all the possible options can look like as below.
+  ```js
+  [ 
+    { 
+      "dockerVolumeConfiguration": { 
+          "autoprovision": boolean,
+          "driver": "string",
+          "driverOpts": { 
+            "string" : "string" 
+          },
+          "labels": { 
+            "string" : "string" 
+          },
+          "scope": "string"
+      },
+      "efsVolumeConfiguration": { 
+          "authorizationConfig": { 
+            "accessPointId": "string",
+            "iam": "string"
+          },
+          "fileSystemId": "string",
+          "rootDirectory": "string",
+          "transitEncryption": "string",
+          "transitEncryptionPort": number
+      },
+      "fsxWindowsFileServerVolumeConfiguration": { 
+          "authorizationConfig": { 
+            "credentialsParameter": "string",
+            "domain": "string"
+          },
+          "fileSystemId": "string",
+          "rootDirectory": "string"
+      },
+      "host": { 
+          "sourcePath": "string"
+      },
+      "name": "string"
+    }
+  ]
+  ```
+Essential_1: |
+  If enabled, container fails or stops for any reason, all other containers that are part of the task are stopped. 
+  If disabled, then its failure doesn't affect the rest of the containers in a task.
