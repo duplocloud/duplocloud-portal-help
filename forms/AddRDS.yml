@@ -26,3 +26,4 @@ EnableMultiAZ:  Enable Multi Availability Zone.
 DatabaseName: Specify a name for your Database.
 EnablePerformanceInsights: Enable Performance Insights.
 PerformanceInsightsRetentionPeriod: Specify the amount of time in days to retain Performance Insights data. Defaults to 7 Days.
+PerformanceInsightsEncryptionKey: Choose to encrypt Performance Insights data.
