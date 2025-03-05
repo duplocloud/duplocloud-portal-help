@@ -15,7 +15,7 @@ agentPlatform: |
   2. **Windows Docker/Native:** Select this option if you want to run docker native services which are Windows based.
   3. **EKS Linux:** Select this options if you want to run services on the Kubernetes Cluster.
   4. **None:** This option has to be selected when EC2 instance is not used for running containers.
-  5. **ECS:** This option is available only for the Infrastructure with ECS enabled and to be used while configuring Capacity Provider for ECS Service.
+  5. **ECS:** This option is available only for the Infrastructure with ECS enabled and in ASG form, to be used while configuring Capacity Provider for ECS Service.
 ImageId: AMI id for the EC2 instance. AMI should be compatible with the agent platform. Select type as "Other" if you don't see desired option in dropdown.
 blockEBSOptimization: Set this to enable block EBS optimization.
 enableHibernation: Hibernation stops your instance and saves the contents of the instance’s RAM to the root volume. You cannot enable hibernation after EC2 host is launch. 
