@@ -38,3 +38,5 @@ targetType: |
   Service can be of any type like `ClusterIP` or `NodePort` or `LoadBalancer` to use instance mode.
   IP mode is required for sticky sessions to work with Application Load Balancers. 
 EnableHttpToHttps: Enable to redirect HTTP to HTTPS.
+tlsHosts:  Specify TLS Hosts. Multiple Hosts can be added comma-separated.`example.com, api.example.com, dashboard.example.com.` [Details](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls).
+tlsSecretName: Specify the secret name that contains a TLS private key and certificate.
