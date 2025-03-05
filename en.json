@@ -642,7 +642,7 @@
                 "DatabaseName": "Specify a name for your Database.",
                 "EnablePerformanceInsights": "Enable Performance Insights.",
                 "PerformanceInsightsRetentionPeriod": "Specify the amount of time in days to retain Performance Insights data. Defaults to 7 Days.",
-                "PerformanceInsightsEncryptionKey": "Choose to encrypt the given instance."
+                "PerformanceInsightsEncryptionKey": "Choose to encrypt Performance Insights data."
             },
             "selectIotDeviePackageCert": {
                 "certificateId": "Choose the certificate to download the device package."
