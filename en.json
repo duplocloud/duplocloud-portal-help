@@ -228,6 +228,13 @@
                 "customCachePathPattern0": "The pattern (for example, images/*.jpg ) that specifies which requests to apply the behavior to. When CloudFront receives a viewer request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution.",
                 "customTargetOriginId0": "Target Origin to apply the cache policy. This Origin will be used as source by the cloudfront if the request URL matches the path pattern"
             },
+            "start-shell": {
+                "secretName": "Specify name of the secret, must be unique.",
+                "secretType": "Select the type of secret. [Details](https://kubernetes.io/docs/concepts/configuration/secret/)",
+                "secretData": "Enter Secret Details. Refer below for example\n 1. **Opaque**: arbitrary user-defined data. [example](https://kubernetes.io/docs/concepts/configuration/secret/#opaque-secrets)\n 2. **kubernetes.io/dockercfg**: serialized ~/.dockercfg file. [example](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets)\n 3. **kubernetes.io/dockerconfigjson**:  serialized ~/.docker/config.json file. [example](https://kubernetes.io/docs/concepts/configuration/secret/#docker-config-secrets)\n 4. **kubernetes.io/basic-auth**: credentials for basic authentication. [example](https://kubernetes.io/docs/concepts/configuration/secret/#basic-authentication-secret)\n 5. **kubernetes.io/ssh-auth**: credentials for SSH authentication. [example](https://kubernetes.io/docs/concepts/configuration/secret/#ssh-authentication-secrets)\n 6. **kubernetes.io/tls**: data for a TLS client or server. [example](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets)\n",
+                "secretLabels": "Add labels to a Secret for better organization and selection. \n```js\n{\n     \"environment\": \"production\",\n     \"type\": \"credentials\"\n}\n ```\n",
+                "secretAnnotations": "Specify annotations in below format.\n```js\n{\n     \"description\": \"This secret stores database credentials\",\n     \"level\": \"high\"\n}\n ```"
+            },
             "AddSbAccessPolicy": {
                 "Name": "Specify the name of the Authorization Rule.",
                 "canManage": "Enable to configure authorization rule to have manage permissions to the ServiceBus Queue.",
