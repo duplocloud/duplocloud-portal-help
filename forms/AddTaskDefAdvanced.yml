@@ -31,7 +31,7 @@ healthcheck: |
   Following is the example to perform health check by calling an API
   ```js
   {
-    "command" : [ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ]
+    "command" : [ "CMD-SHELL", "curl -f http://localhost/ || exit 1" ],
     "interval": 20,
     "timeout" : 5,
     "retries" : 10,
