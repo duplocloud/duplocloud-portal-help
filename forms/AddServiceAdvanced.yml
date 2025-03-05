@@ -82,7 +82,22 @@ PodConfigK8s: |-
     RollingUpdate:
       MaxSurge: 1
       MaxUnavailable: 0  
-  
+  # add initContainers and additionalContainers
+  initContainers:
+  - name: bootstrap
+    image: busybox:1.28
+    command:
+      - sh
+      - '-c'
+      - echo duplo
+  additionalContainers:
+  - name: init-myservice
+    image: busybox:1.28
+    restartPolicy: Always
+    command:
+      - sh
+      - '-c'
+      - ping 127.0.0.1
   ```
 ContainerConfigK8s: |-
   Deployment and Pod configurations
