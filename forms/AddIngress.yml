@@ -37,5 +37,4 @@ targetType: |
   This mode will route traffic directly to the pod IP. Network plugin must use secondary IP addresses on ENI for pod IP to use ip mode. e.g. amazon-vpc-cni-k8s. 
   Service can be of any type like `ClusterIP` or `NodePort` or `LoadBalancer` to use instance mode.
   IP mode is required for sticky sessions to work with Application Load Balancers. 
-
-
+EnableHttpToHttps: Enable to redirect HTTP to HTTPS.
