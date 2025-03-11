@@ -1,0 +1,8 @@
+Name: Specify name of the Target Group.
+targetTypes: |
+  1. *instance*: Targets are EC2 instances
+  2. *ip*: Targets are IP addresses
+  3. *alb*: Targets are ALB.
+port: Sepcify the port.
+protocol: Select the protocol.
+healthPath: Sepcify Heealth Check. Determines whether a target is healthy and can receive traffic.

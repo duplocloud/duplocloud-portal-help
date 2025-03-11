@@ -442,6 +442,9 @@
             "addSecretObjects": {
                 "Name": "Kubernetes secret name. It should only contain alphanumeric characters and '-'.\nSelect the parameters which you want to include into the secrets. You can also change the name of the parameter.\n"
             },
+            "registerTarget": {
+                "loadbalancers": "Select the loadbalancer. For TargetType as alb, loadbalancer must have at least one listener that matches the target group port."
+            },
             "batchJob": {
                 "OtherJobProperties": "All Other Submit Job Definition Request parameters as documented\n      [here](https://docs.aws.amazon.com/batch/latest/APIReference/API_SubmitJob.html#Batch-SubmitJob-request-containerOverrides).\nSample\n      Value for the Other Job properties to set **ContainerOverrides** is as below\n```js\n{\n\n        \"ContainerOverrides\" : {\n        \"Command\" : [ \"echo\", \"hiii\"],\n    \"Environment\":\n      [\n        {\n            \"name\": \"KEY1\",\n            \"value\": \"123\"\n\n              }\n      ]\n  }\n\n}\n```"
             },
@@ -809,6 +812,13 @@
             },
             "cert": {
                 "SetAsActive": "Enable to create to Certificate in Active state."
+            },
+            "targetgroupForm": {
+                "Name": "Specify name of the Target Group.",
+                "targetTypes": "1. *instance*: Targets are EC2 instances\n2. *ip*: Targets are IP addresses\n3. *alb*: Targets are ALB.\n",
+                "port": "Sepcify the port.",
+                "protocol": "Select the protocol.",
+                "healthPath": "Sepcify Heealth Check. Determines whether a target is healthy and can receive traffic."
             },
             "cwrule-target-lambda-add": {
                 "Lambda Function Name": "Select the Lambda function."
