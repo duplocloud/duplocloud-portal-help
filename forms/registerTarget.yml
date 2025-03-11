@@ -1,3 +1,1 @@
-loadbalancers: Select the loadbalancer. For TargetType as alb, loadbalancer must have at least one listener that matches the target group port or any specified port overrides.
-ip: Enter IP address.
-hosts: Select hosts.
+loadbalancers: Select the loadbalancer. For TargetType as alb, loadbalancer must have at least one listener that matches the target group port.
