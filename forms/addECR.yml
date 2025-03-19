@@ -1,0 +1,4 @@
+Name: Specify name of the ECR.
+KmsEncryption: Select KMS key for the repository. 
+EnableTagImmutability: Select to enable the tag mutability setting for the repository.
+EnableScanImageOnPush: Select to scan images after being pushed to the repository

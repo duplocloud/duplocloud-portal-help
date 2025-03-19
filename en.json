@@ -228,6 +228,12 @@
                 "customCachePathPattern0": "The pattern (for example, images/*.jpg ) that specifies which requests to apply the behavior to. When CloudFront receives a viewer request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution.",
                 "customTargetOriginId0": "Target Origin to apply the cache policy. This Origin will be used as source by the cloudfront if the request URL matches the path pattern"
             },
+            "addECR": {
+                "Name": "Specify name of the ECR.",
+                "KmsEncryption": "Select KMS key for the repository.",
+                "EnableTagImmutability": "Select to enable the tag mutability setting for the repository.",
+                "EnableScanImageOnPush": "Select to scan images after being pushed to the repository"
+            },
             "start-shell": {
                 "secretName": "Specify name of the secret, must be unique.",
                 "secretType": "Select the type of secret. [Details](https://kubernetes.io/docs/concepts/configuration/secret/)",
