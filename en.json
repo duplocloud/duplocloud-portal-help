@@ -81,7 +81,9 @@
                 "HPAConfig": "Horizontal pod autoscaler specifications as documented [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/). Sample value can be like below.\n```yaml\nmaxReplicas: 5\nmetrics:\n  - resource:\n      name: cpu\n      target:\n        averageUtilization: 80\n        type: Utilization\n    type: Resource\nminReplicas: 2\n```",
                 "envVariables": "Environment Variables to be passed in json format. Refer sample as below.\n```js\n{\n    \"discovery.type\": \"single-node\",\n     \"plugins.security.disabled\" : \"true\",\n     \"compatibility.override_main_response_version\" : \"true\"\n}\n```\n",
                 "ReplicaPlacement": "Select replication placement strategy.\n1. **First Available**: Replicas are not required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.\n2. **Place on Different Hosts**:  Replicas are not required to be spread across availability zones.  Replicas are required to be placed on different hosts.\n3. **Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.\n4. **Different Hosts and Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas are required to be placed on different hosts.\n",
-                "TolerateSpotInstance": "Select to run pods in Spot Instance. `tolerations` property will be added in `Other Container Config` to support running of pods in Spot Instance."
+                "TolerateSpotInstance": "Select to run pods in Spot Instance. `tolerations` property will be added in `Other Container Config` to support running of pods in Spot Instance.",
+                "Replicas": "Specify number of replicas.",
+                "ForceStatefulSet": "Select to create a StatefulSet service."
             },
             "emrClusterAdd": {
                 "Name": "Unique Cluster Name",
