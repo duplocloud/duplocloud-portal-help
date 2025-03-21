@@ -191,3 +191,5 @@ ReplicaPlacement: |
   3. **Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.
   4. **Different Hosts and Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas are required to be placed on different hosts.
 TolerateSpotInstance: Select to run pods in Spot Instance. `tolerations` property will be added in `Other Container Config` to support running of pods in Spot Instance.
+Replicas: Specify number of replicas.
+ForceStatefulSet: Select to create a StatefulSet service.
