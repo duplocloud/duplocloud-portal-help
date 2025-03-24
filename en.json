@@ -828,7 +828,7 @@
                 "targetTypes": "1. *instance*: Targets are EC2 instances\n2. *ip*: Targets are IP addresses\n3. *alb*: Targets are ALB.\n",
                 "port": "Sepcify the port.",
                 "protocol": "Select the protocol.",
-                "healthPath": "Sepcify Health Check. Determines whether a target is healthy and can receive traffic.",
+                "healthPath": "Specify Health Check. Determines whether a target is healthy and can receive traffic.",
                 "healthCheckProtocol": "Select Health Check Protocol.",
                 "httpCode": "Specify HTTP Success Code."
             },
