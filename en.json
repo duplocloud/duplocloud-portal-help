@@ -932,7 +932,10 @@
                 "DedicatedHostId": "Specify the Dedicated Host ID. This ID is used to launch an instance onto specified host. Example- `h-0c6ab6f38bdcb24f6`.",
                 "useSpotInstancesCheck1": "Enable to launch hosts using Spot Instances.",
                 "maximumSpotPrice": "(Optional) If not specified, Default price would be referred.\nIf user wants to set, specify price in dollars, example- `0.0245`. Refer Spot Instance pricing [here](https://aws.amazon.com/ec2/spot/pricing/).\n",
-                "canScaleFromZero": "Enable the Scale From Zero (BETA) feature so DuploCloud can scale up the initial host in the ASG whenever it detects that an otherwise unschedulable pod would be able to run on such a host."
+                "canScaleFromZero": "Enable the Scale From Zero (BETA) feature so DuploCloud can scale up the initial host in the ASG whenever it detects that an otherwise unschedulable pod would be able to run on such a host.",
+                "extraNodeLabels": "```js\n{\n    \"team\" : \"backend\",\n    \"workload\" : \"web\"\n}\n",
+                "keyPairType": "Select Key Pair. Supports ED25519 and RSA key pair types. Defaults to `ed25519`.",
+                "enabledMetrics": "Select to enable Auto Scaling group metrics collection"
             },
             "AddK8sHelmRepo": {
                 "Name": "Specify name of the Helm Repository.",
