@@ -1,0 +1,8 @@
+Name: Enter Config Map name.
+Data: |-
+  Enter configuration data in key-value format.
+  ```yaml
+  APP_ENV: "production"
+  LOG_LEVEL: "debug"
+  API_URL: "https://api.example.com"
+  ```
