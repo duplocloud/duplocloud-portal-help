@@ -15,8 +15,9 @@ ingressAnnotations: |
   Annotations are used for controlling the behavior of the services exposed by the Ingress. 
   Each ingress controller defines the set of annotations which can be used to control the behavior.
   Refer these links: 
-    *AWS ALB ingress controller* [here](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/annotations/)
-    *Azure Application Gateway Ingress* [here](https://azure.github.io/application-gateway-kubernetes-ingress/annotations/#list-of-supported-annotations)
+    1. **AWS ALB ingress controller** [here](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/annotations/)
+    2. **Azure Application Gateway Ingress** [here](https://azure.github.io/application-gateway-kubernetes-ingress/annotations/#list-of-supported-annotations)
+    3. **GCP Ingress** [here](https://cloud.google.com/kubernetes-engine/docs/how-to/load-balance-ingress#ingress_annotations)
 httpPort: HTTP Listener Port. If you dont want to exposed your services over HTTP, make it blank.
 httpsPort: HTTPS Listener Port. HTTPS Listener port can be specified only when SSL certificate ARN is specified.
 ingressLabels: |
