@@ -64,3 +64,11 @@ maximumSpotPrice: |
   (Optional) If not specified, Default price would be referred.
   If user wants to set, specify price in dollars, example- `0.0245`. Refer Spot Instance pricing [here](https://aws.amazon.com/ec2/spot/pricing/).
 canScaleFromZero: Enable the Scale From Zero (BETA) feature so DuploCloud can scale up the initial host in the ASG whenever it detects that an otherwise unschedulable pod would be able to run on such a host.
+extraNodeLabels: |
+  ```js
+  {
+      "team" : "backend",
+      "workload" : "web"
+  }
+keyPairType: Select Key Pair. Supports ED25519 and RSA key pair types. By Default, `ed25519` is the key pair type.
+enabledMetrics: Select to enable Auto Scaling group metrics collection
