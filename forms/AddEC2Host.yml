@@ -70,5 +70,5 @@ extraNodeLabels: |
       "team" : "backend",
       "workload" : "web"
   }
-keyPairType: Select Key Pair. Supports ED25519 and RSA key pair types. By Default, `ed25519` is the key pair type.
+keyPairType: Select Key Pair. Supports ED25519 and RSA key pair types. Defaults to `ed25519`.
 enabledMetrics: Select to enable Auto Scaling group metrics collection
