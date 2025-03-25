@@ -360,6 +360,10 @@
                 "SourceName": "Select the Helm Repo configured from the list.",
                 "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n  replicaCount: 2\n  serviceAccount:\n    create: true\n```"
             },
+            "k8sConfigmap": {
+                "Name": "Enter Config Map name.",
+                "Data": "Enter configuration data in key-value format.\n```yaml\nAPP_ENV: \"production\"\nLOG_LEVEL: \"debug\"\nAPI_URL: \"https://api.example.com\"\n```"
+            },
             "airflow_add_sub_form_basics": {
                 "Name": "The name of the Apache Airflow Environment.",
                 "AirflowVersion_other": "Airflow version of your environment, will be set by default to the latest version that MWAA supports.",
@@ -912,7 +916,7 @@
             },
             "AddEC2Host": {
                 "Name": "Friendly name for host. User provided name will be appended by prefix as \"duploservice-<tenant_name>-\".",
-                "Zone": "AWS Availability Zone to create an EC2 instance.\n1. **Automatic:** Select this option to automatically assign the availability zone to EC2 host. DuploCloud will automatically assign a zone with subnet having most available IPv4 addresses.\n",
+                "Zone": "AWS Availability Zone to create an EC2 instance.\n**Automatic:** Select this option to automatically assign the availability zone to EC2 host. DuploCloud will automatically assign a zone with subnet having most available IPv4 addresses.\n",
                 "InstanceType": "Select an instance type that meets your computing, memory, networking, or storage needs. Select type as \"Other\" if you don't see desired option in the dropdown.",
                 "InstanceCount": "Desired capacity for the autoscaling group.",
                 "minInstanceCount": "Minimum Instance Count. Autoscaling group will make sure that total no of instance will always be greater than or equal to min count.",
@@ -933,9 +937,10 @@
                 "useSpotInstancesCheck1": "Enable to launch hosts using Spot Instances.",
                 "maximumSpotPrice": "(Optional) If not specified, Default price would be referred.\nIf user wants to set, specify price in dollars, example- `0.0245`. Refer Spot Instance pricing [here](https://aws.amazon.com/ec2/spot/pricing/).\n",
                 "canScaleFromZero": "Enable the Scale From Zero (BETA) feature so DuploCloud can scale up the initial host in the ASG whenever it detects that an otherwise unschedulable pod would be able to run on such a host.",
-                "extraNodeLabels": "```js\n{\n    \"team\" : \"backend\",\n    \"workload\" : \"web\"\n}\n```\n",
+                "extraNodeLabels": "Specify additional Node Labels.\n ```js\n {\n     \"team\" : \"backend\",\n     \"workload\" : \"web\"\n }\n ```\n",
                 "keyPairType": "Select Key Pair. Supports ED25519 and RSA key pair types. Defaults to `ed25519`.",
-                "enabledMetrics": "Select to enable Auto Scaling group metrics collection"
+                "enabledMetrics": "Select to enable Auto Scaling group metrics collection.",
+                "Zones": "Select Availability Zones."
             },
             "AddK8sHelmRepo": {
                 "Name": "Specify name of the Helm Repository.",
