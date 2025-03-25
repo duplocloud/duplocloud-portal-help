@@ -99,6 +99,24 @@
                 "ManagedScalingPolicy": "ManagedScalingPolicy example.\n```js\n{\n\"ComputeLimits\" : {\n\"UnitType\" : \"Instances\",\n\"MinimumCapacityUnits\" : 2,\n\"MaximumCapacityUnits\" : 5,\n\"MaximumOnDemandCapacityUnits\" : 5,\n\"MaximumCoreCapacityUnits\" : 3\n}\n}\n```",
                 "VisibleToAllUsers": "Cluster Visible To All Users."
             },
+            "job": {
+                "Name": "Enter the name of the job.",
+                "TargetType": "Select from the supported Target Types.",
+                "Schedule": "Specify schedule in Cron format. Example- `0 0 * * 0`. This will run once a week at midnight on Sunday morning. For more help on cron schedule expressions, click [here](https://crontab.guru/#0_0_*_*_0).",
+                "Description": "Specify description for the job.",
+                "Timezone": "Select the time zone to be used in interpreting schedule.",
+                "PubSubTargetTopicName": "Select Pub/Sub topic to which messages will be published when a job is delivered.",
+                "PubSubTargetAttributes": "Enter the attributes for PubsubMessage.\nExample:\n```js\n{\n\"source\": \"cloud-scheduler\",\n\"type\": \"backup\"\n}\n```\n",
+                "PubSubTargetData": "Enter the message body.\nExample:\n```js\n{\n\"task\": \"daily-report\",\n\"status\": \"pending\"\n}\n```\n",
+                "AppEngineTargetAppEngineRoutingService": "Specify the App service name.",
+                "AppEngineTargetAppEngineRoutingVersion": "Specify the App version.",
+                "HttpTargetHttpMethod": "Select HTTP method.",
+                "AppEngineTargetRelativeUri": "Specify the relative URL, must begin with \"/\" and must be a valid HTTP relative URL.",
+                "HttpTargetHeaders": "Specify HTTP request headers.\n```js\n{\n\"Content-Type\": \"application/json\"\n}\n```",
+                "CloudFunctionName": "Select Cloud Function.",
+                "HttpTargetUri": "Enter the full URI path that the request will be sent to.",
+                "HttpTargetAuth": "Select authentication."
+            },
             "addAcceleratorForm": {
                 "acceleratorCount": "Specify the number of GPUs.",
                 "acceleratorType": "Specify Accelerator Type(GPU Type). Google does not offer every instance/GPU combination in every region/zone. \nEnter the compatible type based on the instance type and zone. Example: `nvidia-tesla-a100` Accelarator Type is supported for Zone `us-west4-b` for Instance Type `a2-highgpu-1g`.\nFor GPU regions and zone availability, click [here](https://cloud.google.com/compute/docs/gpus/gpu-regions-zones).\nMore details on running GPUs in GKE Standard Pool, click [here](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus).\n",

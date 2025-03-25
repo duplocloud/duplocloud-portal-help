@@ -1,0 +1,47 @@
+Name: Enter the name of the job.
+TargetType: Select from the supported Target Types. 
+Schedule: Specify schedule in Cron format. Example- `0 0 * * 0`. This will run once a week at midnight on Sunday morning. For more help on cron schedule expressions, click [here](https://crontab.guru/#0_0_*_*_0).
+Description: Specify description for the job. 
+Timezone: Select the time zone to be used in interpreting schedule.
+PubSubTargetTopicName: Select Pub/Sub topic to which messages will be published when a job is delivered.
+PubSubTargetAttributes:  |
+  Enter the attributes for PubsubMessage.
+  Example:
+  ```js
+  {
+  "source": "cloud-scheduler",
+  "type": "backup"
+  }
+  ```
+PubSubTargetData: |
+  Enter the message body.
+  Example:
+  ```js
+  {
+  "task": "daily-report",
+  "status": "pending"
+  }
+  ```
+AppEngineTargetAppEngineRoutingService: Specify the App service name.
+AppEngineTargetAppEngineRoutingVersion: Specify the App version.
+HttpTargetHttpMethod: Select the HTTP method to use for the request.
+AppEngineTargetRelativeUri: Specify the relative URL, must begin with "/" and must be a valid HTTP relative URL.
+HttpTargetHeaders: |
+  Select the HTTP request headers.
+  ```js
+  {
+  "Content-Type": "application/json",
+  "X-Custom-Header": "MyScheduler"
+  }
+  ```
+HttpTargetHttpMethod: Select HTTP method.
+CloudFunctionName: Select Cloud Function.
+HttpTargetUri: Enter the full URI path that the request will be sent to.
+HttpTargetAuth: Select authentication.
+HttpTargetHeaders: |
+  Specify HTTP request headers.
+  ```js
+  {
+  "Content-Type": "application/json"
+  }
+  ```
