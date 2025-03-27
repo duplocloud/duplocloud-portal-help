@@ -1,6 +1,6 @@
 name: Name for your ingress object.
 ingressClassName: Select ingress controller name.
-dNSPrefix: Provide the DNS prefix to expose services using Route53 domain.
+dNSPrefix: Provide DNS prefix.
 visibility:  |
   Visibility can be used to manage the accessibility of services exposed by Ingress load balancer.
   *Internal Only*: Services will be accessible within tenant and to other tenants only if allowed by security rules.

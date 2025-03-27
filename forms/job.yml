@@ -45,3 +45,12 @@ HttpTargetHeaders: |
   "Content-Type": "application/json"
   }
   ```
+HttpTargetBody: |
+  Enter the message body.
+  Example:
+  ```js
+  {
+  "task": "daily-report",
+  "status": "pending"
+  }
+  ```
