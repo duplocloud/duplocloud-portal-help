@@ -112,10 +112,11 @@
                 "AppEngineTargetAppEngineRoutingVersion": "Specify the App version.",
                 "HttpTargetHttpMethod": "Select HTTP method.",
                 "AppEngineTargetRelativeUri": "Specify the relative URL, must begin with \"/\" and must be a valid HTTP relative URL.",
-                "HttpTargetHeaders": "Specify HTTP request headers.\n```js\n{\n\"Content-Type\": \"application/json\"\n}\n```",
+                "HttpTargetHeaders": "Specify HTTP request headers.\n```js\n{\n\"Content-Type\": \"application/json\"\n}\n```\n",
                 "CloudFunctionName": "Select Cloud Function.",
                 "HttpTargetUri": "Enter the full URI path that the request will be sent to.",
-                "HttpTargetAuth": "Select authentication."
+                "HttpTargetAuth": "Select authentication.",
+                "HttpTargetBody": "Enter the message body.\nExample:\n```js\n{\n\"task\": \"daily-report\",\n\"status\": \"pending\"\n}\n```"
             },
             "addAcceleratorForm": {
                 "acceleratorCount": "Specify the number of GPUs.",
@@ -868,7 +869,7 @@
             "AddIngress": {
                 "name": "Name for your ingress object.",
                 "ingressClassName": "Select ingress controller name.",
-                "dNSPrefix": "Provide the DNS prefix to expose services using Route53 domain.",
+                "dNSPrefix": "Provide DNS prefix.",
                 "visibility": "Visibility can be used to manage the accessibility of services exposed by Ingress load balancer.\n*Internal Only*: Services will be accessible within tenant and to other tenants only if allowed by security rules.\n*Public*: Services will be accessible over internet.\n",
                 "certificateArn": "Select certificate ARN to expose services over HTTPS.",
                 "ingressRules": "Ingress rules specifications as documented [here](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-rules)\nClick on the `Add Rule` button to add the rules for the kubernetes services created using DuploCloud.\n```\n",
