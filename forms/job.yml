@@ -35,7 +35,7 @@ HttpTargetHeaders: |
   }
   ```
 HttpTargetHttpMethod: Select HTTP method.
-CloudFunctionName: Select Cloud Function.
+CloudFunctionName: Select Cloud Function. Select Other to manually enter the Target URI.
 HttpTargetUri: Enter the full URI path that the request will be sent to.
 HttpTargetAuth: Select authentication.
 HttpTargetHeaders: |
