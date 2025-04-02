@@ -113,7 +113,7 @@
                 "HttpTargetHttpMethod": "Select HTTP method.",
                 "AppEngineTargetRelativeUri": "Specify the relative URL, must begin with \"/\" and must be a valid HTTP relative URL.",
                 "HttpTargetHeaders": "Specify HTTP request headers.\n```js\n{\n\"Content-Type\": \"application/json\"\n}\n```\n",
-                "CloudFunctionName": "Select Cloud Function.",
+                "CloudFunctionName": "Select Cloud Function. Select Other to manually enter the Target URI.",
                 "HttpTargetUri": "Enter the full URI path that the request will be sent to.",
                 "HttpTargetAuth": "Select authentication.",
                 "HttpTargetBody": "Enter the message body.\nExample:\n```js\n{\n\"task\": \"daily-report\",\n\"status\": \"pending\"\n}\n```"
