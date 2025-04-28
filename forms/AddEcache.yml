@@ -11,4 +11,5 @@ NoOfShards: Specify number of Shards for Cluster.
 SnapshotName: Select the snapshot/backup you want to use for creating redis.
 SnapshotRetentionLimit: Specify retention limit in days. Accepted values - 1-35.
 Kms: Select KMS Key.
-LogDeliveryConfiguration: Enables exporting engine logs and slow logs to Amazon CloudWatch Logs. Select `CloudWatch` to configure. 
+LogDeliveryConfiguration: Enables exporting engine logs and slow logs to Amazon CloudWatch Logs. Select `CloudWatch` to configure.
+EnableEncryptionAtRest: Select to enable/disable Encryption At Rest.
