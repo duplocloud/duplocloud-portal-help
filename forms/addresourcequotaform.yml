@@ -1,0 +1,19 @@
+resourcequotaname: Enter quota name.
+memoryrequest: Max total memory requested across all pods. Example `8Gi`.
+memorylimit: Max total memory limit across all pods. Example `4Gi`.
+cpurequest: Max total CPU requested across all pods. Example `2`.
+cpulimit: Max total CPU limit across all pods. Example `4`.
+dataYaml: | 
+ ```yaml
+ configmaps: '200'
+ pods: '2'
+ ```
+scopeSelectorYaml: |
+ scopeSelector allows you to apply quotas only to specific subsets of resources—like terminating pods, non-terminated pods, best-effort pods.
+ ```yaml
+  matchExpressions:
+  - operator: In
+    scopeName: VolumeAttributesClass
+    values:
+      - gold
+ ```
