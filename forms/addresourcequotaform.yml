@@ -1,6 +1,6 @@
 resourcequotaname: Enter quota name.
-memoryrequest: Max total memory requested across all pods. Example `8Gi`.
-memorylimit: Max total memory limit across all pods. Example `4Gi`.
+memoryrequest: Max total memory requested across all pods. Example `4Gi`.
+memorylimit: Max total memory limit across all pods. Example `8Gi`.
 cpurequest: Max total CPU requested across all pods. Example `2`.
 cpulimit: Max total CPU limit across all pods. Example `4`.
 dataYaml: | 

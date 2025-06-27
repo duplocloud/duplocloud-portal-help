@@ -317,8 +317,8 @@
             },
             "addresourcequotaform": {
                 "resourcequotaname": "Enter quota name.",
-                "memoryrequest": "Max total memory requested across all pods. Example `8Gi`.",
-                "memorylimit": "Max total memory limit across all pods. Example `4Gi`.",
+                "memoryrequest": "Max total memory requested across all pods. Example `4Gi`.",
+                "memorylimit": "Max total memory limit across all pods. Example `8Gi`.",
                 "cpurequest": "Max total CPU requested across all pods. Example `2`.",
                 "cpulimit": "Max total CPU limit across all pods. Example `4`.",
                 "dataYaml": "```yaml\nconfigmaps: '200'\npods: '2'\n```\n",
@@ -821,6 +821,15 @@
             "emrserverlsess_add_runjob_sub_form_app_config": {
                 "ApplicationConfiguration": "Specify job configurations to override the default configurations for your applications.\n 1. **Spark:** \n```js\n[{\n              \"Classification\": \"spark-defaults\",\n              \"Configurations\": [],\n              \"Properties\": {\n                  \"spark.driver.cores\": \"2\",\n                  \"spark.driver.memory\": \"4g\",\n\t\t\t        \"spark.dynamicAllocation.minExecutors\":\"1\"\n              }\n          }]\n```\n2. **Hive:** \n```js\n[\n          {\n              \"Classification\": \"hive-site\",\n              \"Configurations\": [],\n              \"Properties\": {\n                  \"hive.driver.cores\": \"2\",\n                  \"hive.driver.memory\": \"4g\",\n                  \"hive.tez.container.size\": \"8192\",\n                  \"hive.tez.cpu.vcores\": \"4\"\n              }\n          }\n      ]\n```\n"
             },
+            "EksNodepoolForm": {
+                "name": "Specify name of the node pool.",
+                "expireAfter": "Speciy in hours. This configuration means the node pool will expire and be deleted after the specified hours.",
+                "terminationGracePeriod": "Specify Termination Grace Period in hours.",
+                "cpu": "Specify CPU limit.",
+                "memory": "Specify Memory limit.",
+                "consolidationPolicy": "Select to determine how EKS handles potential disruptions to running workloads when performing node consolidation.\n**WhenEmpty:** Nodes are only considered for disruption (removal or replacement) if they have no running pods. \n**WhenEmpty or Underutilized:** Nodes are considered for disruption if they are empty OR if they have been underutilized for a specified duration (defined by `Consolidate After`). \n",
+                "consolidateAfter": "Specify in minutes. Defines how long a node should be idle (underutilized) before it's considered for consolidation (i.e., termination and replacement for cost/performance optimization)."
+            },
             "emrserverlsess_add_runjob_sub_form_basics": {
                 "ApplicationName": "EMR Serverless Application Name.",
                 "Type": "EMR Serverless Application Architecture type.",
@@ -969,7 +978,9 @@
                 "extraNodeLabels": "Specify additional Node Labels.\n ```js\n {\n     \"team\" : \"backend\",\n     \"workload\" : \"web\"\n }\n ```\n",
                 "keyPairType": "Select Key Pair. Supports ED25519 and RSA key pair types. Defaults to `ed25519`.",
                 "enabledMetrics": "Select to enable Auto Scaling group metrics collection.",
-                "Zones": "Select Availability Zones."
+                "Zones": "Select Availability Zones.",
+                "enableDiskEncryption": "Select to enable encryption at rest for EBS volumes.",
+                "EncryptionKey": "Select KMS keys for disk encryption."
             },
             "AddK8sHelmRepo": {
                 "Name": "Specify name of the Helm Repository.",
