@@ -75,3 +75,5 @@ extraNodeLabels: |
 keyPairType: Select Key Pair. Supports ED25519 and RSA key pair types. Defaults to `ed25519`.
 enabledMetrics: Select to enable Auto Scaling group metrics collection.
 Zones: Select Availability Zones.
+enableDiskEncryption: Select to enable encryption at rest for EBS volumes.
+EncryptionKey: Select KMS keys for disk encryption.
