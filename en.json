@@ -400,6 +400,12 @@
                 "KmsKey": "Choose to encrypt.",
                 "WebserverAccessMode_bool": "Enable if you want to access the webserver over the internet."
             },
+            "requirementForm": {
+                "requirementKey": "Select a Key from the list. If your desired option is not available, choose 'Other'.",
+                "otherKey": "Select a key from the list. If the desired key is not available, select 'Other' and specify the key manually.",
+                "requirementOperator": "Select the desired operator from the list.",
+                "requirementValue": "Select Value. If your desired Value is not listed, type the value manually and click on Add Item."
+            },
             "toggleIAMAuth": {
                 "EnableIamAuth": "Enable to set IAM database authentication. For supported regions and engine versions, refer [here](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RDS_Fea_Regions_DB-eng.Feature.IamDatabaseAuthentication.html)"
             },
@@ -827,7 +833,7 @@
                 "terminationGracePeriod": "Specify Termination Grace Period in hours.",
                 "cpu": "Specify CPU limit.",
                 "memory": "Specify Memory limit.",
-                "consolidationPolicy": "Select to determine how EKS handles potential disruptions to running workloads when performing node consolidation.\n**WhenEmpty:** Nodes are only considered for disruption (removal or replacement) if they have no running pods. \n**WhenEmpty or Underutilized:** Nodes are considered for disruption if they are empty OR if they have been underutilized for a specified duration (defined by `Consolidate After`). \n",
+                "consolidationPolicy": "Select to determine how EKS handles potential disruptions to running workloads when performing node consolidation.\n1. **WhenEmpty:** Nodes are only considered for disruption (removal or replacement) if they have no running pods. \n2. **WhenEmpty or Underutilized:** Nodes are considered for disruption if they are empty OR if they have been underutilized for a specified duration (defined by `Consolidate After`). \n",
                 "consolidateAfter": "Specify in minutes. Defines how long a node should be idle (underutilized) before it's considered for consolidation (i.e., termination and replacement for cost/performance optimization)."
             },
             "emrserverlsess_add_runjob_sub_form_basics": {
