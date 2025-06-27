@@ -5,6 +5,6 @@ cpu: Specify CPU limit.
 memory: Specify Memory limit.
 consolidationPolicy: |
  Select to determine how EKS handles potential disruptions to running workloads when performing node consolidation.
- **WhenEmpty:** Nodes are only considered for disruption (removal or replacement) if they have no running pods. 
- **WhenEmpty or Underutilized:** Nodes are considered for disruption if they are empty OR if they have been underutilized for a specified duration (defined by `Consolidate After`). 
+ 1. **WhenEmpty:** Nodes are only considered for disruption (removal or replacement) if they have no running pods. 
+ 2. **WhenEmpty or Underutilized:** Nodes are considered for disruption if they are empty OR if they have been underutilized for a specified duration (defined by `Consolidate After`). 
 consolidateAfter: Specify in minutes. Defines how long a node should be idle (underutilized) before it's considered for consolidation (i.e., termination and replacement for cost/performance optimization).

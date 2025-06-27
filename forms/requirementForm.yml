@@ -1,0 +1,4 @@
+requirementKey: Select a Key from the list. If your desired option is not available, choose 'Other'.
+otherKey: Select a key from the list. If the desired key is not available, select 'Other' and specify the key manually.
+requirementOperator: Select the desired operator from the list.
+requirementValue: Select Value. If your desired Value is not listed, type the value manually and click on Add Item.
