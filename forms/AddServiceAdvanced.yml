@@ -194,6 +194,19 @@ ContainerConfigK8s: |-
     RollingUpdate:
       Partition: 1
     Type: RollingUpdate
+  # dnsPolicy and dnsConfig
+   dnsPolicy: None
+   dnsConfig:
+     nameservers:
+       - 8.8.8.8
+       - 1.1.1.1
+     searches:
+       - mycustom.domain.local
+     options:
+       - name: ndots
+         value: '2'
+       - name: timeout
+         value: '1'  
   ```
 VolumeMappings: |
   Example of mounting a host drive into the container
