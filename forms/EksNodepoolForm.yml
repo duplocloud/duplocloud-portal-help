@@ -1,8 +1,19 @@
 name: Specify name of the node pool.
 expireAfter: Speciy in hours. This configuration means the node pool will expire and be deleted after the specified hours.
-terminationGracePeriod: Specify Termination Grace Period in hours.
-cpu: Specify CPU limit.
-memory: Specify Memory limit.
+terminationGracePeriod: |
+  Specify Termination Grace Period in hours.
+  Time given to node for pod draining before force deleting pods and removing the node.
+  In EKS Auto Mode this is implicitly set to 24 hours when omitted. See [here](https://docs.aws.amazon.com/eks/latest/userguide/create-node-pool.html#_termination_grace_period).
+cpu: |
+  Specify CPU limit.
+  Ceiling on how many cpu resources a nodepool can cumulatively consume by scaling nodes.
+  When defined, nodepool stops scaling if it takes cpu consumption beyond cpu limit.
+  Omitting limit means not specifying an upper bound for cpu consumption. For details, see [here](https://karpenter.sh/docs/concepts/nodepools/#speclimits)
+memory: |
+  Specify Memory limit.
+  Ceiling on how much memory a nodepool can cumulatively consume by scaling nodes.
+  When defined, nodepool stops scaling if it takes memory consumption beyond this limit.
+  Omitting limit means not specifying an upper bound for memory consumption. For details, see [here](https://karpenter.sh/docs/concepts/nodepools/#speclimits)
 consolidationPolicy: |
  Select to determine how EKS handles potential disruptions to running workloads when performing node consolidation.
  1. **WhenEmpty:** Nodes are only considered for disruption (removal or replacement) if they have no running pods. 
