@@ -15,3 +15,16 @@ Values: |-
     serviceAccount:
       create: true
   ```
+ValuesFrom: |-
+  Sepcify the reference ofConfigMap and Secret resources from which to take values.
+  Example
+  ```yaml
+  
+  - kind: ConfigMap
+    name: nginx-values
+    valuesKey: values.yaml
+  - kind: Secret
+    name: nginx-secrets
+    valuesKey: secret-values.yaml
+
+  ```

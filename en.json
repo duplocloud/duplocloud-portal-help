@@ -386,7 +386,8 @@
                 "ChartReconcileStrategy": "Defaults to `Chart Version`. No new chart artifact is produced on updates to the source unless the version is changed in HelmRepository.\nUse `Revision` to produce new chart artifact on change in source revision.",
                 "SourceType": "Set as default HelmRepository.",
                 "SourceName": "Select the Helm Repo configured from the list.",
-                "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n  replicaCount: 2\n  serviceAccount:\n    create: true\n```"
+                "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n  replicaCount: 2\n  serviceAccount:\n    create: true\n```",
+                "ValuesFrom": "Sepcify the reference ofConfigMap and Secret resources from which to take values.\nExample\n```yaml\n\n- kind: ConfigMap\n  name: nginx-values\n  valuesKey: values.yaml\n- kind: Secret\n  name: nginx-secrets\n  valuesKey: secret-values.yaml\n\n```"
             },
             "k8sConfigmap": {
                 "Name": "Enter Config Map name.",
