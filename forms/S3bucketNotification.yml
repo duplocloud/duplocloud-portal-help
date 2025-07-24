@@ -1,0 +1,3 @@
+DestinationType: Select from the supported destination types.
+Destination: Sends event messages to the selected type.
+EventTypes: Select specific bucket-level events that can trigger a notification or an EventBridge event. Multiple Selection allowed.

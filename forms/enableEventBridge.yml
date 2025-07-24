@@ -1,0 +1,1 @@
+EnableEventBridge: Set this setting to allow this bucket to send events to Amazon EventBridge.

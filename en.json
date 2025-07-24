@@ -357,6 +357,11 @@
                 "changeStorage": "Select to set the Storage Class used to store the object.",
                 "StorageClass": "Select the Storage Class from the supported list to store the objects."
             },
+            "S3bucketNotification": {
+                "DestinationType": "Select from the supported destination types.",
+                "Destination": "Sends event messages to the selected type.",
+                "EventTypes": "Select specific bucket-level events that can trigger a notification or an EventBridge event. Multiple Selection allowed."
+            },
             "databrick": {
                 "Name": "Enter Databricks workspace name.",
                 "Tier": "Choose between Standard or Premium. View Pricing details [here](https://azure.microsoft.com/en-us/pricing/details/databricks/).",
@@ -503,6 +508,9 @@
                 "memory": "The amount of memory (in MiB) used by the task. It can be expressed as an integer using MiB, for example 1024, or as a string using GB, for example '1GB' or '1 gb'.",
                 "vcpus": "The number of CPU units used by the task. It can be expressed as an integer using CPU units, for example 1024, or as a string using vCPUs, for example '1 vCPU' or '1 vcpu'.",
                 "volumes": "Volumes which can be mounted within container as documented [here](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#volumes) in a json format.\nSample Value with all the possible options can look like as below.\n```js\n[ \n  { \n    \"dockerVolumeConfiguration\": { \n        \"autoprovision\": boolean,\n        \"driver\": \"string\",\n        \"driverOpts\": { \n          \"string\" : \"string\" \n        },\n        \"labels\": { \n          \"string\" : \"string\" \n        },\n        \"scope\": \"string\"\n    },\n    \"efsVolumeConfiguration\": { \n        \"authorizationConfig\": { \n          \"accessPointId\": \"string\",\n          \"iam\": \"string\"\n        },\n        \"fileSystemId\": \"string\",\n        \"rootDirectory\": \"string\",\n        \"transitEncryption\": \"string\",\n        \"transitEncryptionPort\": number\n    },\n    \"fsxWindowsFileServerVolumeConfiguration\": { \n        \"authorizationConfig\": { \n          \"credentialsParameter\": \"string\",\n          \"domain\": \"string\"\n        },\n        \"fileSystemId\": \"string\",\n        \"rootDirectory\": \"string\"\n    },\n    \"host\": { \n        \"sourcePath\": \"string\"\n    },\n    \"name\": \"string\"\n  }\n]\n```"
+            },
+            "enableEventBridge": {
+                "EnableEventBridge": "Set this setting to allow this bucket to send events to Amazon EventBridge."
             },
             "addSecretParams": {
                 "Name": "Select AWS Secret/SSM Parameter",
