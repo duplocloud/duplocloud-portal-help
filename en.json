@@ -941,6 +941,10 @@
                 "S3Bucket": "Select S3 for backup.",
                 "S3Folder": "Specify folder name in S3."
             },
+            "AddK8sOciRepo": {
+                "Name": "Name of your repository.",
+                "URL": "Specify OCI repository url. Example `oci://registry-1.docker.io/bitnamicharts/nginx`"
+            },
             "AddS3Bucket": {
                 "Name": "Specify name of the bucket.",
                 "InTenantRegion": "Select the AWS region.",

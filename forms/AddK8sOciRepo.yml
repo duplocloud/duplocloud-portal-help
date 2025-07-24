@@ -1,0 +1,2 @@
+Name: Name of your repository.
+URL: Specify OCI repository url. Example `oci://registry-1.docker.io/bitnamicharts/nginx`
