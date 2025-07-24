@@ -193,3 +193,4 @@ ReplicaPlacement: |
 TolerateSpotInstance: Select to run pods in Spot Instance. `tolerations` property will be added in `Other Container Config` to support running of pods in Spot Instance.
 Replicas: Specify number of replicas.
 ForceStatefulSet: Select to create a StatefulSet service.
+AppName: (Optional) Enter an App Name to group your apps. This can help filter only services related to your apps.
