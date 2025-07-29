@@ -1,0 +1,22 @@
+Name : Enter a name for the Agent.
+Agent Type: |
+ Agent definitions form the blueprint for creating AI agents within DuploCloud AI Studio.
+ a. PreBuilt agents are ready-to-use solutions developed outside of AI Studio that conform to DuploCloud's agent standards and interfaces.
+ b.Dynamic agents are built using DuploCloud's LangChain-based framework, allowing for flexible, composable Agentic AI solutions tailored to specific operational needs.
+Docker Image: Enter image path.
+Port: Enter the port exposed by the container.
+Protocol: Select the network protocol your Agent uses for communication(e.g., http, https, or grpc). This determines how external services connect to the containerized Agent.
+Environment Variables: Define key-value pairs (mark as mandatory if needed).
+Meta Data: Optional key-value configuration.
+Prompt: Enter the initial instruction or context that guides the Agent’s behavior and responses.
+Tools: Select one or more registered Tools for the Agent to use. For more about using Tools
+Provider: Select the Large Language Model (LLM) that will power the Agent (e.g., bedrock or Other.
+Temperature: Set the randomness of responses (e.g., 0 for deterministic behavior).
+Token Limit: Set the maximum number of tokens for responses (e.g., 1000).
+Knowledge Sources: |
+ Optionally, click the plus icon () to connect the Agent to a knowledge source such as a vector database collection. This allows the Agent to retrieve and use information from previously uploaded documents stored in a vector database. Complete the fields:
+ Vector DB: Select a previously created vector database to connect as a knowledge source.
+ Collections: Choose one or more document collections within the Vector DB relevant to the Agent (required if Vector DB is selected).
+ Description: Enter a brief summary of the knowledge source’s purpose or contents (optional).
+ Meta Data: Add key-value pairs to filter or target specific content in the knowledge source (optional).
+Meta Data: Add custom key-value metadata to the Agent.
