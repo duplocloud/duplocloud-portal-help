@@ -1,0 +1,33 @@
+AutoScalingConfigurationArn: The Amazon Resource Name (ARN) of an App Runner auto scaling configuration resource to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.
+
+KmsKey: The ARN of the AWS KMS key used for encryption. App Runner uses this key to encrypt application logs and permanent storage.
+
+Tags: |-
+  Key-value pairs to associate with the App Runner service resource.
+  ```yaml
+  # These will be converted to the AWS Tag format { Key: "KeyName1", Value: "Value1" }
+  KeyName1: Value1
+  KeyName2: Value2
+  ```
+
+IpAddressType: The type of IP addresses assigned to your App Runner service. Choose between IPv4 (default) or Dual-stack (supports both IPv4 and IPv6).
+
+IsPubliclyAccessible: Whether your App Runner service is publicly accessible through a public endpoint. When set to "No", the service is only accessible through a private VPC endpoint.
+
+PrivateEndpoint: The endpoint available to access your service when it's not publicly accessible. Only applicable when IsPubliclyAccessible is set to "No".
+
+isOutgoingTrafficPublic: Whether outgoing network traffic from your App Runner service routes through the public internet (default) or through your VPC.
+
+VpcConnectorArn: The ARN of the VPC connector to use when routing outgoing traffic through your VPC. Required when outgoing traffic is not set to public.
+
+HealthCheckProtocol: The IP protocol that App Runner uses to perform health checks for your service. Supports HTTP or TCP.
+
+HealthCheckPath: The URL path that App Runner calls to perform health checks. Required when Protocol is HTTP.
+
+HealthCheckInterval: The time interval, in seconds, between health checks. Value range of 1-20 with a default of 5.
+
+HealthCheckTimeout: The time, in seconds, to wait for a health check response before deciding it failed. Value range of 1-20 with a default of 2.
+
+HealthyThreshold: The number of consecutive successful health checks required before a service is considered healthy. Value range of 1-20 with a default of 1.
+
+UnhealthyThreshold: The number of consecutive failed health checks required before a service is considered unhealthy. Value range of 1-20 with a default of 5.
