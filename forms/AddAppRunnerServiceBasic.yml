@@ -21,3 +21,10 @@ EnvironmentSecrets: |-
   # For SSM Parameter:
   ENV_VAR_NAME: arn:aws:ssm:region:account-id:parameter/param-name
   ```
+Tags: |-
+  Key-value pairs to associate with the App Runner service resource.
+  ```yaml
+  # These will be converted to the AWS Tag format { Key: "KeyName1", Value: "Value1" }
+  KeyName1: Value1
+  KeyName2: Value2
+  `````
