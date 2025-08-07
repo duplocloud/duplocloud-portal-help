@@ -1,0 +1,20 @@
+Name: Name of the broker.
+EngineType: Type of broker engine.
+EngineVersion: Version of the broker engine.
+DeploymentMode: |
+ Deployment mode of the broker.
+ Refer guide for [RabbitMQ](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/rabbitmq-broker-architecture.html) and [Apache ActiveMQ](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/amazon-mq-broker-architecture.html).
+StorageType: |
+ Select StorageType
+   1. **ActiveMQ**: Valid values are EFS and EBS.
+   2. **RabbitMQ**: Select the InstanceType form the list.
+Username: Username of the user.
+password: Password of the user. Must be 12 to 250 characters long, contain at least 4 unique characters, and must not contain commas.
+BrokerConfiguration: Select the Broker Configuration.
+CloudWatchLogs: (Optional) Select to enable general logging via CloudWatch.
+CloudWatchAuditLogs: (Optional) Select to enable audit logging. Only applicable for Engine Type of `ActiveMQ`.
+PublicNetworkAccess: Select to enable connections from applications outside of the VPC that hosts the broker's subnets.
+Subnet: Select Subnet in which to launch the broker. `Single Instance` deployment requires one subnet. An `Active/Standy` deployment requires multiple subnets.
+Encryption: Select Encryption.
+IsMaintenanceWindow: Select to enable the broker maintenance window.
+StartDay: Start Day of the week.
