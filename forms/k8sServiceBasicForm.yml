@@ -1,0 +1,2 @@
+ServiceName: Any friendly name to identify your service.
+ImageName: Enter Image Name. Example `busybox:latest`

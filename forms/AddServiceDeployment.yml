@@ -1,0 +1,45 @@
+ServiceName: Any friendly name to identify your service.
+AllocationTag: A string value that needs to be a substring of the corresponding
+  allocation tag value set on a Host. If there is no host with such an allocation
+  tag value then service will not get deployed. simplest example is if you want
+  the container to be deployed in a certain set of hosts only then set an allocation
+  tag on those hosts called web and then set the allocation tag here to be web.
+ReplicationStrategy: |
+  Replication Strategy can be used to manage the replica count for this Deployment/StatefulSet. Replication Strategy has three options as below.
+    1. **Static**: This option can be used to set fixed count for the replicas.
+    2. **Daemonset**: If this option is selected, DuploCloud will make sure pods will run on every host created in this tenant.
+    3. **Horizontal Pod Autoscaler**: This is more advanced option which user can use to automcatically scale up or down the replicas as per the different metrics like CPU Usage, Memory Usage, Ingress requests per second etc. [Click Here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) for more information on *Horizontal Pod Autoscaler*.
+Replicas: Specify number of replicas.
+ReplicaPlacement:  |
+ Select replication placement strategy.
+  1. **First Available**: Replicas are not required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.
+  2. **Place on Different Hosts**:  Replicas are not required to be spread across availability zones.  Replicas are required to be placed on different hosts.
+  3. **Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.
+  4. **Different Hosts and Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas are required to be placed on different hosts.
+TolerateSpotInstance: Select to run pods in Spot Instance. `tolerations` property will be added in `Other Container Config` to support running of pods in Spot Instance.
+DeploymentLabelKey_0: Enter Label Key. example `tier`.
+DeploymentLabelValue_0: Enter Label Value. example `frontend`.
+DeploymentAnnotationKey_0: Enter Annotation Key. example `description`.
+DeploymentAnnotationValue_0: Enter Annotation Value. example `Deployment for the MyApp frontend service`.
+DeploymentStrategy: |-
+  Deployment Strategy specifications as documented [here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment). Sample value can be like below.
+  ```yaml
+
+  RollingUpdate:
+  MaxSurge: 1
+  MaxUnavailable: 0
+  ```
+HPAConfig: |-
+  Horizontal pod autoscaler specifications as documented [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/). Sample value can be like below.
+  ```yaml
+
+  maxReplicas: 5
+  metrics:
+    - resource:
+        name: cpu
+        target:
+          averageUtilization: 80
+          type: Utilization
+      type: Resource
+  minReplicas: 2
+  ```
