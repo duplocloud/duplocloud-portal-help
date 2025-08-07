@@ -1,0 +1,4 @@
+Name: Name of the configuration.
+EngineType: Select the Type of broker engine.
+EngineVersion: Version of the broker engine.
+AuthenticationStrategy: Authentication strategy associated with the configuration. `LDAP` is not supported for RabbitMQ engine type.
