@@ -834,6 +834,12 @@
                 "BatchPercentage": "Percentage of the bool pool nodes to drain in a batch. The range of this field should be (0.0, 1.0). Only one of the batch_percentage or batch_node_count can be specified.",
                 "BatchSoakDuration": "Enter Soak time after each batch gets drained. A duration in seconds with up to nine fractional digits, ending with 's'. Example- `3.5s`."
             },
+            "mq-config-add": {
+                "Name": "Name of the configuration.",
+                "EngineType": "Select the Type of broker engine.",
+                "EngineVersion": "Version of the broker engine.",
+                "AuthenticationStrategy": "Authentication strategy associated with the configuration. `LDAP` is not supported for RabbitMQ engine type."
+            },
             "emrserverlsess_add_runjob_sub_form_app_config": {
                 "ApplicationConfiguration": "Specify job configurations to override the default configurations for your applications.\n 1. **Spark:** \n```js\n[{\n              \"Classification\": \"spark-defaults\",\n              \"Configurations\": [],\n              \"Properties\": {\n                  \"spark.driver.cores\": \"2\",\n                  \"spark.driver.memory\": \"4g\",\n\t\t\t        \"spark.dynamicAllocation.minExecutors\":\"1\"\n              }\n          }]\n```\n2. **Hive:** \n```js\n[\n          {\n              \"Classification\": \"hive-site\",\n              \"Configurations\": [],\n              \"Properties\": {\n                  \"hive.driver.cores\": \"2\",\n                  \"hive.driver.memory\": \"4g\",\n                  \"hive.tez.container.size\": \"8192\",\n                  \"hive.tez.cpu.vcores\": \"4\"\n              }\n          }\n      ]\n```\n"
             },
