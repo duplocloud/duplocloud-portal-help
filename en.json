@@ -286,6 +286,19 @@
                 "PushEndpoint": "Specify a URL locating the endpoint to which messages should be pushed.",
                 "Attributes": "Specify attributes in json format.\n```js\n{\n    \"foo\": \"bar\"\n}\n```"
             },
+            "AddAppRunnerServiceBasic": {
+                "ServiceName": "The friendly name to identify your App Runner service.",
+                "ImageRepositoryType": "The type of image repository. Choose between 'ECR' or 'ECR Public'.",
+                "ImageIdentifier": "The full URI of the container image (e.g., 123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app:latest).",
+                "Port": "The port your application listens on inside the container (e.g., 8080).",
+                "Cpu": "The amount of CPU to allocate for the service. Example: 1024 (1 vCPU), 2048 (2 vCPU).",
+                "Memory": "The amount of memory to allocate for the service. Example: 2048 (2GB), 4096 (4GB).",
+                "AutoDeploymentsEnabled": "Enable or disable automatic deployments when the source image changes.",
+                "ObservabilityEnabled": "Enable or disable App Runner observability (CloudWatch Application Insights).",
+                "EnvironmentVariables": "Environment variables to set for your App Runner service.\n```yaml\nENV_VAR_NAME: value\n```",
+                "EnvironmentSecrets": "Key-value pairs for AWS Secrets Manager secrets or SSM parameters to inject as environment variables.\n```yaml\n# For Secrets Manager (entire secret):\nENV_VAR_NAME: arn:aws:secretsmanager:region:account-id:secret:secret-name\n# For specific key in a Secrets Manager secret:\nENV_VAR_NAME: arn:aws:secretsmanager:region:account-id:secret:secret-name:json-key:version-stage:version-id\n# For SSM Parameter:\nENV_VAR_NAME: arn:aws:ssm:region:account-id:parameter/param-name\n```",
+                "Tags": "Key-value pairs to associate with the App Runner service resource.\n```yaml\n# These will be converted to the AWS Tag format { Key: \"KeyName1\", Value: \"Value1\" }\nKeyName1: Value1\nKeyName2: Value2\n`````"
+            },
             "AddMySQLFlexi": {
                 "Name": "Specify the name which should be used for this MySQL Flexible Server.",
                 "AdminUsername": "Specify the Administrator Login for the MySQL Flexible Server.",
@@ -398,6 +411,22 @@
                 "SourceName": "Select the Helm Repo configured from the list.",
                 "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n  replicaCount: 2\n  serviceAccount:\n    create: true\n```",
                 "ValuesFrom": "Sepcify the reference of ConfigMap and Secret resources from which to take values.\nExample\n```yaml\n\n- kind: ConfigMap\n  name: nginx-values\n  valuesKey: values.yaml\n- kind: Secret\n  name: nginx-secrets\n  valuesKey: secret-values.yaml\n\n```"
+            },
+            "AddAppRunnerServiceAdvanced": {
+                "AutoScalingConfigurationArn": "The Amazon Resource Name (ARN) of an App Runner auto scaling configuration resource to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.",
+                "KmsKey": "The ARN of the AWS KMS key used for encryption. App Runner uses this key to encrypt application logs and permanent storage.",
+                "Tags": "Key-value pairs to associate with the App Runner service resource.\n```yaml\n# These will be converted to the AWS Tag format { Key: \"KeyName1\", Value: \"Value1\" }\nKeyName1: Value1\nKeyName2: Value2\n```",
+                "IpAddressType": "The type of IP addresses assigned to your App Runner service. Choose between IPv4 (default) or Dual-stack (supports both IPv4 and IPv6).",
+                "IsPubliclyAccessible": "Whether your App Runner service is publicly accessible through a public endpoint. When set to \"No\", the service is only accessible through a private VPC endpoint.",
+                "PrivateEndpoint": "The endpoint available to access your service when it's not publicly accessible. Only applicable when IsPubliclyAccessible is set to \"No\".",
+                "isOutgoingTrafficPublic": "Whether outgoing network traffic from your App Runner service routes through the public internet (default) or through your VPC.",
+                "VpcConnectorArn": "The ARN of the VPC connector to use when routing outgoing traffic through your VPC. Required when outgoing traffic is not set to public.",
+                "HealthCheckProtocol": "The IP protocol that App Runner uses to perform health checks for your service. Supports HTTP or TCP.",
+                "HealthCheckPath": "The URL path that App Runner calls to perform health checks. Required when Protocol is HTTP.",
+                "HealthCheckInterval": "The time interval, in seconds, between health checks. Value range of 1-20 with a default of 5.",
+                "HealthCheckTimeout": "The time, in seconds, to wait for a health check response before deciding it failed. Value range of 1-20 with a default of 2.",
+                "HealthyThreshold": "The number of consecutive successful health checks required before a service is considered healthy. Value range of 1-20 with a default of 1.",
+                "UnhealthyThreshold": "The number of consecutive failed health checks required before a service is considered unhealthy. Value range of 1-20 with a default of 5."
             },
             "k8sConfigmap": {
                 "Name": "Enter Config Map name.",

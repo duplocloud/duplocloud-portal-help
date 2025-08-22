@@ -1,0 +1,30 @@
+ServiceName: The friendly name to identify your App Runner service.
+ImageRepositoryType: The type of image repository. Choose between 'ECR' or 'ECR Public'.
+ImageIdentifier: The full URI of the container image (e.g., 123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app:latest).
+Port: The port your application listens on inside the container (e.g., 8080).
+Cpu: "The amount of CPU to allocate for the service. Example: 1024 (1 vCPU), 2048 (2 vCPU)."
+Memory: "The amount of memory to allocate for the service. Example: 2048 (2GB), 4096 (4GB)."
+AutoDeploymentsEnabled: Enable or disable automatic deployments when the source image changes.
+ObservabilityEnabled: Enable or disable App Runner observability (CloudWatch Application Insights).
+EnvironmentVariables: |-
+  Environment variables to set for your App Runner service.
+  ```yaml
+  ENV_VAR_NAME: value
+  ```
+EnvironmentSecrets: |-
+  Key-value pairs for AWS Secrets Manager secrets or SSM parameters to inject as environment variables.
+  ```yaml
+  # For Secrets Manager (entire secret):
+  ENV_VAR_NAME: arn:aws:secretsmanager:region:account-id:secret:secret-name
+  # For specific key in a Secrets Manager secret:
+  ENV_VAR_NAME: arn:aws:secretsmanager:region:account-id:secret:secret-name:json-key:version-stage:version-id
+  # For SSM Parameter:
+  ENV_VAR_NAME: arn:aws:ssm:region:account-id:parameter/param-name
+  ```
+Tags: |-
+  Key-value pairs to associate with the App Runner service resource.
+  ```yaml
+  # These will be converted to the AWS Tag format { Key: "KeyName1", Value: "Value1" }
+  KeyName1: Value1
+  KeyName2: Value2
+  `````
