@@ -17,10 +17,10 @@ ReplicaPlacement:  |
   3. **Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.
   4. **Different Hosts and Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas are required to be placed on different hosts.
 TolerateSpotInstance: Select to run pods in Spot Instance. `tolerations` property will be added in `Other Container Config` to support running of pods in Spot Instance.
-DeploymentLabelKey_0: Enter Label Key. example `tier`.
-DeploymentLabelValue_0: Enter Label Value. example `frontend`.
-DeploymentAnnotationKey_0: Enter Annotation Key. example `description`.
-DeploymentAnnotationValue_0: Enter Annotation Value. example `Deployment for the MyApp frontend service`.
+DeploymentLabelKey: Enter Label Key. example `tier`.
+DeploymentLabelValue: Enter Label Value. example `frontend`.
+DeploymentAnnotationKey: Enter Annotation Key. example `description`.
+DeploymentAnnotationValue: Enter Annotation Value. example `Deployment for the MyApp frontend service`.
 DeploymentStrategy: |-
   Deployment Strategy specifications as documented [here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment). Sample value can be like below.
   ```yaml
