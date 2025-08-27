@@ -587,6 +587,10 @@
                 "Redis Config": "Specify Redis Configuration. Refer [here](https://cloud.google.com/memorystore/docs/redis/supported-redis-configurations?authuser=1&_ga=2.150484978.-535098261.1654188041).\nExample: \n```js\n{\n  \"activedefrag\":\"yes\",\n  \"maxmemory-policy\":\"allkeys-lru\"\n}\n```\n",
                 "Labels": "Specify labels in below format\n```js\n{\n    \"key\" : \"value\"\n}\n```\n"
             },
+            "addHelpdesk": {
+                "Message to Agent": "Describe the task or problem.",
+                "Agent": "Chosen for its domain expertise, such as Kubernetes operations, observability, or deployment troubleshooting"
+            },
             "AddElasticSearch": {
                 "Name": "Name of the domain.",
                 "Version": "Select the version of Elasticsearch to deploy.",
@@ -989,6 +993,21 @@
                 "HealthCheckGracePeriodSeconds": "The period of time, in seconds, that the Amazon ECS service scheduler ignores unhealthy Elastic Load Balancing target health checks after a task has first started. \nThis is only used when your service is configured to use a load balancer. If your service has a load balancer defined and you don't specify a health check grace period value, the default value of 0 is used.\n",
                 "OldTaskDefinitionBufferSize": "Old task definitions buffer size. This can be used to limit the size the stale task definitions in buffer. Default value is 10.",
                 "CapacityProvider": "Add a capacity provider to the custom capacity provider strategy for the cluster. Add a capacity provider to the custom capacity provider strategy for the cluster. If there are no existing capacity providers, create a new capacity provider from the capacity providers tab on the cluster details screen."
+            },
+            "addAIAgent": {
+                "Name": "Enter a name for the Agent.",
+                "Agent Type": "Agent definitions form the blueprint for creating AI agents within DuploCloud AI Studio.\na. PreBuilt agents are ready-to-use solutions developed outside of AI Studio that conform to DuploCloud's agent standards and interfaces.\nb.Dynamic agents are built using DuploCloud's LangChain-based framework, allowing for flexible, composable Agentic AI solutions tailored to specific operational needs.\n",
+                "Docker Image": "Enter image path.",
+                "Port": "Enter the port exposed by the container.",
+                "Protocol": "Select the network protocol your Agent uses for communication(e.g., http, https, or grpc). This determines how external services connect to the containerized Agent.",
+                "Environment Variables": "Define key-value pairs (mark as mandatory if needed).",
+                "Meta Data": "Add custom key-value metadata to the Agent.",
+                "Prompt": "Enter the initial instruction or context that guides the Agent\u2019s behavior and responses.",
+                "Tools": "Select one or more registered Tools for the Agent to use. For more about using Tools",
+                "Provider": "Select the Large Language Model (LLM) that will power the Agent (e.g., bedrock or Other.",
+                "Temperature": "Set the randomness of responses (e.g., 0 for deterministic behavior).",
+                "Token Limit": "Set the maximum number of tokens for responses (e.g., 1000).",
+                "Knowledge Sources": "Optionally, click the plus icon () to connect the Agent to a knowledge source such as a vector database collection. This allows the Agent to retrieve and use information from previously uploaded documents stored in a vector database. Complete the fields:\nVector DB: Select a previously created vector database to connect as a knowledge source.\nCollections: Choose one or more document collections within the Vector DB relevant to the Agent (required if Vector DB is selected).\nDescription: Enter a brief summary of the knowledge source\u2019s purpose or contents (optional).\nMeta Data: Add key-value pairs to filter or target specific content in the knowledge source (optional).\n"
             },
             "addEmrStudioSidebar": {
                 "Name": "EMR Studio.",
