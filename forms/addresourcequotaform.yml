@@ -11,9 +11,10 @@ dataYaml: |
 scopeSelectorYaml: |
  scopeSelector allows you to apply quotas only to specific subsets of resources—like terminating pods, non-terminated pods, best-effort pods.
  ```yaml
+    ```yaml
   matchExpressions:
   - operator: In
-    scopeName: VolumeAttributesClass
+    scopeName: PriorityClass
     values:
-      - gold
+      - middle
  ```
