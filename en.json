@@ -297,7 +297,8 @@
                 "ObservabilityEnabled": "Enable or disable App Runner observability (CloudWatch Application Insights).",
                 "EnvironmentVariables": "Environment variables to set for your App Runner service.\n```yaml\nENV_VAR_NAME: value\n```",
                 "EnvironmentSecrets": "Key-value pairs for AWS Secrets Manager secrets or SSM parameters to inject as environment variables.\n```yaml\n# For Secrets Manager (entire secret):\nENV_VAR_NAME: arn:aws:secretsmanager:region:account-id:secret:secret-name\n# For specific key in a Secrets Manager secret:\nENV_VAR_NAME: arn:aws:secretsmanager:region:account-id:secret:secret-name:json-key:version-stage:version-id\n# For SSM Parameter:\nENV_VAR_NAME: arn:aws:ssm:region:account-id:parameter/param-name\n```",
-                "Tags": "Key-value pairs to associate with the App Runner service resource.\n```yaml\n# These will be converted to the AWS Tag format { Key: \"KeyName1\", Value: \"Value1\" }\nKeyName1: Value1\nKeyName2: Value2\n`````"
+                "Tags": "Key-value pairs to associate with the App Runner service resource.\n```yaml\n# These will be converted to the AWS Tag format { Key: \"KeyName1\", Value: \"Value1\" }\nKeyName1: Value1\nKeyName2: Value2\n`````",
+                "ObservabilityConfigurationArn": "ARN of the observability configuration that is associated with the service. Specified only when Observability is enabled."
             },
             "AddMySQLFlexi": {
                 "Name": "Specify the name which should be used for this MySQL Flexible Server.",
@@ -557,7 +558,7 @@
                 "cpu": "This input can be used to limit the CPU consumed by all pods in a non-terminal state.  \nFor 5 CPUs value should be **5**, for half CPU value should be **500m**.  \n",
                 "memory": "This input can be used to limit the memory consumed by all pods in a non-terminal.  \nFor 512Mb value should be **512Mi**, For 5GB of ram value should be **5Gi**.  \n",
                 "otherLimits": "You can use this input to all other quotas like storage, Object count etc. Value has to be provided in YAML format like below.  \n```yaml\nrequests.storage: 500Gi\npersistentvolumeclaims: 10\n```\n",
-                "scopeSelector": "Each quota can have an associated set of scopes. A quota will only measure usage for a resource if it matches the intersection of enumerated scopes. \nWhen a scope is added to the quota, it limits the number of resources it supports to those that pertain to the scope. Resources specified on the quota outside of the allowed set results in a validation error. \nValue has to be provided in YAML format as below.  \n```yaml\nmatchExpressions:\n- operator : In\n  scopeName: PriorityClass\n  values: [\"medium\"]\n```"
+                "scopeSelector": "Each quota can have an associated set of scopes. A quota will only measure usage for a resource if it matches the intersection of enumerated scopes. \nWhen a scope is added to the quota, it limits the number of resources it supports to those that pertain to the scope. Resources specified on the quota outside of the allowed set results in a validation error. \nValue has to be provided in YAML format as below.  \n```yaml\nmatchExpressions:\n- operator: In\n  scopeName: PriorityClass\n  values:\n    - middle\n```"
             },
             "azureAddAgentPool": {
                 "name": "Select Id to create a node pool",

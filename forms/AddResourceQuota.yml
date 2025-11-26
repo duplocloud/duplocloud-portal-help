@@ -17,7 +17,8 @@ scopeSelector: |
   Value has to be provided in YAML format as below.  
   ```yaml
   matchExpressions:
-  - operator : In
+  - operator: In
     scopeName: PriorityClass
-    values: ["medium"]
+    values:
+      - middle
   ```
