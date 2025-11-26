@@ -28,3 +28,4 @@ Tags: |-
   KeyName1: Value1
   KeyName2: Value2
   `````
+ObservabilityConfigurationArn:  ARN of the observability configuration that is associated with the service. Specified only when Observability is enabled.
