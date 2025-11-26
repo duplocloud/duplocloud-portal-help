@@ -341,7 +341,7 @@
                 "cpurequest": "Max total CPU requested across all pods. Example `2`.",
                 "cpulimit": "Max total CPU limit across all pods. Example `4`.",
                 "dataYaml": "```yaml\nconfigmaps: '200'\npods: '2'\n```\n",
-                "scopeSelectorYaml": "scopeSelector allows you to apply quotas only to specific subsets of resources\u2014like terminating pods, non-terminated pods, best-effort pods.\n```yaml\n   ```yaml\n matchExpressions:\n - operator: In\n   scopeName: PriorityClass\n   values:\n     - middle\n```"
+                "scopeSelectorYaml": "scopeSelector allows you to apply quotas only to specific subsets of resources\u2014like terminating pods, non-terminated pods, best-effort pods.\n```yaml\n matchExpressions:\n - operator: In\n   scopeName: PriorityClass\n   values:\n     - middle\n```"
             },
             "awsAccountSecurity": {
                 "EnableSecurityHub": "Enable AWS Security Hub in any region where there is infrastructure managed by DuploCloud.",
