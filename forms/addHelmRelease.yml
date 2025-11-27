@@ -11,12 +11,14 @@ Values: |-
   Specify in yaml format. This field allows users to customize Helm charts. 
   Example
   ```yaml
+
     replicaCount: 2
     serviceAccount:
       create: true
+
   ```
 ValuesFrom: |-
-  Sepcify the reference of ConfigMap and Secret resources from which to take values.
+  Specify the reference of ConfigMap and Secret resources from which to take values.
   Example
   ```yaml
 
@@ -28,3 +30,13 @@ ValuesFrom: |-
     valuesKey: secret-values.yaml
 
   ```
+Labels: |-
+  Specify labels
+  ```yaml
+
+  team: platform
+  app.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname
+
+  ```
+
+    

@@ -2,7 +2,17 @@ Name: Enter Config Map name.
 Data: |-
   Enter configuration data in key-value format.
   ```yaml
+
   APP_ENV: "production"
   LOG_LEVEL: "debug"
   API_URL: "https://api.example.com"
+
+  ```
+lables: |
+  Specify labels
+  ```yaml
+
+  team: platform
+  app.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname
+
   ```

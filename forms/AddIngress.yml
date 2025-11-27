@@ -21,11 +21,13 @@ ingressAnnotations: |
 httpPort: HTTP Listener Port. If you dont want to exposed your services over HTTP, make it blank.
 httpsPort: HTTPS Listener Port. HTTPS Listener port can be specified only when SSL certificate ARN is specified.
 ingressLabels: |
-  Key Value pair of labels to be added to SecretProviderClass
+  Key Value pair of labels to be added to Ingress
   Sample Value Can be as bellow
   ```yaml
-  key1: value1
-  key2: value2
+
+  team: platform
+  app.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname
+
   ```
 portOverride: Select port to override. This field allows to configure frontend listener to use different ports other than 80/443 for http/https.
 targetType: |

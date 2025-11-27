@@ -341,7 +341,7 @@
                 "cpurequest": "Max total CPU requested across all pods. Example `2`.",
                 "cpulimit": "Max total CPU limit across all pods. Example `4`.",
                 "dataYaml": "```yaml\nconfigmaps: '200'\npods: '2'\n```\n",
-                "scopeSelectorYaml": "scopeSelector allows you to apply quotas only to specific subsets of resources\u2014like terminating pods, non-terminated pods, best-effort pods.\n```yaml\n matchExpressions:\n - operator: In\n   scopeName: PriorityClass\n   values:\n     - middle\n```"
+                "scopeSelectorYaml": "scopeSelector allows you to apply quotas only to specific subsets of resources\u2014like terminating pods, non-terminated pods.\n```yaml\n matchExpressions:\n - operator: In\n   scopeName: PriorityClass\n   values:\n     - middle\n```"
             },
             "awsAccountSecurity": {
                 "EnableSecurityHub": "Enable AWS Security Hub in any region where there is infrastructure managed by DuploCloud.",
@@ -410,8 +410,9 @@
                 "ChartReconcileStrategy": "Defaults to `Chart Version`. No new chart artifact is produced on updates to the source unless the version is changed in HelmRepository.\nUse `Revision` to produce new chart artifact on change in source revision.",
                 "SourceType": "Set as default HelmRepository.",
                 "SourceName": "Select the Helm Repo configured from the list.",
-                "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n  replicaCount: 2\n  serviceAccount:\n    create: true\n```",
-                "ValuesFrom": "Sepcify the reference of ConfigMap and Secret resources from which to take values.\nExample\n```yaml\n\n- kind: ConfigMap\n  name: nginx-values\n  valuesKey: values.yaml\n- kind: Secret\n  name: nginx-secrets\n  valuesKey: secret-values.yaml\n\n```"
+                "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n\n  replicaCount: 2\n  serviceAccount:\n    create: true\n\n```",
+                "ValuesFrom": "Specify the reference of ConfigMap and Secret resources from which to take values.\nExample\n```yaml\n\n- kind: ConfigMap\n  name: nginx-values\n  valuesKey: values.yaml\n- kind: Secret\n  name: nginx-secrets\n  valuesKey: secret-values.yaml\n\n```",
+                "Labels": "Specify labels\n```yaml\n\nteam: platform\napp.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname\n\n```\n\n  "
             },
             "AddAppRunnerServiceAdvanced": {
                 "AutoScalingConfigurationArn": "The Amazon Resource Name (ARN) of an App Runner auto scaling configuration resource to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.",
@@ -431,7 +432,8 @@
             },
             "k8sConfigmap": {
                 "Name": "Enter Config Map name.",
-                "Data": "Enter configuration data in key-value format.\n```yaml\nAPP_ENV: \"production\"\nLOG_LEVEL: \"debug\"\nAPI_URL: \"https://api.example.com\"\n```"
+                "Data": "Enter configuration data in key-value format.\n```yaml\n\nAPP_ENV: \"production\"\nLOG_LEVEL: \"debug\"\nAPI_URL: \"https://api.example.com\"\n\n```",
+                "lables": "Specify labels\n```yaml\n\nteam: platform\napp.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname\n\n```"
             },
             "airflow_add_sub_form_basics": {
                 "Name": "The name of the Apache Airflow Environment.",
@@ -966,7 +968,7 @@
                 "ingressAnnotations": "List of Key Value pairs to annotate the Ingress Object. \nAnnotations are used for controlling the behavior of the services exposed by the Ingress. \nEach ingress controller defines the set of annotations which can be used to control the behavior.\nRefer these links: \n  1. **AWS ALB ingress controller** [here](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/annotations/)\n  2. **Azure Application Gateway Ingress** [here](https://azure.github.io/application-gateway-kubernetes-ingress/annotations/#list-of-supported-annotations)\n  3. **GCP Ingress** [here](https://cloud.google.com/kubernetes-engine/docs/how-to/load-balance-ingress#ingress_annotations)\n",
                 "httpPort": "HTTP Listener Port. If you dont want to exposed your services over HTTP, make it blank.",
                 "httpsPort": "HTTPS Listener Port. HTTPS Listener port can be specified only when SSL certificate ARN is specified.",
-                "ingressLabels": "Key Value pair of labels to be added to SecretProviderClass\nSample Value Can be as bellow\n```yaml\nkey1: value1\nkey2: value2\n```\n",
+                "ingressLabels": "Key Value pair of labels to be added to Ingress\nSample Value Can be as bellow\n```yaml\n\nteam: platform\napp.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname\n\n```\n",
                 "portOverride": "Select port to override. This field allows to configure frontend listener to use different ports other than 80/443 for http/https.",
                 "targetType": "# Specifies how to route traffic to pods. You can choose between `instance` and `ip`.\n\n1. **instance**\nThis mode will route traffic to all ec2 instances within cluster on NodePort opened for your service. Service must be of type `NodePort` or `LoadBalancer` to use instance mode.\n\n2. **ip**\nThis mode will route traffic directly to the pod IP. Network plugin must use secondary IP addresses on ENI for pod IP to use ip mode. e.g. amazon-vpc-cni-k8s. \nService can be of any type like `ClusterIP` or `NodePort` or `LoadBalancer` to use instance mode.\nIP mode is required for sticky sessions to work with Application Load Balancers. \n",
                 "EnableHttpToHttps": "Enable to redirect HTTP to HTTPS.",
@@ -999,7 +1001,11 @@
             },
             "AddK8sOciRepo": {
                 "Name": "Name of your repository.",
-                "URL": "Specify OCI repository url. Example `oci://registry-1.docker.io/bitnamicharts/nginx`"
+                "URL": "Specify OCI repository url. Example `oci://registry-1.docker.io/bitnamicharts/nginx`",
+                "tag": "Specify the tag of the image to pull.",
+                "mediaType": "Specify which layer should be extracted from the OCI Artifact.",
+                "operation": "Select the operation from the dropdown,",
+                "Secret": "Select the `dockerconfigjson` secret created from Kubernetes Secret to authenticate to OCI registry."
             },
             "AddS3Bucket": {
                 "Name": "Specify name of the bucket.",
@@ -1091,7 +1097,8 @@
             },
             "AddK8sHelmRepo": {
                 "Name": "Specify name of the Helm Repository.",
-                "URL": "Specify Helm Repository URL. example- `https://helm.github.io/examples`."
+                "URL": "Specify Helm Repository URL. example- `https://helm.github.io/examples`.",
+                "SourceType": "Select the sourcing repository. [Details](https://fluxcd.io/flux/components/source/helmrepositories/)."
             },
             "AddPVC": {
                 "name": "Name for Persistent Volume Claim.",

@@ -9,7 +9,7 @@ dataYaml: |
  pods: '2'
  ```
 scopeSelectorYaml: |
- scopeSelector allows you to apply quotas only to specific subsets of resources—like terminating pods, non-terminated pods, best-effort pods.
+ scopeSelector allows you to apply quotas only to specific subsets of resources—like terminating pods, non-terminated pods.
  ```yaml
   matchExpressions:
   - operator: In
