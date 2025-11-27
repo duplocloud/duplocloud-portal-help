@@ -1,2 +1,3 @@
 Name: Specify name of the Helm Repository.
 URL: Specify Helm Repository URL. example- `https://helm.github.io/examples`.
+SourceType: Select the sourcing repository. [Details](https://fluxcd.io/flux/components/source/helmrepositories/). 

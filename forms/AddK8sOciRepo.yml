@@ -1,2 +1,6 @@
 Name: Name of your repository.
 URL: Specify OCI repository url. Example `oci://registry-1.docker.io/bitnamicharts/nginx`
+tag: Specify the tag of the image to pull.
+mediaType: Specify which layer should be extracted from the OCI Artifact.
+operation: Select the operation from the dropdown,
+Secret: Select the `dockerconfigjson` secret created from Kubernetes Secret to authenticate to OCI registry.
