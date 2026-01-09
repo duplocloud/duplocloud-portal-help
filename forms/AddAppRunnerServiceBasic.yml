@@ -1,4 +1,4 @@
-ServiceName: The friendly name to identify your App Runner service.
+ServiceName: Enter a friendly name to identify your App Runner service.
 ImageRepositoryType: The type of image repository. Choose between 'ECR' or 'ECR Public'.
 ImageIdentifier: The full URI of the container image (e.g., 123456789012.dkr.ecr.us-east-1.amazonaws.com/my-app:latest).
 Port: The port your application listens on inside the container (e.g., 8080).
