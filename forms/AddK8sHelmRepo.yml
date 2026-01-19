@@ -1,3 +1,5 @@
-Name: Specify name of the Helm Repository.
-URL: Specify Helm Repository URL. example- `https://helm.github.io/examples`.
+Name: Specify the name of the Helm Repository.
+IntervalTime: Specify the time interval for automatic updates in MM:SS.
+URL: Specify the Helm Repository URL. For example- `https://helm.github.io/examples`.
 SourceType: Select the sourcing repository. [Details](https://fluxcd.io/flux/components/source/helmrepositories/). 
+Secret: Select the private registry secret to access this repository

@@ -421,9 +421,11 @@
                 "ExecutorDisk": "Specify Disk in GB per executor."
             },
             "AddK8sHelmRepo": {
-                "Name": "Specify name of the Helm Repository.",
-                "URL": "Specify Helm Repository URL. example- `https://helm.github.io/examples`.",
-                "SourceType": "Select the sourcing repository. [Details](https://fluxcd.io/flux/components/source/helmrepositories/)."
+                "Name": "Specify the name of the Helm Repository.",
+                "IntervalTime": "Specify the time interval for automatic updates in MM:SS.",
+                "URL": "Specify the Helm Repository URL. For example- `https://helm.github.io/examples`.",
+                "SourceType": "Select the sourcing repository. [Details](https://fluxcd.io/flux/components/source/helmrepositories/).",
+                "Secret": "Select the private registry secret to access this repository"
             },
             "rdsRestorePointTime": {
                 "TargetName": "Specify the rds identifier name. Should be unique across all tenants.",
