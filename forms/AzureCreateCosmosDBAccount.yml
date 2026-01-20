@@ -1,0 +1,9 @@
+Name: Specify a friendly name to identify your Cosmos DB account.
+CapacityMode: Choose the capacity mode for your database. Choose 'Provisioned throughput' or 'Serverless'.
+PublicAccess: Enable or disable public network access to the database.
+EnableFreeTier: Enable the free tier for eligible Cosmos DB accounts.
+KeyBasedAuthentication: Enable or disable key-based authentication for the account.
+BackupPolicyType: Select the backup policy type for your account. Choose 'Periodic' or 'Continuous'.
+BackupInterval: Set the interval for periodic backups in minutes (between 60 and 1440 minutes).
+BackupRetention: Specify how long backups are retained in hours. Typical value is 168.
+BackupStorageRedundancy: Choose the redundancy for backup storage ('Geo', 'Zone', or 'Local').

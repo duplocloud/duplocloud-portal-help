@@ -483,6 +483,17 @@
                 "storageClassLabels": "Kubernetes labels in key value format. Sample value is like below\n```yml\nkey1: value1\nkey2: value2\n```\n",
                 "allowedTopologies": "When a cluster operator specifies the `WaitForFirstConsumer` volume binding mode, it is no longer necessary to restrict provisioning to specific topologies in most situations. However, if still required, `allowedTopologies` can be specified.\nSample Value Allowed Toplogies\n```yml\n- matchLabelExpressions:\n  - key: failure-domain.beta.kubernetes.io/zone\n    values:\n    - us-central-1a\n    - us-central-1b\n```"
             },
+            "AzureCreateCosmosDBAccount": {
+                "Name": "Specify a friendly name to identify your Cosmos DB account.",
+                "CapacityMode": "Choose the capacity mode for your database. Choose 'Provisioned throughput' or 'Serverless'.",
+                "PublicAccess": "Enable or disable public network access to the database.",
+                "EnableFreeTier": "Enable the free tier for eligible Cosmos DB accounts.",
+                "KeyBasedAuthentication": "Enable or disable key-based authentication for the account.",
+                "BackupPolicyType": "Select the backup policy type for your account. Choose 'Periodic' or 'Continuous'.",
+                "BackupInterval": "Set the interval for periodic backups in minutes (between 60 and 1440 minutes).",
+                "BackupRetention": "Specify how long backups are retained in hours. Typical value is 168.",
+                "BackupStorageRedundancy": "Choose the redundancy for backup storage ('Geo', 'Zone', or 'Local')."
+            },
             "EditGceVmHost": {
                 "Tags": "Enter Network tags.",
                 "Labels": "Specify Labels\n```js\n{\n\"key\" : \"value\"\n}\n```\n",
