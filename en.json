@@ -325,6 +325,12 @@
                 "HPAConfig": "Horizontal pod autoscaler specifications as documented [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/). Sample value can be like below.\n```yaml\n\nmaxReplicas: 5\nmetrics:\n  - resource:\n      name: cpu\n      target:\n        averageUtilization: 80\n        type: Utilization\n    type: Resource\nminReplicas: 2\n```"
             },
             "AddDynamoDB": {
+                "Name": "Specify unique name of the table.",
+                "PrimaryKeyName": "Specify the primary key of the table.",
+                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
+                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
+                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
+                "SortKeyType": "Select key type. Type supported is String or Number.",
                 "TableName": "Specify a unique name for the table.",
                 "PrimaryKey": "Specify the primary key for the table.",
                 "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
