@@ -6,3 +6,8 @@ Type: |
 Size: Select the attribute. Data types allowed for primary key attributes are string or number.
 SortKeyName: SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.
 SortKeyType: Select key type. Type supported is String or Number.
+TableName: Specify a unique name for the table.
+PrimaryKey: Specify the primary key for the table.
+PrimaryKeyDataType: Select the data type for the key ('String' or 'Number').
+SortKey: Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.
+SortKeyDataType: Select the data type for the sort key ('String' or 'Number').
