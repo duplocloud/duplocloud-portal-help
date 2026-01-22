@@ -1,0 +1,8 @@
+Name: Enter a unique name for this infrastructure.
+Cloud: Select the cloud provider.
+VpcCidr: Specify the VNET CIDR, e.g., 10.0.0.0/16.
+Region: Select the region for this infrastructure.
+AccountId: Select the account associated with this infrastructure.
+logAnalyticsWorkspace: Select Yes to enable a Log Analytics workspace for monitoring.
+subnetName: Enter a name for the subnet.
+subnetCidr: Specify the CIDR range for the subnet.

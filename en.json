@@ -518,6 +518,16 @@
                 "EngineVersion": "Version of the broker engine.",
                 "AuthenticationStrategy": "Authentication strategy associated with the configuration. `LDAP` is not supported for RabbitMQ engine type."
             },
+            "infrastructure": {
+                "Name": "Enter a unique name for this infrastructure.",
+                "Cloud": "Select the cloud provider.",
+                "VpcCidr": "Specify the VNET CIDR, e.g., 10.0.0.0/16.",
+                "Region": "Select the region for this infrastructure.",
+                "AccountId": "Select the account associated with this infrastructure.",
+                "logAnalyticsWorkspace": "Select Yes to enable a Log Analytics workspace for monitoring.",
+                "subnetName": "Enter a name for the subnet.",
+                "subnetCidr": "Specify the CIDR range for the subnet."
+            },
             "AddAppRunnerServiceAdvanced": {
                 "AutoScalingConfigurationArn": "The Amazon Resource Name (ARN) of an App Runner auto scaling configuration resource to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.",
                 "KmsKey": "The ARN of the AWS KMS key used for encryption. App Runner uses this key to encrypt application logs and permanent storage.",
