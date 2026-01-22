@@ -1,0 +1,5 @@
+Name: Enter a unique name for the web app.
+AppServicePlan: Select the App Service Plan to host the web app.
+Publish: Choose the publish mode for the web app, e.g., 'Code' or 'Docker'.
+EnvironmentalVariables: Enter environment variables as an array of name/value pairs.
+HealthCheckPath: Specify the health check path for the web app (e.g., /ping or /healthy).
