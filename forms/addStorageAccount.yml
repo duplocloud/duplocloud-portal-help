@@ -1,1 +1,3 @@
-Name: Enter name of the storage account. This must be unique across the entire Azure service, not just within the resource group.
+Name: Enter a unique name for the Azure Storage Account. This name must be globally unique and cannot be changed after creation.
+name: Enter a unique name for the Azure Storage Account. This name must be globally unique and cannot be changed after creation.
+allowBlobPublicAccess: Enable this option to allow public (anonymous) read access to blobs. Use with caution, as this can expose data publicly.
