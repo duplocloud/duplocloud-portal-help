@@ -644,6 +644,13 @@
                 "PrivateSubnet": "Use the default private subnet name.",
                 "PublicSubnet": "Use the default public subnet name."
             },
+            "app-add-app-service-plan": {
+                "Name": "Enter a unique name for the App Service Plan.",
+                "tier": "Select the pricing tier for the App Service Plan.",
+                "serversize": "Choose the size of the server hosting the plan.",
+                "platform": "Select the operating system platform for this plan.",
+                "noofinstances": "Specify the number of instances to run in this plan."
+            },
             "awsBillingAlert": {
                 "Disable": "Enable or Disable the Billing Alert. If disabled, no alert will be triggered.",
                 "Previous Month Spend": "If selected, the threshold will be set to the monthly spend of the previous month. If not, the threshold must be set manually.",

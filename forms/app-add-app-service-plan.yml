@@ -1,0 +1,5 @@
+Name: Enter a unique name for the App Service Plan.
+tier: Select the pricing tier for the App Service Plan.
+serversize: Choose the size of the server hosting the plan.
+platform: Select the operating system platform for this plan.
+noofinstances: Specify the number of instances to run in this plan.
