@@ -157,6 +157,9 @@
                 "value": "Specify the Value for taint. Example- `taint-value`.",
                 "effect": "Select the taint effect."
             },
+            "add-workflow-template": {
+                "WorkflowTemplateData": "Enter the Workflow Template YAML definition. This field is required and must contain valid YAML."
+            },
             "lambda-add-layer": {
                 "SelectLayer": "Select the Layer. The list shows the layers compatible to the runtime of the function. Applicable for only `.zip` package type.",
                 "SelectVersion": "Select the version of the layer to use in the function."
