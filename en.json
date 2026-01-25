@@ -1018,6 +1018,15 @@
                 "ServiceName": "Any friendly name to identify your service.",
                 "ImageName": "Enter Image Name. Example `busybox:latest`"
             },
+            "addRedirectConfig": {
+                "Name": "Enter a unique name for this redirect configuration.",
+                "Host": "Specify the host or domain this redirect applies to.",
+                "Path": "Specify the path to redirect (e.g., /old-path).",
+                "Port": "Enter the port number for the redirect. **Important:** Enter it as a string (e.g., \"443\") to match backend requirements.",
+                "Protocol": "Specify the protocol ('HTTP' or 'HTTPS') for the redirect.",
+                "Query": "Optionally, specify query string parameters for the redirect.",
+                "StatusCode": "Specify the HTTP status code for the redirect (e.g., 301 or 302)."
+            },
             "AddContainerRegistry": {
                 "Name": "Specify the name of the Container Registry.",
                 "Tier": "Specify the SKU name of the container registry.",
