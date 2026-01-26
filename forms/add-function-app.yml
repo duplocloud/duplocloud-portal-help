@@ -1,0 +1,8 @@
+hostingPlan: Select the hosting plan for the Function App (e.g., 'Consumption (Serverless)' or 'Functions Premium').
+Name: Enter the name for your Function App.
+selectedOperatingSystem: Select the operating system for the Function App.
+storageAccountName: Choose the storage account to associate with the Function App.
+runtimeStack: Select the runtime stack for the Function App.
+version: Select the runtime stack version.
+appSettings: Enter application settings in JSON format.
+connectionStrings: Enter connection strings in JSON format.
