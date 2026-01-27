@@ -1,0 +1,26 @@
+
+clusterName: Enter the AKS cluster name. Only letters, numbers, hyphens, and underscores allowed.
+PricingTier: Select the pricing tier for your AKS cluster.
+k8sVersion: Select the Kubernetes version for the cluster.
+privateCluster: Choose whether this cluster is private or public.
+NodeCount: Specify the initial number of nodes in the default node pool.
+MaxPods: Specify the maximum pods allowed per node in the node pool.
+vmSize: Select the VM size for cluster nodes.
+EnableWorkloadIdentity: Enable workload identity for AKS-managed identities.
+EnableImageCleaner: Enable automatic cleanup of old images on nodes.
+ImageCleanerIntervalInDays: Specify the frequency in days to clean images if Image Cleaner is enabled.
+EnableAutoScaling: Enable automatic scaling for the system node pool.
+MinCount: Specify the minimum number of nodes for auto-scaling.
+MaxCount: Specify the maximum number of nodes for auto-scaling.
+IsManagedAadEnabled: Enable Azure Active Directory managed integration.
+IsAzureRbacEnabled: Enable Azure Role-Based Access Control for this cluster.
+TenantId: Enter the Azure Active Directory (AAD) Tenant ID where this AKS cluster will be registered. This is required for AAD-managed integration.
+AdminGroupObjectIds: Enter the object IDs of the Okta or Azure AD groups that should have administrative access to the cluster. Type each ID and press Enter to add it.
+NetworkPlugin: Choose the networking plugin for the cluster ('Azure' or 'Kubenet').
+NodeResourceGroup: Enter the Azure Resource Group where node resources are created.
+OutboundType: Select how outbound traffic from the cluster is managed.
+EnableBlobCsiDriver: Enable the Blob CSI driver for persistent volume support.
+DisableRunCommand: Disable Azure Run Command functionality on nodes.
+LinuxAdminUsername: Enter the Admin username for Linux nodes.
+LinuxSshPublicKey: Enter the SSH public key for Linux node access.
+AddCriticalTaintToSystemAgentPool: Add a critical taint to the system agent pool to prevent user workloads from scheduling here.
