@@ -1045,6 +1045,12 @@
                 "DataEndpointEnabled": "Select to enable dedicated data endpoints for this Container Registry. This is only supported on resources with the `Premium` SKU",
                 "PublicNetworkAccess": "Select to enable/disable public network access for the container registry."
             },
+            "update-asg": {
+                "minSize": "Specify the minimum number of instances for the autoscaling group.",
+                "maxSize": "Specify the maximum number of instances for the autoscaling group.",
+                "enableClusterAutoScaler": "Enable or disable cluster autoscaling. When enabled, the system can adjust the number of instances automatically.",
+                "canScaleFromZeroUpdate": "Allow the autoscaling group to scale down to zero instances when load is low."
+            },
             "selectIotDeviePackageCert": {
                 "certificateId": "Choose the certificate to download the device package."
             },
