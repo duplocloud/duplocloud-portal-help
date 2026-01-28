@@ -800,6 +800,12 @@
                 "ForceStatefulSet": "Select to create a StatefulSet service.",
                 "AppName": "(Optional) Enter an App Name to group your apps. This can help filter only services related to your apps."
             },
+            "postgresql-flexi-auth-add": {
+                "PrincipalName": "Name of the Azure AD principal (user, group, or service principal) that will authenticate to the PostgreSQL Flexible Server.",
+                "ObjectId": "Object ID (or SID) of the Azure AD principal. This uniquely identifies the principal in Azure Active Directory.",
+                "TenantId": "Azure Active Directory Tenant ID where the principal is defined.",
+                "Role": "Type of Azure AD principal. Select whether this entry represents a user, group, or service principal."
+            },
             "emrserverlsess_add_runjob_sub_form_script": {
                 "ScriptQueryInitFileBucket": "Choose S3 Bucket where the initialization script is stored.",
                 "ScriptQueryInitFile": "Specify S3 folder location of the initialization script that you can use to initialize tables prior to running the Hive script. Example: `samples/hive-scripts/create_table.sql`\n",
