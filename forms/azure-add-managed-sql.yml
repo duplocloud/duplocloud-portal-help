@@ -1,0 +1,8 @@
+Name: Specify a unique name for your Managed SQL instance. Must not contain spaces.
+Username: Enter the administrator username for the SQL instance.
+Password: Enter a strong password for the SQL instance.
+serviceTier: Select the service tier for the instance.
+hwOptions: Select the hardware generation (e.g., Gen5) for the SQL instance.
+vcoreOption: Select the number of virtual cores (vCores) for the instance.
+storage: Specify the storage size in GB for the SQL instance.
+subnetName: Select the subnet where the SQL instance will be deployed.
