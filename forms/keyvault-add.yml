@@ -1,0 +1,4 @@
+Name: Enter a unique name for the Key Vault. The name must be 3–24 characters long and can contain only letters, numbers, and hyphens.
+SKUPricing: Select the pricing tier for the Key Vault. The Standard SKU is suitable for most use cases.
+PurgeProtection: Enables purge protection for the Key Vault. Once enabled, this setting cannot be disabled and prevents permanent deletion of the vault.
+RetentionDays: Specify the number of days to retain soft-deleted Key Vault items before permanent deletion. Valid values range from 7 to 90 days.

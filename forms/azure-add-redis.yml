@@ -1,0 +1,4 @@
+Name: Enter a unique name for your Redis instance.
+serviceTier: Select the service tier for the Redis instance.
+nonTlsOption: Enable or disable the non-SSL (non-TLS) port for this Redis instance.
+PublicAccess: Enable or disable public access for the Redis instance.

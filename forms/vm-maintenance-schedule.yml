@@ -1,0 +1,9 @@
+StartTime: Select the date and time when the maintenance schedule should begin.
+TimeZone: Select the time zone that applies to the maintenance schedule.
+Hour: Enter the number of hours for the maintenance window.
+Minute: Enter the number of minutes for the maintenance window.
+Repeat: Enter how often the maintenance window should repeat per interval. 
+RepeatType: Select the unit of time for the repeat interval. Options are Day, Week, or Month.
+EndTime: |
+  Select the date and time when the maintenance schedule should end, 
+  or leave blank to run indefinitely.

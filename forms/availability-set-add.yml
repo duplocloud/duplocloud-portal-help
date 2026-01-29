@@ -1,0 +1,4 @@
+name: Enter a unique name for the Availability Set. Must be 3-61 characters, lowercase letters, numbers, and hyphens only.
+sku: Select whether to use managed disks for the Availability Set. Options include 'Classic' and 'Aligned'.
+platformFaultDomainCount: Specify the number of fault domains for the Availability Set. Valid values are 1 to 3.
+platformUpdateDomainCount: Specify the number of update domains for the Availability Set. Valid values are 1 to 20.
