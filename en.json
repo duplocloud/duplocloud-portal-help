@@ -79,6 +79,16 @@
                 "enableDiskEncryption": "Select to enable encryption at rest for EBS volumes.",
                 "EncryptionKey": "Select KMS keys for disk encryption."
             },
+            "add-app-container-env-tooltips": {
+                "Name": "Enter the name of the Container App Environment.",
+                "WorkloadProfiles0": "Select a Workload Profile for this environment.",
+                "workloadName_0": "Enter a name for the individual Workload Profile (max 15 chars).",
+                "InstanceMinCount_0": "Specify the minimum number of instances for this profile.",
+                "InstanceMaxCount_0": "Specify the maximum number of instances for this profile.",
+                "appLogDestinations": "Select where logs should be sent.",
+                "logAnalyticsWorkspaces": "Select the Log Analytics Workspace(s) for monitoring this environment.",
+                "SubnetId": "Select the subnet for this environment."
+            },
             "datafactory": {
                 "Name": "Specify the name of the Data Factory. Data Factory names must be globally unique.",
                 "PublicEndpoint": "Enable/Disable for Data Factory visibility to the public network."
@@ -512,6 +522,15 @@
             "emrserverlsess_add_runjob_sub_form_app_config": {
                 "ApplicationConfiguration": "Specify job configurations to override the default configurations for your applications.\n 1. **Spark:** \n```js\n[{\n              \"Classification\": \"spark-defaults\",\n              \"Configurations\": [],\n              \"Properties\": {\n                  \"spark.driver.cores\": \"2\",\n                  \"spark.driver.memory\": \"4g\",\n\t\t\t        \"spark.dynamicAllocation.minExecutors\":\"1\"\n              }\n          }]\n```\n2. **Hive:** \n```js\n[\n          {\n              \"Classification\": \"hive-site\",\n              \"Configurations\": [],\n              \"Properties\": {\n                  \"hive.driver.cores\": \"2\",\n                  \"hive.driver.memory\": \"4g\",\n                  \"hive.tez.container.size\": \"8192\",\n                  \"hive.tez.cpu.vcores\": \"4\"\n              }\n          }\n      ]\n```\n"
             },
+            "vm-maintenance-schedule": {
+                "StartTime": "Select the date and time when the maintenance schedule should begin.",
+                "TimeZone": "Select the time zone that applies to the maintenance schedule.",
+                "Hour": "Enter the number of hours for the maintenance window.",
+                "Minute": "Enter the number of minutes for the maintenance window.",
+                "Repeat": "Enter how often the maintenance window should repeat per interval.",
+                "RepeatType": "Select the unit of time for the repeat interval. Options are Day, Week, or Month.",
+                "EndTime": "Select the date and time when the maintenance schedule should end, \nor leave blank to run indefinitely."
+            },
             "mq-config-add": {
                 "Name": "Name of the configuration.",
                 "EngineType": "Select the Type of broker engine.",
@@ -601,6 +620,15 @@
                 "KmsKey": "Choose to encrypt.",
                 "WebserverAccessMode_bool": "Enable if you want to access the webserver over the internet."
             },
+            "addContainerAppEnvironment": {
+                "Name": "Enter a unique name for the Container App Environment.",
+                "WorkloadProfiles0": "Select the workload profile to define the compute characteristics for this environment.",
+                "workloadName_0": "Enter a name for this workload profile. The name must start with a letter and can include letters, numbers, hyphens, or underscores.",
+                "InstanceMinCount_0": "Specify the minimum number of instances that should always be running for this workload profile.",
+                "InstanceMaxCount_0": "Specify the maximum number of instances that can be created for this workload profile.",
+                "appLogDestinations": "Select where application logs from this environment should be sent.",
+                "SubnetId": "Select the subnet where the Container App Environment will be deployed."
+            },
             "publicIpPrefixForm": {
                 "Name": "Specify the name of the Public IP Prefix resource.",
                 "PrefixLength": "Select from the Public IP prefix sizes.",
@@ -617,12 +645,20 @@
                 "SetAsActive": "Enable to create to Certificate in Active state."
             },
             "addStorageAccount": {
-                "Name": "Enter name of the storage account. This must be unique across the entire Azure service, not just within the resource group."
+                "Name": "Enter a unique name for the Azure Storage Account. This name must be globally unique and cannot be changed after creation.",
+                "name": "Enter a unique name for the Azure Storage Account. This name must be globally unique and cannot be changed after creation.",
+                "allowBlobPublicAccess": "Enable this option to allow public (anonymous) read access to blobs. Use with caution, as this can expose data publicly."
             },
             "emr_serverless_add_sub_form_configure": {
                 "AutoStartConfiguration_Enabled": "Enable the configuration for an application to automatically start on job submission.",
                 "AutoStopConfiguration_Enabled": "Enable the configuration for an application to automatically stop after a certain amount of time being idle.",
                 "IdleTimeoutMinutes": "The amount of idle time in minutes after which your application will automatically stop."
+            },
+            "keyvault-add": {
+                "Name": "Enter a unique name for the Key Vault. The name must be 3\u201324 characters long and can contain only letters, numbers, and hyphens.",
+                "SKUPricing": "Select the pricing tier for the Key Vault. The Standard SKU is suitable for most use cases.",
+                "PurgeProtection": "Enables purge protection for the Key Vault. Once enabled, this setting cannot be disabled and prevents permanent deletion of the vault.",
+                "RetentionDays": "Specify the number of days to retain soft-deleted Key Vault items before permanent deletion. Valid values range from 7 to 90 days."
             },
             "addHelmRelease": {
                 "Name": "Provide Name for the Helm Chart.",
@@ -643,6 +679,13 @@
                 "VnetIntegration": "Choosing `Enabled` allows you to deploy an Azure Databricks workspace in your virtual network.",
                 "PrivateSubnet": "Use the default private subnet name.",
                 "PublicSubnet": "Use the default public subnet name."
+            },
+            "app-add-app-service-plan": {
+                "Name": "Enter a unique name for the App Service Plan.",
+                "tier": "Select the pricing tier for the App Service Plan.",
+                "serversize": "Choose the size of the server hosting the plan.",
+                "platform": "Select the operating system platform for this plan.",
+                "noofinstances": "Specify the number of instances to run in this plan."
             },
             "awsBillingAlert": {
                 "Disable": "Enable or Disable the Billing Alert. If disabled, no alert will be triggered.",
@@ -773,6 +816,12 @@
                 "ForceStatefulSet": "Select to create a StatefulSet service.",
                 "AppName": "(Optional) Enter an App Name to group your apps. This can help filter only services related to your apps."
             },
+            "postgresql-flexi-auth-add": {
+                "PrincipalName": "Name of the Azure AD principal (user, group, or service principal) that will authenticate to the PostgreSQL Flexible Server.",
+                "ObjectId": "Object ID (or SID) of the Azure AD principal. This uniquely identifies the principal in Azure Active Directory.",
+                "TenantId": "Azure Active Directory Tenant ID where the principal is defined.",
+                "Role": "Type of Azure AD principal. Select whether this entry represents a user, group, or service principal."
+            },
             "emrserverlsess_add_runjob_sub_form_script": {
                 "ScriptQueryInitFileBucket": "Choose S3 Bucket where the initialization script is stored.",
                 "ScriptQueryInitFile": "Specify S3 folder location of the initialization script that you can use to initialize tables prior to running the Hive script. Example: `samples/hive-scripts/create_table.sql`\n",
@@ -841,6 +890,12 @@
                 "maxSharedClientsPerGpu": "Specify maximum shared client.",
                 "gpuSharingStrategy": "Select GCP Sharing Strategy.",
                 "gpuDriverInstallationConfig": "Select the GPU Driver Installation Strategy\n1. **Default:** Installs the default driver version for your GKE version.\n2. **Latest:** Installs the latest available driver version for your GKE version. Available only for nodes that use Container-Optimized OS.\n3. **Disable GPU driver auto installation:**  Disables GPU driver auto installation and needs manual installation.\n4. **Do not install any GPU driver:** Skips automatic driver auto installation."
+            },
+            "availability-set-add": {
+                "name": "Enter a unique name for the Availability Set. Must be 3-61 characters, lowercase letters, numbers, and hyphens only.",
+                "sku": "Select whether to use managed disks for the Availability Set. Options include 'Classic' and 'Aligned'.",
+                "platformFaultDomainCount": "Specify the number of fault domains for the Availability Set. Valid values are 1 to 3.",
+                "platformUpdateDomainCount": "Specify the number of update domains for the Availability Set. Valid values are 1 to 20."
             },
             "thing": {
                 "Name": "The name of the thing.",
@@ -992,6 +1047,15 @@
                 "name": "Enter a unique name for the secret.",
                 "value": "Enter the secret value. Keep it secure and confidential.",
                 "contentType": "Enter the secret type, such as text, key, or certificate."
+            "AddManagedSql": {
+                "Name": "Specify a unique name for your Managed SQL instance. Must not contain spaces.",
+                "Username": "Enter the administrator username for the SQL instance.",
+                "Password": "Enter a strong password for the SQL instance.",
+                "serviceTier": "Select the service tier for the instance.",
+                "hwOptions": "Select the hardware generation (e.g., Gen5) for the SQL instance.",
+                "vcoreOption": "Select the number of virtual cores (vCores) for the instance.",
+                "storage": "Specify the storage size in GB for the SQL instance.",
+                "subnetName": "Select the subnet where the SQL instance will be deployed."
             },
             "AddRdsAuroraReplica": {
                 "Identifier": "Please provide a unique identifier for the RDS replica instance that is unique across all tenants. The cluster identifier is used to determine the cluster's endpoint. An identifier cannot end with a hyphen or contain two consecutive hyphens or start with a number. It should also be 49 characters or shorter and must be in all lowercase.",
@@ -1022,6 +1086,12 @@
                 "AnonymousPullEnabled": "Select to allow anonymous (unauthenticated) pull access to this Container Registry. This is only supported on resources with the `Standard` or `Premium` SKU.",
                 "DataEndpointEnabled": "Select to enable dedicated data endpoints for this Container Registry. This is only supported on resources with the `Premium` SKU",
                 "PublicNetworkAccess": "Select to enable/disable public network access for the container registry."
+            },
+            "update-asg": {
+                "minSize": "Specify the minimum number of instances for the autoscaling group.",
+                "maxSize": "Specify the maximum number of instances for the autoscaling group.",
+                "enableClusterAutoScaler": "Enable or disable cluster autoscaling. When enabled, the system can adjust the number of instances automatically.",
+                "canScaleFromZeroUpdate": "Allow the autoscaling group to scale down to zero instances when load is low."
             },
             "selectIotDeviePackageCert": {
                 "certificateId": "Choose the certificate to download the device package."
@@ -1064,6 +1134,12 @@
                 "loadbalancers": "Select the loadbalancer. For TargetType as alb, loadbalancer must have at least one listener that matches the target group port.",
                 "ip": "Enter IP address.",
                 "hosts": "Select hosts."
+            },
+            "AddPgSql": {
+                "Name": "Enter a unique name for the Redis instance.",
+                "serviceTier": "Select the service tier for the Redis instance.",
+                "nonTlsOption": "Choose whether the non-SSL port is enabled.",
+                "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
             },
             "addLambda": {
                 "FunctionName": "Unique name for your Lambda Function.",
