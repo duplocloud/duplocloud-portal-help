@@ -1,0 +1,4 @@
+PrincipalName: Name of the Azure AD principal (user, group, or service principal) that will authenticate to the PostgreSQL Flexible Server.
+ObjectId: Object ID (or SID) of the Azure AD principal. This uniquely identifies the principal in Azure Active Directory.
+TenantId: Azure Active Directory Tenant ID where the principal is defined.
+Role: Type of Azure AD principal. Select whether this entry represents a user, group, or service principal.
