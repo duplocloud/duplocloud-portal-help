@@ -425,12 +425,6 @@
                 "MaxWorkers": "The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`.",
                 "AirflowConfigurationOptions_str": "Specify parameters to override airflow options.\nSample Value can be as below\n```js\n{\n  \"core.log_format\": \"[%%(asctime)s] {{%%(filename)s:%%(lineno)d}} %%(levelname)s - %%(message)s\"\n}\n```\n"
             },
-            "azure-add-redis": {
-                "Name": "Enter a unique name for your Redis instance.",
-                "serviceTier": "Select the service tier for the Redis instance.",
-                "nonTlsOption": "Enable or disable the non-SSL (non-TLS) port for this Redis instance.",
-                "PublicAccess": "Enable or disable public access for the Redis instance."
-            },
             "emr_serverless_add_sub_form_pre_capacity": {
                 "DriverCount": "Specify initialized Driver Capacity.",
                 "ExecutorCount": "Specify initialized Executors Capacity.",
@@ -1136,6 +1130,12 @@
                 "loadbalancers": "Select the loadbalancer. For TargetType as alb, loadbalancer must have at least one listener that matches the target group port.",
                 "ip": "Enter IP address.",
                 "hosts": "Select hosts."
+            },
+            "AddPgSql": {
+                "Name": "Enter a unique name for the Redis instance.",
+                "serviceTier": "Select the service tier for the Redis instance.",
+                "nonTlsOption": "Choose whether the non-SSL port is enabled.",
+                "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
             },
             "addLambda": {
                 "FunctionName": "Unique name for your Lambda Function.",
