@@ -1043,6 +1043,11 @@
                 "LogDeliveryConfiguration": "Enables exporting engine logs and slow logs to Amazon CloudWatch Logs. Select `CloudWatch` to configure.",
                 "EnableEncryptionAtRest": "Select to enable/disable Encryption At Rest."
             },
+            "addInfraVaultSecret": {
+                "name": "Enter a unique name for the secret. Use your tenant name as prefix.",
+                "value": "Enter the secret value to store.",
+                "contentType": "Specify the type of secret."
+            },
             "AddManagedSql": {
                 "Name": "Specify a unique name for your Managed SQL instance. Must not contain spaces.",
                 "Username": "Enter the administrator username for the SQL instance.",
@@ -1131,11 +1136,13 @@
                 "ip": "Enter IP address.",
                 "hosts": "Select hosts."
             },
-            "AddPgSql": {
-                "Name": "Enter a unique name for the Redis instance.",
-                "serviceTier": "Select the service tier for the Redis instance.",
-                "nonTlsOption": "Choose whether the non-SSL port is enabled.",
-                "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
+            "AddAzureRedis": {
+                "AddPgSql": {
+                    "Name": "Enter a unique name for the Redis instance.",
+                    "serviceTier": "Select the service tier for the Redis instance.",
+                    "nonTlsOption": "Choose whether the non-SSL port is enabled.",
+                    "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
+                }
             },
             "addLambda": {
                 "FunctionName": "Unique name for your Lambda Function.",
