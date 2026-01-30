@@ -186,16 +186,6 @@
                 "consolidationPolicy": "Select to determine how EKS handles potential disruptions to running workloads when performing node consolidation.\n1. **WhenEmpty:** Nodes are only considered for disruption (removal or replacement) if they have no running pods. \n2. **WhenEmpty or Underutilized:** Nodes are considered for disruption if they are empty OR if they have been underutilized for a specified duration (defined by `Consolidate After`). \n",
                 "consolidateAfter": "Specify in minutes. Defines how long a node should be idle (underutilized) before it's considered for consolidation (i.e., termination and replacement for cost/performance optimization)."
             },
-            "AddContainerApp": {
-                "Name": "Enter a unique name for the Container App. The name must start with a lowercase letter and can include lowercase letters, numbers, and hyphens.",
-                "AppEnvironment": "Select the Container App Environment where this app will be deployed.",
-                "WorkloadProfileName": "Choose the workload profile that defines the compute and scaling behavior for this container app.",
-                "EnableIngress": "Enable or disable ingress to control whether the container app can receive inbound traffic.",
-                "IsExternal": "Specify whether the container app should be accessible externally or restricted to internal access only.",
-                "Transport": "Select the transport protocol used for ingress traffic, such as HTTP.",
-                "CustomWorkload": "Specify the target port on which the container listens for incoming traffic.",
-                "AllowInsecure": "Allow insecure (non-TLS) traffic when ingress is enabled."
-            },
             "UpdateEfsLifecyclePolicy": {
                 "TransitionToIA": "Select the duration to transition files to the IA storage class.",
                 "TransitionToPrimaryStorageClass": "Enable to transition a file to primary storage."
@@ -1141,13 +1131,11 @@
                 "ip": "Enter IP address.",
                 "hosts": "Select hosts."
             },
-            "AddAzureRedis": {
-                "AddPgSql": {
-                    "Name": "Enter a unique name for the Redis instance.",
-                    "serviceTier": "Select the service tier for the Redis instance.",
-                    "nonTlsOption": "Choose whether the non-SSL port is enabled.",
-                    "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
-                }
+            "AddPgSql": {
+                "Name": "Enter a unique name for the Redis instance.",
+                "serviceTier": "Select the service tier for the Redis instance.",
+                "nonTlsOption": "Choose whether the non-SSL port is enabled.",
+                "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
             },
             "addLambda": {
                 "FunctionName": "Unique name for your Lambda Function.",
@@ -1171,18 +1159,6 @@
                 "MaximumCapacityCpu": "Specify the maximum allowed CPU for an application.",
                 "MaximumCapacityMemory": "Specify the maximum allowed resources for an application.",
                 "MaximumCapacityDisk": "Specify the maximum allowed disk for an application."
-            },
-            "AddContainerAppAdvanced": {
-                "ContainerName_0": "Enter a unique name for the container. The name must be lowercase and can include numbers, dots, and hyphens.",
-                "ContainerNameImage_0": "Specify the full container image path, including registry, repository, and tag.",
-                "Server_0": "Enter the container registry server where the image is hosted.",
-                "UserName_0": "Provide the username used to authenticate with the container registry, if required.",
-                "Password_0": "Enter the password or access token used to authenticate with the container registry.",
-                "CpuCores_0": "Specify the number of CPU cores allocated to this container.",
-                "Memory_0": "Define the memory allocated to this container, for example 1Gi or 2Gi.",
-                "CommandOverride_0": "Override the default container entrypoint command. Leave empty to use the image default.",
-                "Argumentsoverride_0": "Provide arguments to pass to the container command. Leave empty to use the image defaults.",
-                "EnvironmentalVariables_0": "Define environment variables as key-value pairs that will be injected into the container at runtime."
             },
             "K8sJobBasicForm": {
                 "JobName": "Specify the name of the Job, must be unique. Minimum 3 characters.",
