@@ -1,0 +1,4 @@
+Name: Enter a unique name for your Container App. Only lowercase letters, numbers, and hyphens are allowed.
+AppEnvironment: Select the Container App Environment where this app will be deployed.
+WorkloadProfileName: Select the workload profile. For example, 'Consumption' or 'Dedicated'.
+EnableIngress: Choose whether this Container App should have ingress enabled.

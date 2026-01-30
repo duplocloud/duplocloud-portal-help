@@ -1,0 +1,9 @@
+ContainerName_0: Enter the name of the container. Must start with a lowercase letter and can include letters, numbers, dots, and hyphens.
+ContainerNameImage_0: 'Enter the full container image reference including registry and tag, e.g., xyz.registry.io/containerapps-helloworld:latest.'
+Server_0: Enter the registry server address where the container image is hosted.
+UserName_0: Enter the username for authenticating with the registry server.
+Password_0: Enter the password for authenticating with the registry server.
+CpuCores_0: Select the number of CPU cores to allocate to this container.
+Memory_0: Select the memory allocation for the container (e.g., 1.25Gi, 4Gi).
+CommandOverride_0: Optional command to override the default container startup command.
+Argumentsoverride_0: Optional arguments to override the default container command arguments.
