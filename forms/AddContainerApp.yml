@@ -1,0 +1,8 @@
+Name: Enter a unique name for the Container App. The name must start with a lowercase letter and can include lowercase letters, numbers, and hyphens.
+AppEnvironment: Select the Container App Environment where this app will be deployed.
+WorkloadProfileName: Choose the workload profile that defines the compute and scaling behavior for this container app.
+EnableIngress: Enable or disable ingress to control whether the container app can receive inbound traffic.
+IsExternal: Specify whether the container app should be accessible externally or restricted to internal access only.
+Transport: Select the transport protocol used for ingress traffic, such as HTTP.
+CustomWorkload: Specify the target port on which the container listens for incoming traffic.
+AllowInsecure: Allow insecure (non-TLS) traffic when ingress is enabled.
