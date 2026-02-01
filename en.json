@@ -988,6 +988,8 @@
             },
             "appserviceplan": {
                 "name": "Specify the name which should be used for this Service Plan.",
+                "Name": "Enter a unique name for the App Service Plan.",
+                "tier": "Select the SKU tier for the plan.",
                 "platform": "Select the O/S type for the App Services to be hosted in this plan. Supported values include `Windows` and `Linux`.",
                 "location": "Select the Azure Region where the Service Plan should exist.",
                 "serversize": "Select the SKU size for the plan.",
