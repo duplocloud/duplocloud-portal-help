@@ -400,6 +400,12 @@
                 "volumes": "Volumes which can be mounted within container as documented [here](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#volumes) in a json format.\nSample Value with all the possible options can look like as below.\n```js\n[ \n  { \n    \"dockerVolumeConfiguration\": { \n        \"autoprovision\": boolean,\n        \"driver\": \"string\",\n        \"driverOpts\": { \n          \"string\" : \"string\" \n        },\n        \"labels\": { \n          \"string\" : \"string\" \n        },\n        \"scope\": \"string\"\n    },\n    \"efsVolumeConfiguration\": { \n        \"authorizationConfig\": { \n          \"accessPointId\": \"string\",\n          \"iam\": \"string\"\n        },\n        \"fileSystemId\": \"string\",\n        \"rootDirectory\": \"string\",\n        \"transitEncryption\": \"string\",\n        \"transitEncryptionPort\": number\n    },\n    \"fsxWindowsFileServerVolumeConfiguration\": { \n        \"authorizationConfig\": { \n          \"credentialsParameter\": \"string\",\n          \"domain\": \"string\"\n        },\n        \"fileSystemId\": \"string\",\n        \"rootDirectory\": \"string\"\n    },\n    \"host\": { \n        \"sourcePath\": \"string\"\n    },\n    \"name\": \"string\"\n  }\n]\n```\n",
                 "Essential_1": "If enabled, container fails or stops for any reason, all other containers that are part of the task are stopped. \nIf disabled, then its failure doesn't affect the rest of the containers in a task."
             },
+            "AzureAddRedis": {
+                "Name": "Enter a unique name for the Redis instance.",
+                "serviceTier": "Select the service tier for the Redis instance.",
+                "nonTlsOption": "Choose whether the non-SSL port is enabled.",
+                "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
+            },
             "AddSQS": {
                 "Name": "The name of the queue.",
                 "QueueType": "Select AWS supported standard or FIFO queues.",
@@ -1130,12 +1136,6 @@
                 "loadbalancers": "Select the loadbalancer. For TargetType as alb, loadbalancer must have at least one listener that matches the target group port.",
                 "ip": "Enter IP address.",
                 "hosts": "Select hosts."
-            },
-            "AddAzureRedis": {
-                "Name": "Enter a unique name for the Redis instance.",
-                "serviceTier": "Select the service tier for the Redis instance.",
-                "nonTlsOption": "Choose whether the non-SSL port is enabled.",
-                "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
             },
             "addLambda": {
                 "FunctionName": "Unique name for your Lambda Function.",
