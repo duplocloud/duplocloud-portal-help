@@ -1132,12 +1132,10 @@
                 "hosts": "Select hosts."
             },
             "AddAzureRedis": {
-                "AddPgSql": {
-                    "Name": "Enter a unique name for the Redis instance.",
-                    "serviceTier": "Select the service tier for the Redis instance.",
-                    "nonTlsOption": "Choose whether the non-SSL port is enabled.",
-                    "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
-                }
+                "Name": "Enter a unique name for the Redis instance.",
+                "serviceTier": "Select the service tier for the Redis instance.",
+                "nonTlsOption": "Choose whether the non-SSL port is enabled.",
+                "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
             },
             "addLambda": {
                 "FunctionName": "Unique name for your Lambda Function.",
