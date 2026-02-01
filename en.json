@@ -792,6 +792,13 @@
                 "DatabaseName": "The name of the Timestream database.",
                 "KmsKeyId": "Select the KMS key to be used to encrypt the data stored in the database."
             },
+            "AddIngressRule": {
+                "serviceName": "Name of the kubernetes service which Ingress will use as backend to serve the request.\nThe service must already be configured as a LoadBalancer, NodePort, or ClusterIP.\nSee the documentation [here](https://docs.duplocloud.com/docs/aws/quick-start/step-6-create-a-load-balancer)\n",
+                "port": "Backend port on the Kubernetes service that the Ingress will route traffic to.\nThis value must be provided as a string (for example, \"443\"), not a number..\n",
+                "host": "If a host is provided (for e.g. example.com, foo.bar.com), the rules apply to that host.",
+                "path": "Specify the path (for e.g. /api /v1/api/)for path-based routing. If a host is specified, both the host and path must match the incoming request.",
+                "pathType": "Each path in an Ingress is required to have a corresponding path type. Paths that do not include an explicit pathType will fail validation. There are three supported path types:\n\n1. *ImplementationSpecific*: Matching behavior is determined by the IngressClass and may behave like Prefix or Exact path types.\n2. *Exact*: Matches the URL path exactly and with case sensitivity.\n3. *Prefix*: Matches based on a URL path prefix split by /. Matching is case sensitive and done on a path element by element basis. A path element refers to the list of labels in the path split by the / separator. A request is a match for path p if every p is an element-wise prefix of p of the request path. \n"
+            },
             "AddServiceBasic": {
                 "ServiceName": "Any friendly name to identify your service.",
                 "AllocationTag": "A string value that needs to be a substring of the corresponding allocation tag value set on a Host. If there is no host with such an allocation tag value then service will not get deployed. simplest example is if you want the container to be deployed in a certain set of hosts only then set an allocation tag on those hosts called web and then set the allocation tag here to be web.",
@@ -836,13 +843,6 @@
                 "specOther": "Add Job Spec in yaml format.\n```yaml\ncompletions: 3\nmanualSelector: true\nparallelism: 3\ntemplate:\n  spec:\n    dnsPolicy: ClusterFirst\n    schedulerName: default-scheduler\n    securityContext: {}\n    terminationGracePeriodSeconds: 30\n    volumes:\n      - name: my-volume\n        persistentVolumeClaim:\n          claimName: my-pvc-claim\n```\n",
                 "medataAnnotations": "Add Job Metadata Annotations.\nFollow below format:\n```yaml\nannotation_name: value1\nannotation_type: value2\n```\n",
                 "medataLabels": "Add Job Metadata Labels.\n```yaml\nlabel1: value1\nlabel2: value2\n```"
-            },
-            "IngressRule": {
-                "serviceName": "Name of the kubernetes service which Ingress will use as backend to serve the request. User will have to first configure a Loadbalancer/Kubernetes NodePort/Kubernetes ClusterIP for the DuploCloud service. \nYou can find the document [here](https://docs.duplocloud.com/docs/aws/quick-start/step-6-create-a-load-balancer)\n",
-                "port": "Port from the kubernetes service that ingress will use as backend port to serve the requests.",
-                "host": "If a host is provided (for e.g. example.com, foo.bar.com), the rules apply to that host.",
-                "path": "Specify the path (for e.g. /api /v1/api/) to do a path base routing. If host is specified then both path and host should be match for the incoming request.",
-                "pathType": "Each path in an Ingress is required to have a corresponding path type. Paths that do not include an explicit pathType will fail validation. There are three supported path types:\n\nImplementationSpecific: With this path type, matching is up to the IngressClass. Implementations can treat this as a separate pathType or treat it identically to Prefix or Exact path types.\n\n1. *Exact*: Matches the URL path exactly and with case sensitivity.\n\n2. *Prefix*: Matches based on a URL path prefix split by /. Matching is case sensitive and done on a path element by element basis. A path element refers to the list of labels in the path split by the / separator. A request is a match for path p if every p is an element-wise prefix of p of the request path. \n"
             },
             "VantaControl": {
                 "EnableVanta": "Enable Vanta monitor. GuardDuty will be enabled by default when this setting is enabled.",
@@ -1131,11 +1131,13 @@
                 "ip": "Enter IP address.",
                 "hosts": "Select hosts."
             },
-            "AddPgSql": {
-                "Name": "Enter a unique name for the Redis instance.",
-                "serviceTier": "Select the service tier for the Redis instance.",
-                "nonTlsOption": "Choose whether the non-SSL port is enabled.",
-                "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
+            "AddAzureRedis": {
+                "AddPgSql": {
+                    "Name": "Enter a unique name for the Redis instance.",
+                    "serviceTier": "Select the service tier for the Redis instance.",
+                    "nonTlsOption": "Choose whether the non-SSL port is enabled.",
+                    "PublicAccess": "Specify whether the Redis instance should be publicly accessible."
+                }
             },
             "addLambda": {
                 "FunctionName": "Unique name for your Lambda Function.",
