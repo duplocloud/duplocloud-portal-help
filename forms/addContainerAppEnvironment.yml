@@ -3,5 +3,8 @@ WorkloadProfiles0: Select the workload profile to define the compute characteris
 workloadName[*]: Enter a name for this workload profile. The name must start with a letter and can include letters, numbers, hyphens, or underscores.
 InstanceMinCount[*]: Specify the minimum number of instances that should always be running for this workload profile.
 InstanceMaxCount[*]: Specify the maximum number of instances that can be created for this workload profile.
+appcontainerappenvworkloadName_0: Enter a name for the individual Workload Profile (max 15 chars).
+appcontainerappenvInstanceMinCount_0: Specify the minimum number of instances for this profile.
+appcontainerappenvInstanceMaxCount_0: Specify the maximum number of instances for this profile.
 appLogDestinations: Select where application logs from this environment should be sent.
 SubnetId: Select the subnet where the Container App Environment will be deployed.
