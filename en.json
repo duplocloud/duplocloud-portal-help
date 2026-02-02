@@ -655,9 +655,9 @@
             "addContainerAppEnvironment": {
                 "Name": "Enter a unique name for the Container App Environment.",
                 "WorkloadProfiles0": "Select the workload profile to define the compute characteristics for this environment.",
-                "workloadName_0": "Enter a name for this workload profile. The name must start with a letter and can include letters, numbers, hyphens, or underscores.",
-                "InstanceMinCount_0": "Specify the minimum number of instances that should always be running for this workload profile.",
-                "InstanceMaxCount_0": "Specify the maximum number of instances that can be created for this workload profile.",
+                "workloadName": "Enter a name for this workload profile. The name must start with a letter and can include letters, numbers, hyphens, or underscores.",
+                "InstanceMinCount": "Specify the minimum number of instances that should always be running for this workload profile.",
+                "InstanceMaxCount": "Specify the maximum number of instances that can be created for this workload profile.",
                 "appLogDestinations": "Select where application logs from this environment should be sent.",
                 "SubnetId": "Select the subnet where the Container App Environment will be deployed."
             },
