@@ -1171,15 +1171,15 @@
                 "MaximumCapacityDisk": "Specify the maximum allowed disk for an application."
             },
             "AddContainerAppAdvanced": {
-                "ContainerName": "Enter a unique name for your container. Only lowercase letters, numbers, hyphens, and periods are allowed.",
-                "ContainerImage": "Specify the container image to deploy, including the registry and tag, e.g., xyz.registry.io/containerapps-helloworld:latest.",
-                "RegistryServer": "Enter the container registry server URL where your image is hosted.",
-                "UserName": "Provide the username for the registry if authentication is required.",
-                "Password": "Provide the password for the registry if authentication is required.",
-                "CpuCores": "Specify the number of CPU cores to allocate to this container.",
-                "Memory": "Specify the memory to allocate, e.g., 1.25Gi or 4Gi.",
-                "CommandOverride": "Override the default container command here.",
-                "ArgumentsOverride": "Override the default container arguments here."
+                "ContainerName_0": "Enter a unique name for your container. Only lowercase letters, numbers, hyphens, and periods are allowed.",
+                "ContainerNameImage_0": "Specify the container image to deploy, including the registry and tag, e.g., xyz.registry.io/containerapps-helloworld:latest.",
+                "Server_0": "Enter the container registry server URL where your image is hosted.",
+                "UserName_0": "Provide the username for the registry if authentication is required.",
+                "Password_0": "Provide the password for the registry if authentication is required.",
+                "CpuCores_0": "Specify the number of CPU cores to allocate to this container.",
+                "Memory_0": "Specify the memory to allocate, e.g., 1.25Gi or 4Gi.",
+                "CommandOverride_0": "Override the default container command here.",
+                "Argumentsoverride_0": "Override the default container arguments here."
             },
             "K8sJobBasicForm": {
                 "JobName": "Specify the name of the Job, must be unique. Minimum 3 characters.",
