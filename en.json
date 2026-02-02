@@ -225,6 +225,19 @@
                 "canSend": "Enable to configure authorization rule to have Send permissions to the ServiceBus Queue.",
                 "canListen": "Enable to configure authorization rule to have Listen permissions to the ServiceBus Queue."
             },
+            "addCosmosDB": {
+                "Name": "Specify unique name of the table.",
+                "PrimaryKeyName": "Specify the primary key of the table.",
+                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
+                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
+                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
+                "SortKeyType": "Select key type. Type supported is String or Number.",
+                "TableName": "Specify a unique name for the table.",
+                "PrimaryKey": "Specify the primary key for the table.",
+                "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
+                "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
+                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number')."
+            },
             "vmMaintenanceSchedule": {
                 "StartTime": "Select the date and time when the maintenance schedule should begin.",
                 "TimeZone": "Select the time zone that applies to the maintenance schedule.",
@@ -434,19 +447,6 @@
                 "MinWorkers": "The minimum number of workers that you want to run in your environment.",
                 "MaxWorkers": "The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`.",
                 "AirflowConfigurationOptions_str": "Specify parameters to override airflow options.\nSample Value can be as below\n```js\n{\n  \"core.log_format\": \"[%%(asctime)s] {{%%(filename)s:%%(lineno)d}} %%(levelname)s - %%(message)s\"\n}\n```\n"
-            },
-            "azureDatabaseCosmosdbCreate": {
-                "Name": "Specify unique name of the table.",
-                "PrimaryKeyName": "Specify the primary key of the table.",
-                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
-                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
-                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
-                "SortKeyType": "Select key type. Type supported is String or Number.",
-                "TableName": "Specify a unique name for the table.",
-                "PrimaryKey": "Specify the primary key for the table.",
-                "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
-                "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
-                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number')."
             },
             "emr_serverless_add_sub_form_pre_capacity": {
                 "DriverCount": "Specify initialized Driver Capacity.",
