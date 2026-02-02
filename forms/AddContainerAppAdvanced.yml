@@ -1,0 +1,9 @@
+ContainerName_0: Enter a name for the first container in your app
+ContainerNameImage_0: Specify the container image, including registry and tag
+Server_0: Provide the registry server URL if not using a public registry
+UserName_0: Enter a username for registry authentication
+Password_0: Enter a password for registry authentication
+CpuCores_0: Specify how many CPU cores to allocate for this container
+Memory_0: Specify how much memory to allocate, e.g., 1.25Gi, 4Gi.
+CommandOverride_0: Override the default command executed in the container
+Argumentsoverride_0: Override the default arguments for the container command
