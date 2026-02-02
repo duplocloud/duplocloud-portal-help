@@ -391,6 +391,12 @@
                 "operation": "Select the operation from the dropdown,",
                 "Secret": "Select the `dockerconfigjson` secret created from Kubernetes Secret to authenticate to OCI registry."
             },
+            "keyVault": {
+                "Name": "Enter a unique name for the Key Vault. The name must be 3\u201324 characters long and can contain only letters, numbers, and hyphens.",
+                "SKUPricing": "Select the pricing tier for the Key Vault. The Standard SKU is suitable for most use cases.",
+                "PurgeProtection": "Enables purge protection for the Key Vault. Once enabled, this setting cannot be disabled and prevents permanent deletion of the vault.",
+                "RetentionDays": "Specify the number of days to retain soft-deleted Key Vault items before permanent deletion. Valid values range from 7 to 90 days."
+            },
             "AddSbPrivateEndpoint": {
                 "Name": "Specify Private EndPoint name.",
                 "SubnetId": "Select Subnet."
@@ -661,12 +667,6 @@
                 "AutoStartConfiguration_Enabled": "Enable the configuration for an application to automatically start on job submission.",
                 "AutoStopConfiguration_Enabled": "Enable the configuration for an application to automatically stop after a certain amount of time being idle.",
                 "IdleTimeoutMinutes": "The amount of idle time in minutes after which your application will automatically stop."
-            },
-            "keyvault-add": {
-                "Name": "Enter a unique name for the Key Vault. The name must be 3\u201324 characters long and can contain only letters, numbers, and hyphens.",
-                "SKUPricing": "Select the pricing tier for the Key Vault. The Standard SKU is suitable for most use cases.",
-                "PurgeProtection": "Enables purge protection for the Key Vault. Once enabled, this setting cannot be disabled and prevents permanent deletion of the vault.",
-                "RetentionDays": "Specify the number of days to retain soft-deleted Key Vault items before permanent deletion. Valid values range from 7 to 90 days."
             },
             "addHelmRelease": {
                 "Name": "Provide Name for the Helm Chart.",
