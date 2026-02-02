@@ -79,16 +79,6 @@
                 "enableDiskEncryption": "Select to enable encryption at rest for EBS volumes.",
                 "EncryptionKey": "Select KMS keys for disk encryption."
             },
-            "add-app-container-env-tooltips": {
-                "Name": "Enter the name of the Container App Environment.",
-                "WorkloadProfiles0": "Select a Workload Profile for this environment.",
-                "workloadName_0": "Enter a name for the individual Workload Profile (max 15 chars).",
-                "InstanceMinCount_0": "Specify the minimum number of instances for this profile.",
-                "InstanceMaxCount_0": "Specify the maximum number of instances for this profile.",
-                "appLogDestinations": "Select where logs should be sent.",
-                "logAnalyticsWorkspaces": "Select the Log Analytics Workspace(s) for monitoring this environment.",
-                "SubnetId": "Select the subnet for this environment."
-            },
             "datafactory": {
                 "Name": "Specify the name of the Data Factory. Data Factory names must be globally unique.",
                 "PublicEndpoint": "Enable/Disable for Data Factory visibility to the public network."
@@ -399,6 +389,16 @@
                 "memory": "This input can be used to limit the memory consumed by all pods in a non-terminal.  \nFor 512Mb value should be **512Mi**, For 5GB of ram value should be **5Gi**.  \n",
                 "otherLimits": "You can use this input to all other quotas like storage, Object count etc. Value has to be provided in YAML format like below.  \n```yaml\nrequests.storage: 500Gi\npersistentvolumeclaims: 10\n```\n",
                 "scopeSelector": "Each quota can have an associated set of scopes. A quota will only measure usage for a resource if it matches the intersection of enumerated scopes. \nWhen a scope is added to the quota, it limits the number of resources it supports to those that pertain to the scope. Resources specified on the quota outside of the allowed set results in a validation error. \nValue has to be provided in YAML format as below.  \n```yaml\nmatchExpressions:\n- operator: In\n  scopeName: PriorityClass\n  values:\n    - middle\n```"
+            },
+            "appcontainerappenv": {
+                "Name": "Enter the name of the Container App Environment.",
+                "WorkloadProfiles0": "Select a Workload Profile for this environment.",
+                "workloadName_0": "Enter a name for the individual Workload Profile (max 15 chars).",
+                "InstanceMinCount_0": "Specify the minimum number of instances for this profile.",
+                "InstanceMaxCount_0": "Specify the maximum number of instances for this profile.",
+                "appLogDestinations": "Select where logs should be sent.",
+                "logAnalyticsWorkspaces": "Select the Log Analytics Workspace(s) for monitoring this environment.",
+                "SubnetId": "Select the subnet for this environment."
             },
             "AddPVC": {
                 "name": "Name for Persistent Volume Claim.",
