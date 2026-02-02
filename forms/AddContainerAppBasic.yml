@@ -1,0 +1,4 @@
+Name: Enter a unique name for your container app. Must be 1-32 characters, lowercase letters, numbers, or hyphens.
+AppEnvironment: Select the environment in which the container app will run.
+WorkloadProfileName: Choose a workload profile, e.g.,'Consumption' for serverless apps.
+EnableIngress: Choose whether to enable ingress for this app. Disabled means no public HTTP access.
