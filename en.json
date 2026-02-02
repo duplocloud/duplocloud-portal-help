@@ -111,6 +111,16 @@
                 "ScheduleExpression": "The scheduling expression. Use Rate Expressions. For example, `rate(5 minutes)` or `rate(1 day)`. Refer [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#RateExpressions).",
                 "State": "Select the state of the rule."
             },
+            "AzureAvailabilitySet": {
+                "name": "Enter a unique name for the Availability Set. Must be 3-61 characters, lowercase letters, numbers, and hyphens only.",
+                "sku": "Select whether to use managed disks for the Availability Set. Options include 'Classic' and 'Aligned'.",
+                "platformFaultDomainCount": "Specify the number of fault domains for the Availability Set. Valid values are 1 to 3.",
+                "platformUpdateDomainCount": "Specify the number of update domains for the Availability Set. Valid values are 1 to 20.",
+                "Name": "Enter a unique name for the Availability Set. Must be 3-61 characters, lowercase letters, numbers, and hyphens only.",
+                "Sku": "Select whether to use managed disks for the Availability Set. Options include 'Classic' and 'Aligned'.",
+                "PlatformFaultDomainCount": "Specify the number of fault domains (1-3). Fault domains isolate your VMs to reduce impact from hardware failures.",
+                "PlatformUpdateDomainCount": "Specify the number of update domains (1-20). Update domains ensure VMs are rebooted in batches during maintenance."
+            },
             "AddAwsSecrets": {
                 "Name": "The name of the new secret.",
                 "SecretValueType": "Secret type.\n1. **JSON Key/Value pairs:** Provide your secret information, such as credentials and connection details, as key/value pairs.\n2. **Plain text:** You can choose the `Plain text` option to store your secret in plaintext string.\n",
@@ -900,12 +910,6 @@
                 "maxSharedClientsPerGpu": "Specify maximum shared client.",
                 "gpuSharingStrategy": "Select GCP Sharing Strategy.",
                 "gpuDriverInstallationConfig": "Select the GPU Driver Installation Strategy\n1. **Default:** Installs the default driver version for your GKE version.\n2. **Latest:** Installs the latest available driver version for your GKE version. Available only for nodes that use Container-Optimized OS.\n3. **Disable GPU driver auto installation:**  Disables GPU driver auto installation and needs manual installation.\n4. **Do not install any GPU driver:** Skips automatic driver auto installation."
-            },
-            "availability-set-add": {
-                "name": "Enter a unique name for the Availability Set. Must be 3-61 characters, lowercase letters, numbers, and hyphens only.",
-                "sku": "Select whether to use managed disks for the Availability Set. Options include 'Classic' and 'Aligned'.",
-                "platformFaultDomainCount": "Specify the number of fault domains for the Availability Set. Valid values are 1 to 3.",
-                "platformUpdateDomainCount": "Specify the number of update domains for the Availability Set. Valid values are 1 to 20."
             },
             "thing": {
                 "Name": "The name of the thing.",
