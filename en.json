@@ -351,19 +351,6 @@
                 "DeploymentStrategy": "Deployment Strategy specifications as documented [here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment). Sample value can be like below.\n```yaml\n\nRollingUpdate:\nMaxSurge: 1\nMaxUnavailable: 0\n```",
                 "HPAConfig": "Horizontal pod autoscaler specifications as documented [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/). Sample value can be like below.\n```yaml\n\nmaxReplicas: 5\nmetrics:\n  - resource:\n      name: cpu\n      target:\n        averageUtilization: 80\n        type: Utilization\n    type: Resource\nminReplicas: 2\n```"
             },
-            "AddDynamoDB": {
-                "Name": "Specify unique name of the table.",
-                "PrimaryKeyName": "Specify the primary key of the table.",
-                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
-                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
-                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
-                "SortKeyType": "Select key type. Type supported is String or Number.",
-                "TableName": "Specify a unique name for the table.",
-                "PrimaryKey": "Specify the primary key for the table.",
-                "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
-                "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
-                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number')."
-            },
             "addECR": {
                 "Name": "Specify name of the ECR.",
                 "KmsEncryption": "Select KMS key for the repository.",
@@ -642,6 +629,19 @@
                 "InstanceMaxCount_0": "Specify the maximum number of instances that can be created for this workload profile.",
                 "appLogDestinations": "Select where application logs from this environment should be sent.",
                 "SubnetId": "Select the subnet where the Container App Environment will be deployed."
+            },
+            "dynamodb-add": {
+                "Name": "Specify unique name of the table.",
+                "PrimaryKeyName": "Specify the primary key of the table.",
+                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
+                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
+                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
+                "SortKeyType": "Select key type. Type supported is String or Number.",
+                "TableName": "Specify a unique name for the table.",
+                "PrimaryKey": "Specify the primary key for the table.",
+                "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
+                "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
+                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number')."
             },
             "publicIpPrefixForm": {
                 "Name": "Specify the name of the Public IP Prefix resource.",
