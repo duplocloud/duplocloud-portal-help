@@ -226,7 +226,7 @@
                 "canListen": "Enable to configure authorization rule to have Listen permissions to the ServiceBus Queue."
             },
             "addCosmosDB": {
-                "Name": "Specify unique name of the table.",
+                "Name": "Enter a unique name for your CosmosDB account. Only lowercase letters, numbers, and hyphens are allowed. Min 2, max 40 characters.",
                 "PrimaryKeyName": "Specify the primary key of the table.",
                 "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
                 "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
@@ -236,7 +236,15 @@
                 "PrimaryKey": "Specify the primary key for the table.",
                 "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
                 "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
-                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number')."
+                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number').",
+                "CapacityMode": "Select the capacity mode for your CosmosDB account. Options are 'Provisioned throughput' or 'Serverless'.",
+                "PublicAccess": "Choose whether the database should be publicly accessible or restricted to private endpoints.",
+                "EnableFreeTier": "Enable the free tier for your CosmosDB account to reduce cost if eligible.",
+                "DisableKeyBasedMetadataWriteAccess": "Toggle key-based authentication for metadata write operations. When enabled, it disables key-based writes.",
+                "BackupPolicyType": "Select the backup policy type. 'Periodic' backs up at intervals, 'Continuous' provides continuous backup.",
+                "BackupInterval": "Specify the backup interval in minutes. Must be between 60 and 1440.",
+                "BackupRetention": "Specify how long backups are retained in hours. Must be between 8 and 720.",
+                "BackupStorageRedundancy": "Select the backup storage redundancy type. Options include 'Local', 'Geo', or other supported redundancy modes."
             },
             "vmMaintenanceSchedule": {
                 "StartTime": "Select the date and time when the maintenance schedule should begin.",
