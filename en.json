@@ -317,7 +317,7 @@
                 "nonTlsOption": "Choose whether the non-SSL port is enabled.",
                 "PublicAccess": "Specify whether the Redis instance should be publicly accessible.",
                 "ServiceTier": "Select the service tier for your instance.",
-                "NonTlsPort": "Choose whether to enable a non-SSL port for this Redis instance"
+                "NonTlsPort": "Choose whether to enable a non-SSL port for this Redis instance."
             },
             "dataPipelineAdd": {
                 "Name": "Unique Data Pipeline Name",
