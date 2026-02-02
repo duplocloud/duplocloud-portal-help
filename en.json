@@ -98,19 +98,6 @@
                 "Destination": "Sends event messages to the selected type.",
                 "EventTypes": "Select specific bucket-level events that can trigger a notification or an EventBridge event. Multiple Selection allowed."
             },
-            "add-cosmosdb": {
-                "Name": "Specify unique name of the table.",
-                "PrimaryKeyName": "Specify the primary key of the table.",
-                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
-                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
-                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
-                "SortKeyType": "Select key type. Type supported is String or Number.",
-                "TableName": "Specify a unique name for the table.",
-                "PrimaryKey": "Specify the primary key for the table.",
-                "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
-                "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
-                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number')."
-            },
             "AddRdsReplica": {
                 "Identifier": "Please provide a unique identifier for the RDS replica instance that is unique across all tenants. The cluster identifier is used to determine the cluster's endpoint. An identifier cannot end with a hyphen or contain two consecutive hyphens or start with a number. It should also be 49 characters or shorter and must be in all lowercase.",
                 "Engine": "Select Database engine for creating RDS instance.",
@@ -845,6 +832,19 @@
                 "specOther": "Add Job Spec in yaml format.\n```yaml\ncompletions: 3\nmanualSelector: true\nparallelism: 3\ntemplate:\n  spec:\n    dnsPolicy: ClusterFirst\n    schedulerName: default-scheduler\n    securityContext: {}\n    terminationGracePeriodSeconds: 30\n    volumes:\n      - name: my-volume\n        persistentVolumeClaim:\n          claimName: my-pvc-claim\n```\n",
                 "medataAnnotations": "Add Job Metadata Annotations.\nFollow below format:\n```yaml\nannotation_name: value1\nannotation_type: value2\n```\n",
                 "medataLabels": "Add Job Metadata Labels.\n```yaml\nlabel1: value1\nlabel2: value2\n```"
+            },
+            "azure-database-cosmosdb-create": {
+                "Name": "Specify unique name of the table.",
+                "PrimaryKeyName": "Specify the primary key of the table.",
+                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
+                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
+                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
+                "SortKeyType": "Select key type. Type supported is String or Number.",
+                "TableName": "Specify a unique name for the table.",
+                "PrimaryKey": "Specify the primary key for the table.",
+                "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
+                "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
+                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number')."
             },
             "VantaControl": {
                 "EnableVanta": "Enable Vanta monitor. GuardDuty will be enabled by default when this setting is enabled.",
