@@ -1111,12 +1111,6 @@
                 "DataEndpointEnabled": "Select to enable dedicated data endpoints for this Container Registry. This is only supported on resources with the `Premium` SKU",
                 "PublicNetworkAccess": "Select to enable/disable public network access for the container registry."
             },
-            "update-asg": {
-                "minSize": "Specify the minimum number of instances for the autoscaling group.",
-                "maxSize": "Specify the maximum number of instances for the autoscaling group.",
-                "enableClusterAutoScaler": "Enable or disable cluster autoscaling. When enabled, the system can adjust the number of instances automatically.",
-                "canScaleFromZeroUpdate": "Allow the autoscaling group to scale down to zero instances when load is low."
-            },
             "selectIotDeviePackageCert": {
                 "certificateId": "Choose the certificate to download the device package."
             },
@@ -1176,6 +1170,12 @@
                 "DeadLetterQueue": "Select SQS queue or SNS Topic to send events from an an asynchronous invocation.",
                 "MaximumRetryAttempts": "Specify the maximum number of times to retry when the function returns an error.",
                 "MaximumEventAgeInSeconds": "Specify the maximum amount of time in seconds to keep unprocessed events in the queue."
+            },
+            "updateASG": {
+                "minSize": "Specify the minimum number of instances for the autoscaling group.",
+                "maxSize": "Specify the maximum number of instances for the autoscaling group.",
+                "enableClusterAutoScaler": "Enable or disable cluster autoscaling. When enabled, the system can adjust the number of instances automatically.",
+                "canScaleFromZeroUpdate": "Allow the autoscaling group to scale down to zero instances when load is low."
             },
             "emr_serverless_add_sub_form_limit": {
                 "MaximumCapacityCpu": "Specify the maximum allowed CPU for an application.",
