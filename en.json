@@ -225,6 +225,15 @@
                 "canSend": "Enable to configure authorization rule to have Send permissions to the ServiceBus Queue.",
                 "canListen": "Enable to configure authorization rule to have Listen permissions to the ServiceBus Queue."
             },
+            "vmMaintenanceSchedule": {
+                "StartTime": "Select the date and time when the maintenance schedule should begin.",
+                "TimeZone": "Select the time zone that applies to the maintenance schedule.",
+                "Hour": "Enter the number of hours for the maintenance window.",
+                "Minute": "Enter the number of minutes for the maintenance window.",
+                "Repeat": "Enter how often the maintenance window should repeat per interval.",
+                "RepeatType": "Select the unit of time for the repeat interval. Options are Day, Week, or Month.",
+                "EndTime": "Select the date and time when the maintenance schedule should end, \nor leave blank to run indefinitely."
+            },
             "AddGcpSubscription": {
                 "Name": "Name of the subscription.",
                 "Topic": "Select the Pub Sub Topic for reference.",
@@ -535,15 +544,6 @@
             },
             "emrserverlsess_add_runjob_sub_form_app_config": {
                 "ApplicationConfiguration": "Specify job configurations to override the default configurations for your applications.\n 1. **Spark:** \n```js\n[{\n              \"Classification\": \"spark-defaults\",\n              \"Configurations\": [],\n              \"Properties\": {\n                  \"spark.driver.cores\": \"2\",\n                  \"spark.driver.memory\": \"4g\",\n\t\t\t        \"spark.dynamicAllocation.minExecutors\":\"1\"\n              }\n          }]\n```\n2. **Hive:** \n```js\n[\n          {\n              \"Classification\": \"hive-site\",\n              \"Configurations\": [],\n              \"Properties\": {\n                  \"hive.driver.cores\": \"2\",\n                  \"hive.driver.memory\": \"4g\",\n                  \"hive.tez.container.size\": \"8192\",\n                  \"hive.tez.cpu.vcores\": \"4\"\n              }\n          }\n      ]\n```\n"
-            },
-            "vm-maintenance-schedule": {
-                "StartTime": "Select the date and time when the maintenance schedule should begin.",
-                "TimeZone": "Select the time zone that applies to the maintenance schedule.",
-                "Hour": "Enter the number of hours for the maintenance window.",
-                "Minute": "Enter the number of minutes for the maintenance window.",
-                "Repeat": "Enter how often the maintenance window should repeat per interval.",
-                "RepeatType": "Select the unit of time for the repeat interval. Options are Day, Week, or Month.",
-                "EndTime": "Select the date and time when the maintenance schedule should end, \nor leave blank to run indefinitely."
             },
             "mq-config-add": {
                 "Name": "Name of the configuration.",
