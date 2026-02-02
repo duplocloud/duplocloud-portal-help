@@ -1,0 +1,8 @@
+name: Enter a unique name for the Availability Set. Must be 3-61 characters, lowercase letters, numbers, and hyphens only.
+sku: Select whether to use managed disks for the Availability Set. Options include 'Classic' and 'Aligned'.
+platformFaultDomainCount: Specify the number of fault domains for the Availability Set. Valid values are 1 to 3.
+platformUpdateDomainCount: Specify the number of update domains for the Availability Set. Valid values are 1 to 20.
+Name: Enter a unique name for the Availability Set. Must be 3-61 characters, lowercase letters, numbers, and hyphens only.
+Sku: Select whether to use managed disks for the Availability Set. Options include 'Classic' and 'Aligned'.
+PlatformFaultDomainCount: Specify the number of fault domains (1-3). Fault domains isolate your VMs to reduce impact from hardware failures.
+PlatformUpdateDomainCount: Specify the number of update domains (1-20). Update domains ensure VMs are rebooted in batches during maintenance.
