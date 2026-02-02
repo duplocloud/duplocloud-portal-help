@@ -98,6 +98,19 @@
                 "Destination": "Sends event messages to the selected type.",
                 "EventTypes": "Select specific bucket-level events that can trigger a notification or an EventBridge event. Multiple Selection allowed."
             },
+            "add-cosmosdb": {
+                "Name": "Specify unique name of the table.",
+                "PrimaryKeyName": "Specify the primary key of the table.",
+                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
+                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
+                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
+                "SortKeyType": "Select key type. Type supported is String or Number.",
+                "TableName": "Specify a unique name for the table.",
+                "PrimaryKey": "Specify the primary key for the table.",
+                "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
+                "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
+                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number')."
+            },
             "AddRdsReplica": {
                 "Identifier": "Please provide a unique identifier for the RDS replica instance that is unique across all tenants. The cluster identifier is used to determine the cluster's endpoint. An identifier cannot end with a hyphen or contain two consecutive hyphens or start with a number. It should also be 49 characters or shorter and must be in all lowercase.",
                 "Engine": "Select Database engine for creating RDS instance.",
@@ -224,19 +237,6 @@
                 "canManage": "Enable to configure authorization rule to have manage permissions to the ServiceBus Queue.",
                 "canSend": "Enable to configure authorization rule to have Send permissions to the ServiceBus Queue.",
                 "canListen": "Enable to configure authorization rule to have Listen permissions to the ServiceBus Queue."
-            },
-            "addCosmosDB": {
-                "Name": "Specify unique name of the table.",
-                "PrimaryKeyName": "Specify the primary key of the table.",
-                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
-                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
-                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
-                "SortKeyType": "Select key type. Type supported is String or Number.",
-                "TableName": "Specify a unique name for the table.",
-                "PrimaryKey": "Specify the primary key for the table.",
-                "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
-                "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
-                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number')."
             },
             "vmMaintenanceSchedule": {
                 "StartTime": "Select the date and time when the maintenance schedule should begin.",
