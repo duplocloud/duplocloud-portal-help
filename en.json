@@ -688,12 +688,6 @@
                 "PrivateSubnet": "Use the default private subnet name.",
                 "PublicSubnet": "Use the default public subnet name."
             },
-            "PostgresqlFlexiAuthAdd": {
-                "PrincipalName": "Name of the Azure AD principal (user, group, or service principal) that will authenticate to the PostgreSQL Flexible Server.",
-                "ObjectId": "Object ID (or SID) of the Azure AD principal. This uniquely identifies the principal in Azure Active Directory.",
-                "TenantId": "Azure Active Directory Tenant ID where the principal is defined.",
-                "Role": "Type of Azure AD principal. Select whether this entry represents a user, group, or service principal."
-            },
             "app-add-app-service-plan": {
                 "Name": "Enter a unique name for the App Service Plan.",
                 "tier": "Select the pricing tier for the App Service Plan.",
@@ -1058,6 +1052,12 @@
                 "Kms": "Select a KMS Key.",
                 "LogDeliveryConfiguration": "Enables exporting engine logs and slow logs to Amazon CloudWatch Logs. Select `CloudWatch` to configure.",
                 "EnableEncryptionAtRest": "Select to enable/disable Encryption At Rest."
+            },
+            "pgAuthCreate": {
+                "PrincipalName": "Name of the Azure AD principal (user, group, or service principal) that will authenticate to the PostgreSQL Flexible Server.",
+                "ObjectId": "Object ID (or SID) of the Azure AD principal. This uniquely identifies the principal in Azure Active Directory.",
+                "TenantId": "Azure Active Directory Tenant ID where the principal is defined.",
+                "Role": "Type of Azure AD principal. Select whether this entry represents a user, group, or service principal."
             },
             "AddManagedSql": {
                 "Name": "Specify a unique name for your Managed SQL instance. Must not contain spaces.",
