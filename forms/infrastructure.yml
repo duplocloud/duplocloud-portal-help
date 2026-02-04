@@ -1,0 +1,34 @@
+# Shared fields
+Name: Enter a unique name for the infrastructure.
+AccountId: Enter the unique identifier for the cloud account.
+Region: Select the region where the infrastructure will be deployed.
+Cloud: Select the cloud provider (GCP, AWS, Azure).
+VnetAddressPrefix: Specify the VPC CIDR, e.g., 10.10.0.0/16.
+VnetSubnetCidr: Specify the Subnet CIDR bits, e.g., 22.
+
+# GCP-specific fields
+EnableK8Cluster: Enable Google Kubernetes Engine (GKE) for this cluster.
+IsServerlessKubernetes: Select the cluster mode (e.g., GKE Autopilot).
+ReleaseChannel: Select the GKE release channel (e.g., Regular channel).
+K8sVersion: Specify the GKE version, e.g., 1.34.3-gke.1051003.
+EksVisibility: Select GKE endpoint visibility (Public or Private).
+ClusterIpv4Cidr: Specify the Cluster IP CIDR, e.g., 172.16.0.0/12.
+DisableNatCreation: Choose whether to disable NAT creation.
+
+# AWS-specific fields
+AzCount: Number of availability zones to use for the cluster.
+EnableK8Cluster: Enable Amazon EKS for this cluster.
+IsServerlessKubernetes: Select the cluster mode (e.g., EKS Standard).
+K8sVersion: Specify the EKS version, e.g., 1.34 (Default).
+ClusterIpv4Cidr: Specify the cluster IP CIDR, e.g., 172.16.0.0/12.
+EksVisibility: Select EKS endpoint visibility (Public or Private).
+EksLogging: Select Control Plane Logs to enable (API, audit, authenticator, scheduler, controllerManager).
+EnableECSCluster: Enable creation of an Amazon ECS cluster to run containerized workloads in this environment.
+EnableContainerInsights: Enable Amazon CloudWatch Container Insights to collect, aggregate, and visualize metrics and logs from ECS services and tasks.
+customPrivateCidr: Specify a custom CIDR block for private subnets. Must be a valid IPv4 CIDR range that does not overlap with existing networks.
+customPublicCidr: Specify a custom CIDR block for public subnets. Must be a valid IPv4 CIDR range that does not overlap with existing networks.
+
+# Azure-specific fields
+LogAnalyticsWorkspace: Choose whether to enable a Log Analytics workspace (Yes/No).
+subnetName: Enter the name of the subnet used to identify it within the VPC.
+subnetCidr: Enter the CIDR block assigned to the subnet. Must be a valid IPv4 CIDR range within the VPC address space.
