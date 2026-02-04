@@ -1198,7 +1198,8 @@
                 "CpuCores": "Specify the number of CPU cores to allocate to this container.",
                 "Memory": "Specify the memory to allocate, e.g., 1.25Gi or 4Gi.",
                 "CommandOverride": "Override the default container command here.",
-                "Argumentsoverride": "Override the default container arguments here."
+                "Argumentsoverride": "Override the default container arguments here.",
+                "AddContainerAppAdvancedEnvironmentalVariables": "Specify environment variables for the container as key-value pairs. These values are injected into the container at runtime."
             },
             "K8sJobBasicForm": {
                 "JobName": "Specify the name of the Job, must be unique. Minimum 3 characters.",
