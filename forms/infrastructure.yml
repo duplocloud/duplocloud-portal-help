@@ -1,0 +1,27 @@
+# Shared fields
+Name: Enter a unique name for the infrastructure.
+Region: Select the region where the infrastructure will be deployed.
+VnetAddressPrefix: Specify the VPC CIDR, e.g., 10.10.0.0/16.
+VnetSubnetCidr: Specify the Subnet CIDR bits, e.g., 22.
+
+# GCP-specific fields
+EnableK8Cluster: Enable Google Kubernetes Engine (GKE) for this cluster.
+IsServerlessKubernetes: Select the cluster mode (e.g., GKE Autopilot).
+ReleaseChannel: Select the GKE release channel (e.g., Regular channel).
+K8sVersion: Specify the GKE version, e.g., 1.34.3-gke.1051003.
+EksVisibility: Select GKE endpoint visibility (Public or Private).
+ClusterIpv4Cidr: Specify the Cluster IP CIDR, e.g., 172.16.0.0/12.
+DisableNatCreation: Choose whether to disable NAT creation.
+
+# AWS-specific fields
+AccountId: Select the AWS account for deployment.
+AzCount: Number of availability zones to use for the cluster.
+EnableK8Cluster: Enable Amazon EKS for this cluster.
+IsServerlessKubernetes: Select the cluster mode (e.g., EKS Standard).
+K8sVersion: Specify the EKS version, e.g., 1.34 (Default).
+EksVisibility: Select EKS endpoint visibility (Public or Private).
+
+# Azure-specific fields
+SubnetName: Name of the subnet to use, default is default.
+VNETCIDR: Specify the VNET CIDR, e.g., 10.10.0.0/16.
+LogAnalyticsWorkspace: Choose whether to enable a Log Analytics workspace (Yes/No).
