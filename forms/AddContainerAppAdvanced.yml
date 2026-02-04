@@ -1,9 +1,10 @@
-ContainerName_0: Enter a unique name for your container. Only lowercase letters, numbers, hyphens, and periods are allowed.
-ContainerNameImage_0: Specify the container image to deploy, including the registry and tag, e.g., xyz.registry.io/containerapps-helloworld:latest.
-Server_0: Enter the container registry server URL where your image is hosted.
-UserName_0: Provide the username for the registry if authentication is required.
-Password_0: Provide the password for the registry if authentication is required.
-CpuCores_0: Specify the number of CPU cores to allocate to this container.
-Memory_0: Specify the memory to allocate, e.g., 1.25Gi or 4Gi.
-CommandOverride_0: Override the default container command here.
-Argumentsoverride_0: Override the default container arguments here.
+ContainerName_{index}: Enter a unique name for your container. Only lowercase letters, numbers, hyphens, and periods are allowed.
+ContainerNameImage_{index}: 'Specify the container image to deploy, including the registry and tag, e.g., xyz.registry.io/containerapps-helloworld:latest.'
+Server_{index}: Enter the container registry server URL where your image is hosted.
+UserName_{index}: Provide the username for the registry if authentication is required.
+Password_{index}: Provide the password for the registry if authentication is required.
+CpuCores_{index}: Specify the number of CPU cores to allocate to this container.
+Memory_{index}: Specify the memory to allocate, e.g., 1.25Gi or 4Gi.
+CommandOverride_{index}: Override the default container command here.
+Argumentsoverride_{index}: Override the default container arguments here.
+EnvironmentalVariables_{index}: 'Specify environment variables in JSON format, e.g., {"KEY": "VALUE"}.'
