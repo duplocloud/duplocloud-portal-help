@@ -2,7 +2,7 @@ Name: Enter the name of the Container App Environment.
 WorkloadProfiles0: Select a Workload Profile for this environment.
 workloadName: Enter a name for the individual Workload Profile (max 15 chars).
 InstanceMinCount: Specify the minimum number of instances for this profile.
-InstanceMaxCount.py: Specify the maximum number of instances for this profile.
+InstanceMaxCount: Specify the maximum number of instances for this profile.
 appLogDestinations: Select where logs should be sent.
 logAnalyticsWorkspaces: Select the Log Analytics Workspace(s) for monitoring this environment.
 SubnetId: Select the subnet for this environment.
