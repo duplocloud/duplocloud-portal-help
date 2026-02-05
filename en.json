@@ -46,6 +46,16 @@
                 "HttpTargetAuth": "Select authentication.",
                 "HttpTargetBody": "Enter the message body.\nExample:\n```js\n{\n\"task\": \"daily-report\",\n\"status\": \"pending\"\n}\n```"
             },
+            "AddFunctionApp": {
+                "hostingPlan": "Select the hosting plan for the Function App (e.g., 'Consumption (Serverless)' or 'Functions Premium').",
+                "Name": "Enter the name for your Function App.",
+                "selectedOperatingSystem": "Select the operating system for the Function App.",
+                "storageAccountName": "Choose the storage account to associate with the Function App.",
+                "runtimeStack": "Select the runtime stack for the Function App.",
+                "version": "Select the runtime stack version.",
+                "appSettings": "Enter application settings in JSON format.",
+                "connectionStrings": "Enter connection strings in JSON format."
+            },
             "createSnapshot": {
                 "SnapshotName": "Specify the name for snapshot."
             },
@@ -652,8 +662,8 @@
             },
             "addContainerAppEnvironment": {
                 "Name": "Enter a unique name for the Container App Environment.",
-                "WorkloadProfiles": "Select the workload profile to define the compute characteristics for this environment.",
-                "workloadName": "Enter a name for this workload profile. The name must start with a letter and can include letters, numbers, hyphens, or underscores.",
+                "WorkloadProfiles0": "Select the workload profile to define the compute characteristics for this environment.",
+                "workloadName": "Enter a name for the individual Workload Profile (max 15 chars).",
                 "InstanceMinCount": "Specify the minimum number of instances for this profile.",
                 "InstanceMaxCount": "Specify the maximum number of instances for this profile.",
                 "appcontainerappenvInstanceMinCount": "Specify the minimum number of instances for this profile.",
