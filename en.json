@@ -1173,39 +1173,10 @@
                 "MaximumEventAgeInSeconds": "Specify the maximum amount of time in seconds to keep unprocessed events in the queue."
             },
             "updateASG": {
-                "name": "updateASG",
-                "fields": [
-                    {
-                        "name": "MinSize",
-                        "label": "Minimum Instances",
-                        "type": "number",
-                        "required": true,
-                        "placeholder": "Not Set",
-                        "tooltip": "Specify the minimum number of instances for the autoscaling group."
-                    },
-                    {
-                        "name": "MaxSize",
-                        "label": "Maximum Instances",
-                        "type": "number",
-                        "required": true,
-                        "placeholder": "Not Set",
-                        "tooltip": "Specify the maximum number of instances for the autoscaling group."
-                    },
-                    {
-                        "name": "EnableClusterAutoScaler",
-                        "label": "Enable Cluster Autoscaling",
-                        "type": "checkbox",
-                        "tooltip": "Enable automatic scaling of this group using the cluster autoscaler.",
-                        "wrapper": true
-                    },
-                    {
-                        "name": "CanScaleFromZeroUpdate",
-                        "label": "Can Scale From Zero",
-                        "type": "checkbox",
-                        "tooltip": "Allow this group to scale down to zero instances when not needed.",
-                        "wrapper": true
-                    }
-                ]
+                "MinSize": "Minimum number of instances that should always be running in this Autoscaling Group.",
+                "MaxSize": "Maximum number of instances that this Autoscaling Group can scale out to.",
+                "EnableClusterAutoScaler": "Enable automatic scaling of this group using the cluster autoscaler.",
+                "CanScaleFromZeroUpdate": "Allow this group to scale down to zero instances when not needed."
             },
             "emr_serverless_add_sub_form_limit": {
                 "MaximumCapacityCpu": "Specify the maximum allowed CPU for an application.",
