@@ -1173,12 +1173,8 @@
                 "MaximumEventAgeInSeconds": "Specify the maximum amount of time in seconds to keep unprocessed events in the queue."
             },
             "updateASG": {
-                "minSize": "Specify the minimum number of instances for the autoscaling group.",
-                "maxSize": "Specify the maximum number of instances for the autoscaling group.",
-                "enableClusterAutoScaler": "Enable or disable cluster autoscaling. When enabled, the system can adjust the number of instances automatically.",
-                "canScaleFromZeroUpdate": "Allow the autoscaling group to scale down to zero instances when load is low.",
-                "MinSize": "Minimum number of instances that should always be running in this Autoscaling Group.",
-                "MaxSize": "Maximum number of instances that this Autoscaling Group can scale out to.",
+                "MinSize": "Specify the minimum number of instances for the autoscaling group.",
+                "MaxSize": "Specify the maximum number of instances for the autoscaling group.",
                 "EnableClusterAutoScaler": "Enable automatic scaling of this group using the cluster autoscaler.",
                 "CanScaleFromZeroUpdate": "Allow this group to scale down to zero instances when not needed."
             },
