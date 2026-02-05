@@ -699,6 +699,14 @@
                 "ValuesFrom": "Specify the reference of ConfigMap and Secret resources from which to take values.\nExample\n```yaml\n\n- kind: ConfigMap\n  name: nginx-values\n  valuesKey: values.yaml\n- kind: Secret\n  name: nginx-secrets\n  valuesKey: secret-values.yaml\n\n```",
                 "Labels": "Specify labels\n```yaml\n\nteam: platform\napp.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname\n\n```\n\n  "
             },
+            "startInstanceRefresh": {
+                "instanceReplacementMethod": "Select how instances should be replaced during the refresh.",
+                "minHealthyPercentage": "Specify the minimum percentage of healthy instances that must be maintained during the refresh.",
+                "maxHealthyPercentage": "Specify the maximum percentage of healthy instances allowed during the refresh. This field may be auto-calculated or limited depending on your environment.",
+                "instanceWarmup": "Enter the time in seconds that a new instance should be considered 'warming up' before it is counted as healthy.",
+                "showLaunchTemplate": "Select this option to update the launch template associated with the instances being refreshed.",
+                "launchTemplateVersion": "Specify the version of the launch template to use for the instance refresh."
+            },
             "databrick": {
                 "Name": "Enter Databricks workspace name.",
                 "Tier": "Choose between Standard or Premium. View Pricing details [here](https://azure.microsoft.com/en-us/pricing/details/databricks/).",
