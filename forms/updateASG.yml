@@ -1,4 +1,28 @@
-MinSize: Specify the minimum number of instances for the autoscaling group.
-MaxSize: Specify the maximum number of instances for the autoscaling group.
-EnableClusterAutoScaler: Enable automatic scaling of this group using the cluster autoscaler.
-CanScaleFromZeroUpdate: Allow this group to scale down to zero instances when not needed.
+name: updateASG
+fields:
+  - name: MinSize
+    label: Minimum Instances
+    type: number
+    required: true
+    placeholder: Not Set
+    tooltip: Specify the minimum number of instances for the autoscaling group.
+
+  - name: MaxSize
+    label: Maximum Instances
+    type: number
+    required: true
+    placeholder: Not Set
+    tooltip: Specify the maximum number of instances for the autoscaling group.
+
+  - name: EnableClusterAutoScaler
+    label: Enable Cluster Autoscaling
+    type: checkbox
+    tooltip: Enable automatic scaling of this group using the cluster autoscaler.
+    wrapper: true
+
+  - name: CanScaleFromZeroUpdate
+    label: Can Scale From Zero
+    type: checkbox
+    tooltip: Allow this group to scale down to zero instances when not needed.
+    wrapper: true
+
