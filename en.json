@@ -481,6 +481,12 @@
                 "SourceType": "Select the sourcing repository. [Details](https://fluxcd.io/flux/components/source/helmrepositories/).",
                 "Secret": "Select a Kubernetes `dockerconfigjson` secret used to authenticate to a private container registry."
             },
+            "allocationTag": {
+                "MinSize": "Specify the minimum number of instances for the autoscaling group.",
+                "MaxSize": "Specify the maximum number of instances for the autoscaling group.",
+                "EnableClusterAutoScaler": "Enable automatic scaling of this group using the cluster autoscaler.",
+                "CanScaleFromZeroUpdate": "Allow this group to scale down to zero instances when not needed."
+            },
             "rdsRestorePointTime": {
                 "TargetName": "Specify the rds identifier name. Should be unique across all tenants.",
                 "latestRestorableTime": "Select  to restore DB from the latest backup time.",
@@ -1171,12 +1177,6 @@
                 "DeadLetterQueue": "Select SQS queue or SNS Topic to send events from an an asynchronous invocation.",
                 "MaximumRetryAttempts": "Specify the maximum number of times to retry when the function returns an error.",
                 "MaximumEventAgeInSeconds": "Specify the maximum amount of time in seconds to keep unprocessed events in the queue."
-            },
-            "updateASG": {
-                "MinSize": "Specify the minimum number of instances for the autoscaling group.",
-                "MaxSize": "Specify the maximum number of instances for the autoscaling group.",
-                "EnableClusterAutoScaler": "Enable automatic scaling of this group using the cluster autoscaler.",
-                "CanScaleFromZeroUpdate": "Allow this group to scale down to zero instances when not needed."
             },
             "emr_serverless_add_sub_form_limit": {
                 "MaximumCapacityCpu": "Specify the maximum allowed CPU for an application.",
