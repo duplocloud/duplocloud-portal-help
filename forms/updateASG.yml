@@ -1,0 +1,4 @@
+MinSize: Minimum number of instances that should always be running in this Autoscaling Group.
+MaxSize: Maximum number of instances that this Autoscaling Group can scale out to.
+EnableClusterAutoScaler: Enable automatic scaling of this group using the cluster autoscaler.
+CanScaleFromZeroUpdate: Allow this group to scale down to zero instances when not needed.

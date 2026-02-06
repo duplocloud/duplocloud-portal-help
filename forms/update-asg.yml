@@ -1,4 +1,0 @@
-minSize: Specify the minimum number of instances for the autoscaling group.
-maxSize: Specify the maximum number of instances for the autoscaling group.
-enableClusterAutoScaler: Enable or disable cluster autoscaling. When enabled, the system can adjust the number of instances automatically.
-canScaleFromZeroUpdate: Allow the autoscaling group to scale down to zero instances when load is low.

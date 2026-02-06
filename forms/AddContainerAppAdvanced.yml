@@ -1,0 +1,9 @@
+ContainerName: Enter a unique name for your container. Only lowercase letters, numbers, hyphens, and periods are allowed.
+ContainerNameImage: 'Specify the container image to deploy, including the registry and tag, e.g., xyz.registry.io/containerapps-helloworld:latest.'
+Server: Enter the container registry server URL where your image is hosted.
+UserName: Provide the username for the registry if authentication is required.
+Password: Provide the password for the registry if authentication is required.
+CpuCores: Specify the number of CPU cores to allocate to this container.
+Memory: Specify the memory to allocate, e.g., 1.25Gi or 4Gi.
+CommandOverride: Override the default container command here.
+Argumentsoverride: Override the default container arguments here.

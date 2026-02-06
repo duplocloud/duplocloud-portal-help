@@ -46,6 +46,16 @@
                 "HttpTargetAuth": "Select authentication.",
                 "HttpTargetBody": "Enter the message body.\nExample:\n```js\n{\n\"task\": \"daily-report\",\n\"status\": \"pending\"\n}\n```"
             },
+            "AddFunctionApp": {
+                "hostingPlan": "Select the hosting plan for the Function App (e.g., 'Consumption (Serverless)' or 'Functions Premium').",
+                "Name": "Enter the name for your Function App.",
+                "selectedOperatingSystem": "Select the operating system for the Function App.",
+                "storageAccountName": "Choose the storage account to associate with the Function App.",
+                "runtimeStack": "Select the runtime stack for the Function App.",
+                "version": "Select the runtime stack version.",
+                "appSettings": "Enter application settings in JSON format.",
+                "connectionStrings": "Enter connection strings in JSON format."
+            },
             "createSnapshot": {
                 "SnapshotName": "Specify the name for snapshot."
             },
@@ -79,16 +89,6 @@
                 "enableDiskEncryption": "Select to enable encryption at rest for EBS volumes.",
                 "EncryptionKey": "Select KMS keys for disk encryption."
             },
-            "add-app-container-env-tooltips": {
-                "Name": "Enter the name of the Container App Environment.",
-                "WorkloadProfiles0": "Select a Workload Profile for this environment.",
-                "workloadName_0": "Enter a name for the individual Workload Profile (max 15 chars).",
-                "InstanceMinCount_0": "Specify the minimum number of instances for this profile.",
-                "InstanceMaxCount_0": "Specify the maximum number of instances for this profile.",
-                "appLogDestinations": "Select where logs should be sent.",
-                "logAnalyticsWorkspaces": "Select the Log Analytics Workspace(s) for monitoring this environment.",
-                "SubnetId": "Select the subnet for this environment."
-            },
             "datafactory": {
                 "Name": "Specify the name of the Data Factory. Data Factory names must be globally unique.",
                 "PublicEndpoint": "Enable/Disable for Data Factory visibility to the public network."
@@ -110,6 +110,16 @@
                 "Description": "The description of the rule.",
                 "ScheduleExpression": "The scheduling expression. Use Rate Expressions. For example, `rate(5 minutes)` or `rate(1 day)`. Refer [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/events/ScheduledEvents.html#RateExpressions).",
                 "State": "Select the state of the rule."
+            },
+            "AzureAvailabilitySet": {
+                "name": "Enter a unique name for the Availability Set. Must be 3-61 characters, lowercase letters, numbers, and hyphens only.",
+                "sku": "Select whether to use managed disks for the Availability Set. Options include 'Classic' and 'Aligned'.",
+                "platformFaultDomainCount": "Specify the number of fault domains for the Availability Set. Valid values are 1 to 3.",
+                "platformUpdateDomainCount": "Specify the number of update domains for the Availability Set. Valid values are 1 to 20.",
+                "Name": "Enter a unique name for the Availability Set. Must be 3-61 characters, lowercase letters, numbers, and hyphens only.",
+                "Sku": "Select whether to use managed disks for the Availability Set. Options include 'Classic' and 'Aligned'.",
+                "PlatformFaultDomainCount": "Specify the number of fault domains (1-3). Fault domains isolate your VMs to reduce impact from hardware failures.",
+                "PlatformUpdateDomainCount": "Specify the number of update domains (1-20). Update domains ensure VMs are rebooted in batches during maintenance."
             },
             "AddAwsSecrets": {
                 "Name": "The name of the new secret.",
@@ -225,6 +235,36 @@
                 "canSend": "Enable to configure authorization rule to have Send permissions to the ServiceBus Queue.",
                 "canListen": "Enable to configure authorization rule to have Listen permissions to the ServiceBus Queue."
             },
+            "addCosmosDB": {
+                "Name": "Enter a unique name for your CosmosDB account. Only lowercase letters, numbers, and hyphens are allowed. Min 2, max 40 characters.",
+                "PrimaryKeyName": "Specify the primary key of the table.",
+                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
+                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
+                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
+                "SortKeyType": "Select key type. Type supported is String or Number.",
+                "TableName": "Specify a unique name for the table.",
+                "PrimaryKey": "Specify the primary key for the table.",
+                "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
+                "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
+                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number').",
+                "CapacityMode": "Select the capacity mode for your CosmosDB account. Options are 'Provisioned throughput' or 'Serverless'.",
+                "PublicAccess": "Choose whether the database should be publicly accessible or restricted to private endpoints.",
+                "EnableFreeTier": "Enable the free tier for your CosmosDB account to reduce cost if eligible.",
+                "DisableKeyBasedMetadataWriteAccess": "Toggle key-based authentication for metadata write operations. When enabled, it disables key-based writes.",
+                "BackupPolicyType": "Select the backup policy type. 'Periodic' backs up at intervals, 'Continuous' provides continuous backup.",
+                "BackupInterval": "Specify the backup interval in minutes. Must be between 60 and 1440.",
+                "BackupRetention": "Specify how long backups are retained in hours. Must be between 8 and 720.",
+                "BackupStorageRedundancy": "Select the backup storage redundancy type. Options include 'Local', 'Geo', or other supported redundancy modes."
+            },
+            "vmMaintenanceSchedule": {
+                "StartTime": "Select the date and time when the maintenance schedule should begin.",
+                "TimeZone": "Select the time zone that applies to the maintenance schedule.",
+                "Hour": "Enter the number of hours for the maintenance window.",
+                "Minute": "Enter the number of minutes for the maintenance window.",
+                "Repeat": "Enter how often the maintenance window should repeat per interval.",
+                "RepeatType": "Select the unit of time for the repeat interval. Options are Day, Week, or Month.",
+                "EndTime": "Select the date and time when the maintenance schedule should end, \nor leave blank to run indefinitely."
+            },
             "AddGcpSubscription": {
                 "Name": "Name of the subscription.",
                 "Topic": "Select the Pub Sub Topic for reference.",
@@ -292,6 +332,12 @@
                 "Metadata": "Configure Compute Engine instance metadata.\n```js\n{\n\"key\" : \"value\"\n}\n```\n",
                 "Base64UserData": "Configure startup-script metadata in below format. ```echo \"Hello from startup script!\" > /test.txt```"
             },
+            "AddPgSql": {
+                "Name": "Enter a unique name for the Redis instance.",
+                "serviceTier": "Select the service tier for the Redis instance.",
+                "nonTlsOption": "Choose whether the non-SSL port is enabled.",
+                "PublicAccess": "Specify whether the Redis instance should be publicly accessible"
+            },
             "cwrule-target-lambda-add": {
                 "Lambda Function Name": "Select the Lambda function."
             },
@@ -334,19 +380,6 @@
                 "DeploymentStrategy": "Deployment Strategy specifications as documented [here](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/#rolling-update-deployment). Sample value can be like below.\n```yaml\n\nRollingUpdate:\nMaxSurge: 1\nMaxUnavailable: 0\n```",
                 "HPAConfig": "Horizontal pod autoscaler specifications as documented [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/). Sample value can be like below.\n```yaml\n\nmaxReplicas: 5\nmetrics:\n  - resource:\n      name: cpu\n      target:\n        averageUtilization: 80\n        type: Utilization\n    type: Resource\nminReplicas: 2\n```"
             },
-            "AddDynamoDB": {
-                "Name": "Specify unique name of the table.",
-                "PrimaryKeyName": "Specify the primary key of the table.",
-                "Type": "**HASH** - Select to use as the hash (partition) key.\n**Range** - Select to use as the range (sort) key.\n",
-                "Size": "Select the attribute. Data types allowed for primary key attributes are string or number.",
-                "SortKeyName": "SortKey is applicable for range attribute. Stores item in sorted order by the sort key value.",
-                "SortKeyType": "Select key type. Type supported is String or Number.",
-                "TableName": "Specify a unique name for the table.",
-                "PrimaryKey": "Specify the primary key for the table.",
-                "PrimaryKeyDataType": "Select the data type for the key ('String' or 'Number').",
-                "SortKey": "Optional. Use a sort key to store items in order by this attribute, enabling range queries on the table.",
-                "SortKeyDataType": "Select the data type for the sort key ('String' or 'Number')."
-            },
             "addECR": {
                 "Name": "Specify name of the ECR.",
                 "KmsEncryption": "Select KMS key for the repository.",
@@ -365,6 +398,16 @@
                 "otherLimits": "You can use this input to all other quotas like storage, Object count etc. Value has to be provided in YAML format like below.  \n```yaml\nrequests.storage: 500Gi\npersistentvolumeclaims: 10\n```\n",
                 "scopeSelector": "Each quota can have an associated set of scopes. A quota will only measure usage for a resource if it matches the intersection of enumerated scopes. \nWhen a scope is added to the quota, it limits the number of resources it supports to those that pertain to the scope. Resources specified on the quota outside of the allowed set results in a validation error. \nValue has to be provided in YAML format as below.  \n```yaml\nmatchExpressions:\n- operator: In\n  scopeName: PriorityClass\n  values:\n    - middle\n```"
             },
+            "appcontainerappenv": {
+                "Name": "Enter the name of the Container App Environment.",
+                "WorkloadProfiles0": "Select a Workload Profile for this environment.",
+                "workloadName": "Enter a name for the individual Workload Profile (max 15 chars).",
+                "InstanceMinCount": "Specify the minimum number of instances for this profile.",
+                "InstanceMaxCount": "Specify the maximum number of instances for this profile.",
+                "appLogDestinations": "Select where logs should be sent.",
+                "logAnalyticsWorkspaces": "Select the Log Analytics Workspace(s) for monitoring this environment.",
+                "SubnetId": "Select the subnet for this environment."
+            },
             "AddPVC": {
                 "name": "Name for Persistent Volume Claim.",
                 "storageClassName": "Storage Class Name for the Persistent Volume Claim to be created.",
@@ -382,6 +425,12 @@
                 "mediaType": "Specify which layer should be extracted from the OCI Artifact.",
                 "operation": "Select the operation from the dropdown,",
                 "Secret": "Select the `dockerconfigjson` secret created from Kubernetes Secret to authenticate to OCI registry."
+            },
+            "keyVault": {
+                "Name": "Enter a unique name for the Key Vault. The name must be 3\u201324 characters long and can contain only letters, numbers, and hyphens.",
+                "SKUPricing": "Select the pricing tier for the Key Vault. The Standard SKU is suitable for most use cases.",
+                "PurgeProtection": "Enables purge protection for the Key Vault. Once enabled, this setting cannot be disabled and prevents permanent deletion of the vault.",
+                "RetentionDays": "Specify the number of days to retain soft-deleted Key Vault items before permanent deletion. Valid values range from 7 to 90 days."
             },
             "AddSbPrivateEndpoint": {
                 "Name": "Specify Private EndPoint name.",
@@ -424,12 +473,6 @@
                 "MinWorkers": "The minimum number of workers that you want to run in your environment.",
                 "MaxWorkers": "The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`.",
                 "AirflowConfigurationOptions_str": "Specify parameters to override airflow options.\nSample Value can be as below\n```js\n{\n  \"core.log_format\": \"[%%(asctime)s] {{%%(filename)s:%%(lineno)d}} %%(levelname)s - %%(message)s\"\n}\n```\n"
-            },
-            "azure-add-redis": {
-                "Name": "Enter a unique name for your Redis instance.",
-                "serviceTier": "Select the service tier for the Redis instance.",
-                "nonTlsOption": "Enable or disable the non-SSL (non-TLS) port for this Redis instance.",
-                "PublicAccess": "Enable or disable public access for the Redis instance."
             },
             "emr_serverless_add_sub_form_pre_capacity": {
                 "DriverCount": "Specify initialized Driver Capacity.",
@@ -528,15 +571,6 @@
             "emrserverlsess_add_runjob_sub_form_app_config": {
                 "ApplicationConfiguration": "Specify job configurations to override the default configurations for your applications.\n 1. **Spark:** \n```js\n[{\n              \"Classification\": \"spark-defaults\",\n              \"Configurations\": [],\n              \"Properties\": {\n                  \"spark.driver.cores\": \"2\",\n                  \"spark.driver.memory\": \"4g\",\n\t\t\t        \"spark.dynamicAllocation.minExecutors\":\"1\"\n              }\n          }]\n```\n2. **Hive:** \n```js\n[\n          {\n              \"Classification\": \"hive-site\",\n              \"Configurations\": [],\n              \"Properties\": {\n                  \"hive.driver.cores\": \"2\",\n                  \"hive.driver.memory\": \"4g\",\n                  \"hive.tez.container.size\": \"8192\",\n                  \"hive.tez.cpu.vcores\": \"4\"\n              }\n          }\n      ]\n```\n"
             },
-            "vm-maintenance-schedule": {
-                "StartTime": "Select the date and time when the maintenance schedule should begin.",
-                "TimeZone": "Select the time zone that applies to the maintenance schedule.",
-                "Hour": "Enter the number of hours for the maintenance window.",
-                "Minute": "Enter the number of minutes for the maintenance window.",
-                "Repeat": "Enter how often the maintenance window should repeat per interval.",
-                "RepeatType": "Select the unit of time for the repeat interval. Options are Day, Week, or Month.",
-                "EndTime": "Select the date and time when the maintenance schedule should end, \nor leave blank to run indefinitely."
-            },
             "mq-config-add": {
                 "Name": "Name of the configuration.",
                 "EngineType": "Select the Type of broker engine.",
@@ -629,9 +663,11 @@
             "addContainerAppEnvironment": {
                 "Name": "Enter a unique name for the Container App Environment.",
                 "WorkloadProfiles0": "Select the workload profile to define the compute characteristics for this environment.",
-                "workloadName_0": "Enter a name for this workload profile. The name must start with a letter and can include letters, numbers, hyphens, or underscores.",
-                "InstanceMinCount_0": "Specify the minimum number of instances that should always be running for this workload profile.",
-                "InstanceMaxCount_0": "Specify the maximum number of instances that can be created for this workload profile.",
+                "workloadName": "Enter a name for the individual Workload Profile (max 15 chars).",
+                "InstanceMinCount": "Specify the minimum number of instances for this profile.",
+                "InstanceMaxCount": "Specify the maximum number of instances for this profile.",
+                "appcontainerappenvInstanceMinCount": "Specify the minimum number of instances for this profile.",
+                "appcontainerappenvInstanceMaxCount": "Specify the maximum number of instances for this profile.",
                 "appLogDestinations": "Select where application logs from this environment should be sent.",
                 "SubnetId": "Select the subnet where the Container App Environment will be deployed."
             },
@@ -660,12 +696,6 @@
                 "AutoStopConfiguration_Enabled": "Enable the configuration for an application to automatically stop after a certain amount of time being idle.",
                 "IdleTimeoutMinutes": "The amount of idle time in minutes after which your application will automatically stop."
             },
-            "keyvault-add": {
-                "Name": "Enter a unique name for the Key Vault. The name must be 3\u201324 characters long and can contain only letters, numbers, and hyphens.",
-                "SKUPricing": "Select the pricing tier for the Key Vault. The Standard SKU is suitable for most use cases.",
-                "PurgeProtection": "Enables purge protection for the Key Vault. Once enabled, this setting cannot be disabled and prevents permanent deletion of the vault.",
-                "RetentionDays": "Specify the number of days to retain soft-deleted Key Vault items before permanent deletion. Valid values range from 7 to 90 days."
-            },
             "addHelmRelease": {
                 "Name": "Provide Name for the Helm Chart.",
                 "ReleaseName": "Provide release name to identify specific deployment of helm chart.",
@@ -677,6 +707,14 @@
                 "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n\n  replicaCount: 2\n  serviceAccount:\n    create: true\n\n```",
                 "ValuesFrom": "Specify the reference of ConfigMap and Secret resources from which to take values.\nExample\n```yaml\n\n- kind: ConfigMap\n  name: nginx-values\n  valuesKey: values.yaml\n- kind: Secret\n  name: nginx-secrets\n  valuesKey: secret-values.yaml\n\n```",
                 "Labels": "Specify labels\n```yaml\n\nteam: platform\napp.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname\n\n```\n\n  "
+            },
+            "startInstanceRefresh": {
+                "instanceReplacementMethod": "Select how instances should be replaced during the refresh.",
+                "minHealthyPercentage": "Specify the minimum percentage of healthy instances that must be maintained during the refresh.",
+                "maxHealthyPercentage": "Specify the maximum percentage of healthy instances allowed during the refresh. This field may be auto-calculated or limited depending on your environment.",
+                "instanceWarmup": "Enter the time in seconds that a new instance should be considered 'warming up' before it is counted as healthy.",
+                "showLaunchTemplate": "Select this option to update the launch template associated with the instances being refreshed.",
+                "launchTemplateVersion": "Specify the version of the launch template to use for the instance refresh."
             },
             "databrick": {
                 "Name": "Enter Databricks workspace name.",
@@ -798,6 +836,13 @@
                 "DatabaseName": "The name of the Timestream database.",
                 "KmsKeyId": "Select the KMS key to be used to encrypt the data stored in the database."
             },
+            "AddIngressRule": {
+                "serviceName": "Name of the kubernetes service which Ingress will use as backend to serve the request.\nThe service must already be configured as a LoadBalancer, NodePort, or ClusterIP.\nSee the documentation [here](https://docs.duplocloud.com/docs/aws/quick-start/step-6-create-a-load-balancer)\n",
+                "port": "Backend port on the Kubernetes service that the Ingress will route traffic to.\nThis value must be provided as a string (for example, \"443\"), not a number..\n",
+                "host": "If a host is provided (for e.g. example.com, foo.bar.com), the rules apply to that host.",
+                "path": "Specify the path (for e.g. /api /v1/api/)for path-based routing. If a host is specified, both the host and path must match the incoming request.",
+                "pathType": "Each path in an Ingress is required to have a corresponding path type. Paths that do not include an explicit pathType will fail validation. There are three supported path types:\n\n1. *ImplementationSpecific*: Matching behavior is determined by the IngressClass and may behave like Prefix or Exact path types.\n2. *Exact*: Matches the URL path exactly and with case sensitivity.\n3. *Prefix*: Matches based on a URL path prefix split by /. Matching is case sensitive and done on a path element by element basis. A path element refers to the list of labels in the path split by the / separator. A request is a match for path p if every p is an element-wise prefix of p of the request path. \n"
+            },
             "AddServiceBasic": {
                 "ServiceName": "Any friendly name to identify your service.",
                 "AllocationTag": "A string value that needs to be a substring of the corresponding allocation tag value set on a Host. If there is no host with such an allocation tag value then service will not get deployed. simplest example is if you want the container to be deployed in a certain set of hosts only then set an allocation tag on those hosts called web and then set the allocation tag here to be web.",
@@ -822,12 +867,6 @@
                 "ForceStatefulSet": "Select to create a StatefulSet service.",
                 "AppName": "(Optional) Enter an App Name to group your apps. This can help filter only services related to your apps."
             },
-            "postgresql-flexi-auth-add": {
-                "PrincipalName": "Name of the Azure AD principal (user, group, or service principal) that will authenticate to the PostgreSQL Flexible Server.",
-                "ObjectId": "Object ID (or SID) of the Azure AD principal. This uniquely identifies the principal in Azure Active Directory.",
-                "TenantId": "Azure Active Directory Tenant ID where the principal is defined.",
-                "Role": "Type of Azure AD principal. Select whether this entry represents a user, group, or service principal."
-            },
             "emrserverlsess_add_runjob_sub_form_script": {
                 "ScriptQueryInitFileBucket": "Choose S3 Bucket where the initialization script is stored.",
                 "ScriptQueryInitFile": "Specify S3 folder location of the initialization script that you can use to initialize tables prior to running the Hive script. Example: `samples/hive-scripts/create_table.sql`\n",
@@ -842,13 +881,6 @@
                 "specOther": "Add Job Spec in yaml format.\n```yaml\ncompletions: 3\nmanualSelector: true\nparallelism: 3\ntemplate:\n  spec:\n    dnsPolicy: ClusterFirst\n    schedulerName: default-scheduler\n    securityContext: {}\n    terminationGracePeriodSeconds: 30\n    volumes:\n      - name: my-volume\n        persistentVolumeClaim:\n          claimName: my-pvc-claim\n```\n",
                 "medataAnnotations": "Add Job Metadata Annotations.\nFollow below format:\n```yaml\nannotation_name: value1\nannotation_type: value2\n```\n",
                 "medataLabels": "Add Job Metadata Labels.\n```yaml\nlabel1: value1\nlabel2: value2\n```"
-            },
-            "IngressRule": {
-                "serviceName": "Name of the kubernetes service which Ingress will use as backend to serve the request. User will have to first configure a Loadbalancer/Kubernetes NodePort/Kubernetes ClusterIP for the DuploCloud service. \nYou can find the document [here](https://docs.duplocloud.com/docs/aws/quick-start/step-6-create-a-load-balancer)\n",
-                "port": "Port from the kubernetes service that ingress will use as backend port to serve the requests.",
-                "host": "If a host is provided (for e.g. example.com, foo.bar.com), the rules apply to that host.",
-                "path": "Specify the path (for e.g. /api /v1/api/) to do a path base routing. If host is specified then both path and host should be match for the incoming request.",
-                "pathType": "Each path in an Ingress is required to have a corresponding path type. Paths that do not include an explicit pathType will fail validation. There are three supported path types:\n\nImplementationSpecific: With this path type, matching is up to the IngressClass. Implementations can treat this as a separate pathType or treat it identically to Prefix or Exact path types.\n\n1. *Exact*: Matches the URL path exactly and with case sensitivity.\n\n2. *Prefix*: Matches based on a URL path prefix split by /. Matching is case sensitive and done on a path element by element basis. A path element refers to the list of labels in the path split by the / separator. A request is a match for path p if every p is an element-wise prefix of p of the request path. \n"
             },
             "VantaControl": {
                 "EnableVanta": "Enable Vanta monitor. GuardDuty will be enabled by default when this setting is enabled.",
@@ -957,6 +989,12 @@
                 "tgForwardActionArn": "Select the Target Group to which to route the traffic.",
                 "itemVal00": "Enter Value applicable as per the Rule Condition selected. For details, refer [here](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html#listener-rules)."
             },
+            "AddContainerAppBasic": {
+                "Name": "Enter a unique name for your container app. Must be 1-32 characters, lowercase letters, numbers, or hyphens.",
+                "AppEnvironment": "Select the environment in which the container app will run.",
+                "WorkloadProfileName": "Choose a workload profile, e.g.,'Consumption' for serverless apps.",
+                "EnableIngress": "Choose whether to enable ingress for this app. Disabled means no public HTTP access."
+            },
             "dataPipelineAddImport": {
                 "Name": "Unique Data Pipeline Name",
                 "PipeLineDef": "Please provide Data Pipeline defination json. Provide EmrCluster details If using existing  EmrCluster.\n                    ```js\n                    {\n                    \"PipelineObjects\": [\n                      {\n                          \"Id\": \"Default\",\n                          \"Name\": \"Default\",\n                          \"Fields\": [\n                              {\n                                  \"Key\": \"failureAndRerunMode\",\n                                  \"StringValue\": \"CASCADE\"\n                              },\n                              {\n                                  \"Key\": \"pipelineLogUri\",\n                                  \"StringValue\": \"s3://YOUR-S3-FOLDER/logs/data-pipelines/\"\n                              },\n                              {\n                                  \"Key\": \"scheduleType\",\n                                  \"StringValue\": \"cron\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"EmrConfigurationId_Q9rpL\",\n                          \"Name\": \"DefaultEmrConfiguration1\",\n                          \"Fields\": [\n                              {\n                                  \"Key\": \"configuration\",\n                                  \"RefValue\": \"EmrConfigurationId_LFzOl\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"EmrConfiguration\"\n                              },\n                              {\n                                  \"Key\": \"classification\",\n                                  \"StringValue\": \"spark-env\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"ActionId_SUEgm\",\n                          \"Name\": \"TriggerNotificationOnFail\",\n                          \"Fields\": [\n                              {\n                                  \"Key\": \"subject\",\n                                  \"StringValue\": \"Backcountry-clickstream-delta-hourly: #{node.@pipelineId} Error: #{node.errorMessage}\"\n                              },\n                              {\n                                  \"Key\": \"message\",\n                                  \"StringValue\": \"Backcountry-clickstream-delta-hourly failed to run\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"SnsAlarm\"\n                              },\n                              {\n                                  \"Key\": \"topicArn\",\n                                  \"StringValue\": \"arn:aws:sns:us-west-2:269378226633:duploservices-pravin-test-del77-128329325849\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"EmrActivityObj\",\n                          \"Name\": \"EmrActivityObj\",\n                          \"Fields\": [\n                              {\n                                  \"Key\": \"schedule\",\n                                  \"RefValue\": \"ScheduleId_NfOUF\"\n                              },\n                              {\n                                  \"Key\": \"step\",\n                                  \"StringValue\": \"#{myEmrStep}\"\n                              },\n                              {\n                                  \"Key\": \"runsOn\",\n                                  \"RefValue\": \"EmrClusterObj\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"EmrActivity\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"EmrConfigurationId_LFzOl\",\n                          \"Name\": \"DefaultEmrConfiguration2\",\n                          \"Fields\": [\n                              {\n                                  \"Key\": \"property\",\n                                  \"RefValue\": \"PropertyId_NA18c\"\n                              },\n                              {\n                                  \"Key\": \"classification\",\n                                  \"StringValue\": \"export\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"EmrConfiguration\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"EmrClusterObj\",\n                          \"Name\": \"EmrClusterObj\",\n                          \"Fields\": [\n                              {\n                                  \"Key\": \"taskInstanceType\",\n                                  \"StringValue\": \"#{myTaskInstanceType}\"\n                              },\n                              {\n                                  \"Key\": \"onFail\",\n                                  \"RefValue\": \"ActionId_SUEgm\"\n                              },\n                              {\n                                  \"Key\": \"maximumRetries\",\n                                  \"StringValue\": \"1\"\n                              },\n                              {\n                                  \"Key\": \"configuration\",\n                                  \"RefValue\": \"EmrConfigurationId_Q9rpL\"\n                              },\n                              {\n                                  \"Key\": \"coreInstanceCount\",\n                                  \"StringValue\": \"#{myCoreInstanceCount}\"\n                              },\n                              {\n                                  \"Key\": \"masterInstanceType\",\n                                  \"StringValue\": \"#{myMasterInstanceType}\"\n                              },\n                              {\n                                  \"Key\": \"releaseLabel\",\n                                  \"StringValue\": \"#{myEMRReleaseLabel}\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"EmrCluster\"\n                              },\n                              {\n                                  \"Key\": \"terminateAfter\",\n                                  \"StringValue\": \"3 Hours\"\n                              },\n                              {\n                                  \"Key\": \"bootstrapAction\",\n                                  \"StringValue\": \"#{myBootstrapAction}\"\n                              },\n                              {\n                                  \"Key\": \"taskInstanceCount\",\n                                  \"StringValue\": \"#{myTaskInstanceCount}\"\n                              },\n                              {\n                                  \"Key\": \"coreInstanceType\",\n                                  \"StringValue\": \"#{myCoreInstanceType}\"\n                              },\n                              {\n                                  \"Key\": \"applications\",\n                                  \"StringValue\": \"spark\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"ScheduleId_NfOUF\",\n                          \"Name\": \"Every 10 hr\",\n                          \"Fields\": [\n                              {\n                                  \"Key\": \"period\",\n                                  \"StringValue\": \"10 Hours start time 2\"\n                              },\n                              {\n                                  \"Key\": \"startDateTime\",\n                                  \"StringValue\": \"2022-01-07T21:21:00\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"Schedule\"\n                              },\n                              {\n                                  \"Key\": \"endDateTime\",\n                                  \"StringValue\": \"2022-01-08T15:44:28\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"PropertyId_NA18c\",\n                          \"Name\": \"DefaultProperty1\",\n                          \"Fields\": [\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"Property\"\n                              },\n                              {\n                                  \"Key\": \"value\",\n                                  \"StringValue\": \"/usr/bin/python3\"\n                              },\n                              {\n                                  \"Key\": \"key\",\n                                  \"StringValue\": \"PYSPARK_PYTHON\"\n                              }\n                          ]\n                      }\n                    ],\n                    \"ParameterValues\": [\n                      {\n                          \"Id\": \"myEMRReleaseLabel\",\n                          \"StringValue\": \"emr-6.1.0\"\n                      },\n                      {\n                          \"Id\": \"myMasterInstanceType\",\n                          \"StringValue\": \"m3.xlarge\"\n                      },\n                      {\n                          \"Id\": \"myBootstrapAction\",\n                          \"StringValue\": \"s3://YOUR-S3-FOLDER/bootstrap_actions/your_boottrap_and_python_lib_installer.sh\"\n                      },\n                      {\n                          \"Id\": \"myEmrStep\",\n                          \"StringValue\": \"command-runner.jar,spark-submit,--packages,io.delta:delta-core_2.12:0.8.0,--conf,spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension,--conf,spark.sql.catalog.spark_catalog=org.apache.spark.sql.delta.catalog.DeltaCatalog,--num-executors,2,--executor-cores,2,--executor-memory,2G,--conf,spark.driver.memoryOverhead=4096,--conf,spark.executor.memoryOverhead=4096,--conf,spark.dynamicAllocation.enabled=false,--name,PixelClickstreamData,--py-files,s3://YOUR-S3-FOLDER/libraries/librariy1.zip,--py-files,s3://YOUR-S3-FOLDER/libraries/librariy2.zip,s3://YOUR-S3-FOLDER/your_script.py, your_script_arg1, your_script_arg2\"\n                      },\n                      {\n                          \"Id\": \"myEmrStep\",\n                          \"StringValue\": \"command-runner.jar,aws,athena,start-query-execution,--query-string,MSCK REPAIR TABLE your_database.your_table,--result-configuration,OutputLocation=s3://YOUR-S3-FOLDER/logs/your_query_parquest\"\n                      },\n                      {\n                          \"Id\": \"myCoreInstanceType\",\n                          \"StringValue\": \"m3.xlarge\"\n                      },\n                      {\n                          \"Id\": \"myCoreInstanceCount\",\n                          \"StringValue\": \"1\"\n                      }\n                    ],\n                    \"ParameterObjects\": [\n                      {\n                          \"Id\": \"myEC2KeyPair\",\n                          \"Attributes\": [\n                              {\n                                  \"Key\": \"helpText\",\n                                  \"StringValue\": \"An existing EC2 key pair to SSH into the master node of the EMR cluster as the user \\\"hadoop\\\".\"\n                              },\n                              {\n                                  \"Key\": \"description\",\n                                  \"StringValue\": \"EC2 key pair\"\n                              },\n                              {\n                                  \"Key\": \"optional\",\n                                  \"StringValue\": \"true\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"String\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"myEmrStep\",\n                          \"Attributes\": [\n                              {\n                                  \"Key\": \"helpLink\",\n                                  \"StringValue\": \"https://docs.aws.amazon.com/console/datapipeline/emrsteps\"\n                              },\n                              {\n                                  \"Key\": \"watermark\",\n                                  \"StringValue\": \"s3://myBucket/myPath/myStep.jar,firstArg,secondArg\"\n                              },\n                              {\n                                  \"Key\": \"helpText\",\n                                  \"StringValue\": \"A step is a unit of work you submit to the cluster. You can specify one or more steps\"\n                              },\n                              {\n                                  \"Key\": \"description\",\n                                  \"StringValue\": \"EMR step(s)\"\n                              },\n                              {\n                                  \"Key\": \"isArray\",\n                                  \"StringValue\": \"true\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"String\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"myTaskInstanceType\",\n                          \"Attributes\": [\n                              {\n                                  \"Key\": \"helpText\",\n                                  \"StringValue\": \"Task instances run Hadoop tasks.\"\n                              },\n                              {\n                                  \"Key\": \"description\",\n                                  \"StringValue\": \"Task node instance type\"\n                              },\n                              {\n                                  \"Key\": \"optional\",\n                                  \"StringValue\": \"true\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"String\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"myCoreInstanceType\",\n                          \"Attributes\": [\n                              {\n                                  \"Key\": \"default\",\n                                  \"StringValue\": \"m1.medium\"\n                              },\n                              {\n                                  \"Key\": \"helpText\",\n                                  \"StringValue\": \"Core instances run Hadoop tasks and store data using the Hadoop Distributed File System (HDFS).\"\n                              },\n                              {\n                                  \"Key\": \"description\",\n                                  \"StringValue\": \"Core node instance type\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"String\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"myEMRReleaseLabel\",\n                          \"Attributes\": [\n                              {\n                                  \"Key\": \"default\",\n                                  \"StringValue\": \"emr-5.13.0\"\n                              },\n                              {\n                                  \"Key\": \"helpText\",\n                                  \"StringValue\": \"Determines the base configuration of the instances in your cluster, including the Hadoop version.\"\n                              },\n                              {\n                                  \"Key\": \"description\",\n                                  \"StringValue\": \"EMR Release Label\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"String\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"myCoreInstanceCount\",\n                          \"Attributes\": [\n                              {\n                                  \"Key\": \"default\",\n                                  \"StringValue\": \"2\"\n                              },\n                              {\n                                  \"Key\": \"description\",\n                                  \"StringValue\": \"Core node instance count\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"Integer\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"myTaskInstanceCount\",\n                          \"Attributes\": [\n                              {\n                                  \"Key\": \"description\",\n                                  \"StringValue\": \"Task node instance count\"\n                              },\n                              {\n                                  \"Key\": \"optional\",\n                                  \"StringValue\": \"true\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"Integer\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"myBootstrapAction\",\n                          \"Attributes\": [\n                              {\n                                  \"Key\": \"helpLink\",\n                                  \"StringValue\": \"https://docs.aws.amazon.com/console/datapipeline/emr_bootstrap_actions\"\n                              },\n                              {\n                                  \"Key\": \"helpText\",\n                                  \"StringValue\": \"Bootstrap actions are scripts that are executed during setup before Hadoop starts on every cluster node.\"\n                              },\n                              {\n                                  \"Key\": \"description\",\n                                  \"StringValue\": \"Bootstrap action(s)\"\n                              },\n                              {\n                                  \"Key\": \"isArray\",\n                                  \"StringValue\": \"true\"\n                              },\n                              {\n                                  \"Key\": \"optional\",\n                                  \"StringValue\": \"true\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"String\"\n                              }\n                          ]\n                      },\n                      {\n                          \"Id\": \"myMasterInstanceType\",\n                          \"Attributes\": [\n                              {\n                                  \"Key\": \"default\",\n                                  \"StringValue\": \"m1.medium\"\n                              },\n                              {\n                                  \"Key\": \"helpText\",\n                                  \"StringValue\": \"The Master instance assigns Hadoop tasks to core and task nodes, and monitors their status.\"\n                              },\n                              {\n                                  \"Key\": \"description\",\n                                  \"StringValue\": \"Master node instance type\"\n                              },\n                              {\n                                  \"Key\": \"type\",\n                                  \"StringValue\": \"String\"\n                              }\n                          ]\n                      }\n                    ]\n                    }\n                    ```",
@@ -995,6 +1033,8 @@
             },
             "appserviceplan": {
                 "name": "Specify the name which should be used for this Service Plan.",
+                "Name": "Enter a unique name for the App Service Plan.",
+                "tier": "Select the SKU tier for the plan.",
                 "platform": "Select the O/S type for the App Services to be hosted in this plan. Supported values include `Windows` and `Linux`.",
                 "location": "Select the Azure Region where the Service Plan should exist.",
                 "serversize": "Select the SKU size for the plan.",
@@ -1056,6 +1096,22 @@
                 "LogDeliveryConfiguration": "Enables exporting engine logs and slow logs to Amazon CloudWatch Logs. Select `CloudWatch` to configure.",
                 "EnableEncryptionAtRest": "Select to enable/disable Encryption At Rest."
             },
+            "pgAuthCreate": {
+                "PrincipalName": "Name of the Azure AD principal (user, group, or service principal) that will authenticate to the PostgreSQL Flexible Server.",
+                "ObjectId": "Object ID (or SID) of the Azure AD principal. This uniquely identifies the principal in Azure Active Directory.",
+                "TenantId": "Azure Active Directory Tenant ID where the principal is defined.",
+                "Role": "Type of Azure AD principal. Select whether this entry represents a user, group, or service principal."
+            },
+            "AddManagedSql": {
+                "Name": "Specify a unique name for your Managed SQL instance. Must not contain spaces.",
+                "Username": "Enter the administrator username for the SQL instance.",
+                "Password": "Enter a strong password for the SQL instance.",
+                "serviceTier": "Select the service tier for the instance.",
+                "hwOptions": "Select the hardware generation (e.g., Gen5) for the SQL instance.",
+                "vcoreOption": "Select the number of virtual cores (vCores) for the instance.",
+                "storage": "Specify the storage size in GB for the SQL instance.",
+                "subnetName": "Select the subnet where the SQL instance will be deployed."
+            },
             "AddRdsAuroraReplica": {
                 "Identifier": "Please provide a unique identifier for the RDS replica instance that is unique across all tenants. The cluster identifier is used to determine the cluster's endpoint. An identifier cannot end with a hyphen or contain two consecutive hyphens or start with a number. It should also be 49 characters or shorter and must be in all lowercase.",
                 "Engine": "Select Database engine for creating RDS instance.",
@@ -1086,11 +1142,13 @@
                 "DataEndpointEnabled": "Select to enable dedicated data endpoints for this Container Registry. This is only supported on resources with the `Premium` SKU",
                 "PublicNetworkAccess": "Select to enable/disable public network access for the container registry."
             },
-            "update-asg": {
-                "minSize": "Specify the minimum number of instances for the autoscaling group.",
-                "maxSize": "Specify the maximum number of instances for the autoscaling group.",
-                "enableClusterAutoScaler": "Enable or disable cluster autoscaling. When enabled, the system can adjust the number of instances automatically.",
-                "canScaleFromZeroUpdate": "Allow the autoscaling group to scale down to zero instances when load is low."
+            "start-instance-refresh": {
+                "instanceReplacementMethod": "Select how instances should be replaced during the refresh.",
+                "minHealthyPercentage": "Specify the minimum percentage of healthy instances that must be maintained during the refresh.",
+                "maxHealthyPercentage": "Specify the maximum percentage of healthy instances allowed during the refresh. This field may be auto-calculated or limited depending on your environment.",
+                "instanceWarmup": "Enter the time in seconds that a new instance should be considered 'warming up' before it is counted as healthy.",
+                "showLaunchTemplate": "Select this option to update the launch template associated with the instances being refreshed.",
+                "launchTemplateVersion": "Specify the version of the launch template to use for the instance refresh."
             },
             "selectIotDeviePackageCert": {
                 "certificateId": "Choose the certificate to download the device package."
@@ -1125,16 +1183,6 @@
                 "ApplicationId": "Application Id",
                 "ExecutionTimeoutMinutes": "Specify execution time in minutes."
             },
-            "azure-add-managed-sql": {
-                "Name": "Specify a unique name for your Managed SQL instance. Must not contain spaces.",
-                "Username": "Enter the administrator username for the SQL instance.",
-                "Password": "Enter a strong password for the SQL instance.",
-                "serviceTier": "Select the service tier for the instance.",
-                "hwOptions": "Select the hardware generation (e.g., Gen5) for the SQL instance.",
-                "vcoreOption": "Select the number of virtual cores (vCores) for the instance.",
-                "storage": "Specify the storage size in GB for the SQL instance.",
-                "subnetName": "Select the subnet where the SQL instance will be deployed."
-            },
             "cwrule-target-add": {
                 "Target Name": "Specify the name of the rule you want to add targets to.",
                 "Target Type": "Select the Target type."
@@ -1162,10 +1210,27 @@
                 "MaximumRetryAttempts": "Specify the maximum number of times to retry when the function returns an error.",
                 "MaximumEventAgeInSeconds": "Specify the maximum amount of time in seconds to keep unprocessed events in the queue."
             },
+            "updateASG": {
+                "MinSize": "Minimum number of instances that should always be running in this Autoscaling Group.",
+                "MaxSize": "Maximum number of instances that this Autoscaling Group can scale out to.",
+                "EnableClusterAutoScaler": "Enable automatic scaling of this group using the cluster autoscaler.",
+                "CanScaleFromZeroUpdate": "Allow this group to scale down to zero instances when not needed."
+            },
             "emr_serverless_add_sub_form_limit": {
                 "MaximumCapacityCpu": "Specify the maximum allowed CPU for an application.",
                 "MaximumCapacityMemory": "Specify the maximum allowed resources for an application.",
                 "MaximumCapacityDisk": "Specify the maximum allowed disk for an application."
+            },
+            "AddContainerAppAdvanced": {
+                "ContainerName": "Enter a unique name for your container. Only lowercase letters, numbers, hyphens, and periods are allowed.",
+                "ContainerNameImage": "Specify the container image to deploy, including the registry and tag, e.g., xyz.registry.io/containerapps-helloworld:latest.",
+                "Server": "Enter the container registry server URL where your image is hosted.",
+                "UserName": "Provide the username for the registry if authentication is required.",
+                "Password": "Provide the password for the registry if authentication is required.",
+                "CpuCores": "Specify the number of CPU cores to allocate to this container.",
+                "Memory": "Specify the memory to allocate, e.g., 1.25Gi or 4Gi.",
+                "CommandOverride": "Override the default container command here.",
+                "Argumentsoverride": "Override the default container arguments here."
             },
             "K8sJobBasicForm": {
                 "JobName": "Specify the name of the Job, must be unique. Minimum 3 characters.",
