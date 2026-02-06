@@ -708,6 +708,9 @@
                 "ValuesFrom": "Specify the reference of ConfigMap and Secret resources from which to take values.\nExample\n```yaml\n\n- kind: ConfigMap\n  name: nginx-values\n  valuesKey: values.yaml\n- kind: Secret\n  name: nginx-secrets\n  valuesKey: secret-values.yaml\n\n```",
                 "Labels": "Specify labels\n```yaml\n\nteam: platform\napp.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname\n\n```\n\n  "
             },
+            "addWorkflowTemplate": {
+                "WorkflowTemplateData": "Enter the Workflow Template YAML definition. This field is required and must contain valid YAML."
+            },
             "startInstanceRefresh": {
                 "instanceReplacementMethod": "Select how instances should be replaced during the refresh.",
                 "minHealthyPercentage": "Specify the minimum percentage of healthy instances that must be maintained during the refresh.",
