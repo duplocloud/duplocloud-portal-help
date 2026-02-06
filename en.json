@@ -157,9 +157,6 @@
                 "value": "Specify the Value for taint. Example- `taint-value`.",
                 "effect": "Select the taint effect."
             },
-            "add-workflow-template": {
-                "WorkflowTemplateData": "Enter the Workflow Template YAML definition. This field is required and must contain valid YAML."
-            },
             "lambda-add-layer": {
                 "SelectLayer": "Select the Layer. The list shows the layers compatible to the runtime of the function. Applicable for only `.zip` package type.",
                 "SelectVersion": "Select the version of the layer to use in the function."
@@ -646,6 +643,9 @@
                 "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n\n  replicaCount: 2\n  serviceAccount:\n    create: true\n\n```",
                 "ValuesFrom": "Specify the reference of ConfigMap and Secret resources from which to take values.\nExample\n```yaml\n\n- kind: ConfigMap\n  name: nginx-values\n  valuesKey: values.yaml\n- kind: Secret\n  name: nginx-secrets\n  valuesKey: secret-values.yaml\n\n```",
                 "Labels": "Specify labels\n```yaml\n\nteam: platform\napp.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname\n\n```\n\n  "
+            },
+            "addWorkflowTemplate": {
+                "WorkflowTemplateData": "Enter the Workflow Template YAML definition. This field is required and must contain valid YAML."
             },
             "databrick": {
                 "Name": "Enter Databricks workspace name.",
