@@ -956,6 +956,13 @@
                 "gpuSharingStrategy": "Select GCP Sharing Strategy.",
                 "gpuDriverInstallationConfig": "Select the GPU Driver Installation Strategy\n1. **Default:** Installs the default driver version for your GKE version.\n2. **Latest:** Installs the latest available driver version for your GKE version. Available only for nodes that use Container-Optimized OS.\n3. **Disable GPU driver auto installation:**  Disables GPU driver auto installation and needs manual installation.\n4. **Do not install any GPU driver:** Skips automatic driver auto installation."
             },
+            "addWebApp": {
+                "Name": "Enter a unique name for the web app.",
+                "AppServicePlan": "Select the App Service Plan to host the web app.",
+                "Publish": "Choose the publish mode for the web app, e.g., 'Code' or 'Docker'.",
+                "EnvironmentalVariables": "Enter environment variables as an array of name/value pairs.",
+                "HealthCheckPath": "Specify the health check path for the web app (e.g., /ping or /healthy)."
+            },
             "thing": {
                 "Name": "The name of the thing.",
                 "IotCertificateArn": "Select IoT certificate.",
