@@ -1081,6 +1081,11 @@
                 "TenantId": "Azure Active Directory Tenant ID where the principal is defined.",
                 "Role": "Type of Azure AD principal. Select whether this entry represents a user, group, or service principal."
             },
+            "addInfraVaultSecret": {
+                "name": "Enter a unique name for the secret. Use your tenant name as prefix.",
+                "value": "Enter the secret value to store.",
+                "contentType": "Specify the type of secret."
+            },
             "AddManagedSql": {
                 "Name": "Specify a unique name for your Managed SQL instance. Must not contain spaces.",
                 "Username": "Enter the administrator username for the SQL instance.",
