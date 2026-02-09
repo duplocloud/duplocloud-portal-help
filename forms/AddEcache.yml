@@ -20,3 +20,4 @@ SnapshotWindowEndTime: Specify the duration, in hours, of the automated snapshot
 Kms: Select a KMS Key.
 LogDeliveryConfiguration: Enables exporting engine logs and slow logs to Amazon CloudWatch Logs. Select `CloudWatch` to configure.
 EnableEncryptionAtRest: Select to enable/disable Encryption At Rest.
+Serverless: Enable automatic scaling; billed per usage.
