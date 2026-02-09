@@ -1,4 +1,4 @@
-Name: The name of the Virtual Machine.
+Friendly Name: The name of the Virtual Machine.
 Subnets: Select the subnet.
 InstanceType: The size of the Virtual Machine.
 ImageId: Choose the Image for the VM. Image should be compatible with the agent platform. Select type as "Other" if you don't see desired option in dropdown.
@@ -14,12 +14,18 @@ Name0: Specify the Disk name.
 VolumeId0: Logical unit number(LUN) of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
 Size0: Disk size in GB.
 VolumeType0: Choose the Storage Type.
+Name{index}: Specify the Disk name
+VolumeId{index}: LUN for this disk
+Size{index}: Disk size in GB
+VolumeType{index}: Storage type
 ComputerName: Enter to set Computer Name for your Virtul Machine. If not specified, will be set same as the name input provided.
 DiskControllerType: Default value set is `SCSI`. If you want to set `NVME`, specify the supported Instance Size. Check [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series-nvme).
 installDuploNativeAgent: Enable to install agent on the host. Supports only Linux/Ubuntu.
 joinDomainType: (optional). Select Domain Type for the host.
 timezone: Select the timezone for the host.
+name: Choose an AvailabilitySet for high availability (optional).
 base64: Base64 encoded user data.
+base64UserData: Enter the user data in Base64 format
 securityType: |
  Select `Standard` or `Trusted Launch` security type. Defaults to `Standard`.
  Use Trusted Launch for the security of `Generation 2` virtual machines (VMs). [Supported Sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#virtual-machines-sizes)
