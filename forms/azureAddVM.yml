@@ -8,7 +8,7 @@ diskSize: Disk size in GB.
 allocationTags: Allocation tags is the simplest way to constraint containers/pods with hosts/nodes. DuploCloud/Kubernetes Orchestrator will make sure containers will run on the hosts having same allocation tags.
 joinDomain: Choose Yes to join the VM to the managed domain.
 joinLogAnalytics: Select Yes to connect Azure virtual machines to Log Analytics.
-Username: The administrator username for the VM
+Username: The administrator username for the VM.
 Password: The administrator password for the VM.
 Name0: Specify the Disk name.
 VolumeId0: Logical unit number(LUN) of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
@@ -32,3 +32,12 @@ securityType: |
 secureboot: Select to enable Secure Boot for your VM.
 vtpm: Select to enable virtual Trusted Platform Module (vTPM) for Azure VM.
 encryptAtHost: Select to enable Encryption at host.
+
+dynamicFields:
+  base64: Base64 encoded user data.
+  name: Select the Availability Set to associate with this VM.
+  volumes:
+    - Name: Specify the Disk name.
+      VolumeId: Logical unit number (LUN) of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+      Size: Disk size in GB.
+      VolumeType: Choose the Storage Type.

@@ -519,7 +519,7 @@
                 "allocationTags": "Allocation tags is the simplest way to constraint containers/pods with hosts/nodes. DuploCloud/Kubernetes Orchestrator will make sure containers will run on the hosts having same allocation tags.",
                 "joinDomain": "Choose Yes to join the VM to the managed domain.",
                 "joinLogAnalytics": "Select Yes to connect Azure virtual machines to Log Analytics.",
-                "Username": "The administrator username for the VM",
+                "Username": "The administrator username for the VM.",
                 "Password": "The administrator password for the VM.",
                 "Name0": "Specify the Disk name.",
                 "VolumeId0": "Logical unit number(LUN) of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.",
@@ -540,7 +540,16 @@
                 "securityType": "Select `Standard` or `Trusted Launch` security type. Defaults to `Standard`.\nUse Trusted Launch for the security of `Generation 2` virtual machines (VMs). [Supported Sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#virtual-machines-sizes)\n",
                 "secureboot": "Select to enable Secure Boot for your VM.",
                 "vtpm": "Select to enable virtual Trusted Platform Module (vTPM) for Azure VM.",
-                "encryptAtHost": "Select to enable Encryption at host."
+                "encryptAtHost": "Select to enable Encryption at host.",
+                "dynamicFields": {
+                    "base64": "Base64 encoded user data.",
+                    "name": "Select the Availability Set to associate with this VM.",
+                    "volumes": [
+                        {
+                            "Name": "Specify the Disk name.",
+                            "VolumeId": "Logical unit number (LUN) of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.",
+                            "Size": "Disk size in GB.",
+                            "VolumeType": "Choose the Storage Type."
             },
             "AddStorageClass": {
                 "name": "Storage Class Name.",
@@ -1088,6 +1097,11 @@
                 "TenantId": "Azure Active Directory Tenant ID where the principal is defined.",
                 "Role": "Type of Azure AD principal. Select whether this entry represents a user, group, or service principal."
             },
+            "addInfraVaultSecret": {
+                "name": "Enter a unique name for the secret. Use your tenant name as prefix.",
+                "value": "Enter the secret value to store.",
+                "contentType": "Specify the type of secret."
+            },
             "AddManagedSql": {
                 "Name": "Specify a unique name for your Managed SQL instance. Must not contain spaces.",
                 "Username": "Enter the administrator username for the SQL instance.",
@@ -1129,12 +1143,12 @@
                 "PublicNetworkAccess": "Select to enable/disable public network access for the container registry."
             },
             "start-instance-refresh": {
-                "instanceReplacementMethod": "Select how instances should be replaced during the refresh.",
-                "minHealthyPercentage": "Specify the minimum percentage of healthy instances that must be maintained during the refresh.",
-                "maxHealthyPercentage": "Specify the maximum percentage of healthy instances allowed during the refresh. This field may be auto-calculated or limited depending on your environment.",
-                "instance Warmup": "Enter the time in seconds that a new instance should be considered 'warming up' before it is counted as healthy.",
-                "showLaunchTemplate": "Select this option to update the launch template associated with the instances being refreshed.",
-                "launchTemplateVersion": "Specify the version of the launch template to use for the instance refresh."
+                "InstanceReplacementMethod": "Select how instances should be replaced during the refresh.",
+                "MinHealthyPercentage": "Specify the minimum percentage of healthy instances that must be maintained during the refresh.",
+                "MaxHealthyPercentage": "Specify the maximum percentage of healthy instances allowed during the refresh. This field may be auto-calculated or limited depending on your environment.",
+                "Instance Warmup": "Enter the time in seconds that a new instance should be considered 'warming up' before it is counted as healthy.",
+                "ShowLaunchTemplate": "Select this option to update the launch template associated with the instances being refreshed.",
+                "LaunchTemplateVersion": "Specify the version of the launch template to use for the instance refresh."
             },
             "selectIotDeviePackageCert": {
                 "certificateId": "Choose the certificate to download the device package."
