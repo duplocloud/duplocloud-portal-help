@@ -8,21 +8,25 @@ diskSize: Disk size in GB.
 allocationTags: Allocation tags is the simplest way to constraint containers/pods with hosts/nodes. DuploCloud/Kubernetes Orchestrator will make sure containers will run on the hosts having same allocation tags.
 joinDomain: Choose Yes to join the VM to the managed domain.
 joinLogAnalytics: Select Yes to connect Azure virtual machines to Log Analytics.
-Username: The administrator username for the VM
+Username: The administrator username for the VM.
 Password: The administrator password for the VM.
-Name0: Specify the Disk name.
-VolumeId0: Logical unit number(LUN) of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
-Size0: Disk size in GB.
-VolumeType0: Choose the Storage Type.
 ComputerName: Enter to set Computer Name for your Virtul Machine. If not specified, will be set same as the name input provided.
 DiskControllerType: Default value set is `SCSI`. If you want to set `NVME`, specify the supported Instance Size. Check [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series-nvme).
 installDuploNativeAgent: Enable to install agent on the host. Supports only Linux/Ubuntu.
 joinDomainType: (optional). Select Domain Type for the host.
 timezone: Select the timezone for the host.
-base64: Base64 encoded user data.
 securityType: |
  Select `Standard` or `Trusted Launch` security type. Defaults to `Standard`.
  Use Trusted Launch for the security of `Generation 2` virtual machines (VMs). [Supported Sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#virtual-machines-sizes)
 secureboot: Select to enable Secure Boot for your VM.
 vtpm: Select to enable virtual Trusted Platform Module (vTPM) for Azure VM.
 encryptAtHost: Select to enable Encryption at host.
+
+dynamicFields:
+  base64: Base64 encoded user data.
+  name: Select the Availability Set to associate with this VM.
+  volumes:
+    - Name: Specify the Disk name.
+      VolumeId: Logical unit number (LUN) of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.
+      Size: Disk size in GB.
+      VolumeType: Choose the Storage Type.
