@@ -1073,7 +1073,8 @@
                 "SnapshotWindowEndTime": "Specify the duration, in hours, of the automated snapshot window.",
                 "Kms": "Select a KMS Key.",
                 "LogDeliveryConfiguration": "Enables exporting engine logs and slow logs to Amazon CloudWatch Logs. Select `CloudWatch` to configure.",
-                "EnableEncryptionAtRest": "Select to enable/disable Encryption At Rest."
+                "EnableEncryptionAtRest": "Select to enable/disable Encryption At Rest.",
+                "Serverless": "Enable automatic scaling; billed per usage."
             },
             "pgAuthCreate": {
                 "PrincipalName": "Name of the Azure AD principal (user, group, or service principal) that will authenticate to the PostgreSQL Flexible Server.",
