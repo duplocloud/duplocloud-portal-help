@@ -1174,6 +1174,11 @@
                 "ApplicationId": "Application Id",
                 "ExecutionTimeoutMinutes": "Specify execution time in minutes."
             },
+            "newItem": {
+                "Name": "Enter a name for the Lambda function.",
+                "MaximumRetryAttempts": "Enter the number of times to retry the function if it fails. Valid values are 0, 1, or 2.",
+                "MaximumEventAgeInSeconds": "Enter the maximum age of events in seconds. Must be between 60 and 21600. Events older than this will be discarded."
+            },
             "cwrule-target-add": {
                 "Target Name": "Specify the name of the rule you want to add targets to.",
                 "Target Type": "Select the Target type."
