@@ -1,3 +1,2 @@
-Name: Enter a name for the Lambda function.
 MaximumRetryAttempts: Enter the number of times to retry the function if it fails. Valid values are 0, 1, or 2.
 MaximumEventAgeInSeconds: Enter the maximum age of events in seconds. Must be between 60 and 21600. Events older than this will be discarded.
