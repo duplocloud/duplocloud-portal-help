@@ -1,0 +1,2 @@
+S3Bucket: Select the S3 bucket containing the Lambda function package.
+S3BucketKey: Specify the key (file path) of the Lambda function package within the selected S3 bucket.

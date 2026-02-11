@@ -223,6 +223,10 @@
                 "UseErrorAction": "Enable to activate the rules engine an error action, if any problem is identified while activating the topic rule.",
                 "Error Action": "Define the error action message. Refer [here](https://docs.aws.amazon.com/iot/latest/developerguide/rule-error-handling.html) for examples."
             },
+            "devops-lambda-update": {
+                "S3Bucket": "Select the S3 bucket containing the Lambda function package.",
+                "S3BucketKey": "Specify the key (file path) of the Lambda function package within the selected S3 bucket."
+            },
             "requirementForm": {
                 "requirementKey": "Select a Key from the list. If your desired option is not available, choose 'Other'.",
                 "otherKey": "Select a key from the list. If the desired key is not available, select 'Other' and specify the key manually.",
