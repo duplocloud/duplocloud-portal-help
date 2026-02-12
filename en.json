@@ -645,6 +645,13 @@
                 "Labels": "Specify labels in below format\n```js\n{\n    \"key\" : \"value\"\n}\n```\n",
                 "Edition": "Select from the supported Edition."
             },
+            "appwebapp": {
+                "Name": "Enter a unique name for the web app.",
+                "AppServicePlan": "Select the App Service Plan to host the web app.",
+                "Publish": "Choose the publish mode for the web app, e.g., 'Code' or 'Docker'.",
+                "EnvironmentalVariables": "Enter environment variables as an array of name/value pairs.",
+                "HealthCheckPath": "Specify the health check path for the web app (e.g., /ping or /healthy)."
+            },
             "cloudfront-add": {
                 "Name": "Any friendly name to the cloudfront distribution",
                 "certificate": "Certificate ARN to be used by the distribution. Make sure the certificate is in the us-east-1 region.",
