@@ -1138,13 +1138,13 @@
                 "ImageName": "Enter Image Name. Example `busybox:latest`"
             },
             "addRedirectConfig": {
-                "Name": "Enter a unique name for this redirect configuration.",
-                "Host": "Specify the host or domain this redirect applies to.",
-                "Path": "Specify the path to redirect (e.g., /#{path}).",
-                "Port": "Enter the port number for the redirect. **Important:** Enter it as a string (e.g., \"443\") to match backend requirements.",
-                "Protocol": "Specify the protocol ('HTTP' or 'HTTPS') for the redirect.",
-                "Query": "Optionally, specify query string parameters for the redirect (e.g.,",
-                "StatusCode": "Specify the HTTP status code for the redirect (e.g., HTTP_301)."
+                "Name": "Enter a unique name for this redirect configuration.\nExample: redirect-http-to-https\n",
+                "Host": "Specify the host or domain this redirect applies to.\nExample: example.com or app.example.com\n",
+                "Path": "Specify the path to redirect.\nExamples:\n  /old-path \u2192 redirects to /new-path\n  /#{path} \u2192 preserves the original request path dynamically\n",
+                "Port": "Enter the port number for the redirect.\n**Important:** Enter it as a string (e.g., \"443\") to match backend requirements.\nExample: \"443\"\n",
+                "Protocol": "Specify the protocol for the redirect.\nExamples:\n  HTTP  \u2192 Redirect unsecured traffic\n  HTTPS \u2192 Redirect traffic to a secure endpoint\n",
+                "Query": "Optionally, specify query string parameters for the redirect.\nExamples:\n  #{query}   \u2192 Preserves the original query string\n  version=2  \u2192 Forces a specific query parameter\n",
+                "StatusCode": "Specify the HTTP status code for the redirect.\nExamples:\n  HTTP_301 \u2192 Permanent redirect\n  HTTP_302 \u2192 Temporary redirect"
             },
             "AddContainerRegistry": {
                 "Name": "Specify the name of the Container Registry.",

@@ -1,7 +1,36 @@
-Name: Enter a unique name for this redirect configuration.
-Host: Specify the host or domain this redirect applies to.
-Path: Specify the path to redirect (e.g., /#{path}).
-Port: Enter the port number for the redirect. **Important:** Enter it as a string (e.g., "443") to match backend requirements.
-Protocol: Specify the protocol ('HTTP' or 'HTTPS') for the redirect.
-Query: Optionally, specify query string parameters for the redirect (e.g., #{query}).
-StatusCode: Specify the HTTP status code for the redirect (e.g., HTTP_301).
+Name: |
+  Enter a unique name for this redirect configuration.
+  Example: redirect-http-to-https
+
+Host: |
+  Specify the host or domain this redirect applies to.
+  Example: example.com or app.example.com
+
+Path: |
+  Specify the path to redirect.
+  Examples:
+    /old-path → redirects to /new-path
+    /#{path} → preserves the original request path dynamically
+
+Port: |
+  Enter the port number for the redirect.
+  **Important:** Enter it as a string (e.g., "443") to match backend requirements.
+  Example: "443"
+
+Protocol: |
+  Specify the protocol for the redirect.
+  Examples:
+    HTTP  → Redirect unsecured traffic
+    HTTPS → Redirect traffic to a secure endpoint
+
+Query: |
+  Optionally, specify query string parameters for the redirect.
+  Examples:
+    #{query}   → Preserves the original query string
+    version=2  → Forces a specific query parameter
+
+StatusCode: |
+  Specify the HTTP status code for the redirect.
+  Examples:
+    HTTP_301 → Permanent redirect
+    HTTP_302 → Temporary redirect
