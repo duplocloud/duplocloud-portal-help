@@ -550,6 +550,9 @@
                             "VolumeId": "Logical unit number (LUN) of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.",
                             "Size": "Disk size in GB.",
                             "VolumeType": "Choose the Storage Type."
+                        }
+                    ]
+                }
             },
             "AddStorageClass": {
                 "name": "Storage Class Name.",
@@ -1089,7 +1092,8 @@
                 "Kms": "Select a KMS Key.",
                 "LogDeliveryConfiguration": "Enables exporting engine logs and slow logs to Amazon CloudWatch Logs. Select `CloudWatch` to configure.",
                 "EnableEncryptionAtRest": "Select to enable/disable Encryption At Rest.",
-                "Serverless": "Enable automatic scaling; billed per usage."
+                "Serverless": "Enable automatic scaling; billed per usage.",
+                "Description": "Enter a description for the ElastiCache cluster."
             },
             "pgAuthCreate": {
                 "PrincipalName": "Name of the Azure AD principal (user, group, or service principal) that will authenticate to the PostgreSQL Flexible Server.",
