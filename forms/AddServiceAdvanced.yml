@@ -47,6 +47,7 @@ PodConfigK8s: |-
     label1: values1
   Annotations:
     seccomp.security.alpha.kubernetes.io/pod: docker/default
+    duplocloud.net/external-scaling: "true" ## to support external scaling HPA like KEDA
   PodLabels:
     label1: values1
   PodAnnotations:
