@@ -1090,9 +1090,9 @@
                 "SnapshotWindowStartTime": "Specify the daily time when the automated snapshot window begins.",
                 "SnapshotWindowEndTime": "Specify the duration, in hours, of the automated snapshot window.",
                 "Kms": "Select a KMS Key.",
-                "LogDeliveryConfiguration": "Enables exporting engine logs and slow logs to Amazon CloudWatch Logs. Select `CloudWatch` to configure.",
-                "EnableEncryptionAtRest": "Select to enable/disable Encryption At Rest.",
-                "Serverless": "Enable automatic scaling; billed per usage.",
+                "LogDeliveryConfiguration": "Enables exporting Redis engine logs and slow logs to Amazon CloudWatch Logs for monitoring and troubleshooting. Select `CloudWatch` to configure log delivery settings.",
+                "EnableEncryptionAtRest": "Enable/disable encryption of data stored on disk using AWS-managed keys. Recommended for protecting sensitive data at rest.",
+                "Serverless": "Select to enable automatic scaling based on usage. Capacity scales up or down automatically, and billing is based on actual consumption rather than provisioned capacity.",
                 "Description": "Enter a description for the ElastiCache cluster."
             },
             "pgAuthCreate": {
