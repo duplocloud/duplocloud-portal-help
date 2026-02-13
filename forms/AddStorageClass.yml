@@ -11,23 +11,21 @@ volumeBindingMode: |
   A cluster administrator can address this issue by specifying the `WaitForFirstConsumer` mode which will delay the binding and provisioning of a PersistentVolume until a Pod using the PersistentVolumeClaim is created. PersistentVolumes will be selected or provisioned conforming to the topology that is specified by the Pod's scheduling constraints. 
 allowVolumeExpansion: PersistentVolumes can be configured to be expandable. This feature when set to true, allows the users to resize the volume by editing the corresponding PVC object.
 parameters: |
-  Storage Classes have parameters that describe volumes belonging to the storage class. Different parameters may be accepted depending on the provisioner. 
-  For example, the value io1, for the parameter type, and the parameter iopsPerGB are specific to EBS. When a parameter is omitted, some default is used.
-  Sample Value EFS provisioner 
-  ```yml
-  provisioningMode: efs-ap
-  fileSystemId: fs-0f5c4430534311cf1
-  directoryPerms: "700"
-  gidRangeStart: "1000" # optional
-  gidRangeEnd: "2000" # optional
-  basePath: "/dynamic_provisioning" # optional
-  
-  ## For Azure Storage Account Mount
-  resourceGroup: rg-duplo-storage-account # Name of the RG in which the Storage Acc is residing
-  secretName: storage-account-volume-secret  # Name of the secret to use (the secret should contain storage account name and key)
-  shareName: storage-account-file-share  # Name of the Azure file share
-  ```
+  Define cloud-specific key/value settings for the StorageClass. Enter values required by your cloud provider to configure the volumes correctly, such as disk type, storage SKU, or secrets for access. If you don't specify a storage class for a persistent volume, the default storage class is used.
+  For more details, see the provider documentation:
+  Azure - https://learn.microsoft.com/en-us/azure/aks/concepts-storage#storage-classes
+  AWS - https://docs.aws.amazon.com/eks/latest/userguide/create-storage-class.html
+  GCP - https://docs.cloud.google.com/kubernetes-engine/docs/concepts/persistent-volumes#storage-classes
 
+  Below is an example for Azure:
+  ```yml
+  skuName: Premium_ZRS
+  kind: Managed
+  storageaccounttype: Premium_LRS
+  resourceGroup: rg-duplo-storage-account
+  secretName: storage-account-volume-secret
+  shareName: storage-account-file-share
+  ```
 storageClassAnnotations: |
   Kubernetes annotations in key value format. Sample value is like below
   ```yml
