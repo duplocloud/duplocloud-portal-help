@@ -223,10 +223,6 @@
                 "UseErrorAction": "Enable to activate the rules engine an error action, if any problem is identified while activating the topic rule.",
                 "Error Action": "Define the error action message. Refer [here](https://docs.aws.amazon.com/iot/latest/developerguide/rule-error-handling.html) for examples."
             },
-            "devops-lambda-update": {
-                "S3Bucket": "Select the S3 bucket containing the Lambda function package.",
-                "S3BucketKey": "Specify the key (file path) of the Lambda function package within the selected S3 bucket."
-            },
             "requirementForm": {
                 "requirementKey": "Select a Key from the list. If your desired option is not available, choose 'Other'.",
                 "otherKey": "Select a key from the list. If the desired key is not available, select 'Other' and specify the key manually.",
@@ -538,6 +534,10 @@
                 "Architecture": "The CPU architecture of an application. Valid values are `arm64 new` or `x86_64`. Default value is `x86_64`.",
                 "DriverImageUri": "To use the custom Image URI for drivers in your application, specify the ECR location of the image `account-id.dkr.ecr.region-id.amazonaws.com/your-Amazon-ECR-repo-name[:tag] or [@sha]`.\nMust be compatible with the selected EMR release [6.9.0 and above] and located in the same region.\n",
                 "ExecutorImageUri": "To use the custom Image URI for executors, specify the ECR location of the image `account-id.dkr.ecr.region-id.amazonaws.com/your-Amazon-ECR-repo-name[:tag] or [@sha]`.\nMust be compatible with the selected EMR release [6.9.0 and above] and located in the same region.\n"
+            },
+            "devops-entity-add": {
+                "S3Bucket": "Select the S3 bucket containing the Lambda function package.",
+                "S3BucketKey": "Specify the key (file path) of the Lambda function package within the selected S3 bucket."
             },
             "GenericSideBar": {
                 "AddSteps": "Jobs to be executed on cluster. Please update s3 and py file.\n```js\n[\n{\n\"ActionOnFailure\" : \"CONTINUE\",\n\"Name\"              : \"sparkstepTest\",\n\"HadoopJarStep\" : {\n\"Jar\" : \"command-runner.jar\",\n\"Args\" : [\n  \"spark-submit\",\n  \"s3://YOUR-S3-FOLDER/script3.py\"\n]\n}\n}\n]\n```",
