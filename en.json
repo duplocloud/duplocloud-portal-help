@@ -223,6 +223,10 @@
                 "UseErrorAction": "Enable to activate the rules engine an error action, if any problem is identified while activating the topic rule.",
                 "Error Action": "Define the error action message. Refer [here](https://docs.aws.amazon.com/iot/latest/developerguide/rule-error-handling.html) for examples."
             },
+            "devops-lambda-update": {
+                "S3Bucket": "Select the S3 bucket containing the Lambda function package.",
+                "S3BucketKey": "Specify the key (file path) of the Lambda function package within the selected S3 bucket."
+            },
             "requirementForm": {
                 "requirementKey": "Select a Key from the list. If your desired option is not available, choose 'Other'.",
                 "otherKey": "Select a key from the list. If the desired key is not available, select 'Other' and specify the key manually.",
@@ -332,6 +336,33 @@
                 "Metadata": "Configure Compute Engine instance metadata.\n```js\n{\n\"key\" : \"value\"\n}\n```\n",
                 "Base64UserData": "Configure startup-script metadata in below format. ```echo \"Hello from startup script!\" > /test.txt```"
             },
+            "addAksCluster": {
+                "clusterName": "Enter the AKS cluster name. Only letters, numbers, hyphens, and underscores allowed.",
+                "PricingTier": "Select the pricing tier for your AKS cluster.",
+                "k8sVersion": "Select the Kubernetes version for the cluster.",
+                "privateCluster": "Choose whether this cluster is private or public.",
+                "NodeCount": "Specify the initial number of nodes in the default node pool.",
+                "MaxPods": "Specify the maximum pods allowed per node in the node pool.",
+                "vmSize": "Select the VM size for cluster nodes.",
+                "EnableWorkloadIdentity": "Enable workload identity for AKS-managed identities.",
+                "EnableImageCleaner": "Enable automatic cleanup of old images on nodes.",
+                "ImageCleanerIntervalInDays": "Specify the frequency in days to clean images if Image Cleaner is enabled.",
+                "EnableAutoScaling": "Enable automatic scaling for the system node pool.",
+                "MinCount": "Specify the minimum number of nodes for auto-scaling.",
+                "MaxCount": "Specify the maximum number of nodes for auto-scaling.",
+                "IsManagedAadEnabled": "Enable Azure Active Directory managed integration.",
+                "IsAzureRbacEnabled": "Enable Azure Role-Based Access Control for this cluster.",
+                "TenantId": "Enter the Azure Active Directory (AAD) Tenant ID where this AKS cluster will be registered. This is required for AAD-managed integration.",
+                "AdminGroupObjectIds": "Enter the object IDs of the Okta or Azure AD groups that should have administrative access to the cluster. Type each ID and press Enter to add it.",
+                "NetworkPlugin": "Choose the networking plugin for the cluster ('Azure' or 'Kubenet').",
+                "NodeResourceGroup": "Enter the Azure Resource Group where node resources are created.",
+                "OutboundType": "Select how outbound traffic from the cluster is managed.",
+                "EnableBlobCsiDriver": "Enable the Blob CSI driver for persistent volume support.",
+                "DisableRunCommand": "Disable Azure Run Command functionality on nodes.",
+                "LinuxAdminUsername": "Enter the Admin username for Linux nodes.",
+                "LinuxSshPublicKey": "Enter the SSH public key for Linux node access.",
+                "AddCriticalTaintToSystemAgentPool": "Add a critical taint to the system agent pool to prevent user workloads from scheduling here."
+            },
             "AddPgSql": {
                 "Name": "Enter a unique name for the Redis instance.",
                 "serviceTier": "Select the service tier for the Redis instance.",
@@ -390,6 +421,10 @@
                 "Name": "Specify the name of the Daemonset, must be unique",
                 "IsTenantLocal": "When set to true the daemon set will deploy only in hosts within this tenant as against an entire cluster",
                 "Configuration": "Add Daemonset Configurations."
+            },
+            "devops-async-update": {
+                "MaximumRetryAttempts": "Enter the number of times to retry the function if it fails. Valid values are 0, 1, or 2.",
+                "MaximumEventAgeInSeconds": "Enter the maximum age of events in seconds. Must be between 60 and 21600. Events older than this will be discarded."
             },
             "AddResourceQuota": {
                 "name": "Resource Quota Name",
@@ -509,7 +544,7 @@
                 "ManagedScaling": "ManagedScalingPolicy example.\n```js\n{\n\"ComputeLimits\" : {\n\"UnitType\" : \"Instances\",\n\"MinimumCapacityUnits\" : 2,\n\"MaximumCapacityUnits\" : 5,\n\"MaximumOnDemandCapacityUnits\" : 5,\n\"MaximumCoreCapacityUnits\" : 3\n}\n}\n```"
             },
             "azureAddVM": {
-                "Friendly Name": "The name of the Virtual Machine.",
+                "Name": "The name of the Virtual Machine.",
                 "Subnets": "Select the subnet.",
                 "InstanceType": "The size of the Virtual Machine.",
                 "ImageId": "Choose the Image for the VM. Image should be compatible with the agent platform. Select type as \"Other\" if you don't see desired option in dropdown.",
@@ -521,22 +556,11 @@
                 "joinLogAnalytics": "Select Yes to connect Azure virtual machines to Log Analytics.",
                 "Username": "The administrator username for the VM.",
                 "Password": "The administrator password for the VM.",
-                "Name0": "Specify the Disk name.",
-                "VolumeId0": "Logical unit number(LUN) of the data disk. This value is used to identify data disks within the VM and therefore must be unique for each data disk attached to a VM.",
-                "Size0": "Disk size in GB.",
-                "VolumeType0": "Choose the Storage Type.",
-                "Name{index}": "Specify the Disk name",
-                "VolumeId{index}": "LUN for this disk",
-                "Size{index}": "Disk size in GB",
-                "VolumeType{index}": "Storage type",
                 "ComputerName": "Enter to set Computer Name for your Virtul Machine. If not specified, will be set same as the name input provided.",
                 "DiskControllerType": "Default value set is `SCSI`. If you want to set `NVME`, specify the supported Instance Size. Check [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series-nvme).",
                 "installDuploNativeAgent": "Enable to install agent on the host. Supports only Linux/Ubuntu.",
                 "joinDomainType": "(optional). Select Domain Type for the host.",
                 "timezone": "Select the timezone for the host.",
-                "name": "Choose an AvailabilitySet for high availability (optional).",
-                "base64": "Base64 encoded user data.",
-                "base64UserData": "Enter the user data in Base64 format",
                 "securityType": "Select `Standard` or `Trusted Launch` security type. Defaults to `Standard`.\nUse Trusted Launch for the security of `Generation 2` virtual machines (VMs). [Supported Sizes](https://learn.microsoft.com/en-us/azure/virtual-machines/trusted-launch#virtual-machines-sizes)\n",
                 "secureboot": "Select to enable Secure Boot for your VM.",
                 "vtpm": "Select to enable virtual Trusted Platform Module (vTPM) for Azure VM.",
@@ -611,6 +635,10 @@
                 "HealthyThreshold": "The number of consecutive successful health checks required before a service is considered healthy. Value range of 1-20 with a default of 1.",
                 "UnhealthyThreshold": "The number of consecutive failed health checks required before a service is considered unhealthy. Value range of 1-20 with a default of 5."
             },
+            "load-balancer-metadata": {
+                "config": "Select the configuration to apply for this load balancer metadata entry, e.g., Http To Https Redirect.",
+                "value": "Enter the value corresponding to the selected configuration, e.g., \"443\"."
+            },
             "batchEnv": {
                 "OtherConfigurations": "All Other Create Compute Environment Request parameters as documented [here](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html).\nSample Value for customized EC2 configuration.\n```js\n{\n    \"ComputeResources\": {\n        \"Ec2Configuration\": [\n            {\n                \"ImageType\": \"ECS_AL2_NVIDIA\"\n            }\n        ]\n    }\n}\n```"
             },
@@ -656,6 +684,13 @@
                 "Labels": "Specify labels in below format\n```js\n{\n    \"key\" : \"value\"\n}\n```\n",
                 "Edition": "Select from the supported Edition."
             },
+            "appwebapp": {
+                "Name": "Enter a unique name for the web app.",
+                "AppServicePlan": "Select the App Service Plan to host the web app.",
+                "Publish": "Choose the publish mode for the web app, e.g., 'Code' or 'Docker'.",
+                "EnvironmentalVariables": "Enter environment variables as an array of name/value pairs.",
+                "HealthCheckPath": "Specify the health check path for the web app (e.g., /ping or /healthy)."
+            },
             "cloudfront-add": {
                 "Name": "Any friendly name to the cloudfront distribution",
                 "certificate": "Certificate ARN to be used by the distribution. Make sure the certificate is in the us-east-1 region.",
@@ -692,7 +727,7 @@
             "publicIpPrefixForm": {
                 "Name": "Specify the name of the Public IP Prefix resource.",
                 "PrefixLength": "Select from the Public IP prefix sizes.",
-                "ResourceType": "Select `ApplicationGateway`. public IP from a prefix will be used for your gateway.\nIf not selected, Public IP Prefix gets created with type as Other. This will get used for Virtual machines resources."
+                "ResourceType": "Select `ApplicationGateway`. A public IP from a prefix will be used for your gateway.\nIf not selected, the Public IP Prefix is created with type Other. This will be used for Virtual Machine resources."
             },
             "firestoreDatabase": {
                 "Name": "Specify the Name for your database.",
@@ -725,6 +760,14 @@
                 "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n\n  replicaCount: 2\n  serviceAccount:\n    create: true\n\n```",
                 "ValuesFrom": "Specify the reference of ConfigMap and Secret resources from which to take values.\nExample\n```yaml\n\n- kind: ConfigMap\n  name: nginx-values\n  valuesKey: values.yaml\n- kind: Secret\n  name: nginx-secrets\n  valuesKey: secret-values.yaml\n\n```",
                 "Labels": "Specify labels\n```yaml\n\nteam: platform\napp.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname\n\n```\n\n  "
+            },
+            "startInstanceRefresh": {
+                "InstanceReplacementMethod": "Select how instances should be replaced during the refresh.",
+                "MinHealthyPercentage": "Specify the minimum percentage of healthy instances that must be maintained during the refresh.",
+                "MaxHealthyPercentage": "Specify the maximum percentage of healthy instances allowed during the refresh. This field may be auto-calculated or limited depending on your environment.",
+                "Instance Warmup": "Enter the time in seconds that a new instance should be considered 'warming up' before it is counted as healthy.",
+                "ShowLaunchTemplate": "Select this option to update the launch template associated with the instances being refreshed.",
+                "LaunchTemplateVersion": "Specify the version of the launch template to use for the instance refresh."
             },
             "databrick": {
                 "Name": "Enter Databricks workspace name.",
@@ -854,28 +897,32 @@
                 "pathType": "Each path in an Ingress is required to have a corresponding path type. Paths that do not include an explicit pathType will fail validation. There are three supported path types:\n\n1. *ImplementationSpecific*: Matching behavior is determined by the IngressClass and may behave like Prefix or Exact path types.\n2. *Exact*: Matches the URL path exactly and with case sensitivity.\n3. *Prefix*: Matches based on a URL path prefix split by /. Matching is case sensitive and done on a path element by element basis. A path element refers to the list of labels in the path split by the / separator. A request is a match for path p if every p is an element-wise prefix of p of the request path. \n"
             },
             "AddServiceBasic": {
-                "ServiceName": "Any friendly name to identify your service.",
-                "AllocationTag": "A string value that needs to be a substring of the corresponding allocation tag value set on a Host. If there is no host with such an allocation tag value then service will not get deployed. simplest example is if you want the container to be deployed in a certain set of hosts only then set an allocation tag on those hosts called web and then set the allocation tag here to be web.",
-                "IsDaemonset": "Enable Daemonset to run instance of this service on each host in selected tenant",
-                "IsAnyHostAllowed": "If \"Yes\", the service can run on any host in the same plan as the selected tenant.",
-                "asgName": "Selecting an auto scaling group here will ensure that the replicas of this service will match the nodes in the auto scaling group. The value set for replicas in this form will be overridden",
-                "ReplicaCollocation": "If this is enabled then 2 containers (replicas) of the same service can be allocated to same node. But if this is false then each replica of a certain service needs to be on a separate host. Note still a single host can hold containers from different services",
-                "LBSyncedDeployment": "This enables Zero Downtime Updates. When this flag is turned on then during update before tearing down a certain replica, the replica is set to draining mode in the load balancer, then removed from the LB and then an update performed then added back to the LB. This is done for each replica one by one. If this flag is turned off the containers are updated one after the other without co-ordination with the load balancer. While turning this on enables zero down time but makes the rollout slow. If the flag is off we have typically seen a 5 to 20 sec glitch for customers during upgrade. When this flag is turned on then the update takes a few minutes for each replica as against a  few seconds when it is off.",
-                "LivenessProbe": "Example of livenessprobe\n```js\n{\n    \"failureThreshold\":3,\n\n    \"httpGet\":{\n        \"path\":\"/healthz/live\",\n        \"port\":80,\n\n          \"scheme\":\"HTTP\"\n    },\n    \"periodSeconds\":10,\n    \"successThreshold\":1,\n\n    \"timeoutSeconds\":5\n}\n```\n",
-                "ReadinessProbe": "\"Example of readinessprobe\n```js\n{\n    \"failureThreshold\":3,\n\n    \"httpGet\": \n    {\n        \"path\":\"/healthz/ready\",\n        \"port\":80,\n\n        \"scheme\":\"HTTP\"\n    },\n    \"periodSeconds\":10,\n    \"successThreshold\":1,\n\n    \"timeoutSeconds\":5\n}\n```\n",
-                "securityContext": "Example of Security context\n```js\n{\n  \"Capabilities\":\n  {\n    \"Add\": [\n      \"NET_BIND_SERVICE\"\n    ],\n    \"Drop\":\n  [\n      \"ALL\"\n    ]\n  },\n  \"ReadOnlyRootFilesystem\": false,\n\n  \"RunAsNonRoot\": true,\n  \"RunAsUser\": 1000\n}\n```\n",
-                "k8sPodConfig": "Any generic Kubernetes Pod configuration can be passed here, for\nexample resource limits, restart policy. As an example: \n```js\n{\n  \"RestartPolicy\":\n  \"Always\",\n  \"envFrom\": [\n    {\n      \"configMapRef\": {\n        \"name\":\n  \"api-configs\"\n      }\n    },\n    {\n      \"secretRef\": {\n\n        \"name\": \"api-secrets\"\n      }\n    },\n    {\n      \"configMapRef\":\n  {\n        \"name\": \"api-db\",\n        \"optional\": true\n      }\n\n    }\n  ],\n  \"resources\": {\n    \"limits\": {\n      \"memory\":\n  \"1Gi\"\n    },\n    \"requests\": {\n      \"memory\": \"384Mi\"\n\n    }\n  }\n}\n```\n",
-                "podSecurityContext": "Example: \n```js\n{\n\"FsGroup\":1001,\n\"RunAsUser\":1001\n}\n```\n",
-                "EnvVariablesK8s": "Environment variables to be passed to the containers in the YAML format.\n```yaml\n---\n- Name: DB_HOST\n  Value: abc.com\n- Name: DB_USER\n  Value: myuser\n- Name: DB_PASSWORD\n  Value: mypassword\n# using secrets\n- Name: SECRET_USERNAME\n  ValueFrom:\n    secretKeyRef:\n      name: mysecret\n      key: username\n# using ConfigMap data \n- Name: LOG_LEVEL\n  ValueFrom:\n    configMapKeyRef:\n      name: env-config\n      key: log_level\n```",
-                "NetworkMode": "If host network is selected then the container will share the same networking stack as host. This means any port in the container is accessible as is on host ip address without any explicit port mapping",
-                "ReplicationStrategy": "Replication Strategy can be used to manage the replica count for this Deployment/StatefulSet. Replication Strategy has three options as below.\n  1. **Static**: This option can be used to set fixed count for the replicas.\n  2. **Daemonset**: If this option is selected, DuploCloud will make sure pods will run on every host created in this tenant.\n  3. **Horizontal Pod Autoscaler**: This is more advanced option which user can use to automcatically scale up or down the replicas as per the different metrics like CPU Usage, Memory Usage, Ingress requests per second etc. [Click Here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) for more information on *Horizontal Pod Autoscaler*.\n",
-                "HPAConfig": "Horizontal pod autoscaler specifications as documented [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/). Sample value can be like below.\n```yaml\nmaxReplicas: 5\nmetrics:\n  - resource:\n      name: cpu\n      target:\n        averageUtilization: 80\n        type: Utilization\n    type: Resource\nminReplicas: 2\n```",
-                "envVariables": "Environment Variables to be passed in json format. Refer sample as below.\n```js\n{\n    \"discovery.type\": \"single-node\",\n     \"plugins.security.disabled\" : \"true\",\n     \"compatibility.override_main_response_version\" : \"true\"\n}\n```\n",
-                "ReplicaPlacement": "Select replication placement strategy.\n1. **First Available**: Replicas are not required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.\n2. **Place on Different Hosts**:  Replicas are not required to be spread across availability zones.  Replicas are required to be placed on different hosts.\n3. **Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.\n4. **Different Hosts and Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas are required to be placed on different hosts.\n",
-                "TolerateSpotInstance": "Select to run pods in Spot Instance. `tolerations` property will be added in `Other Container Config` to support running of pods in Spot Instance.",
-                "Replicas": "Specify number of replicas.",
-                "ForceStatefulSet": "Select to create a StatefulSet service.",
-                "AppName": "(Optional) Enter an App Name to group your apps. This can help filter only services related to your apps."
+                "ServiceName": "Enter a unique name for your service. Must start with a letter and can include letters, numbers, and hyphens, and be 2-45 characters.",
+                "cloud": "Select the cloud provider where this service will run (AWS, Azure, GCP).",
+                "agentPlatforms": "Select the application platform for the service. For example, Linux Docker/Native.",
+                "ImageName": "Enter the Docker image name for this service, including repository and tag if applicable.",
+                "AllocationTag": "Enter a tag that matches a corresponding allocation tag on a host. \nOnly hosts with a matching allocation tag will run this service. \nFor example, if you want the service to run only on hosts tagged 'web', \nset the allocation tag here to 'web'. If no host has the tag, the service \nwill not be deployed.\n",
+                "IsDaemonset": "Enable this option to run one instance of the service on every host \nin the selected tenant. This ensures the service is deployed across all hosts.\n",
+                "IsAnyHostAllowed": "If \"Yes\", the service can run on any host in the same plan as\nthe selected tenant.\n",
+                "asgName": "Selecting an Auto Scaling Group (ASG) ensures that the replicas of\nthis service match the nodes in the ASG.\nAny value set for replicas in this form will be overridden.\n",
+                "ReplicaCollocation": "When enabled, multiple replicas of the same service can be allocated to same node. When disabled, each replica needs to be on a separate host (a single host can still hold containers from different services).",
+                "LBSyncedDeployment": "Enables Zero Downtime Updates. When enabled, each replica is drained from the load balancer before being updated and then re-added afterward. This ensures zero downtime but slows the rollout. When disabled, updates occur sequentially without load balancer coordination, which may cause brief service glitches (5\u201320 seconds).",
+                "LivenessProbe": "Define the liveness probe for the container. For example:\n```js\n{\n    \"failureThreshold\":3,\n\n    \"httpGet\":{\n        \"path\":\"/healthz/live\",\n        \"port\":80,\n\n          \"scheme\":\"HTTP\"\n    },\n    \"periodSeconds\":10,\n    \"successThreshold\":1,\n\n    \"timeoutSeconds\":5\n}\n```\n",
+                "ReadinessProbe": "Define the readiness probe for the container. For example:\n```js\n{\n    \"failureThreshold\":3,\n\n    \"httpGet\": \n    {\n        \"path\":\"/healthz/ready\",\n        \"port\":80,\n\n        \"scheme\":\"HTTP\"\n    },\n    \"periodSeconds\":10,\n    \"successThreshold\":1,\n\n    \"timeoutSeconds\":5\n}\n```\n",
+                "securityContext": "Define the security context for the service. For example:\n```js\n{\n  \"Capabilities\":\n  {\n    \"Add\": [\n      \"NET_BIND_SERVICE\"\n    ],\n    \"Drop\":\n  [\n      \"ALL\"\n    ]\n  },\n  \"ReadOnlyRootFilesystem\": false,\n\n  \"RunAsNonRoot\": true,\n  \"RunAsUser\": 1000\n}\n```\n",
+                "k8sPodConfig": "Pass generic Kubernetes Pod configurations, such as resource limits or a restart policy. As an example: \n```js\n{\n  \"RestartPolicy\":\n  \"Always\",\n  \"envFrom\": [\n    {\n      \"configMapRef\": {\n        \"name\":\n  \"api-configs\"\n      }\n    },\n    {\n      \"secretRef\": {\n\n        \"name\": \"api-secrets\"\n      }\n    },\n    {\n      \"configMapRef\":\n  {\n        \"name\": \"api-db\",\n        \"optional\": true\n      }\n\n    }\n  ],\n  \"resources\": {\n    \"limits\": {\n      \"memory\":\n  \"1Gi\"\n    },\n    \"requests\": {\n      \"memory\": \"384Mi\"\n\n    }\n  }\n}\n```\n",
+                "podSecurityContext": "Define security settings to apply to all containers in the Pod, \nsuch as user/group IDs and file system permissions. For example: \n```js\n{\n\"FsGroup\":1001,\n\"RunAsUser\":1001\n}\n```\n",
+                "EnvVariablesK8s": "Enter environment variables to be passed to the containers in the YAML format. For example:\n```yaml\n---\n- Name: DB_HOST\n  Value: abc.com\n- Name: DB_USER\n  Value: myuser\n- Name: DB_PASSWORD\n  Value: mypassword\n# using secrets\n- Name: SECRET_USERNAME\n  ValueFrom:\n    secretKeyRef:\n      name: mysecret\n      key: username\n# using ConfigMap data \n- Name: LOG_LEVEL\n  ValueFrom:\n    configMapKeyRef:\n      name: env-config\n      key: log_level\n```",
+                "NetworkMode": "Select 'Host Network' to share the host's networking stack. Container ports are accessible directly on the host without explicit port mapping.",
+                "ReplicationStrategy": "Choose how replicas are managed:\n  1. **Static**: This option can be used to set a fixed count for the replicas.\n  2. **Daemonset**: If this option is selected, pods run on every host in the tenant.\n  3. **Horizontal Pod Autoscaler**: Automatically scales replicas up or down based on metrics like CPU Usage, Memory Usage, Ingress requests per second, etc. For more information, [Click Here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/).\n",
+                "HPAConfig": "Enter horizontal pod autoscaler specifications as documented [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/). Sample values are shown below:\n```yaml\nmaxReplicas: 5\nmetrics:\n  - resource:\n      name: cpu\n      target:\n        averageUtilization: 80\n        type: Utilization\n    type: Resource\nminReplicas: 2\n```",
+                "envVariables": "Pass environment variables in json format. Refer to the sample below.\n```js\n{\n    \"discovery.type\": \"single-node\",\n     \"plugins.security.disabled\" : \"true\",\n     \"compatibility.override_main_response_version\" : \"true\"\n}\n```\n",
+                "dockerNetwork": "Optionally, specify additional network settings beyond the default container network.",
+                "ReplicaPlacement": "Select how replicas are placed.\n1. **First Available**: Replicas prefer, but are not required to be scheduled on different hosts.\n2. **Place on Different Hosts**: Replicas are required to be placed on different hosts.\n3. **Spread Across Zones**: Replicas are required to be spread across availability zones and prefer, but are not required to be scheduled on different hosts.\n4. **Different Hosts and Spread Across Zones**: Replicas must be on separate hosts and spread across zones.\n",
+                "TolerateSpotInstance": "Select to run pods in Spot Instance. Relevant tolerations are added automatically in 'Other Container Config'.",
+                "Replicas": "Specify the number of replicas for the service.",
+                "ForceStatefulSet": "Enable this option to create the service as a StatefulSet.",
+                "AppName": "Optionally, enter an App Name to group services. This helps filter services belonging to the same app."
             },
             "emrserverlsess_add_runjob_sub_form_script": {
                 "ScriptQueryInitFileBucket": "Choose S3 Bucket where the initialization script is stored.",
@@ -1146,14 +1193,6 @@
                 "DataEndpointEnabled": "Select to enable dedicated data endpoints for this Container Registry. This is only supported on resources with the `Premium` SKU",
                 "PublicNetworkAccess": "Select to enable/disable public network access for the container registry."
             },
-            "start-instance-refresh": {
-                "InstanceReplacementMethod": "Select how instances should be replaced during the refresh.",
-                "MinHealthyPercentage": "Specify the minimum percentage of healthy instances that must be maintained during the refresh.",
-                "MaxHealthyPercentage": "Specify the maximum percentage of healthy instances allowed during the refresh. This field may be auto-calculated or limited depending on your environment.",
-                "Instance Warmup": "Enter the time in seconds that a new instance should be considered 'warming up' before it is counted as healthy.",
-                "ShowLaunchTemplate": "Select this option to update the launch template associated with the instances being refreshed.",
-                "LaunchTemplateVersion": "Specify the version of the launch template to use for the instance refresh."
-            },
             "selectIotDeviePackageCert": {
                 "certificateId": "Choose the certificate to download the device package."
             },
@@ -1287,7 +1326,7 @@
             },
             "AddServiceAdvanced": {
                 "VolumeMappingsK8s": "Volumes and Volume mount setting in the Duplo simplied format. If you specify Volumes here, Duplo will take care of configuring pod volumes and volume mounts.\n```yaml\n---\n# Statefulset using EBS volume\n- AccessMode: ReadWriteOnce\n  Name: data\n  Path: /attachedvolume\n  Size: 10Gi\n# Deployment using host directory mount in read-only mode\n- Name: rootfs   # Name of the volume\n  Path: /rootfs  # Path in the container\n  ReadOnly: true # Set if it is readonly mount\n  Spec:          # K8s Defined volumes\n    HostPath:\n      Path: /    # Path on the host\n# Deployment using host directory mount in read-write mode\n- Name: var-run\n  Path: /var/run\n  Spec:\n    HostPath:\n      Path: /var/run\n# Deployment mounting secret into directory\n- Name: nginx\n  Path: /etc/nginx/conf.d\n  Spec:\n    Secret:\n      SecretName: nginx\n# Deployment mounting config map into directory\n- Name: nginx\n  Path: /etc/nginx/conf.d\n  Spec:\n    ConfigMap:\n      Name: nginx\n# Deployment using PersistentVolumeClaim. \n- Name: nginx\n  Path: /usr/share/nginx/html\n  Spec:\n    PersistentVolumeClaim:\n      claimName: efs-claim\n```",
-                "PodConfigK8s": "Deployment and Pod confiiguration\n```yaml\nSubdomain: same-name-as-my-service\nLabels:\n  label1: values1\nAnnotations:\n  seccomp.security.alpha.kubernetes.io/pod: docker/default\nPodLabels:\n  label1: values1\nPodAnnotations:\n  seccomp.security.alpha.kubernetes.io/pod: docker/default\nRestartPolicy: Always\nPodSecurityContext:\n  RunAsUser: 1000\n  RunAsGroup: 3000\n  FsGroup: 2000\nVolumes:\n  - name: cache-volume\n    emptyDir: {}\n  - name: config-vol\n    configMap:\n      name: log-config\n      items:\n        - key: log_level\n          path: log_level\nImagePullSecrets:\n  - name: myregistrykey\nServiceAccountName: my-service-account-name\nAutomountServiceAccountToken: true\n# mount secretprovider class volume\nVolumes:\n- Name: secretvolume-name\n  Csi:\n    driver: secrets-store.csi.k8s.io\n    readOnly: true\n    VolumeAttributes:\n      secretProviderClass: my-secret-provider-class\n# deployment strategy\nDeploymentStrategy:\n  RollingUpdate:\n    MaxSurge: 1\n    MaxUnavailable: 0  \n# add initContainers and additionalContainers\ninitContainers:\n- name: bootstrap\n  image: busybox:1.28\n  command:\n    - sh\n    - '-c'\n    - echo duplo\nadditionalContainers:\n- name: init-myservice\n  image: busybox:1.28\n  restartPolicy: Always\n  command:\n    - sh\n    - '-c'\n    - ping 127.0.0.1\n```",
+                "PodConfigK8s": "Deployment and Pod confiiguration\n```yaml\nSubdomain: same-name-as-my-service\nLabels:\n  label1: values1\nAnnotations:\n  seccomp.security.alpha.kubernetes.io/pod: docker/default\n  duplocloud.net/external-scaling: \"true\" ## to support external scaling HPA like KEDA\nPodLabels:\n  label1: values1\nPodAnnotations:\n  seccomp.security.alpha.kubernetes.io/pod: docker/default\nRestartPolicy: Always\nPodSecurityContext:\n  RunAsUser: 1000\n  RunAsGroup: 3000\n  FsGroup: 2000\nVolumes:\n  - name: cache-volume\n    emptyDir: {}\n  - name: config-vol\n    configMap:\n      name: log-config\n      items:\n        - key: log_level\n          path: log_level\nImagePullSecrets:\n  - name: myregistrykey\nServiceAccountName: my-service-account-name\nAutomountServiceAccountToken: true\n# mount secretprovider class volume\nVolumes:\n- Name: secretvolume-name\n  Csi:\n    driver: secrets-store.csi.k8s.io\n    readOnly: true\n    VolumeAttributes:\n      secretProviderClass: my-secret-provider-class\n# deployment strategy\nDeploymentStrategy:\n  RollingUpdate:\n    MaxSurge: 1\n    MaxUnavailable: 0  \n# add initContainers and additionalContainers\ninitContainers:\n- name: bootstrap\n  image: busybox:1.28\n  command:\n    - sh\n    - '-c'\n    - echo duplo\nadditionalContainers:\n- name: init-myservice\n  image: busybox:1.28\n  restartPolicy: Always\n  command:\n    - sh\n    - '-c'\n    - ping 127.0.0.1\n```",
                 "ContainerConfigK8s": "Deployment and Pod configurations\n```yaml\nImagePullPolicy: IfNotPresent\nArgs:\n  - '-- somearg'\nLivenessProbe:\n  httpGet:\n    path: /\n    port: 80\n    httpHeaders:\n      - name: Custom-Header\n        value: Awesome\n  initialDelaySeconds: 3\n  periodSeconds: 3\nReadinessProbe:\n  exec:\n    command:\n      - cat\n      - /tmp/healthy\n  initialDelaySeconds: 5\n  periodSeconds: 5\nstartupProbe:\n  initialDelaySeconds: 1\n  periodSeconds: 5\n  timeoutSeconds: 1\n  successThreshold: 1\n  failureThreshold: 1\n  exec:\n    command:\n      - cat\n      - /etc/nginx/nginx.conf\nSecurityContext:\n  Capabilities:\n    Add:\n    - NET_BIND_SERVICE\n    Drop:\n    - ALL\n  ReadOnlyRootFilesystem: false\n  RunAsNonRoot: true\n  RunAsUser: 1000\nAutomountServiceAccountToken: true\nVolumesMounts:\nEnvFrom:\n- secretRef:\n    name: secret_name\n- configMapRef:\n    name: configmap-name\n# Mount SecretProvider\nVolumesMounts:\n- Name: volume-name\n  MountPath: /mnt/secrets\n  readOnly: true\nEnvFrom:\n- SecretRef:\n    Name: secretobject-name\n# Set Resource Request and Limits\nresources:\n  requests:\n    memory: \"10Gi\"\n    cpu: \"500m\"\n    ephemeral-storage: 2Gi\n  limits:\n    memory: \"10Gi\"\n    cpu: \"500m\"\n    ephemeral-storage: 4Gi\n# Pod Toleration example\ntolerations:\n- key: key1\n  operator: Equal\n  value: value1\n  effect: NoSchedule\n- key: example-key\n  operator: Exists\n  effect: NoExecute\n  tolerationSeconds: 6000\n#lifecycle hook sample\nlifecycle:\n  postStart:\n    exec:\n      command:\n        - /bin/sh\n        - '-c'\n        - date > /container-started.txt\n  preStop:\n    exec:\n      command:\n        - /usr/sbin/nginx\n        - '-s'\n        - quit\n# StatefulSet Update Strategy\nStatefulSetUpdateStrategy:\n  RollingUpdate:\n    Partition: 1\n  Type: RollingUpdate\n# dnsPolicy and dnsConfig\n dnsPolicy: None\n dnsConfig:\n   nameservers:\n     - 8.8.8.8\n     - 1.1.1.1\n   searches:\n     - mycustom.domain.local\n   options:\n     - name: ndots\n       value: '2'\n     - name: timeout\n       value: '1'  \n```",
                 "VolumeMappings": "Example of mounting a host drive into the container\n```js\n\"/home/ubuntu/data:/data\",\"/home/ubuntu/confg:/config\"\n```\n",
                 "otherDockerConfig": "Any custom docker create container can be passed here based\n  on the documentation at https://docs.docker.com/engine/api/v1.41/#operation/ContainerCreate\n  for example the following config overrides the entrypoint of the container and\n  sets a few labels\n```js\n{\n  \"Entrypoint\": [\n    \"/bin/bash\",\n    \"-c\",\n    \"sleep 1h\"\n  ],\n  \"Labels\": {\n    \"com.example.vendor\": \"Acme\",\n    \"com.example.license\": \"GPL\",\n    \"com.example.version\": \"1.0\"\n  }\n}\n```"

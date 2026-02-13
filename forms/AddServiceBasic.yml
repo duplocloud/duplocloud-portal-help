@@ -1,32 +1,32 @@
-ServiceName: Any friendly name to identify your service.
-AllocationTag: A string value that needs to be a substring of the corresponding
-  allocation tag value set on a Host. If there is no host with such an allocation
-  tag value then service will not get deployed. simplest example is if you want
-  the container to be deployed in a certain set of hosts only then set an allocation
-  tag on those hosts called web and then set the allocation tag here to be web.
-IsDaemonset: Enable Daemonset to run instance of this service on each host in
-  selected tenant
-IsAnyHostAllowed: If "Yes", the service can run on any host in the same plan as
+ServiceName: Enter a unique name for your service. Must start with a letter and can include letters, numbers, and hyphens, and be 2-45 characters.
+cloud: Select the cloud provider where this service will run (AWS, Azure, GCP).
+agentPlatforms: Select the application platform for the service. For example, Linux Docker/Native.
+ImageName: Enter the Docker image name for this service, including repository and tag if applicable.
+AllocationTag: |
+  Enter a tag that matches a corresponding allocation tag on a host. 
+  Only hosts with a matching allocation tag will run this service. 
+  For example, if you want the service to run only on hosts tagged 'web', 
+  set the allocation tag here to 'web'. If no host has the tag, the service 
+  will not be deployed.
+IsDaemonset: |
+  Enable this option to run one instance of the service on every host 
+  in the selected tenant. This ensures the service is deployed across all hosts.
+IsAnyHostAllowed: |
+  If "Yes", the service can run on any host in the same plan as
   the selected tenant.
-asgName: Selecting an auto scaling group here will ensure that the replicas of
-  this service will match the nodes in the auto scaling group. The value set for
-  replicas in this form will be overridden
-ReplicaCollocation: If this is enabled then 2 containers (replicas) of the same
-  service can be allocated to same node. But if this is false then each replica
-  of a certain service needs to be on a separate host. Note still a single host
-  can hold containers from different services
-LBSyncedDeployment: This enables Zero Downtime Updates. When this flag is turned
-  on then during update before tearing down a certain replica, the replica is
-  set to draining mode in the load balancer, then removed from the LB and then
-  an update performed then added back to the LB. This is done for each replica
-  one by one. If this flag is turned off the containers are updated one after
-  the other without co-ordination with the load balancer. While turning this on
-  enables zero down time but makes the rollout slow. If the flag is off we have
-  typically seen a 5 to 20 sec glitch for customers during upgrade. When this
-  flag is turned on then the update takes a few minutes for each replica as against
-  a  few seconds when it is off.
+asgName: |
+  Selecting an Auto Scaling Group (ASG) ensures that the replicas of
+  this service match the nodes in the ASG.
+  Any value set for replicas in this form will be overridden.
+ReplicaCollocation: When enabled, multiple replicas of the same
+  service can be allocated to same node. When disabled, each replica needs to be on a separate host (a single host
+  can still hold containers from different services).
+LBSyncedDeployment: Enables Zero Downtime Updates. When enabled, each replica is drained from the load 
+  balancer before being updated and then re-added afterward. This ensures zero downtime 
+  but slows the rollout. When disabled, updates occur sequentially without load balancer 
+  coordination, which may cause brief service glitches (5–20 seconds).
 LivenessProbe: |
-  Example of livenessprobe
+  Define the liveness probe for the container. For example:
   ```js
   {
       "failureThreshold":3,
@@ -44,7 +44,7 @@ LivenessProbe: |
   }
   ```
 ReadinessProbe: |
-  "Example of readinessprobe
+  Define the readiness probe for the container. For example:
   ```js
   {
       "failureThreshold":3,
@@ -63,7 +63,7 @@ ReadinessProbe: |
   }
   ```
 securityContext: |
-  Example of Security context
+  Define the security context for the service. For example:
   ```js
   {
     "Capabilities":
@@ -83,8 +83,7 @@ securityContext: |
   }
   ```
 k8sPodConfig: |
-  Any generic Kubernetes Pod configuration can be passed here, for
-  example resource limits, restart policy. As an example: 
+  Pass generic Kubernetes Pod configurations, such as resource limits or a restart policy. As an example: 
   ```js
   {
     "RestartPolicy":
@@ -124,7 +123,8 @@ k8sPodConfig: |
   }
   ```
 podSecurityContext: |
-  Example: 
+  Define security settings to apply to all containers in the Pod, 
+  such as user/group IDs and file system permissions. For example: 
   ```js
   {
   "FsGroup":1001,
@@ -132,7 +132,7 @@ podSecurityContext: |
   }
   ```
 EnvVariablesK8s: |-
-  Environment variables to be passed to the containers in the YAML format.
+  Enter environment variables to be passed to the containers in the YAML format. For example:
   ```yaml
   ---
   - Name: DB_HOST
@@ -154,16 +154,14 @@ EnvVariablesK8s: |-
         name: env-config
         key: log_level
   ```
-NetworkMode: If host network is selected then the container will share the same
-  networking stack as host. This means any port in the container is accessible
-  as is on host ip address without any explicit port mapping
+NetworkMode: Select 'Host Network' to share the host's networking stack. Container ports are accessible directly on the host without explicit port mapping.
 ReplicationStrategy: |
-  Replication Strategy can be used to manage the replica count for this Deployment/StatefulSet. Replication Strategy has three options as below.
-    1. **Static**: This option can be used to set fixed count for the replicas.
-    2. **Daemonset**: If this option is selected, DuploCloud will make sure pods will run on every host created in this tenant.
-    3. **Horizontal Pod Autoscaler**: This is more advanced option which user can use to automcatically scale up or down the replicas as per the different metrics like CPU Usage, Memory Usage, Ingress requests per second etc. [Click Here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/) for more information on *Horizontal Pod Autoscaler*.
+  Choose how replicas are managed:
+    1. **Static**: This option can be used to set a fixed count for the replicas.
+    2. **Daemonset**: If this option is selected, pods run on every host in the tenant.
+    3. **Horizontal Pod Autoscaler**: Automatically scales replicas up or down based on metrics like CPU Usage, Memory Usage, Ingress requests per second, etc. For more information, [Click Here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/).
 HPAConfig: |-
-  Horizontal pod autoscaler specifications as documented [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/). Sample value can be like below.
+  Enter horizontal pod autoscaler specifications as documented [here](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/). Sample values are shown below:
   ```yaml
   maxReplicas: 5
   metrics:
@@ -176,7 +174,7 @@ HPAConfig: |-
   minReplicas: 2
   ```
 envVariables: |
-  Environment Variables to be passed in json format. Refer sample as below.
+  Pass environment variables in json format. Refer to the sample below.
   ```js
   {
       "discovery.type": "single-node",
@@ -184,13 +182,14 @@ envVariables: |
        "compatibility.override_main_response_version" : "true"
   }
   ```
+dockerNetwork: Optionally, specify additional network settings beyond the default container network.
 ReplicaPlacement: |
-  Select replication placement strategy.
-  1. **First Available**: Replicas are not required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.
-  2. **Place on Different Hosts**:  Replicas are not required to be spread across availability zones.  Replicas are required to be placed on different hosts.
-  3. **Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas prefer to be scheduled on different hosts, but this is not required.
-  4. **Different Hosts and Spread Across Zones**:  Replicas are required to be spread across availability zones.  Replicas are required to be placed on different hosts.
-TolerateSpotInstance: Select to run pods in Spot Instance. `tolerations` property will be added in `Other Container Config` to support running of pods in Spot Instance.
-Replicas: Specify number of replicas.
-ForceStatefulSet: Select to create a StatefulSet service.
-AppName: (Optional) Enter an App Name to group your apps. This can help filter only services related to your apps.
+  Select how replicas are placed.
+  1. **First Available**: Replicas prefer, but are not required to be scheduled on different hosts.
+  2. **Place on Different Hosts**: Replicas are required to be placed on different hosts.
+  3. **Spread Across Zones**: Replicas are required to be spread across availability zones and prefer, but are not required to be scheduled on different hosts.
+  4. **Different Hosts and Spread Across Zones**: Replicas must be on separate hosts and spread across zones.
+TolerateSpotInstance: Select to run pods in Spot Instance. Relevant tolerations are added automatically in 'Other Container Config'.
+Replicas: Specify the number of replicas for the service.
+ForceStatefulSet: Enable this option to create the service as a StatefulSet.
+AppName: Optionally, enter an App Name to group services. This helps filter services belonging to the same app.

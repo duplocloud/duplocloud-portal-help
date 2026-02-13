@@ -1,5 +1,5 @@
 Name: Specify the name of the Public IP Prefix resource.
 PrefixLength: Select from the Public IP prefix sizes.
 ResourceType: |
-  Select `ApplicationGateway`. public IP from a prefix will be used for your gateway.
-  If not selected, Public IP Prefix gets created with type as Other. This will get used for Virtual machines resources.
+  Select `ApplicationGateway`. A public IP from a prefix will be used for your gateway.
+  If not selected, the Public IP Prefix is created with type Other. This will be used for Virtual Machine resources.
