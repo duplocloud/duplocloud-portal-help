@@ -1,0 +1,4 @@
+name: Enter a unique name for the vector database configuration within the AI Suite.
+type: Select the type of vector database provider to connect to.
+ApiEndpoint: Enter the API endpoint URL used to connect to the vector database service.
+metaData: Enter optional key-value pairs for storing additional configuration details for this vector database.

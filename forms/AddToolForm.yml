@@ -1,0 +1,7 @@
+name: Enter a unique name for this tool. Use a descriptive name that clearly identifies its purpose.
+package: Select package that should be installed for this tool. 
+installScript: Provide the installation script or commands required to install the tool. Include any setup steps needed before initialization.
+initCode: Enter the initialization code that should run when the tool starts. Include any configuration or setup logic required for the tool to function properly.
+buildEnvVars: Specify environment variables required during the build process. Add key-value pairs needed for building the tool.
+deploymentEnvVars: Specify environment variables required during deployment. Add key-value pairs needed when the tool runs.
+metaData: Enter additional metadata for this tool. Use key-value pairs to define optional configuration, tags, or descriptive information.

@@ -1,0 +1,3 @@
+  name: Enter the name of the setting.
+  MetaData: Enter key-value pairs for metadata related to this setting.
+  Configuration: Enter key-value pairs for configuration for this setting.
