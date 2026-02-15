@@ -1,0 +1,3 @@
+Name: Enter the name for the load balancer (letters, numbers, and hyphens only, 2–22 characters).
+LbType: Choose the type of load balancer.
+Size: Select the visibility (Public or Private).

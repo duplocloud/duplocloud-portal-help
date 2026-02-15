@@ -539,6 +539,11 @@
                 "DriverImageUri": "To use the custom Image URI for drivers in your application, specify the ECR location of the image `account-id.dkr.ecr.region-id.amazonaws.com/your-Amazon-ECR-repo-name[:tag] or [@sha]`.\nMust be compatible with the selected EMR release [6.9.0 and above] and located in the same region.\n",
                 "ExecutorImageUri": "To use the custom Image URI for executors, specify the ECR location of the image `account-id.dkr.ecr.region-id.amazonaws.com/your-Amazon-ECR-repo-name[:tag] or [@sha]`.\nMust be compatible with the selected EMR release [6.9.0 and above] and located in the same region.\n"
             },
+            "devops-entity-add": {
+                "Name": "Enter the name for the load balancer (letters, numbers, and hyphens only, 2\u201322 characters).",
+                "LbType": "Choose the type of load balancer.",
+                "Size": "Select the visibility (Public or Private)."
+            },
             "GenericSideBar": {
                 "AddSteps": "Jobs to be executed on cluster. Please update s3 and py file.\n```js\n[\n{\n\"ActionOnFailure\" : \"CONTINUE\",\n\"Name\"              : \"sparkstepTest\",\n\"HadoopJarStep\" : {\n\"Jar\" : \"command-runner.jar\",\n\"Args\" : [\n  \"spark-submit\",\n  \"s3://YOUR-S3-FOLDER/script3.py\"\n]\n}\n}\n]\n```",
                 "ManagedScaling": "ManagedScalingPolicy example.\n```js\n{\n\"ComputeLimits\" : {\n\"UnitType\" : \"Instances\",\n\"MinimumCapacityUnits\" : 2,\n\"MaximumCapacityUnits\" : 5,\n\"MaximumOnDemandCapacityUnits\" : 5,\n\"MaximumCoreCapacityUnits\" : 3\n}\n}\n```"
