@@ -1231,7 +1231,8 @@
             "registerTarget": {
                 "loadbalancers": "Select the loadbalancer. For TargetType as alb, loadbalancer must have at least one listener that matches the target group port.",
                 "ip": "Enter IP address.",
-                "hosts": "Select hosts."
+                "hosts": "Select hosts.",
+                "lambdas": "Select the Lambda function(s) you want to register."
             },
             "addLambda": {
                 "FunctionName": "Unique name for your Lambda Function.",
