@@ -1,3 +1,5 @@
+EnableHostNetwork: Select 'Yes' to enable host network for the service, or 'No' to keep it disabled.
+IsCloudCredsFromK8sServiceAccount: Select the source of cloud credentials. Choose 'From Host' to use the default credentials from the host service account, or select another option if using a different credentials source.
 VolumeMappingsK8s: |-
   Volumes and Volume mount setting in the Duplo simplied format. If you specify Volumes here, Duplo will take care of configuring pod volumes and volume mounts.
   ```yaml

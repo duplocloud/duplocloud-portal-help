@@ -484,6 +484,11 @@
                 "volumes": "Volumes which can be mounted within container as documented [here](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#volumes) in a json format.\nSample Value with all the possible options can look like as below.\n```js\n[ \n  { \n    \"dockerVolumeConfiguration\": { \n        \"autoprovision\": boolean,\n        \"driver\": \"string\",\n        \"driverOpts\": { \n          \"string\" : \"string\" \n        },\n        \"labels\": { \n          \"string\" : \"string\" \n        },\n        \"scope\": \"string\"\n    },\n    \"efsVolumeConfiguration\": { \n        \"authorizationConfig\": { \n          \"accessPointId\": \"string\",\n          \"iam\": \"string\"\n        },\n        \"fileSystemId\": \"string\",\n        \"rootDirectory\": \"string\",\n        \"transitEncryption\": \"string\",\n        \"transitEncryptionPort\": number\n    },\n    \"fsxWindowsFileServerVolumeConfiguration\": { \n        \"authorizationConfig\": { \n          \"credentialsParameter\": \"string\",\n          \"domain\": \"string\"\n        },\n        \"fileSystemId\": \"string\",\n        \"rootDirectory\": \"string\"\n    },\n    \"host\": { \n        \"sourcePath\": \"string\"\n    },\n    \"name\": \"string\"\n  }\n]\n```\n",
                 "Essential_1": "If enabled, container fails or stops for any reason, all other containers that are part of the task are stopped. \nIf disabled, then its failure doesn't affect the rest of the containers in a task."
             },
+            "AddSettingForm": {
+                "name": "Enter the name of the setting.",
+                "MetaData": "Enter key-value pairs for metadata related to this setting.",
+                "Configuration": "Enter key-value pairs for configuration for this setting."
+            },
             "AddSQS": {
                 "Name": "The name of the queue.",
                 "QueueType": "Select AWS supported standard or FIFO queues.",
@@ -642,6 +647,15 @@
             "batchEnv": {
                 "OtherConfigurations": "All Other Create Compute Environment Request parameters as documented [here](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html).\nSample Value for customized EC2 configuration.\n```js\n{\n    \"ComputeResources\": {\n        \"Ec2Configuration\": [\n            {\n                \"ImageType\": \"ECS_AL2_NVIDIA\"\n            }\n        ]\n    }\n}\n```"
             },
+            "AddToolForm": {
+                "name": "Enter a unique name for this tool. Use a descriptive name that clearly identifies its purpose.",
+                "package": "Select package that should be installed for this tool.",
+                "installScript": "Provide the installation script or commands required to install the tool. Include any setup steps needed before initialization.",
+                "initCode": "Enter the initialization code that should run when the tool starts. Include any configuration or setup logic required for the tool to function properly.",
+                "buildEnvVars": "Specify environment variables required during the build process. Add key-value pairs needed for building the tool.",
+                "deploymentEnvVars": "Specify environment variables required during deployment. Add key-value pairs needed when the tool runs.",
+                "metaData": "Enter additional metadata for this tool. Use key-value pairs to define optional configuration, tags, or descriptive information."
+            },
             "targetgroupForm": {
                 "Name": "Specify name of the Target Group.",
                 "targetTypes": "1. *instance*: Targets are EC2 instances\n2. *ip*: Targets are IP addresses\n3. *alb*: Targets are ALB.\n",
@@ -660,6 +674,10 @@
                 "PluginsS3ObjectVersion": "Specify the plugin.zip version. For example, lSHNqFtO5Z7_6K6YfGpKnpyjqP2JTvSf. S3 Enable Versioning is required to use this in your environment.",
                 "StartupScriptS3Path": "Specify a shell (.sh) script to be executed during startup on Apache Airflow components. You need to specify the relative path to the script hosted in S3 Bucket, for example, `AirflowDags/startup.sh`.\n",
                 "StartupScriptS3ObjectVersion": "Specify the version ID of the startup shell script from S3 Bucket. For example, YVu1x62otML9W8TQgCjm5iXWBtrGL3HP.\nS3 Enable Versioning is required to use this in your environment."
+            },
+            "uploadToolPackage": {
+                "Name": "Enter the name of the tool. Must start with a letter and can include letters, numbers, hyphens, or underscores.",
+                "packageFile": "Select the package file to upload. Make sure it is a valid file for this tool."
             },
             "AddSNS": {
                 "Name": "The name of the SNS topic.",
@@ -842,6 +860,12 @@
                 "EnableCisCloudTrailCloudWatchAlarms": "Enables CIS CloudTrail CloudWatch Alarms in all AWS regions managed by DuploCloud.\n\nEnabling this feature and specifying an email address to receive alerts will satisfy AWS CIS controls 3.1 through 3.14.\n",
                 "CisCloudWatchAlarmNotificationEmail": "Specifies an email address that should receive the CIS CloudTrail CloudWatch Alarms.\n\nIn order to satisfy AWS CIS controls 3.1 through 3.14, the email recipient must first confirm the subscription to receive the alerts from AWS."
             },
+            "addTicketForm": {
+                "AgentName": "Select the agent you want to assign this ticket to.",
+                "InstanceId": "Select the related instance for this ticket.",
+                "DefaultAgentPermissions": "Choose the default permissions for the agent.",
+                "Details": "Enter your message or question for the agent."
+            },
             "backupRetentionPeriod": {
                 "BackupRetentionPeriod": "Specify in days to save automated backups of your DB. Valid values 1-35."
             },
@@ -939,6 +963,16 @@
                 "medataAnnotations": "Add Job Metadata Annotations.\nFollow below format:\n```yaml\nannotation_name: value1\nannotation_type: value2\n```\n",
                 "medataLabels": "Add Job Metadata Labels.\n```yaml\nlabel1: value1\nlabel2: value2\n```"
             },
+            "AddAgentForm": {
+                "name": "Enter a unique name for the agent definition. This name identifies the agent within the system.",
+                "agentType": "Specify the type of agent. Dynamic agents respond based on prompts and available tools.",
+                "prompt": "Enter the base system prompt that defines the agent\u2019s behavior, tone, and response instructions.",
+                "toolDefinitions": "Select one or more tools the agent can use to perform actions or retrieve data.",
+                "provider": "Select the AI model provider used to run this agent (e.g., 'bedrock' or 'Other').",
+                "temperature": "Set the temperature to control response randomness. Lower values produce more deterministic responses; higher values increase creativity.",
+                "max_Token": "Specify the maximum number of tokens the model can generate in a single response.",
+                "metaData": "Enter optional key-value pairs for storing additional configuration or contextual information for this agent."
+            },
             "VantaControl": {
                 "EnableVanta": "Enable Vanta monitor. GuardDuty will be enabled by default when this setting is enabled.",
                 "tenant": "Select the tenant you want to configure the Vanta monitoring.",
@@ -977,6 +1011,15 @@
                 "EnableHttpToHttps": "Enable to redirect HTTP to HTTPS.",
                 "tlsHosts": "Specify TLS Hosts. Multiple Hosts can be added comma-separated.`example.com, api.example.com, dashboard.example.com.` [Details](https://kubernetes.io/docs/concepts/services-networking/ingress/#tls).",
                 "tlsSecretName": "Specify the secret name that contains a TLS private key and certificate."
+            },
+            "enableTenantAIForm": {
+                "buildImage": "Enter the build image for AI tasks",
+                "s3BucketName": "Choose or create a storage bucket",
+                "newS3BucketName": "Name the new storage bucket",
+                "certName": "Pick a certificate for AI agent",
+                "chunkingBuildImage": "Enter the build image for Vectordb chunking",
+                "chunkingS3BucketName": "Select the Vectordb storage bucket",
+                "chunkingCertName": "Select the Vectordb certificate"
             },
             "addAcceleratorForm": {
                 "acceleratorCount": "Specify the number of GPUs.",
@@ -1323,11 +1366,19 @@
                 "RoleSearchSubtree": "Specifies whether the directory search scope  for role includes the entire sub-tree."
             },
             "AddServiceAdvanced": {
+                "EnableHostNetwork": "Select 'Yes' to enable host network for the service, or 'No' to keep it disabled.",
+                "IsCloudCredsFromK8sServiceAccount": "Select the source of cloud credentials. Choose 'From Host' to use the default credentials from the host service account, or select another option if using a different credentials source.",
                 "VolumeMappingsK8s": "Volumes and Volume mount setting in the Duplo simplied format. If you specify Volumes here, Duplo will take care of configuring pod volumes and volume mounts.\n```yaml\n---\n# Statefulset using EBS volume\n- AccessMode: ReadWriteOnce\n  Name: data\n  Path: /attachedvolume\n  Size: 10Gi\n# Deployment using host directory mount in read-only mode\n- Name: rootfs   # Name of the volume\n  Path: /rootfs  # Path in the container\n  ReadOnly: true # Set if it is readonly mount\n  Spec:          # K8s Defined volumes\n    HostPath:\n      Path: /    # Path on the host\n# Deployment using host directory mount in read-write mode\n- Name: var-run\n  Path: /var/run\n  Spec:\n    HostPath:\n      Path: /var/run\n# Deployment mounting secret into directory\n- Name: nginx\n  Path: /etc/nginx/conf.d\n  Spec:\n    Secret:\n      SecretName: nginx\n# Deployment mounting config map into directory\n- Name: nginx\n  Path: /etc/nginx/conf.d\n  Spec:\n    ConfigMap:\n      Name: nginx\n# Deployment using PersistentVolumeClaim. \n- Name: nginx\n  Path: /usr/share/nginx/html\n  Spec:\n    PersistentVolumeClaim:\n      claimName: efs-claim\n```",
                 "PodConfigK8s": "Deployment and Pod confiiguration\n```yaml\nSubdomain: same-name-as-my-service\nLabels:\n  label1: values1\nAnnotations:\n  seccomp.security.alpha.kubernetes.io/pod: docker/default\n  duplocloud.net/external-scaling: \"true\" ## to support external scaling HPA like KEDA\nPodLabels:\n  label1: values1\nPodAnnotations:\n  seccomp.security.alpha.kubernetes.io/pod: docker/default\nRestartPolicy: Always\nPodSecurityContext:\n  RunAsUser: 1000\n  RunAsGroup: 3000\n  FsGroup: 2000\nVolumes:\n  - name: cache-volume\n    emptyDir: {}\n  - name: config-vol\n    configMap:\n      name: log-config\n      items:\n        - key: log_level\n          path: log_level\nImagePullSecrets:\n  - name: myregistrykey\nServiceAccountName: my-service-account-name\nAutomountServiceAccountToken: true\n# mount secretprovider class volume\nVolumes:\n- Name: secretvolume-name\n  Csi:\n    driver: secrets-store.csi.k8s.io\n    readOnly: true\n    VolumeAttributes:\n      secretProviderClass: my-secret-provider-class\n# deployment strategy\nDeploymentStrategy:\n  RollingUpdate:\n    MaxSurge: 1\n    MaxUnavailable: 0  \n# add initContainers and additionalContainers\ninitContainers:\n- name: bootstrap\n  image: busybox:1.28\n  command:\n    - sh\n    - '-c'\n    - echo duplo\nadditionalContainers:\n- name: init-myservice\n  image: busybox:1.28\n  restartPolicy: Always\n  command:\n    - sh\n    - '-c'\n    - ping 127.0.0.1\n```",
                 "ContainerConfigK8s": "Deployment and Pod configurations\n```yaml\nImagePullPolicy: IfNotPresent\nArgs:\n  - '-- somearg'\nLivenessProbe:\n  httpGet:\n    path: /\n    port: 80\n    httpHeaders:\n      - name: Custom-Header\n        value: Awesome\n  initialDelaySeconds: 3\n  periodSeconds: 3\nReadinessProbe:\n  exec:\n    command:\n      - cat\n      - /tmp/healthy\n  initialDelaySeconds: 5\n  periodSeconds: 5\nstartupProbe:\n  initialDelaySeconds: 1\n  periodSeconds: 5\n  timeoutSeconds: 1\n  successThreshold: 1\n  failureThreshold: 1\n  exec:\n    command:\n      - cat\n      - /etc/nginx/nginx.conf\nSecurityContext:\n  Capabilities:\n    Add:\n    - NET_BIND_SERVICE\n    Drop:\n    - ALL\n  ReadOnlyRootFilesystem: false\n  RunAsNonRoot: true\n  RunAsUser: 1000\nAutomountServiceAccountToken: true\nVolumesMounts:\nEnvFrom:\n- secretRef:\n    name: secret_name\n- configMapRef:\n    name: configmap-name\n# Mount SecretProvider\nVolumesMounts:\n- Name: volume-name\n  MountPath: /mnt/secrets\n  readOnly: true\nEnvFrom:\n- SecretRef:\n    Name: secretobject-name\n# Set Resource Request and Limits\nresources:\n  requests:\n    memory: \"10Gi\"\n    cpu: \"500m\"\n    ephemeral-storage: 2Gi\n  limits:\n    memory: \"10Gi\"\n    cpu: \"500m\"\n    ephemeral-storage: 4Gi\n# Pod Toleration example\ntolerations:\n- key: key1\n  operator: Equal\n  value: value1\n  effect: NoSchedule\n- key: example-key\n  operator: Exists\n  effect: NoExecute\n  tolerationSeconds: 6000\n#lifecycle hook sample\nlifecycle:\n  postStart:\n    exec:\n      command:\n        - /bin/sh\n        - '-c'\n        - date > /container-started.txt\n  preStop:\n    exec:\n      command:\n        - /usr/sbin/nginx\n        - '-s'\n        - quit\n# StatefulSet Update Strategy\nStatefulSetUpdateStrategy:\n  RollingUpdate:\n    Partition: 1\n  Type: RollingUpdate\n# dnsPolicy and dnsConfig\n dnsPolicy: None\n dnsConfig:\n   nameservers:\n     - 8.8.8.8\n     - 1.1.1.1\n   searches:\n     - mycustom.domain.local\n   options:\n     - name: ndots\n       value: '2'\n     - name: timeout\n       value: '1'  \n```",
                 "VolumeMappings": "Example of mounting a host drive into the container\n```js\n\"/home/ubuntu/data:/data\",\"/home/ubuntu/confg:/config\"\n```\n",
                 "otherDockerConfig": "Any custom docker create container can be passed here based\n  on the documentation at https://docs.docker.com/engine/api/v1.41/#operation/ContainerCreate\n  for example the following config overrides the entrypoint of the container and\n  sets a few labels\n```js\n{\n  \"Entrypoint\": [\n    \"/bin/bash\",\n    \"-c\",\n    \"sleep 1h\"\n  ],\n  \"Labels\": {\n    \"com.example.vendor\": \"Acme\",\n    \"com.example.license\": \"GPL\",\n    \"com.example.version\": \"1.0\"\n  }\n}\n```"
+            },
+            "AddVectordbForm": {
+                "name": "Enter a unique name for the vector database configuration within the AI Suite.",
+                "type": "Select the type of vector database provider to connect to.",
+                "ApiEndpoint": "Enter the API endpoint URL used to connect to the vector database service.",
+                "metaData": "Enter optional key-value pairs for storing additional configuration details for this vector database."
             }
         }
     }
