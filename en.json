@@ -939,6 +939,16 @@
                 "medataAnnotations": "Add Job Metadata Annotations.\nFollow below format:\n```yaml\nannotation_name: value1\nannotation_type: value2\n```\n",
                 "medataLabels": "Add Job Metadata Labels.\n```yaml\nlabel1: value1\nlabel2: value2\n```"
             },
+            "AddAgentForm": {
+                "name": "Enter a unique name for the agent definition. This name identifies the agent within the system.",
+                "agentType": "Specify the type of agent. Dynamic agents respond based on prompts and available tools.",
+                "prompt": "Enter the base system prompt that defines the agent\u2019s behavior, tone, and response instructions.",
+                "toolDefinitions": "Select one or more tools the agent can use to perform actions or retrieve data.",
+                "provider": "Select the AI model provider used to run this agent (e.g., 'bedrock' or 'Other').",
+                "temperature": "Set the temperature to control response randomness. Lower values produce more deterministic responses; higher values increase creativity.",
+                "max_Token": "Specify the maximum number of tokens the model can generate in a single response.",
+                "metaData": "Enter optional key-value pairs for storing additional configuration or contextual information for this agent."
+            },
             "VantaControl": {
                 "EnableVanta": "Enable Vanta monitor. GuardDuty will be enabled by default when this setting is enabled.",
                 "tenant": "Select the tenant you want to configure the Vanta monitoring.",
