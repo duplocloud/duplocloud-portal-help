@@ -1,0 +1,4 @@
+  warmPoolState: Select the initial state of the Warm Pool. Options are Stopped or Running.
+  minWarmpoolSize: Enter the minimum number of instances to maintain in the Warm Pool.
+  reuseOnScaleIn: Check to allow instances to be reused when scaling in.
+  maxGrpPreparedCapacity: Enter the maximum number of prepared instances in the group.
