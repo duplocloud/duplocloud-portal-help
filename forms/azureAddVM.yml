@@ -5,12 +5,12 @@ ImageId: Choose the Image for the VM. Image should be compatible with the agent 
 publicIp: Choose `Enable` to use a public IP address if you want to communicate with the virtual machine from outside the virtual network.
 Encryption: Choose to encrypt the given VM.
 diskSize: Disk size in GB.
-allocationTags: Allocation tags is the simplest way to constraint containers/pods with hosts/nodes. DuploCloud/Kubernetes Orchestrator will make sure containers will run on the hosts having same allocation tags.
+allocationTags: Allocation tags are the simplest way to constraint containers/pods to hosts/nodes. DuploCloud/Kubernetes Orchestrator will make sure containers will run on the hosts having same allocation tags.
 joinDomain: Choose Yes to join the VM to the managed domain.
 joinLogAnalytics: Select Yes to connect Azure virtual machines to Log Analytics.
 Username: The administrator username for the VM.
 Password: The administrator password for the VM.
-ComputerName: Enter to set Computer Name for your Virtul Machine. If not specified, will be set same as the name input provided.
+ComputerName: Enter to set Computer Name for your Virtual Machine. If not specified, will be set same as the name input provided.
 DiskControllerType: Default value set is `SCSI`. If you want to set `NVME`, specify the supported Instance Size. Check [here](https://learn.microsoft.com/en-us/azure/virtual-machines/ebdsv5-ebsv5-series#ebdsv5-series-nvme).
 installDuploNativeAgent: Enable to install agent on the host. Supports only Linux/Ubuntu.
 joinDomainType: (optional). Select Domain Type for the host.
