@@ -15,7 +15,7 @@ CloudWatchLogs: (Optional) Select to enable general logging via CloudWatch.
 CloudWatchGeneralLogs: (Optional) Select to enable general logging via CloudWatch.
 CloudWatchAuditLogs: (Optional) Select to enable audit logging. Only applicable for Engine Type of `ActiveMQ`.
 PublicNetworkAccess: Select to enable connections from applications outside of the VPC that hosts the broker's subnets.
-Subnet: Select Subnet in which to launch the broker. `Single Instance` deployment requires one subnet. An `Active/Standy` deployment requires multiple subnets.
+Subnet: Select Subnet in which to launch the broker. `Single Instance` deployment requires one subnet. An `Active/Standby` deployment requires multiple subnets.
 Encryption: Select Encryption.
 IsMaintenanceWindow: Select to enable the broker maintenance window.
 StartDay: Start Day of the week.
@@ -33,5 +33,5 @@ UserRoleName: Name of the LDAP attribute for the user group membership.
 RoleSearchMatching: Search criteria for groups.
 RoleName: Specify the LDAP attribute used to identify the group name in the result of the group membership query.
 UserRoleName: Name of the LDAP attribute for the user group membership.
-UserSearchSubtree: Specifies whether the directory search scope  for user group includes the entire sub-tree.
-RoleSearchSubtree: Specifies whether the directory search scope  for role includes the entire sub-tree.
+UserSearchSubtree: Specifies whether the directory search scope for user group includes the entire sub-tree.
+RoleSearchSubtree: Specifies whether the directory search scope for role includes the entire sub-tree.

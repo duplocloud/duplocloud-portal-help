@@ -3,7 +3,7 @@ targetTypes: |
   1. *instance*: Targets are EC2 instances
   2. *ip*: Targets are IP addresses
   3. *alb*: Targets are ALB.
-port: Sepcify the port.
+port: Specify the port.
 protocol: Select the protocol.
 healthPath: Specify Health Check. Determines whether a target is healthy and can receive traffic.
 healthCheckProtocol: Select Health Check Protocol.
