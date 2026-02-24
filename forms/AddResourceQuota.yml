@@ -3,10 +3,10 @@ cpu: |
   This input can be used to limit the CPU consumed by all pods in a non-terminal state.  
   For 5 CPUs value should be **5**, for half CPU value should be **500m**.  
 memory: |
-  This input can be used to limit the memory consumed by all pods in a non-terminal.  
+  This input can be used to limit the memory consumed by all pods in a non-terminal state.  
   For 512Mb value should be **512Mi**, For 5GB of ram value should be **5Gi**.  
 otherLimits: |
-  You can use this input to all other quotas like storage, Object count etc. Value has to be provided in YAML format like below.  
+  You can use this input to set all other quotas like storage, object count etc. Value has to be provided in YAML format like below.  
   ```yaml
   requests.storage: 500Gi
   persistentvolumeclaims: 10

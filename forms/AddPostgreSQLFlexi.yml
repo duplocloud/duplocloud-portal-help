@@ -5,7 +5,7 @@ AdminPassword: Specify Server Password.
 SkuName: Select Hardware.
 StorageSizeGB: Storage in GB.
 Version: Select the version of PostgreSQL Flexible Server to use.
-BackupRetentionDays: Specify The backup retention days for the PostgreSQL Flexible Server.
+BackupRetentionDays: Specify the backup retention days for the PostgreSQL Flexible Server.
 GeoRedundantBackup: Select to enable Geo-Redundant backup.
 SubnetId: Select the Subnet.
 HighAvailability: Select High Availability.
