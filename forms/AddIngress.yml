@@ -18,11 +18,11 @@ ingressAnnotations: |
     1. **AWS ALB ingress controller** [here](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.2/guide/ingress/annotations/)
     2. **Azure Application Gateway Ingress** [here](https://azure.github.io/application-gateway-kubernetes-ingress/annotations/#list-of-supported-annotations)
     3. **GCP Ingress** [here](https://cloud.google.com/kubernetes-engine/docs/how-to/load-balance-ingress#ingress_annotations)
-httpPort: HTTP Listener Port. If you dont want to exposed your services over HTTP, make it blank.
+httpPort: HTTP Listener Port. If you don't want to expose your services over HTTP, leave it blank.
 httpsPort: HTTPS Listener Port. HTTPS Listener port can be specified only when SSL certificate ARN is specified.
 ingressLabels: |
   Key Value pair of labels to be added to Ingress
-  Sample Value Can be as bellow
+  Sample Value Can be as below
   ```yaml
 
   team: platform

@@ -1,5 +1,5 @@
 VolumeMappingsK8s: |-
-  Volumes and Volume mount setting in the Duplo simplied format. If you specify Volumes here, Duplo will take care of configuring pod volumes and volume mounts.
+  Volumes and volume mount settings in the Duplo simplified format. If you specify Volumes here, Duplo will take care of configuring pod volumes and volume mounts.
   ```yaml
   ---
   # Statefulset using EBS volume
@@ -40,7 +40,7 @@ VolumeMappingsK8s: |-
         claimName: efs-claim
   ```
 PodConfigK8s: |-
-  Deployment and Pod confiiguration
+  Deployment and Pod configuration
   ```yaml
   Subdomain: same-name-as-my-service
   Labels:

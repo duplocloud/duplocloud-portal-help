@@ -4,21 +4,21 @@ Zone: |
   **Automatic:** Select this option to automatically assign the availability zone to EC2 host. DuploCloud will automatically assign a zone with subnet having most available IPv4 addresses.
 InstanceType: Select an instance type that meets your computing, memory, networking, or storage needs. Select type as "Other" if you don't see desired option in the dropdown.
 InstanceCount: Desired capacity for the autoscaling group. 
-minInstanceCount: Minimum Instance Count. Autoscaling group will make sure that total no of instance will always be greater than or equal to min count.
-maxInstanceCount: Maximum Instance Count. Autoscaling group will make sure that total no of instance will always be less than or equal to max count.
+minInstanceCount: Minimum Instance Count. Autoscaling group will make sure that the total number of instances will always be greater than or equal to minimum count.
+maxInstanceCount: Maximum Instance Count. Autoscaling group will make sure that the total number of instances will always be less than or equal to maximum count.
 IsClusterAutoscaled: Check this when you want kubernetes cluster autoscaler to manage this cluster auto scaling.
 allocationTags: Allocation tags is the simplest way to constraint containers/pods with hosts/nodes. DuploCloud/Kubernetes Orchestrator will make sure containers will run on the hosts having same allocation tags.
-diskSize: EBS volume size in GB. If not specified volume size will be same as defined the AMI.
+diskSize: EBS volume size in GB. If not specified, volume size will be the same as defined in the AMI.
 agentPlatform: |
   Select container orchestration platform.
   1. **Linux Docker/Native:** Select this option if you want to run docker native services which are Linux based.
   2. **Windows Docker/Native:** Select this option if you want to run docker native services which are Windows based.
-  3. **EKS Linux:** Select this options if you want to run services on the Kubernetes Cluster.
+  3. **EKS Linux:** Select this option if you want to run services on the Kubernetes Cluster.
   4. **None:** This option has to be selected when EC2 instance is not used for running containers.
   5. **ECS:** This option is available only for the Infrastructure with ECS enabled and in ASG form, to be used while configuring Capacity Provider for ECS Service.
 ImageId: AMI id for the EC2 instance. AMI should be compatible with the agent platform. Select type as "Other" if you don't see desired option in dropdown.
 blockEBSOptimization: Set this to enable block EBS optimization.
-enableHibernation: Hibernation stops your instance and saves the contents of the instance’s RAM to the root volume. You cannot enable hibernation after EC2 host is launch. 
+enableHibernation: Hibernation stops your instance and saves the contents of the instance’s RAM to the root volume. You cannot enable hibernation after an EC2 host is launched. 
 metaDataServiceFlag: Select `Disabled` to turn off access to instance metadata. Otherwise you can set `V1 and V2`, or just `V2`. If you do not specify a value, the default is V2 only.
 base64: Base64 encoded user data. On Linux machine you can encode script file using command ```cat <filepath> | base64 -w 0 ```.
 tags: |

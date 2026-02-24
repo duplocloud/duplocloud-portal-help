@@ -42,7 +42,7 @@ storageClassLabels: |
   ```
 allowedTopologies: |
   When a cluster operator specifies the `WaitForFirstConsumer` volume binding mode, it is no longer necessary to restrict provisioning to specific topologies in most situations. However, if still required, `allowedTopologies` can be specified.
-  Sample Value Allowed Toplogies
+  Sample Value Allowed Topologies
   ```yml
   - matchLabelExpressions:
     - key: failure-domain.beta.kubernetes.io/zone

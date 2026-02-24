@@ -2,14 +2,14 @@ Identifier: Please provide a unique identifier for the RDS instance that is uniq
 SnapshotId: Select this when you want to create RDS instance from existing Snapshot.
 Engine: Select Database engine for creating RDS instance.
 EngineVersion: Select database engine version. If not selected latest version will be used while creating database. Select type as 'Other' if you don't see desired option in dropdown list.
-Username: Specify an alphanumeric string that defines the login ID for the master user. You use the master user login to start defining all users, objects, and permissions in a databases of your DB instance. Master Username must start with a letter.
+Username: Specify an alphanumeric string that defines the login ID for the master user. You use the master user login to start defining all users, objects, and permissions in the databases of your DB instance. Master Username must start with a letter.
 Password: Specify a string that defines the password for the master user. Master Password must be at least eight characters long and listed characters are accepted ```[a-z] [A-Z] [0-9] [- * ! $ % &]```.
 ClusterIdentifier: Cluster Identifier
 DbSize: Instance size for RDS. Select type as 'Other' if you don't see desired option in dropdown list.
 AllocatedStorage: Storage allocation for RDS instance in GB.
 MinCapacity: Set the minimum capacity unit for the DB cluster. Each capacity unit is equivalent to a specific compute and memory configuration.
 MaxCapacity: Set the maximum capacity unit for the DB cluster. Each capacity unit is equivalent to a specific compute and memory configuration.
-AutoPause: Specify the amount of time to pass with no database traffic before you scale to zero processing capacity. When database traffic resumes, your Serverless cluster resumes processing capacity and scales to handle the traffic.\
+AutoPause: Specify the amount of time to pass with no database traffic before you scale to zero processing capacity. When database traffic resumes, your Serverless cluster resumes processing capacity and scales to handle the traffic.
 AutoPauseDuration: Amount of time the cluster can be idle before scaling to zero
 DBParameterGroupName: Database parameters group name.
 ClusterParameterGroupName: Cluster parameters group name.
