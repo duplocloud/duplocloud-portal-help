@@ -187,6 +187,10 @@
                 "S3Bucket": "Select S3 for backup.",
                 "S3Folder": "Specify folder name in S3."
             },
+            "editScheduleAssignmentForm": {
+                "type": "Select the type of instance to which this schedule will be applied.",
+                "selectedSchedule": "Select the schedule to assign to the instance."
+            },
             "EksNodepoolForm": {
                 "name": "Specify name of the node pool.",
                 "expireAfter": "Speciy in hours. This configuration means the node pool will expire and be deleted after the specified hours.",
@@ -1289,6 +1293,13 @@
                 "args": "Add argument\n```yaml\n# Example 1\n[\"$(VARIABLE1)\"]\n\n# Example 2\n[\"-c\", \"while true; do echo hello; sleep 10;done\"]\n\n# Example 3\n - -c\n - echo \"Hello world!\" && sleep 5 && exit 42\n```\n",
                 "otherContainerConfig": "Additional Container Configurations. add here.\n```yaml\nimagePullPolicy: Always\nresources: {}\nterminationMessagePath: /dev/termination-log\nterminationMessagePolicy: File\nvolumeMounts:\n- mountPath: /opt\n  name: my-volume\n```\n",
                 "AllocationTags": "Allocation tags is the simplest way to constraint containers/pods with hosts/nodes. DuploCloud/Kubernetes Orchestrator will make sure containers will run on the hosts having same allocation tags."
+            },
+            "addResourcePeriodForm": {
+                "Name": "Enter a unique name for the period. Only letters, numbers, and hyphens are allowed.",
+                "BeginTime": "Select the start time for this period (HH:MM).",
+                "EndTime": "Select the end time for this period (HH:MM).",
+                "Weekdays": "Select the weekday(s) on which this period should apply.",
+                "Description": "Enter a description for the period (optional)."
             },
             "batchQueue": {
                 "tags": "Key value pair of tags to be assigned to queues\nSample Value for tags configuration:\n```js\n{\n    \"key1\" : \"value1\",\n    \"key2\" : \"valuev\"\n}\n```"
