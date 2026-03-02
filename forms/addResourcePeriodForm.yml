@@ -1,0 +1,5 @@
+Name: Enter a unique name for the period. Only letters, numbers, and hyphens are allowed.
+BeginTime: Select the start time for this period (HH:MM).
+EndTime: Select the end time for this period (HH:MM).
+Weekdays: Select the weekday(s) on which this period should apply.
+Description: Enter a description for the period (optional).
