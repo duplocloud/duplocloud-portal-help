@@ -200,6 +200,12 @@
                 "consolidationPolicy": "Select to determine how EKS handles potential disruptions to running workloads when performing node consolidation.\n1. **WhenEmpty:** Nodes are only considered for disruption (removal or replacement) if they have no running pods. \n2. **WhenEmpty or Underutilized:** Nodes are considered for disruption if they are empty OR if they have been underutilized for a specified duration (defined by `Consolidate After`). \n",
                 "consolidateAfter": "Specify in minutes. Defines how long a node should be idle (underutilized) before it's considered for consolidation (i.e., termination and replacement for cost/performance optimization)."
             },
+            "newLocalSecondaryIndex": {
+                "SortKeyAttributeName": "Enter the sort key attribute name for the Local Secondary Index.\nThis attribute must already exist in the table schema.\nMinimum 1 character. Maximum 255 characters.\nExample: orderDate\n",
+                "AttributeType": "Select the data type for the sort key.\nSupported types include:\n- String (S)\n- Number (N)\n- Binary (B)\nThe selected type must match the table's attribute definition.\n",
+                "IndexName": "Enter a unique name for the Local Secondary Index.\nMust be between 3 and 255 characters.\nExample: order-date-index\n",
+                "Projection": "Select the projection type for the index.\nProjection determines which attributes are copied into the index.\nOptions include:\n- KEYS_ONLY (only index and primary keys)\n- INCLUDE (selected non-key attributes)\n- ALL (all table attributes)"
+            },
             "UpdateEfsLifecyclePolicy": {
                 "TransitionToIA": "Select the duration to transition files to the IA storage class.",
                 "TransitionToPrimaryStorageClass": "Enable to transition a file to primary storage."
