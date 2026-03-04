@@ -1,0 +1,28 @@
+Name: |
+  Enter a unique name for this redirect configuration.
+  Example: redirect-to-api
+
+Host: |
+  Specify the host (domain) for which this redirect applies.
+  Example: api.example.com
+
+Path: |
+  Enter the request path to match for the redirect.
+  Example: /v1/orders
+
+Port: |
+  Enter the port number as a string (even though it is numeric).
+  Example: "443"
+  Do not enter it as a number without quotes.
+
+Protocol: |
+  Specify the protocol for the redirect.
+  Example: HTTP or HTTPS
+
+Query: |
+  (Optional) Include query parameters to match.
+  Example: ?version=1
+
+StatusCode: |
+  Enter the HTTP status code to return for the redirect.
+  Example: 301 or 302

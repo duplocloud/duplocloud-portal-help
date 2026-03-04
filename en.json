@@ -1196,6 +1196,15 @@
                 "ServiceName": "Any friendly name to identify your service.",
                 "ImageName": "Enter Image Name. Example `busybox:latest`"
             },
+            "addRedirectConfig": {
+                "Name": "Enter a unique name for this redirect configuration.\nExample: redirect-to-api\n",
+                "Host": "Specify the host (domain) for which this redirect applies.\nExample: api.example.com\n",
+                "Path": "Enter the request path to match for the redirect.\nExample: /v1/orders\n",
+                "Port": "Enter the port number as a string (even though it is numeric).\nExample: \"443\"\nDo not enter it as a number without quotes.\n",
+                "Protocol": "Specify the protocol for the redirect.\nExample: HTTP or HTTPS\n",
+                "Query": "(Optional) Include query parameters to match.\nExample: ?version=1\n",
+                "StatusCode": "Enter the HTTP status code to return for the redirect.\nExample: 301 or 302"
+            },
             "AddContainerRegistry": {
                 "Name": "Specify the name of the Container Registry.",
                 "Tier": "Specify the SKU name of the container registry.",
