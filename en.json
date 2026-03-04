@@ -540,8 +540,9 @@
                 "ExecutorImageUri": "To use the custom Image URI for executors, specify the ECR location of the image `account-id.dkr.ecr.region-id.amazonaws.com/your-Amazon-ECR-repo-name[:tag] or [@sha]`.\nMust be compatible with the selected EMR release [6.9.0 and above] and located in the same region.\n"
             },
             "devops-entity-add": {
-                "S3Bucket": "Select the S3 bucket containing the Lambda function package.",
-                "S3BucketKey": "Specify the key (file path) of the Lambda function package within the selected S3 bucket."
+                "Name": "Enter a unique name for the Load Balancer.\nMust start with a letter and can include letters, numbers, and hyphens (-).\nMinimum 2 characters. Maximum 15 characters.\nExample: web-lb1\n",
+                "LbType": "Select the Load Balancer type (Network or Application).\nThe type determines how traffic is handled and routed.\nChoose the appropriate type based on your application architecture and traffic requirements.\n",
+                "Size": "Select the Load Balancer visibility.\nChoose Public to expose the Load Balancer to the internet.\nChoose Internal to restrict access within the private network (VPC/VNet)."
             },
             "GenericSideBar": {
                 "AddSteps": "Jobs to be executed on cluster. Please update s3 and py file.\n```js\n[\n{\n\"ActionOnFailure\" : \"CONTINUE\",\n\"Name\"              : \"sparkstepTest\",\n\"HadoopJarStep\" : {\n\"Jar\" : \"command-runner.jar\",\n\"Args\" : [\n  \"spark-submit\",\n  \"s3://YOUR-S3-FOLDER/script3.py\"\n]\n}\n}\n]\n```",
