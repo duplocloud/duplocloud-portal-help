@@ -1,6 +1,6 @@
 Name: Unique Data Pipeline Name
 PipeLineDef: |-
-  Please provide Data Pipeline defination json. Provide EmrCluster details If using existing  EmrCluster.
+  Please provide Data Pipeline definition JSON. Provide EmrCluster details if using an existing EmrCluster.
                       ```js
                       {
                       "PipelineObjects": [
@@ -433,7 +433,7 @@ PipeLineDef: |-
                       }
                       ```
 PipeLineDefAws: |-
-  Please provide Data Pipeline defination json. Provide EmrCluster details If using existing  EmrCluster.
+  Please provide Data Pipeline definition JSON. Provide EmrCluster details if using an existing EmrCluster.
                       ```js
                       {
                       "objects": [

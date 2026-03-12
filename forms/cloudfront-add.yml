@@ -1,4 +1,4 @@
-Name: Any friendly name to the cloudfront distribution
+Name: Enter a friendly name for the CloudFront distribution
 certificate: Certificate ARN to be used by the distribution. Make sure the certificate is in the us-east-1 region.
 DefaultRootObject: 'Default root object object that will be returned while accessing
   root of the domain. Example: index.html. Should not start with "/"'
@@ -12,7 +12,7 @@ itemAliasName0: The number of CNAME aliases, that you want to associate with thi
   distribution. End User will be able to access the disribution using this URL
 itemDomainName0: Origin Domain Name where the content will be fetched by the CDN.
   It can be S3 bucket or custom URL (api service url etc)
-itemId0: Unique Id for the origin. This Id will be refered in default cache behavior
+itemId0: Unique Id for the origin. This Id will be referenced in default cache behavior
   and custom cache behavior.
 itemPath0: "Path that will suffixed to the origin domain name (url) while fetching
   content.\n        For S3: If the content that need to be served is under prefix
