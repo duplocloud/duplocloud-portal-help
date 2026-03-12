@@ -1,5 +1,5 @@
 name: Specify name of the node pool.
-expireAfter: Speciy in hours. This configuration means the node pool will expire and be deleted after the specified hours.
+expireAfter: Specify in hours. This configuration means the node pool will expire and be deleted after the specified hours.
 terminationGracePeriod: |
   Specify Termination Grace Period in hours.
   Time given to node for pod draining before force deleting pods and removing the node.
