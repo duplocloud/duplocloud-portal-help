@@ -534,8 +534,8 @@
             },
             "rdsRestorePointTime": {
                 "TargetName": "Specify the rds identifier name. Should be unique across all tenants.",
-                "latestRestorableTime": "Select  to restore DB from the latest backup time.",
-                "type": "Select Custom, enter the date and time to which you want to restore the DB instance."
+                "latestRestorableTime": "Select to restore DB from the latest backup time.",
+                "type": "Select Custom and enter the date and time to which you want to restore the DB instance."
             },
             "emr_serverless_add_sub_form_basics": {
                 "Name": "The name of the application.",
@@ -1066,8 +1066,8 @@
                 "ContainerPort": "Port exposed by the container.",
                 "ExternalPort": "Port user want to expose using loadbalancer. It may not be same as to the container port.\n",
                 "customCidrs": "Specify CIDR and click on Add. You can add multiple CIDR Values.\n",
-                "visibility": "Visibility of the service to be exposed which can be either Internal or Public.\n1 **Internal Only**: When this option is selected service will accessible within the infrastructure.\n2. **Public**: When this option is selected, service will be accessible to the internet. \n",
-                "HealthCheck": "Health check URL for this container. This required parameter when Application loadbalancer is selected. \nIt helps ALB to decide whether service is up and running.\n",
+                "visibility": "Visibility of the service to be exposed which can be either Internal or Public.\n1 **Internal Only**: When this option is selected the service will be accessible within the infrastructure.\n2. **Public**: When this option is selected, service will be accessible to the internet. \n",
+                "HealthCheck": "Health check URL for this container. This is a required parameter when Application loadbalancer is selected. \nIt helps ALB to decide whether service is up and running.\n",
                 "BackendProtocol": "Protocol for the service exposed by the container.",
                 "BeProtocolVersion": "Protocol version only applicable when application loadbalancer is selected\n1. **HTTP1**: Send requests to targets using HTTP/1.1. Supported when the request protocol is HTTP/1.1 or HTTP/2.\n2. **HTTP2**: Send requests to targets using HTTP/2. Supported when the request protocol is HTTP/2 or gRPC, but gRPC-specific features are not available.\n3. **gRPC**: Send requests to targets using gRPC. Supported when the request protocol is gRPC.\n",
                 "Certificates": "Certificate to be attached to loadbalancer to expose the service over SSL.",
@@ -1330,7 +1330,7 @@
                 "CloudWatchGeneralLogs": "(Optional) Select to enable general logging via CloudWatch.",
                 "CloudWatchAuditLogs": "(Optional) Select to enable audit logging. Only applicable for Engine Type of `ActiveMQ`.",
                 "PublicNetworkAccess": "Select to enable connections from applications outside of the VPC that hosts the broker's subnets.",
-                "Subnet": "Select Subnet in which to launch the broker. `Single Instance` deployment requires one subnet. An `Active/Standy` deployment requires multiple subnets.",
+                "Subnet": "Select Subnet in which to launch the broker. `Single Instance` deployment requires one subnet. An `Active/Standby` deployment requires multiple subnets.",
                 "Encryption": "Select Encryption.",
                 "IsMaintenanceWindow": "Select to enable the broker maintenance window.",
                 "StartDay": "Start Day of the week.",
@@ -1346,8 +1346,8 @@
                 "RoleSearchMatching": "Search criteria for groups.",
                 "UserRoleName": "Name of the LDAP attribute for the user group membership.",
                 "RoleName": "Specify the LDAP attribute used to identify the group name in the result of the group membership query.",
-                "UserSearchSubtree": "Specifies whether the directory search scope  for user group includes the entire sub-tree.",
-                "RoleSearchSubtree": "Specifies whether the directory search scope  for role includes the entire sub-tree."
+                "UserSearchSubtree": "Specifies whether the directory search scope for user group includes the entire sub-tree.",
+                "RoleSearchSubtree": "Specifies whether the directory search scope for role includes the entire sub-tree."
             },
             "AddServiceAdvanced": {
                 "VolumeMappingsK8s": "Volumes and Volume mount setting in the Duplo simplied format. If you specify Volumes here, Duplo will take care of configuring pod volumes and volume mounts.\n```yaml\n---\n# Statefulset using EBS volume\n- AccessMode: ReadWriteOnce\n  Name: data\n  Path: /attachedvolume\n  Size: 10Gi\n# Deployment using host directory mount in read-only mode\n- Name: rootfs   # Name of the volume\n  Path: /rootfs  # Path in the container\n  ReadOnly: true # Set if it is readonly mount\n  Spec:          # K8s Defined volumes\n    HostPath:\n      Path: /    # Path on the host\n# Deployment using host directory mount in read-write mode\n- Name: var-run\n  Path: /var/run\n  Spec:\n    HostPath:\n      Path: /var/run\n# Deployment mounting secret into directory\n- Name: nginx\n  Path: /etc/nginx/conf.d\n  Spec:\n    Secret:\n      SecretName: nginx\n# Deployment mounting config map into directory\n- Name: nginx\n  Path: /etc/nginx/conf.d\n  Spec:\n    ConfigMap:\n      Name: nginx\n# Deployment using PersistentVolumeClaim. \n- Name: nginx\n  Path: /usr/share/nginx/html\n  Spec:\n    PersistentVolumeClaim:\n      claimName: efs-claim\n```",

@@ -6,10 +6,10 @@ customCidrs: |
   Specify CIDR and click on Add. You can add multiple CIDR Values.
 visibility: |
   Visibility of the service to be exposed which can be either Internal or Public.
-  1 **Internal Only**: When this option is selected service will accessible within the infrastructure.
+  1 **Internal Only**: When this option is selected the service will be accessible within the infrastructure.
   2. **Public**: When this option is selected, service will be accessible to the internet. 
 HealthCheck: |
-  Health check URL for this container. This required parameter when Application loadbalancer is selected. 
+  Health check URL for this container. This is a required parameter when Application loadbalancer is selected. 
   It helps ALB to decide whether service is up and running.
 BackendProtocol: Protocol for the service exposed by the container.
 BeProtocolVersion: |
