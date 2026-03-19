@@ -7,7 +7,7 @@ IdleTimeBeforeShutdown: Idle time (when no job is running) in hours before termi
 StepConcurrencyLevel: Number of steps that can be executed concurrently. This setting should
   depend on the available resources.
 Applications: |
-  Applications to be installed in cluster (master and slaves).
+  Applications to be installed in the cluster (master and worker nodes).
   ```js
   [
   {
@@ -25,7 +25,7 @@ Applications: |
   ]
   ```
 Configurations: |-
-  Configurations to be installed in cluster (master and slaves).
+  Configurations to be installed in the cluster (master and worker nodes).
   ```js
   [
   {
