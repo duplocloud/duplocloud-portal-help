@@ -195,6 +195,9 @@ ContainerConfigK8s: |-
     RollingUpdate:
       Partition: 1
     Type: RollingUpdate
+
+  minReadySeconds: 30
+   
   # dnsPolicy and dnsConfig
    dnsPolicy: None
    dnsConfig:

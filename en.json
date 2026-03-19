@@ -187,14 +187,24 @@
                 "S3Bucket": "Select S3 for backup.",
                 "S3Folder": "Specify folder name in S3."
             },
+            "editScheduleAssignmentForm": {
+                "type": "Select the type of instance to which this schedule will be applied.",
+                "selectedSchedule": "Select the schedule to assign to the instance."
+            },
             "EksNodepoolForm": {
                 "name": "Specify name of the node pool.",
-                "expireAfter": "Speciy in hours. This configuration means the node pool will expire and be deleted after the specified hours.",
+                "expireAfter": "Specify in hours. This configuration means the node pool will expire and be deleted after the specified hours.",
                 "terminationGracePeriod": "Specify Termination Grace Period in hours.\nTime given to node for pod draining before force deleting pods and removing the node.\nIn EKS Auto Mode this is implicitly set to 24 hours when omitted. See [here](https://docs.aws.amazon.com/eks/latest/userguide/create-node-pool.html#_termination_grace_period).\n",
                 "cpu": "Specify CPU limit.\nCeiling on how many cpu resources a nodepool can cumulatively consume by scaling nodes.\nWhen defined, nodepool stops scaling if it takes cpu consumption beyond cpu limit.\nOmitting limit means not specifying an upper bound for cpu consumption. For details, see [here](https://karpenter.sh/docs/concepts/nodepools/#speclimits)\n",
                 "memory": "Specify Memory limit.\nCeiling on how much memory a nodepool can cumulatively consume by scaling nodes.\nWhen defined, nodepool stops scaling if it takes memory consumption beyond this limit.\nOmitting limit means not specifying an upper bound for memory consumption. For details, see [here](https://karpenter.sh/docs/concepts/nodepools/#speclimits)\n",
                 "consolidationPolicy": "Select to determine how EKS handles potential disruptions to running workloads when performing node consolidation.\n1. **WhenEmpty:** Nodes are only considered for disruption (removal or replacement) if they have no running pods. \n2. **WhenEmpty or Underutilized:** Nodes are considered for disruption if they are empty OR if they have been underutilized for a specified duration (defined by `Consolidate After`). \n",
                 "consolidateAfter": "Specify in minutes. Defines how long a node should be idle (underutilized) before it's considered for consolidation (i.e., termination and replacement for cost/performance optimization)."
+            },
+            "newLocalSecondaryIndex": {
+                "SortKeyAttributeName": "Enter the sort key attribute name for the Local Secondary Index.\nThis attribute must already exist in the table schema.\nMinimum 1 character. Maximum 255 characters.\nExample: orderDate\n",
+                "AttributeType": "Select the data type for the sort key.\nSupported types include:\n- String (S)\n- Number (N)\n- Binary (B)\nThe selected type must match the table's attribute definition.\n",
+                "IndexName": "Enter a unique name for the Local Secondary Index.\nMust be between 3 and 255 characters.\nExample: order-date-index\n",
+                "Projection": "Select the projection type for the index.\nProjection determines which attributes are copied into the index.\nOptions include:\n- KEYS_ONLY (only index and primary keys)\n- INCLUDE (selected non-key attributes)\n- ALL (all table attributes)"
             },
             "UpdateEfsLifecyclePolicy": {
                 "TransitionToIA": "Select the duration to transition files to the IA storage class.",
@@ -473,7 +483,7 @@
                 "Protocol": "Protocol for this port.",
                 "Image": "Image for your docker container.",
                 "environmentvars": "Environment variables to be passed to the container in the JSON format as below.\n```js\n[\n  {\n    \"Name\": \"<env_var_name>\",\n    \"Value\": \"<env_var_value>\"\n  }\n]\n```\n",
-                "command": "The command that is passed to the container. This parameter maps to **Cmd** in the Create a container section of the Docker Remote API and the COMMAND parameter to docker run. For more information about the Docker CMD parameter, click[here](https://docs.docker.com/engine/reference/builder/#cmd).\nFollowing is the example value to make you container sleep for debugging.\n```js\n[\n  \"sleep\",\n  \"500000\"\n]\n```\n",
+                "command": "The command that is passed to the container. This parameter maps to **Cmd** in the Create a container section of the Docker Remote API and the COMMAND parameter to docker run. For more information about the Docker CMD parameter, click [here](https://docs.docker.com/engine/reference/builder/#cmd).\nFollowing is the example value to make your container sleep for debugging.\n```js\n[\n  \"sleep\",\n  \"500000\"\n]\n```\n",
                 "healthcheck": "Health check configuration which helps to determine if container is healthy in a JSON format. JSON has following attributes.\n1. **command**: A string array representing the command that the container runs to determine if it is healthy. The string array can start with CMD to execute the command arguments directly, or CMD-SHELL to run the command with the container's default shell. If neither is specified, CMD is used by default.\n2. **interval**: The time period in seconds between each health check execution. You may specify between 5 and 300 seconds. The default value is 30 seconds.\n3. **timeout**: The time period in seconds to wait for a health check to succeed before it is considered a failure. You may specify between 2 and 60 seconds. The default value is 5 seconds.\n4. **retries**: The number of times to retry a failed health check before the container is considered unhealthy. You may specify between 1 and 10 retries. The default value is three retries.\n5. **startPeriod**: The optional grace period within which to provide containers time to bootstrap before failed health checks count towards the maximum number of retries. You may specify between 0 and 300 seconds. The startPeriod is disabled by default.\nFollowing is the example to perform health check by calling an API\n```js\n{\n  \"command\" : [ \"CMD-SHELL\", \"curl -f http://localhost/ || exit 1\" ],\n  \"interval\": 20,\n  \"timeout\" : 5,\n  \"retries\" : 10,\n  \"startPeriod\" : 20\n}\n```\n",
                 "Secret": "This is another way of setting up the environment values from AWS secrets in a JSON format. \n```js\n[\n    {\n        \"Name\": \"<env_var_name>\",\n        \"ValueFrom\": \"<aws_secret_arn>:<key_in_aws_secret>::\"\n    },\n    {\n        \"Name\": \"DB_HOST\",\n        \"ValueFrom\": \"arn:aws:secretsmanager:us-west-2:2432432434343:secret:db-secret:DB_HOST::\"\n    }\n]\n```\n",
                 "containerotherconfig": "All other advance properties documented [here](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterTaskDefinition.html) applicable only for the Fargate in a JSON format.\nSample value can look like below.\n```js\n{\n  \"LogConfiguration\": {\n      \"LogDriver\": {\n          \"Value\": \"awslogs\"\n      },\n      \"Options\": {\n          \"awslogs-create-group\": \"true\",\n          \"awslogs-group\": \"/ecs/duploservices-nonprod-api\",\n          \"awslogs-region\": \"us-west-2\",\n          \"awslogs-stream-prefix\": \"ecs\"\n      },\n      \"SecretOptions\": []\n  }\n}\n```\n",
@@ -724,6 +734,13 @@
                 "appLogDestinations": "Select where application logs from this environment should be sent.",
                 "SubnetId": "Select the subnet where the Container App Environment will be deployed."
             },
+            "dynamodb-add": {
+                "TableName": "Enter a unique name for your DynamoDB table (3\u2013255 characters). Use letters, numbers, hyphens, underscores, or periods.",
+                "PrimaryKey": "Enter the partition key attribute name. This key uniquely identifies each item in the table.",
+                "PrimaryKeyDataType": "Select the data type for the partition key (String, or Number).",
+                "SortKey": "(Optional) Enter a sort key to create a composite primary key. This allows multiple items with the same partition key.",
+                "SortKeyDataType": "Select the data type for the sort key (String, or Number)."
+            },
             "publicIpPrefixForm": {
                 "Name": "Specify the name of the Public IP Prefix resource.",
                 "PrefixLength": "Select from the Public IP prefix sizes.",
@@ -878,7 +895,7 @@
                 "selectTenant": "Select the Tenant.",
                 "destinationS3": "Select the destination S3 bucket for replication",
                 "Priority": "Specify the Priority associated with the rule. Priority must be unique between multiple rules.",
-                "DeleteMarkerReplication": "Enable/Disable if delete markers needs be replicated.",
+                "DeleteMarkerReplication": "Enable/Disable if delete markers need to be replicated.",
                 "changeStorage": "Select to set the Storage Class used to store the object.",
                 "StorageClass": "Select the Storage Class from the supported list to store the objects."
             },
@@ -944,7 +961,7 @@
                 "tenant": "Select the tenant you want to configure the Vanta monitoring.",
                 "guardDutyEmail": "Enter email id. SNS Topic subscription will be sent to this email id.",
                 "description": "Specify the description.",
-                "production": "When Production is set as True, SNS Topic will be configured in the Infrastructure region fo the Tenant.",
+                "production": "When Production is set as True, SNS Topic will be configured in the Infrastructure region for the Tenant.",
                 "contains": "Enables User Data.",
                 "owner": "Enter email of the owner."
             },
@@ -980,8 +997,8 @@
             },
             "addAcceleratorForm": {
                 "acceleratorCount": "Specify the number of GPUs.",
-                "acceleratorType": "Specify Accelerator Type(GPU Type). Google does not offer every instance/GPU combination in every region/zone. \nEnter the compatible type based on the instance type and zone. Example: `nvidia-tesla-a100` Accelarator Type is supported for Zone `us-west4-b` for Instance Type `a2-highgpu-1g`.\nFor GPU regions and zone availability, click [here](https://cloud.google.com/compute/docs/gpus/gpu-regions-zones).\nMore details on running GPUs in GKE Standard Pool, click [here](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus).\n",
-                "gpuPartitionSize": "Specify GPC Partition Size. Example- `1g.5gb`. Refer [UserGuide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning).",
+                "acceleratorType": "Specify Accelerator Type(GPU Type). Google does not offer every instance/GPU combination in every region/zone. \nEnter the compatible type based on the instance type and zone. Example: `nvidia-tesla-a100` Accelerator Type is supported for Zone `us-west4-b` for Instance Type `a2-highgpu-1g`.\nFor GPU regions and zone availability, click [here](https://cloud.google.com/compute/docs/gpus/gpu-regions-zones).\nMore details on running GPUs in GKE Standard Pool, click [here](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus).\n",
+                "gpuPartitionSize": "Specify GPU Partition Size. Example- `1g.5gb`. Refer [UserGuide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning).",
                 "maxSharedClientsPerGpu": "Specify maximum shared client.",
                 "gpuSharingStrategy": "Select GCP Sharing Strategy.",
                 "gpuDriverInstallationConfig": "Select the GPU Driver Installation Strategy\n1. **Default:** Installs the default driver version for your GKE version.\n2. **Latest:** Installs the latest available driver version for your GKE version. Available only for nodes that use Container-Optimized OS.\n3. **Disable GPU driver auto installation:**  Disables GPU driver auto installation and needs manual installation.\n4. **Do not install any GPU driver:** Skips automatic driver auto installation."
@@ -999,7 +1016,7 @@
             "addLogDeliveryConfiguration": {
                 "LogFormat": "Select Log Format. Supported format are `TEXT` and `JSON`.",
                 "LogType": "Select Log Type `engine log` and `slow log`.",
-                "LogGroup": "Sepcify Cloud Watch Log Group. If the Log Group do not exist, will create a new log group."
+                "LogGroup": "Specify a CloudWatch Log Group. If the Log Group does not exist, a new Log Group will be created."
             },
             "azureAddAgentPool": {
                 "name": "Select Id to create a node pool",
@@ -1250,7 +1267,7 @@
                 "ImageConfiguration": "Specify container image configuration values.\nExample:\n```js\n{\n  \"Command\": [\n      \"app.handler\"\n  ],\n  \"EntryPoint\": [\n      \"/usr/local/bin/python\",\n      \"-m\",\n      \"awslambdaruntimeclient\"\n  ],\n  \"WorkingDirectory\": \"/var/task\"\n}\n```\n",
                 "ImageUri": "Enter the ECR image URI containing the function's deployment package.",
                 "EphemeralStorage": "Specify Ephemeral Storage in MB, allows you to configure the storage upto 10240 MB. The default value set to 512 MB.",
-                "DeadLetterQueue": "Select SQS queue or SNS Topic to send events from an an asynchronous invocation.",
+                "DeadLetterQueue": "Select SQS queue or SNS Topic to send events from an asynchronous invocation.",
                 "MaximumRetryAttempts": "Specify the maximum number of times to retry when the function returns an error.",
                 "MaximumEventAgeInSeconds": "Specify the maximum amount of time in seconds to keep unprocessed events in the queue."
             },
@@ -1280,15 +1297,22 @@
                 "JobName": "Specify the name of the Job, must be unique. Minimum 3 characters.",
                 "Schedule": "Specify schedule in Cron format. Example- `0 0 * * 0`. This will run once a week at midnight on Sunday morning. For more help on cron schedule expressions, click [here](https://crontab.guru/#0_0_*_*_0)",
                 "ImageName": "Specify the image name. Example- `perl:5.34.0`.",
-                "CleanupFinished": "Specify time in seconds.\n1. **if set as 0**: Job becomes eligible to be deleted immediately after it finishes.\n2. **if field is unset/blank**: Jobs won't be automatically deleted. \n3. **if the field is set**: Job is eligible to be automatically delete after the seconds specified\n",
+                "CleanupFinished": "Specify time in seconds.\n1. **if set as 0**: Job becomes eligible to be deleted immediately after it finishes.\n2. **if field is unset/blank**: Jobs won't be automatically deleted. \n3. **if the field is set**: Job is eligible to be automatically deleted after the specified number of seconds.\n",
                 "restartPolicy": "1. **Never**: Job won't restart on failure.\n2. **OnFailure**: Job will restart on failure based on the retry count set.\n",
                 "Retries": "Set the retry limit. Once the BackoffLimit is reached the Job will be marked as failed.\n",
                 "envVariables": "Environment variables to be passed to the jobs in the YAML format.\n```yaml\n- Name: VARIABLE1\n  Value: abc.com\n- Name: VARIABLE2\n  Value: test_value\n```\n",
                 "ContainerName": "Specify Name of the Container.",
                 "command": "Specify the command attribute for the container.\n```yaml\n # Example 1\n [\"perl\",  \"-Mbignum=bpi\", \"-wle\", \"print bpi(2000)\"]\n\n # Example 2\n  - /bin/sh\n  - -c\n  - >-\n    echo \"Hello !!!\"\n```\n",
                 "args": "Add argument\n```yaml\n# Example 1\n[\"$(VARIABLE1)\"]\n\n# Example 2\n[\"-c\", \"while true; do echo hello; sleep 10;done\"]\n\n# Example 3\n - -c\n - echo \"Hello world!\" && sleep 5 && exit 42\n```\n",
-                "otherContainerConfig": "Additional Container Configurations. add here.\n```yaml\nimagePullPolicy: Always\nresources: {}\nterminationMessagePath: /dev/termination-log\nterminationMessagePolicy: File\nvolumeMounts:\n- mountPath: /opt\n  name: my-volume\n```\n",
+                "otherContainerConfig": "Add additional Container Configurations here.\n```yaml\nimagePullPolicy: Always\nresources: {}\nterminationMessagePath: /dev/termination-log\nterminationMessagePolicy: File\nvolumeMounts:\n- mountPath: /opt\n  name: my-volume\n```\n",
                 "AllocationTags": "Allocation tags is the simplest way to constraint containers/pods with hosts/nodes. DuploCloud/Kubernetes Orchestrator will make sure containers will run on the hosts having same allocation tags."
+            },
+            "addResourcePeriodForm": {
+                "Name": "Enter a unique name for the period. Only letters, numbers, and hyphens are allowed.",
+                "BeginTime": "Select the start time for this period (HH:MM).",
+                "EndTime": "Select the end time for this period (HH:MM).",
+                "Weekdays": "Select the weekday(s) on which this period should apply.",
+                "Description": "Enter a description for the period (optional)."
             },
             "batchQueue": {
                 "tags": "Key value pair of tags to be assigned to queues\nSample Value for tags configuration:\n```js\n{\n    \"key1\" : \"value1\",\n    \"key2\" : \"valuev\"\n}\n```"
@@ -1330,7 +1354,7 @@
                 "PodConfigK8s": "Deployment and Pod configuration\n```yaml\nSubdomain: same-name-as-my-service\nLabels:\n  label1: values1\nAnnotations:\n  seccomp.security.alpha.kubernetes.io/pod: docker/default\n  duplocloud.net/external-scaling: \"true\" ## to support external scaling HPA like KEDA\nPodLabels:\n  label1: values1\nPodAnnotations:\n  seccomp.security.alpha.kubernetes.io/pod: docker/default\nRestartPolicy: Always\nPodSecurityContext:\n  RunAsUser: 1000\n  RunAsGroup: 3000\n  FsGroup: 2000\nVolumes:\n  - name: cache-volume\n    emptyDir: {}\n  - name: config-vol\n    configMap:\n      name: log-config\n      items:\n        - key: log_level\n          path: log_level\nImagePullSecrets:\n  - name: myregistrykey\nServiceAccountName: my-service-account-name\nAutomountServiceAccountToken: true\n# mount secretprovider class volume\nVolumes:\n- Name: secretvolume-name\n  Csi:\n    driver: secrets-store.csi.k8s.io\n    readOnly: true\n    VolumeAttributes:\n      secretProviderClass: my-secret-provider-class\n# deployment strategy\nDeploymentStrategy:\n  RollingUpdate:\n    MaxSurge: 1\n    MaxUnavailable: 0  \n# add initContainers and additionalContainers\ninitContainers:\n- name: bootstrap\n  image: busybox:1.28\n  command:\n    - sh\n    - '-c'\n    - echo duplo\nadditionalContainers:\n- name: init-myservice\n  image: busybox:1.28\n  restartPolicy: Always\n  command:\n    - sh\n    - '-c'\n    - ping 127.0.0.1\n```",
                 "ContainerConfigK8s": "Deployment and Pod configurations\n```yaml\nImagePullPolicy: IfNotPresent\nArgs:\n  - '-- somearg'\nLivenessProbe:\n  httpGet:\n    path: /\n    port: 80\n    httpHeaders:\n      - name: Custom-Header\n        value: Awesome\n  initialDelaySeconds: 3\n  periodSeconds: 3\nReadinessProbe:\n  exec:\n    command:\n      - cat\n      - /tmp/healthy\n  initialDelaySeconds: 5\n  periodSeconds: 5\nstartupProbe:\n  initialDelaySeconds: 1\n  periodSeconds: 5\n  timeoutSeconds: 1\n  successThreshold: 1\n  failureThreshold: 1\n  exec:\n    command:\n      - cat\n      - /etc/nginx/nginx.conf\nSecurityContext:\n  Capabilities:\n    Add:\n    - NET_BIND_SERVICE\n    Drop:\n    - ALL\n  ReadOnlyRootFilesystem: false\n  RunAsNonRoot: true\n  RunAsUser: 1000\nAutomountServiceAccountToken: true\nVolumesMounts:\nEnvFrom:\n- secretRef:\n    name: secret_name\n- configMapRef:\n    name: configmap-name\n# Mount SecretProvider\nVolumesMounts:\n- Name: volume-name\n  MountPath: /mnt/secrets\n  readOnly: true\nEnvFrom:\n- SecretRef:\n    Name: secretobject-name\n# Set Resource Request and Limits\nresources:\n  requests:\n    memory: \"10Gi\"\n    cpu: \"500m\"\n    ephemeral-storage: 2Gi\n  limits:\n    memory: \"10Gi\"\n    cpu: \"500m\"\n    ephemeral-storage: 4Gi\n# Pod Toleration example\ntolerations:\n- key: key1\n  operator: Equal\n  value: value1\n  effect: NoSchedule\n- key: example-key\n  operator: Exists\n  effect: NoExecute\n  tolerationSeconds: 6000\n#lifecycle hook sample\nlifecycle:\n  postStart:\n    exec:\n      command:\n        - /bin/sh\n        - '-c'\n        - date > /container-started.txt\n  preStop:\n    exec:\n      command:\n        - /usr/sbin/nginx\n        - '-s'\n        - quit\n# StatefulSet Update Strategy\nStatefulSetUpdateStrategy:\n  RollingUpdate:\n    Partition: 1\n  Type: RollingUpdate\n# dnsPolicy and dnsConfig\n dnsPolicy: None\n dnsConfig:\n   nameservers:\n     - 8.8.8.8\n     - 1.1.1.1\n   searches:\n     - mycustom.domain.local\n   options:\n     - name: ndots\n       value: '2'\n     - name: timeout\n       value: '1'  \n```",
                 "VolumeMappings": "Example of mounting a host drive into the container\n```js\n\"/home/ubuntu/data:/data\",\"/home/ubuntu/confg:/config\"\n```\n",
-                "otherDockerConfig": "Any custom docker create container can be passed here based\n  on the documentation at https://docs.docker.com/engine/api/v1.41/#operation/ContainerCreate\n  for example the following config overrides the entrypoint of the container and\n  sets a few labels\n```js\n{\n  \"Entrypoint\": [\n    \"/bin/bash\",\n    \"-c\",\n    \"sleep 1h\"\n  ],\n  \"Labels\": {\n    \"com.example.vendor\": \"Acme\",\n    \"com.example.license\": \"GPL\",\n    \"com.example.version\": \"1.0\"\n  }\n}\n```"
+                "otherDockerConfig": "Any custom docker create container can be passed here based\n  on the documentation at https://docs.docker.com/engine/api/v1.41/#operation/ContainerCreate\n  for example the following config overrides the entrypoint of the container and\n  sets a few labels\n```js\n{\n  \"Entrypoint\": [\n    \"/bin/bash\",\n    \"-c\",\n    \"sleep 1h\"\n  ],\n  \"Labels\": {\n    \"com.example.vendor\": \"Acme\",\n    \"com.example.license\": \"GPL\",\n    \"com.example.version\": \"1.0\"\n  }\n}\n```\n"
             }
         }
     }

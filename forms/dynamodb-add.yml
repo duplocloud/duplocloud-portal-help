@@ -1,0 +1,5 @@
+TableName: Enter a unique name for your DynamoDB table (3–255 characters). Use letters, numbers, hyphens, underscores, or periods.
+PrimaryKey: Enter the partition key attribute name. This key uniquely identifies each item in the table.
+PrimaryKeyDataType: Select the data type for the partition key (String, or Number).
+SortKey: (Optional) Enter a sort key to create a composite primary key. This allows multiple items with the same partition key.
+SortKeyDataType: Select the data type for the sort key (String, or Number).

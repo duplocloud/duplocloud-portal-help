@@ -13,8 +13,8 @@ environmentvars: |
   ]
   ```
 command: |
-  The command that is passed to the container. This parameter maps to **Cmd** in the Create a container section of the Docker Remote API and the COMMAND parameter to docker run. For more information about the Docker CMD parameter, click[here](https://docs.docker.com/engine/reference/builder/#cmd).
-  Following is the example value to make you container sleep for debugging.
+  The command that is passed to the container. This parameter maps to **Cmd** in the Create a container section of the Docker Remote API and the COMMAND parameter to docker run. For more information about the Docker CMD parameter, click [here](https://docs.docker.com/engine/reference/builder/#cmd).
+  Following is the example value to make your container sleep for debugging.
   ```js
   [
     "sleep",
