@@ -2,9 +2,9 @@ Name: Specify the name of the rule.
 Description: Add description to the rule.
 SqlSelect_later: The SQL statement used to query the topic. For SQL Expressions refer [here](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html).
 TopicFilter_later: TopicFilter for the query. Defaults to `#`.
-SqlWhere_later: clause determines if the actions specified by a rule are carried out. Refer [here](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-where.html).
+SqlWhere_later: The WHERE clause determines if the actions specified by a rule are carried out. Refer [here](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-where.html).
 SqlVersion: The version of the SQL rules engine to use when evaluating the rule. Defaults to `2016-03-23`.
 Disabled: Select to enable or disable  the destination.
 Action 1: Specify actions when a rule is invoked. For more details refer [here](https://docs.aws.amazon.com/iot/latest/developerguide/iot-rule-actions.html).
-UseErrorAction: Enable to activate the rules engine an error action, if any problem is identified while activating the topic rule.
+UseErrorAction: Enable to activate the rules engine error action, if any problem is identified while activating the topic rule.
 Error Action: Define the error action message. Refer [here](https://docs.aws.amazon.com/iot/latest/developerguide/rule-error-handling.html) for examples.
