@@ -5,7 +5,7 @@ CleanupFinished: |
   Specify time in seconds.
   1. **if set as 0**: Job becomes eligible to be deleted immediately after it finishes.
   2. **if field is unset/blank**: Jobs won't be automatically deleted. 
-  3. **if the field is set**: Job is eligible to be automatically delete after the seconds specified
+  3. **if the field is set**: Job is eligible to be automatically deleted after the specified number of seconds.
 restartPolicy: |
   1. **Never**: Job won't restart on failure.
   2. **OnFailure**: Job will restart on failure based on the retry count set.
@@ -46,7 +46,7 @@ args: |
    - echo "Hello world!" && sleep 5 && exit 42
   ```
 otherContainerConfig: |
-  Additional Container Configurations. add here.
+  Add additional Container Configurations here.
   ```yaml
   imagePullPolicy: Always
   resources: {}
