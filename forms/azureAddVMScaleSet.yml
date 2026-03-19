@@ -4,4 +4,4 @@ InstanceType: The size of the Virtual Machine.
 Capacity: The number of virtual machines in the scale set.
 ImageId: Choose the Image for the VM. Image should be compatible with the agent platform. Select type as "Other" if you don't see desired option in dropdown.
 Username: The administrator username for the VM.
-Password: The administrator username for the VM.
+Password: The administrator password for the VM.
