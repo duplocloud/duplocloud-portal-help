@@ -1,0 +1,4 @@
+AgentName: Select the agent you want to assign this ticket to.
+InstanceId: Select the related instance for this ticket.
+DefaultAgentPermissions: Choose the default permissions for the agent.
+Details: Enter your message or question for the agent.

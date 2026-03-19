@@ -1,0 +1,7 @@
+buildImage: Enter the build image for AI tasks
+s3BucketName: Choose or create a storage bucket
+newS3BucketName: Name the new storage bucket
+certName: Pick a certificate for AI agent
+chunkingBuildImage: Enter the build image for Vectordb chunking
+chunkingS3BucketName: Select the Vectordb storage bucket
+chunkingCertName: Select the Vectordb certificate

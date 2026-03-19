@@ -1,0 +1,2 @@
+Name: Enter the name of the tool. Must start with a letter and can include letters, numbers, hyphens, or underscores.
+packageFile: Select the package file to upload. Make sure it is a valid file for this tool.
