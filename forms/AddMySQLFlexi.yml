@@ -8,7 +8,7 @@ StorageSizeGB: Select the maximum storage allowed. Possible values are between `
 Iops: Specify the storage IOPS for the MySQL Flexible Server.
 AutoGrow: Select to enable Storage Auto Grow.
 SubnetId: Select the subnet to create the MySQL Flexible Server.
-BackupRetentionDays: Enter the backup retention days. Accepted values are between 1 and 35 days
+BackupRetentionDays: Enter the backup retention days. Accepted values are between 1 and 35 days.
 GeoRedundantBackup: Select to enable geo redundant backup.
 ProcessorType: Select the processor.
 HighAvailability: |

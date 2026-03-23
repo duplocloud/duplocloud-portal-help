@@ -8,7 +8,7 @@ performanceMode: |
   File systems using the maxIO performance mode can scale to higher levels of aggregate throughput and operations per second with a tradeoff of slightly higher latencies for most file operations. The performance mode can't be changed after the file system has been created.
   Note: The maxIO mode is not supported on file systems using One Zone storage classes.
 throughputMode: |
-  Specifies the throughput mode for the file system, either bursting or provisioned . If you set ThroughputMode to provisioned , you must also set a value for ProvisionedThroughputInMibps. 
+  Specifies the throughput mode for the file system, either bursting or provisioned. If you set ThroughputMode to provisioned, you must also set a value for ProvisionedThroughputInMibps. 
   After you create the file system, you can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes, as long as it’s been more than 24 hours since the last decrease or throughput mode change.
 Backup: | 
   Specifies whether automatic backups are enabled on the file system that you are creating. Set the value to true to enable automatic backups. 
