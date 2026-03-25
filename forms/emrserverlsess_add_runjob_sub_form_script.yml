@@ -5,7 +5,7 @@ ScriptQueryBucket: Choose S3 bucket where the query files are stored.
 ScriptQueryFile: |
   Specify the S3 folder location of the script which needs to be executed in the job.
   Example: `samples/hive-scripts/extreme_weather.sql`
-ScriptS3Bucket: Choose S3 Bucket location S3 Bucket where scripts are stored.
+ScriptS3Bucket: Choose the S3 Bucket location where scripts are stored.
 ScriptS3BucketFolder: |
   Specify the S3 folder location where scripts are stored. Example: `samples/spark-scripts/wordcount.py`
 ScriptArguments: |
@@ -15,7 +15,7 @@ ScriptArguments: |
        ["s3://<YOUR_S3_BUCKET_NAME>/wordcount_output", "40000"}]
     ```
 ScriptSubmitParameters: |
-  Specify additional configuration properties for your each job.
+  Specify additional configuration properties for each job.
     1. **Spark:** 
       Example:
       `--conf spark.executor.cores=1 --conf spark.executor.memory=4g --conf spark.driver.cores=1 --conf spark.driver.memory=4g --conf spark.executor.instances=1    

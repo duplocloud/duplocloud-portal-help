@@ -1,10 +1,10 @@
 acceleratorCount: Specify the number of GPUs.
 acceleratorType: |
   Specify Accelerator Type(GPU Type). Google does not offer every instance/GPU combination in every region/zone. 
-  Enter the compatible type based on the instance type and zone. Example: `nvidia-tesla-a100` Accelarator Type is supported for Zone `us-west4-b` for Instance Type `a2-highgpu-1g`.
+  Enter the compatible type based on the instance type and zone. Example: `nvidia-tesla-a100` Accelerator Type is supported for Zone `us-west4-b` for Instance Type `a2-highgpu-1g`.
   For GPU regions and zone availability, click [here](https://cloud.google.com/compute/docs/gpus/gpu-regions-zones).
   More details on running GPUs in GKE Standard Pool, click [here](https://cloud.google.com/kubernetes-engine/docs/how-to/gpus).
-gpuPartitionSize: Specify GPC Partition Size. Example- `1g.5gb`. Refer [UserGuide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning).
+gpuPartitionSize: Specify GPU Partition Size. Example- `1g.5gb`. Refer [UserGuide](https://docs.nvidia.com/datacenter/tesla/mig-user-guide/#partitioning).
 maxSharedClientsPerGpu: Specify maximum shared client.
 gpuSharingStrategy: Select GCP Sharing Strategy.
 gpuDriverInstallationConfig: |

@@ -1,0 +1,2 @@
+config: Select the configuration to apply for this load balancer metadata entry, e.g., Http To Https Redirect.
+value: Enter the value corresponding to the selected configuration, e.g., "443".

@@ -15,7 +15,7 @@ environmentvars: |
   ]
   ```
 command: |
-  The command that is passed to the container. This parameter maps to **Cmd** in the Create a container section of the Docker Remote API and the COMMAND parameter to docker run. For more information about the Docker CMD parameter, click[here](https://docs.docker.com/engine/reference/builder/#cmd).
+  The command that is passed to the container. This parameter maps to **Cmd** in the Create a container section of the Docker Remote API and the COMMAND parameter to docker run. For more information about the Docker CMD parameter, click [here](https://docs.docker.com/engine/reference/builder/#cmd).
   Following is the example value to make you container sleep for debugging.
   ```js
   [
@@ -116,6 +116,6 @@ volumes: |
   ]
   ```
 Essential_1: |
-  If enabled, container fails or stops for any reason, all other containers that are part of the task are stopped. 
+  If enabled and the container fails or stops for any reason, all other containers that are part of the task are stopped. 
   If disabled, then its failure doesn't affect the rest of the containers in a task.
 OperatingSystemArchitecture: Select the Operating system/Architecture configuration for the task definition.

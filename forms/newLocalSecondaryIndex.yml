@@ -1,0 +1,26 @@
+SortKeyAttributeName: |
+  Enter the sort key attribute name for the Local Secondary Index.
+  This attribute must already exist in the table schema.
+  Minimum 1 character. Maximum 255 characters.
+  Example: orderDate
+
+AttributeType: |
+  Select the data type for the sort key.
+  Supported types include:
+  - String (S)
+  - Number (N)
+  - Binary (B)
+  The selected type must match the table's attribute definition.
+
+IndexName: |
+  Enter a unique name for the Local Secondary Index.
+  Must be between 3 and 255 characters.
+  Example: order-date-index
+
+Projection: |
+  Select the projection type for the index.
+  Projection determines which attributes are copied into the index.
+  Options include:
+  - KEYS_ONLY (only index and primary keys)
+  - INCLUDE (selected non-key attributes)
+  - ALL (all table attributes)

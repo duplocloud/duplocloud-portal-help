@@ -9,8 +9,8 @@ ImageId: Enter the image name. Specify in this format `projects/{project}/global
 EnablePublicIpAddress: Enable to assign public IP address.
 Tags: Enter Network tags.
 AcceleratorType: |
-  Specify Accelerator Type(GPU Type). Google does not offer every instance/GPU combination in every region/zone.
-  Enter the compatible type based on the instance type and zone. For example- `nvidia-tesla-t4` Accelarator Type is supported for `n1-standard-1` Image Type for Zone `us-west4-a`.
+  Specify Accelerator Type (GPU Type). Google does not offer every instance/GPU combination in every region/zone.
+  Enter the compatible type based on the instance type and zone. For example, `nvidia-tesla-t4` Accelerator Type is supported for `n1-standard-1` Image Type for Zone `us-west4-a`.
   For GPU regions and zone availability, click [here](https://cloud.google.com/compute/docs/gpus/gpu-regions-zones).
 AcceleratorCount: Specify the number of GPUs.
 Labels: |

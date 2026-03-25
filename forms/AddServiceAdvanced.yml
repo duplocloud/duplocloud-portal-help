@@ -1,5 +1,5 @@
 VolumeMappingsK8s: |-
-  Volumes and Volume mount setting in the Duplo simplied format. If you specify Volumes here, Duplo will take care of configuring pod volumes and volume mounts.
+  Volumes and volume mount settings in the Duplo simplified format. If you specify Volumes here, Duplo will take care of configuring pod volumes and volume mounts.
   ```yaml
   ---
   # Statefulset using EBS volume
@@ -40,13 +40,14 @@ VolumeMappingsK8s: |-
         claimName: efs-claim
   ```
 PodConfigK8s: |-
-  Deployment and Pod confiiguration
+  Deployment and Pod configuration
   ```yaml
   Subdomain: same-name-as-my-service
   Labels:
     label1: values1
   Annotations:
     seccomp.security.alpha.kubernetes.io/pod: docker/default
+    duplocloud.net/external-scaling: "true" ## to support external scaling HPA like KEDA
   PodLabels:
     label1: values1
   PodAnnotations:
@@ -194,6 +195,9 @@ ContainerConfigK8s: |-
     RollingUpdate:
       Partition: 1
     Type: RollingUpdate
+
+  minReadySeconds: 30
+   
   # dnsPolicy and dnsConfig
    dnsPolicy: None
    dnsConfig:

@@ -1,10 +1,10 @@
-Name: A friendly name to BYOH host. 
+Name: A friendly name for the BYOH host. 
 DirectAddress: IPv4 address to which DuploCloud will use to communicate with agent installed on your host.
 FleetType: |
   Fleet type represents the type of container orchestrator running your Host.
-  1. **Linux Docker/Native:** Select this option if operating system running on your host is Linux.
+  1. **Linux Docker/Native:** Select this option if the operating system running on your host is Linux.
   2. **Docker Windows:** Select this option if operating system running on your host is Windows
   3. **None:** Select this option if no agent/container orchestrator is running on the host.
 Username: Username to login to your host. This is an optional field.
 Password: Password to login to your host. This is an optional field.
-PrivateKey: Private Key to login to your host using SSH. This is again an optional field. User can either specify `Password` or `Private Key`.   
+PrivateKey: Private Key to login to your host using SSH. This is also an optional field. User can either specify `Password` or `Private Key`.   

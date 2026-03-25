@@ -3,7 +3,7 @@ DagS3Path: Specify the relative path to the DAG folder from S3 bucket. For examp
 PluginsS3Path: Specify the relative path to the plugins.zip file from S3 bucket. For example, plugins.zip. If a relative path is provided in the request, then `Plugins S3Object Version` is required.
 RequirementsS3Path: Specify the relative path to the requirements.txt file from S3 bucket. For example, `requirements.txt` or `AirflowDags/folder1/requirements.txt`.  If a relative path is provided in the request, then `Requirements S3Object Version` is required.
 RequirementsS3ObjectVersion: |
-  Specify the Version Id of the the requirements.txt file version you want to use. For example, lSHNqFtO5Z7_6K6YfGpKnpyjqP2JTvSf.
+  Specify the Version Id of the requirements.txt file version you want to use. For example, lSHNqFtO5Z7_6K6YfGpKnpyjqP2JTvSf.
   S3 Enable Versioning is required to use this in your environment.
 PluginsS3ObjectVersion: Specify the plugin.zip version. For example, lSHNqFtO5Z7_6K6YfGpKnpyjqP2JTvSf.
   S3 Enable Versioning is required to use this in your environment.
