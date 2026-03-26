@@ -8,6 +8,9 @@ secretData: |
   4. **kubernetes.io/basic-auth**: credentials for basic authentication. [example](https://kubernetes.io/docs/concepts/configuration/secret/#basic-authentication-secret)
   5. **kubernetes.io/ssh-auth**: credentials for SSH authentication. [example](https://kubernetes.io/docs/concepts/configuration/secret/#ssh-authentication-secrets)
   6. **kubernetes.io/tls**: data for a TLS client or server. [example](https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets)
+
+ After editing a secret, you can review your changes by selecting View Diff to compare the updated values against the current version before saving.
+
 secretLabels: |
  Add labels to a Secret for better organization and selection. 
  ```js
