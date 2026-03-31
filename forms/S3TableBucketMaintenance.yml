@@ -1,0 +1,3 @@
+Iceberg Unreferenced File Removal: Enable or disable automatic cleanup of unreferenced files in the S3 Table Bucket.
+Unreferenced Days: Number of days after which unreferenced files are eligible for removal.
+Non-current Days: Number of days to retain non-current data before it is eligible for cleanup.
