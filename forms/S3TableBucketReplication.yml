@@ -1,0 +1,2 @@
+Destination Table Buckets: Select one or more destination S3 Table Buckets where data will be replicated.
+IAM Role ARN: Provide the IAM Role ARN that grants permissions required to perform replication between S3 Table Buckets.
