@@ -14,7 +14,7 @@ Generate tooltip/help YAML files for the `duplocloud-portal-help` repo by:
 
 ## Repo and Conventions
 
-- **Help repo working directory**: `/Users/sandhyahire/development/duplocloud-portal-help`
+- **Help repo working directory**: `/duplocloud-portal-help`
 - **duplo-ui source**: `https://github.com/duplocloud-internal/duplo-ui` (private, use `gh api`)
 - **Reference commit**: use `99c36c488a87e0ce2699522eb60eae8e89a4cb5a` (the `main` ref returns 404 on this repo — always use this commit hash unless the user specifies another)
 - **YAML file naming** — resolve in this order:
@@ -208,7 +208,7 @@ ls forms/<FormName>.yml
 
 - **File does not exist** → create it with all extracted fields.
 
-Create or append to `forms/<FormName>.yml` in `/Users/sandhyahire/development/duplocloud-portal-help/` with one entry per field.
+Create or append to `forms/<FormName>.yml` in `/duplocloud-portal-help/` with one entry per field.
 
 #### Tooltip style guide
 
@@ -268,7 +268,7 @@ After writing the YAML file(s), ask the user:
 
 - **y** → run the following from the help repo root:
   ```bash
-  cd /Users/sandhyahire/development/duplocloud-portal-help && python3 consolidate.py
+  cd /duplocloud-portal-help && python3 consolidate.py
   ```
   Then verify the new form key appears in `en.json`:
   ```bash
