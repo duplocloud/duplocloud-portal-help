@@ -67,8 +67,30 @@ Generate tooltip/help YAML files for the `duplocloud-portal-help` repo by:
                           ▼
           ┌───────────────────────────────┐
           │  Step 4 — Write YAML          │
-          │  forms/<FormName>.yml         │
-          │                               │
+          │  Does forms/<name>.yml exist? │
+          └───────────┬───────────┬───────┘
+                      │           │
+                   yes│           │no
+                      ▼           ▼
+            ┌──────────────┐  ┌──────────────────────┐
+            │ For each     │  │ Create new file with  │
+            │ extracted    │  │ all extracted fields  │
+            │ field:       │  └──────────┬────────────┘
+            │              │             │
+            │ · missing?   │             │
+            │   → append   │             │
+            │              │             │
+            │ · exists with│             │
+            │   content?   │             │
+            │   → ask user │             │
+            │   "Update    │             │
+            │    field X?" │             │
+            │   y→ update  │             │
+            │   n→ skip    │             │
+            └──────┬───────┘             │
+                   └──────────┬──────────┘
+                              ▼
+          ┌───────────────────────────────┐
           │  Patterns:                    │
           │  · Simple     → one line      │
           │  · Multi-opt  → bullets       │
@@ -170,7 +192,23 @@ When in doubt, check the `.component.ts` file for the `FormGroup` definition to 
 
 ### Step 4 — Write the YAML file
 
-Create `forms/<FormName>.yml` in `/Users/sandhyahire/development/duplocloud-portal-help/` with one entry per field.
+Before writing, check if `forms/<FormName>.yml` already exists:
+
+```bash
+ls forms/<FormName>.yml
+```
+
+- **File exists** → for each extracted field, check if it already exists in the file:
+  - **Field is missing** → append it automatically.
+  - **Field exists with content** → ask the user:
+    > "`<fieldName>` already has content. Would you like to update it? (y/n)"
+    - **y** → replace only that field's value.
+    - **n** → skip it, leave existing content unchanged.
+  - Never overwrite or remove the full file.
+
+- **File does not exist** → create it with all extracted fields.
+
+Create or append to `forms/<FormName>.yml` in `/Users/sandhyahire/development/duplocloud-portal-help/` with one entry per field.
 
 #### Tooltip style guide
 
