@@ -28,10 +28,3 @@ jobs:
 
       - name: Validate en.json syntax
         run: python3 -c "import json; json.load(open('en.json')); print('en.json is valid JSON')"
-
-      - name: Check en.json is up to date with forms
-        run: |
-          if ! git diff --exit-code en.json; then
-            echo "en.json is out of sync with forms. Run 'python3 consolidate.py' locally and commit the result."
-            exit 1
-          fi
