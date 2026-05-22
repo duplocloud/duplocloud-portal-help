@@ -14,14 +14,14 @@ Generate tooltip/help YAML files for the `duplocloud-portal-help` repo by:
 
 ## Repo and Conventions
 
-- **Help repo working directory**: `/duplocloud-portal-help`
+- **Help repo working directory**: repo root (current working directory — all paths below are relative to it)
 - **duplo-ui source**: `https://github.com/duplocloud-internal/duplo-ui` (private, use `gh api`)
 - **Reference commit**: use `99c36c488a87e0ce2699522eb60eae8e89a4cb5a` (the `main` ref returns 404 on this repo — always use this commit hash unless the user specifies another)
 - **YAML file naming** — resolve in this order:
   1. `<form name="...">` attribute on the `<form>` element
   2. `name="..."` on `<sidebar-modal>` or `<app-sidebar-generic-form>` if form name is absent
   3. URL path segment or page `<h5>` heading as last resort
-- **YAML format**: one line per field — `fieldName: tooltip text` (see [AddManagedSql.yml](../../../../../development/duplocloud-portal-help/forms/AddManagedSql.yml))
+- **YAML format**: one line per field — `fieldName: tooltip text` (see [AddManagedSql.yml](../forms/AddManagedSql.yml))
 
 ## Workflow Overview
 
@@ -208,7 +208,7 @@ ls forms/<FormName>.yml
 
 - **File does not exist** → create it with all extracted fields.
 
-Create or append to `forms/<FormName>.yml` in `/duplocloud-portal-help/` with one entry per field.
+Create or append to `forms/<FormName>.yml` (relative to repo root) with one entry per field.
 
 #### Tooltip style guide
 
@@ -268,7 +268,7 @@ After writing the YAML file(s), ask the user:
 
 - **y** → run the following from the help repo root:
   ```bash
-  cd /duplocloud-portal-help && python3 consolidate.py
+  python3 consolidate.py
   ```
   Then verify the new form key appears in `en.json`:
   ```bash
