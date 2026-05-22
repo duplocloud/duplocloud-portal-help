@@ -1,0 +1,3 @@
+status: Select whether Iceberg Unreferenced File Removal is enabled or disabled.
+unreferencedDays: Enter the number of days before unreferenced files are eligible for removal. Required when status is enabled.
+noncurrentDays: Enter the number of days before non-current objects are eligible for removal. Required when status is enabled.
