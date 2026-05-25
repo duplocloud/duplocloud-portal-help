@@ -1,0 +1,2 @@
+destinationArn: Select the destination S3 table bucket for replication. You can add up to 5 destination buckets.
+role: Enter the ARN of the IAM role that grants S3 Tables permission to replicate objects to the destination bucket.

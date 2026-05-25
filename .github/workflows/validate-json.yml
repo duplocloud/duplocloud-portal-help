@@ -1,0 +1,30 @@
+name: Validate en.json
+
+on:
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'forms/**'
+      - 'en.json'
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install pyyaml
+        run: pip install pyyaml
+
+      - name: Regenerate en.json from forms
+        run: python3 consolidate.py
+
+      - name: Validate en.json syntax
+        run: python3 -c "import json; json.load(open('en.json')); print('en.json is valid JSON')"
