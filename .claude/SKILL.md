@@ -16,7 +16,7 @@ Generate tooltip/help YAML files for the `duplocloud-portal-help` repo by:
 
 - **Help repo working directory**: repo root (current working directory — all paths below are relative to it)
 - **duplo-ui source**: `https://github.com/duplocloud-internal/duplo-ui` (private, use `gh api`)
-- **Reference commit**: use `99c36c488a87e0ce2699522eb60eae8e89a4cb5a` (the `main` ref returns 404 on this repo — always use this commit hash unless the user specifies another)
+- **Reference commit**: use `99c36c488a87e0ce2699522eb60eae8e89a4cb5a` (the `master` ref returns 404 on this repo — always use this commit hash unless the user specifies another)
 - **YAML file naming** — resolve in this order:
   1. `<form name="...">` attribute on the `<form>` element
   2. `name="..."` on `<sidebar-modal>` or `<app-sidebar-generic-form>` if form name is absent
