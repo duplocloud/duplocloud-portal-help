@@ -46,14 +46,15 @@ Generate tooltip/help YAML files for the `duplocloud-portal-help` repo by:
           │  gh auth status               │
           │  not authed → gh auth login   │
           │  then stop, ask user to retry │
+          │  authed → resolve master HEAD │
+          │  SHA (unless user gave one)   │
           └───────────────┬───────────────┘
-                          │ authenticated
+                          │ authenticated + $REF resolved
                           ▼
           ┌───────────────────────────────┐
           │  Step 2 — Locate HTML         │
           │  Derive path from URL segment │
-          │  Browse via gh api (commit    │
-          │  99c36c4...)                  │
+          │  Browse via gh api ($REF)     │
           │  Or tree search by keyword    │
           └───────────────┬───────────────┘
                           │
@@ -137,14 +138,13 @@ Ask the user:
 
 Wait for the user's response before proceeding.
 
-### Step 1 — Check gh authentication
+### Step 1 — Check gh authentication and resolve commit SHA
 
 Run:
 ```bash
 gh auth status
 ```
 
-- If **authenticated** → proceed to Step 2.
 - If **not authenticated** → tell the user:
   > "`gh` is not logged in. Please authenticate by running the following in your terminal:"
   > ```bash
@@ -153,6 +153,12 @@ gh auth status
   > "Select GitHub.com → HTTPS → authenticate with browser. Once done, re-run `/duplo:gen-help-yaml`."
   
   Then stop and wait for the user to re-invoke the skill.
+
+- If **authenticated** → resolve the latest `master` commit SHA (unless the user provided a specific commit or branch):
+  ```bash
+  gh api "repos/duplocloud-internal/duplo-ui/commits?sha=master&per_page=1" --jq '.[0].sha'
+  ```
+  Store the returned SHA as `$REF` and use it in all subsequent `gh api` calls.
 
 ### Step 2 — Locate the component HTML in duplo-ui
 
@@ -165,19 +171,19 @@ Derive the repo path from the portal URL:
 
 Start by listing the top-level area and drill down:
 ```bash
-gh api "repos/duplocloud-internal/duplo-ui/contents/portal/src/app/main/devops/aws?ref=99c36c488a87e0ce2699522eb60eae8e89a4cb5a" --jq '.[].name'
+gh api "repos/duplocloud-internal/duplo-ui/contents/portal/src/app/main/devops/aws?ref=$REF" --jq '.[].name'
 ```
 
 For a broader search across the full tree:
 ```bash
-gh api "repos/duplocloud-internal/duplo-ui/git/trees/99c36c488a87e0ce2699522eb60eae8e89a4cb5a?recursive=1" --jq '.tree[].path' | grep -i "<keyword>"
+gh api "repos/duplocloud-internal/duplo-ui/git/trees/$REF?recursive=1" --jq '.tree[].path' | grep -i "<keyword>"
 ```
 
 Navigate into subfolders until the correct `*.component.html` file is found.
 
 To read a file:
 ```bash
-gh api "repos/duplocloud-internal/duplo-ui/contents/<path>?ref=99c36c488a87e0ce2699522eb60eae8e89a4cb5a" --jq '.content' | base64 -d
+gh api "repos/duplocloud-internal/duplo-ui/contents/<path>?ref=$REF" --jq '.content' | base64 -d
 ```
 
 ### Step 3 — Extract field IDs
