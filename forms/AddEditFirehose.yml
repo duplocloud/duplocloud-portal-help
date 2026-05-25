@@ -1,0 +1,148 @@
+# Basic Settings
+DeliveryStreamName: Specify a unique name for the delivery stream. Use only letters, numbers, underscores, periods, and hyphens (e.g. `my-delivery-stream`). Cannot be changed after creation.
+DeliveryStreamType: |
+  Select the source type for this delivery stream.
+
+  1. **DirectPut** — Records are put directly into the stream via the Firehose PutRecord API.
+  2. **KinesisStreamAsSource** — Reads records from a Kinesis Data Stream.
+  3. **MSKAsSource** — Reads records from an Amazon MSK (Managed Streaming for Apache Kafka) topic.
+
+# Kinesis Stream Source
+KinesisStreamSelect: Select a Kinesis Data Stream in this tenant to use as the source. Choose **Other** to enter an ARN manually.
+KinesisStreamARN: Enter the full ARN of the Kinesis Data Stream. Format- `arn:aws:kinesis:<region>:<account-id>:stream/<stream-name>`.
+KinesisSourceRoleARN: Enter the ARN of the IAM role that grants Firehose permission to read from the Kinesis stream. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+
+# MSK Source
+MSKConnectivity: |
+  Select the network connectivity type for the MSK cluster.
+
+  1. **PRIVATE** — Connects via Multi-VPC Private Link. Requires Multi-VPC Private Link and SASL/IAM authentication enabled on the cluster.
+  2. **PUBLIC** — Connects via public internet. Requires public access and SASL/IAM authentication enabled on the cluster.
+MSKClusterSelect: Select an MSK cluster in this tenant to use as the source. Choose **Other** to enter an ARN manually.
+MSKClusterARN: Enter the full ARN of the MSK cluster. Format- `arn:aws:kafka:<region>:<account-id>:cluster/<cluster-name>/<uuid>`.
+MSKTopicName: Enter the name of the Kafka topic to read from. Allowed characters- letters, numbers, periods, underscores, hyphens (max 255 characters).
+MSKTopicStartingPosition: |
+  Select where Firehose should begin reading from the MSK topic.
+
+  1. **LATEST** — Start reading from the most recent messages.
+  2. **EARLIEST** — Start reading from the oldest available messages.
+  3. **AT_TIMESTAMP** — Start reading from a specific timestamp.
+MSKReadFromTimestamp: Enter the timestamp from which to start reading. Only applicable when starting position is **AT_TIMESTAMP**.
+MSKAuthRoleARN: Enter the ARN of the IAM role used for SASL/IAM authentication with the MSK cluster. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+
+# Destination
+DestinationType: |
+  Select the destination where Firehose will deliver the data.
+
+  1. **S3** — Deliver to an Amazon S3 bucket.
+  2. **Redshift** — Deliver to an Amazon Redshift cluster via S3 staging.
+  3. **OpenSearch** — Deliver to an Amazon OpenSearch Service domain.
+  4. **OpenSearchServerless** — Deliver to an Amazon OpenSearch Serverless collection.
+  5. **Splunk** — Deliver to a Splunk HTTP Event Collector (HEC).
+  6. **HttpEndpoint** — Deliver to a custom HTTP endpoint.
+  7. **IcebergTables** — Deliver to Apache Iceberg tables in S3 managed by AWS Glue.
+
+# S3 Destination
+BucketARN: Select the S3 bucket to deliver data to. Choose **Other** to enter a bucket ARN manually.
+ManualBucketARN: Enter the ARN of the S3 bucket. Format- `arn:aws:s3:::<bucket-name>`.
+S3RoleARN: Enter the ARN of the IAM role that grants Firehose permission to write to the S3 bucket. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+Prefix: |
+  Optional S3 key prefix for delivered objects. Supports dynamic expressions using `!{...}` syntax.
+  Example- `logs/year=!{timestamp:yyyy}/month=!{timestamp:MM}/`
+
+  For supported expressions, see [AWS documentation](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+ErrorOutputPrefix: |
+  Optional S3 key prefix for objects that failed delivery. Supports the `!{firehose:error-output-type}` expression.
+  Example- `errors/!{firehose:error-output-type}/`
+
+  For details, see [AWS documentation](https://docs.aws.amazon.com/firehose/latest/dev/s3-prefixes.html).
+CompressionFormat: |
+  Select the compression format for delivered S3 objects.
+
+  1. **UNCOMPRESSED** — No compression.
+  2. **GZIP** — Standard Gzip compression.
+  3. **ZIP** — Zip compression.
+  4. **Snappy** — Snappy compression (not supported with Redshift).
+  5. **HADOOP_SNAPPY** — Hadoop-compatible Snappy compression.
+EnableBufferingHints: Enable to configure custom buffering hints for S3 delivery. Firehose buffers incoming data before delivering to reduce the number of S3 PUT requests.
+BufferSizeMBs: Specify the buffer size in MBs before Firehose delivers to S3. Enter a value between 1 and 128.
+BufferIntervalSeconds: Specify the buffer interval in seconds before Firehose delivers to S3. Enter a value between 60 and 900.
+
+# Redshift Destination
+Redshift_ClusterJDBCURL: Enter the JDBC connection URL for the Redshift cluster. Format- `jdbc:redshift://<endpoint>:<port>/<database>`.
+Redshift_DataTableName: Enter the name of the Redshift table to load data into.
+Redshift_CopyOptions: Optional COPY command options passed to the Redshift COPY statement. Example- `FORMAT AS JSON 'auto'`. See [Redshift COPY documentation](https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html).
+Redshift_Username: Enter the Redshift database username used to load data.
+Redshift_Password: Enter the password for the Redshift user. Leave blank when editing to keep the existing password.
+Redshift_RoleARN: Enter the ARN of the IAM role that grants Firehose permission to access Redshift. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+Redshift_BucketARN: Select the S3 bucket used as a staging area for loading data into Redshift.
+Redshift_ManualBucketARN: Enter the ARN of the S3 staging bucket. Format- `arn:aws:s3:::<bucket-name>`.
+Redshift_S3RoleARN: Enter the ARN of the IAM role that grants Firehose permission to write to the S3 staging bucket. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+
+# OpenSearch Service Destination
+OS_UseClusterEndpoint: Enable to specify an OpenSearch cluster endpoint URL instead of a domain ARN.
+OS_DomainARN: Enter the ARN of the OpenSearch Service domain. Format- `arn:aws:es:<region>:<account-id>:domain/<domain-name>`.
+OS_ClusterEndpoint: Enter the endpoint URL of the OpenSearch cluster. Format- `https://search-<domain>-<hash>.<region>.es.amazonaws.com`.
+OS_IndexName: Enter the OpenSearch index name where records will be written.
+OS_TypeName: Optional OpenSearch document type. For OpenSearch 1.x and later, leave blank or use `_doc`.
+OS_RoleARN: Enter the ARN of the IAM role that grants Firehose permission to write to OpenSearch. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+
+# OpenSearch Serverless Destination
+OSS_CollectionEndpoint: Enter the endpoint URL of the OpenSearch Serverless collection. Format- `https://<id>.<region>.aoss.amazonaws.com`.
+OSS_IndexName: Enter the OpenSearch Serverless index name where records will be written.
+OSS_RoleARN: Enter the ARN of the IAM role that grants Firehose permission to write to OpenSearch Serverless. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+
+# Splunk Destination
+Splunk_HECEndpoint: Enter the Splunk HTTP Event Collector (HEC) endpoint URL. Format- `https://splunk.example.com:8088`.
+Splunk_HECEndpointType: |
+  Select the type of Splunk HEC endpoint.
+
+  1. **Raw** — Send raw events to the HEC raw endpoint.
+  2. **Event** — Send events with metadata to the HEC event endpoint.
+Splunk_HECToken: Enter the Splunk HEC authentication token. Leave blank when editing to keep the existing token.
+
+# HTTP Endpoint Destination
+HTTP_Url: Enter the URL of the HTTP endpoint to deliver data to. Must use HTTPS. Format- `https://my-endpoint.example.com/firehose`.
+HTTP_Name: Optional display name for the HTTP endpoint.
+HTTP_AccessKey: Optional access key for authenticating with the HTTP endpoint. Leave blank when editing to keep the existing key.
+HTTP_RoleARN: Optional ARN of the IAM role for Firehose to use when delivering to this endpoint. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+HTTP_S3_BucketARN: Select the S3 bucket to receive records that failed delivery to the HTTP endpoint.
+HTTP_S3_ManualBucketARN: Enter the ARN of the S3 bucket for failed records. Format- `arn:aws:s3:::<bucket-name>`.
+HTTP_S3_RoleARN: Enter the ARN of the IAM role that grants Firehose permission to write failed records to S3. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+
+# Apache Iceberg Tables Destination
+Iceberg_RoleARN: Enter the ARN of the IAM role that grants Firehose permission to write to Iceberg tables via AWS Glue. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+Iceberg_CatalogARN: Optional ARN of the AWS Glue catalog. Defaults to the account's default Glue catalog if not specified. Format- `arn:aws:glue:<region>:<account-id>:catalog`.
+Iceberg_DatabaseName: Enter the name of the Glue database containing the Iceberg table. Allowed characters- letters, numbers, periods, underscores.
+Iceberg_TableName: Enter the name of the Iceberg table to deliver data to. Allowed characters- letters, numbers, periods, underscores.
+Iceberg_S3_BucketARN: Select the S3 bucket to receive records that failed delivery to the Iceberg table.
+Iceberg_S3_ManualBucketARN: Enter the ARN of the S3 bucket for failed records. Format- `arn:aws:s3:::<bucket-name>`.
+Iceberg_S3_RoleARN: Enter the ARN of the IAM role that grants Firehose permission to write failed records to S3. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+
+# Transform and Convert Records
+ShowTransformSection: Enable to configure Lambda-based data transformation and/or record format conversion before delivery.
+EnableTransformation: Enable to invoke an AWS Lambda function to transform records before delivery.
+LambdaFunctionSelect: Select the Lambda function to invoke for data transformation. Choose **Other** to enter a function ARN manually.
+LambdaArn: Enter the ARN of the Lambda function to use for transformation. Format- `arn:aws:lambda:<region>:<account-id>:function:<function-name>`.
+LambdaBufferSizeMBs: Specify the buffer size in MBs for Lambda transformation. Enter a value between 0.2 and 3.
+LambdaBufferIntervalSeconds: Specify the buffer interval in seconds before invoking the Lambda function. Enter a value between 0 and 900.
+EnableRecordFormatConversion: Enable to convert record format (e.g. JSON to Parquet or ORC) using an AWS Glue table schema. Only available for S3 destinations.
+OutputFormat: |
+  Select the output format for converted records.
+
+  1. **PARQUET** — Apache Parquet columnar format. Efficient for analytics queries.
+  2. **ORC** — Apache ORC columnar format. Optimized for Hive-based workloads.
+GlueRegion: Optional AWS region where the Glue Data Catalog is located. Defaults to the current region if not specified.
+GlueDatabaseName: Enter the name of the AWS Glue database that contains the schema table.
+GlueTableName: Enter the name of the AWS Glue table whose schema defines the output record format.
+GlueRoleARN: Enter the ARN of the IAM role that grants Firehose access to AWS Glue for schema lookup. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+EnableCWDecompression: Enable to decompress CloudWatch Logs records that are compressed with gzip before processing and delivery.
+EnableMessageExtraction: Enable to extract only the log event message fields from CloudWatch Logs records, discarding envelope metadata.
+
+# S3 Backup (non-S3 destinations)
+EnableS3Backup: Enable to back up all delivered records to an S3 bucket in addition to the primary destination.
+Backup_BucketARN: Select the S3 bucket to store backup copies of all delivered records.
+Backup_ManualBucketARN: Enter the ARN of the backup S3 bucket. Format- `arn:aws:s3:::<bucket-name>`.
+Backup_RoleARN: Enter the ARN of the IAM role that grants Firehose permission to write to the backup S3 bucket. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+Backup_Prefix: Optional S3 key prefix for backup objects. Supports dynamic expressions. Example- `backup/year=!{timestamp:yyyy}/`.
+Backup_CompressionFormat: Optional compression format for backup S3 objects. See **Compression Format** above for available options.
