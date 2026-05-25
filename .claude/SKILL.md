@@ -16,7 +16,11 @@ Generate tooltip/help YAML files for the `duplocloud-portal-help` repo by:
 
 - **Help repo working directory**: repo root (current working directory — all paths below are relative to it)
 - **duplo-ui source**: `https://github.com/duplocloud-internal/duplo-ui` (private, use `gh api`)
-- **Reference commit**: use `99c36c488a87e0ce2699522eb60eae8e89a4cb5a` (the `master` ref returns 404 on this repo — always use this commit hash unless the user specifies another)
+- **Reference commit**: resolve the latest commit on `master` at the start of each session by running:
+  ```bash
+  gh api "repos/duplocloud-internal/duplo-ui/commits?sha=master&per_page=1" --jq '.[0].sha'
+  ```
+  Use the returned SHA for all `gh api` calls. If the user explicitly provides a feature branch commit or SHA, use that instead.
 - **YAML file naming** — resolve in this order:
   1. `<form name="...">` attribute on the `<form>` element
   2. `name="..."` on `<sidebar-modal>` or `<app-sidebar-generic-form>` if form name is absent
