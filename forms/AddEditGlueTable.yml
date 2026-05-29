@@ -1,0 +1,9 @@
+Name: Specify a unique name for the table within the database. Use only lowercase letters, numbers, hyphens, and underscores (max 255 characters). Cannot be changed after creation.
+TableType: |
+  Optional classification for the table type.
+
+  1. **EXTERNAL_TABLE** — Table data is stored outside the Glue Data Catalog (e.g. in S3).
+  2. **VIRTUAL_VIEW** — Represents a virtual view over other tables.
+  3. Leave blank to let Glue infer the type from the crawler or data format.
+Location: Optional S3 path where the table's data is stored. Format- `s3://bucket/prefix/`.
+Description: Optional description for the table (max 2048 characters).

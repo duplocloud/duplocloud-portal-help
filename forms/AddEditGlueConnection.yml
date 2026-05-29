@@ -1,0 +1,66 @@
+# Common Fields
+ConnectionName: Specify a unique name for the connection (max 255 characters). Cannot be changed after creation.
+ConnectionType: |
+  Select the type of data source this connection targets.
+
+  1. **JDBC** — Generic JDBC connection for relational databases (MySQL, PostgreSQL, Oracle, SQL Server, etc.).
+  2. **KAFKA** — Apache Kafka cluster, including Amazon MSK.
+  3. **MONGODB** — MongoDB or MongoDB Atlas database.
+  4. **NETWORK** — Private VPC network connection for resources not accessible via other types.
+  5. **MARKETPLACE** — AWS Marketplace connector.
+  6. **CUSTOM** — Custom connector with a JAR hosted in S3.
+Description: Optional description for the connection.
+
+# JDBC Connection Details
+jdbcUrl: Enter the JDBC connection URL for the data source. Format- `jdbc:<protocol>://<host>:<port>/<database-name>`. Example- `jdbc:mysql://myhost.rds.amazonaws.com:3306/mydb`.
+jdbcEnforceSSL: Enable to require SSL/TLS encryption for the JDBC connection. The server must support SSL.
+jdbcDriverClassName: Optional fully qualified JDBC driver class name when using a custom driver. Example- `com.mysql.jdbc.Driver`.
+jdbcDriverS3Path: Optional S3 path to the custom JDBC driver `.jar` file. Format- `s3://bucket/prefix/driver.jar`.
+
+# Kafka Connection Details
+kafkaBootstrapServers: Enter the comma-separated list of Kafka broker addresses. Format- `broker1:9092,broker2:9092`.
+kafkaSslEnabled: Enable to require SSL/TLS for the Kafka connection. The broker must be configured with SSL listeners.
+kafkaSaslMechanism: |
+  Select the authentication method for connecting to the Kafka broker.
+
+  1. **NONE** — No authentication.
+  2. **SCRAM-SHA-512** — SASL with SCRAM-SHA-512 password-based auth.
+  3. **PLAIN** — SASL with plaintext username/password.
+  4. **GSSAPI** — Kerberos authentication.
+  5. **TLS** — Mutual TLS client certificate authentication.
+kafkaTlsKeystoreLocation: Enter the S3 path to the client keystore `.jks` file for TLS mutual authentication. Format- `s3://bucket/prefix/filename.jks`.
+kafkaTlsKeystorePassword: Optional password for the client keystore file.
+kafkaTlsKeyPassword: Optional password for the private key within the keystore.
+kafkaCredentialType: Select whether to provide credentials directly (username/password) or reference a secret stored in AWS Secrets Manager.
+kafkaSaslUsername: Enter the username for SASL/PLAIN or SASL/SCRAM-SHA-512 authentication.
+kafkaSaslPassword: Enter the password for SASL/PLAIN or SASL/SCRAM-SHA-512 authentication.
+kafkaSecretArn: Enter the ARN or name of the AWS Secrets Manager secret containing Kafka credentials. Format- `arn:aws:secretsmanager:<region>:<account-id>:secret:<name>`.
+kafkaGssapiKeytab: Enter the S3 path to the Kerberos keytab file. Format- `s3://bucket/prefix/filename.keytab`.
+kafkaGssapiKrb5Conf: Enter the S3 path to the Kerberos `krb5.conf` configuration file. Format- `s3://bucket/prefix/filename.conf`.
+kafkaGssapiPrincipal: Enter the Kerberos principal name for authentication. Example- `kafka/broker.example.com@REALM.COM`.
+kafkaGssapiService: Enter the Kerberos service name of the Kafka broker. Typically `kafka`.
+
+# MongoDB Connection Details
+mongoUri: Enter the MongoDB connection URI. Use the `mongodb+srv://` protocol for Atlas clusters or `mongodb://` for self-hosted. Format- `mongodb+srv://server.example.com/database`.
+
+# Marketplace Connector Details
+connectorType: Enter the connector type identifier as defined by the Marketplace connector. Example- `jdbc`.
+connectorUrl: Enter the S3 path to the Marketplace connector JAR file. Format- `s3://bucket/connector.jar`.
+connectorClassName: Enter the fully qualified class name of the Marketplace connector. Example- `com.example.Driver`.
+marketplaceConnectionUrl: Enter the endpoint URL for the data source as required by the Marketplace connector.
+
+# Custom Connector Details
+customConnectorUrl: Enter the S3 path to the custom connector JAR file. Format- `s3://bucket/prefix/connector.jar`.
+customConnectorClassName: Enter the fully qualified Java class name of the custom connector. Allowed characters- letters, numbers, `$`, `_`, `.` (max 255 characters). Example- `com.example.region.MyDriver`.
+customConnectionUrl: Enter the JDBC base URL for the data source. Do not include credentials or additional parameters. Format- `jdbc:<protocol>://<host>:<port>/<database>/`.
+
+# Authentication
+useSecretId: Enable to use a secret stored in AWS Secrets Manager instead of entering credentials directly.
+username: Enter the database username for authentication. Required for JDBC and MongoDB connections.
+password: Enter the database password for authentication. Required for JDBC and MongoDB connections.
+secretId: Enter the ARN or name of the AWS Secrets Manager secret containing database credentials. Format- `arn:aws:secretsmanager:<region>:<account-id>:secret:<name>`.
+
+# Advanced / Network Options
+subnetId: Enter the VPC subnet ID where the connection will be established. Required for NETWORK connections. Format- `subnet-xxxxxxxx`.
+securityGroupIds: Enter one or more VPC security group IDs (comma-separated) to associate with the connection. Required for NETWORK connections. Format- `sg-xxxxxxxx, sg-yyyyyyyy`.
+availabilityZone: Optional availability zone where the connection should run. Example- `us-east-1a`.

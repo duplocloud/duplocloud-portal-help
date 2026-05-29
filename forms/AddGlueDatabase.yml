@@ -1,0 +1,3 @@
+Name: Specify a unique name for the Glue database. Use only lowercase letters, numbers, hyphens, and underscores (max 255 characters). Cannot be changed after creation.
+Description: Optional description for the database (max 2048 characters).
+LocationUri: Optional S3 URI that points to the default storage location for managed tables and Zero-ETL integrations. Format- `s3://my-bucket/prefix/`.

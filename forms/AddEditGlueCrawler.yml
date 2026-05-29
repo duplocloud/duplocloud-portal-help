@@ -1,0 +1,36 @@
+# Basic Fields
+CrawlerName: Specify a unique name for the crawler (max 255 characters). Cannot be changed after creation.
+Role: Enter the IAM role name or ARN that grants AWS Glue permission to access the data source and write results to the Data Catalog. Format- `arn:aws:iam::<account-id>:role/<role-name>` or just `<role-name>`.
+DatabaseName: Select the Glue Data Catalog database where crawler results (tables) will be stored.
+DatabaseNameCustom: Enter the name of the Glue database to use if it is not listed above.
+TablePrefix: Optional prefix added to the names of all tables created by the crawler (max 128 characters). Example- `raw_` produces table names like `raw_orders`.
+Description: Optional description for the crawler (max 2048 characters).
+
+# S3 Data Sources
+S3Path: Enter the S3 path to crawl. The crawler will discover all data files under this path. Format- `s3://my-bucket/prefix/`.
+S3Exclusions: Optional comma-separated glob patterns for paths to exclude from crawling. Example- `**.log, tmp/**`.
+
+# Advanced Options
+Schedule: Specify a schedule for the crawler using AWS Glue cron syntax. Format- `cron(minutes hours day-of-month month day-of-week year)`. Example- `cron(15 12 * * ? *)` runs daily at 12:15 UTC. For help, click [here](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html).
+RecrawlBehavior: |
+  Controls how the crawler handles previously crawled data.
+
+  1. **CRAWL_EVERYTHING** — Recrawls all folders and files on every run.
+  2. **CRAWL_NEW_FOLDERS_ONLY** — Only crawls new S3 folders added since the last crawl.
+  3. **CRAWL_EVENT_MODE** — Uses S3 event notifications to crawl only changed objects.
+UpdateBehavior: |
+  Controls how the crawler updates existing table schemas when it detects changes.
+
+  1. **UPDATE_IN_DATABASE** — Updates the table schema in the Data Catalog to reflect changes.
+  2. **LOG** — Logs the changes but does not update the schema.
+DeleteBehavior: |
+  Controls what happens when the crawler no longer finds previously crawled data.
+
+  1. **DELETE_FROM_DATABASE** — Deletes the table from the Data Catalog.
+  2. **LOG** — Logs the deletion but keeps the table.
+  3. **DEPRECATE_IN_DATABASE** — Marks the table as deprecated.
+Lineage: |
+  Controls whether data lineage information is captured during crawls.
+
+  1. **ENABLE** — Captures lineage metadata for crawled data.
+  2. **DISABLE** — Does not capture lineage metadata.

@@ -1,0 +1,2 @@
+RegistryName: Specify a unique name for the schema registry (max 255 characters). Cannot be changed after creation. Registries group related schemas together.
+Description: Optional description for the registry (min 2, max 2048 characters).

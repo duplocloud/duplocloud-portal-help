@@ -1,0 +1,37 @@
+# Basic Fields
+Name: Specify a unique name for the Glue job. Use letters, numbers, periods, underscores, and hyphens (max 255 characters). Cannot be changed after creation.
+CommandName: |
+  Select the job type.
+
+  1. **glueetl** — Apache Spark ETL job. Supports Spark transformations on large datasets.
+  2. **pythonshell** — Python shell script. Lightweight, ideal for simple transformations or API calls.
+  3. **glueray** — Ray-based distributed Python job. For ML workloads and distributed Python processing.
+GlueVersion: |
+  Select the AWS Glue version that determines the Spark and Python versions available.
+
+  1. **4.0** — Spark 3.3, Python 3.10. Recommended for new jobs.
+  2. **3.0** — Spark 3.1, Python 3.7.
+  3. **2.0** — Spark 2.4, Python 3.7.
+  See [AWS Glue versions](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html) for details.
+Role: Enter the ARN or name of the IAM role that grants the job permission to access data sources, S3, and other AWS services. Format- `arn:aws:iam::<account-id>:role/<role-name>`.
+ScriptLocation: Enter the S3 path to the ETL script file. Format- `s3://bucket/path/script.py`.
+PythonVersion: Select the Python version to use. Python 3 is required for Glue 2.0+.
+
+# Compute
+WorkerType: |
+  Select the worker instance type for Spark and Ray jobs.
+
+  1. **Standard** — 4 vCPUs, 16 GB memory per worker.
+  2. **G.1X** — 4 vCPUs, 16 GB memory. Optimized for memory-intensive workloads.
+  3. **G.2X** — 8 vCPUs, 32 GB memory. For jobs requiring more memory per worker.
+  4. **G.4X** — 16 vCPUs, 64 GB memory.
+  5. **G.8X** — 32 vCPUs, 128 GB memory.
+  See [worker types](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) for details.
+NumberOfWorkers: Enter the number of workers to allocate to the job. Minimum is 2. Higher values increase throughput but also cost.
+MaxCapacity: Select the maximum Data Processing Units (DPUs) for Python shell jobs. Use 0.0625 DPU for lightweight scripts or 1 DPU for larger workloads.
+
+# Runtime Options
+Timeout: Optional maximum run time for the job in minutes. The job will be stopped if it exceeds this limit. Default is 2880 minutes (48 hours).
+MaxRetries: Optional number of times to retry the job if it fails. Enter a value between 0 and 10. Default is 0 (no retries).
+MaxConcurrentRuns: Optional maximum number of concurrent runs allowed for this job. Default is 1. Increase for parallel processing needs.
+Description: Optional description for the job (max 2048 characters).
