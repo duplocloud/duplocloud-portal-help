@@ -74,6 +74,21 @@ extraNodeLabels: |
   ```
 keyPairType: Select Key Pair. Supports ED25519 and RSA key pair types. Defaults to `ed25519`.
 enabledMetrics: Select to enable Auto Scaling group metrics collection.
-Zones: Select Availability Zones.
+Zones: Select one or more Availability Zones for the ASG. Instances will be distributed across the selected zones. Choose **Automatic** to let DuploCloud pick the zone with the most available subnet IPs.
 enableDiskEncryption: Select to enable encryption at rest for EBS volumes.
 EncryptionKey: Select KMS keys for disk encryption.
+useMultipleInstanceTypes: Enable to allow the ASG to launch instances from more than one instance type. Improves availability and Spot capacity by diversifying across types.
+useInstanceRequirements: Enable to specify hardware requirements (vCPU and memory range) instead of selecting specific instance types. AWS will automatically select matching instance families. Requires **Use Multiple Instance Types** to be on.
+minVCpuCount: Minimum number of vCPUs required for each instance. Enter 0 for no lower bound.
+maxVCpuCount: Maximum number of vCPUs allowed for each instance. Required when defining by requirements.
+minMemoryMiB: Minimum amount of memory in MiB required for each instance. Enter 0 for no lower bound.
+maxMemoryMiB: Maximum amount of memory in MiB allowed for each instance. Required when defining by requirements.
+multipleInstanceTypes: Select two or more specific EC2 instance types for the ASG to use. The ASG will launch from any of the selected types based on availability and strategy.
+onDemandPercentage: Percentage of the total capacity that should use On-Demand instances. The remainder will use Spot. Example- `20` means 20% On-Demand, 80% Spot. Valid range is 0–100.
+spotAllocationStrategy: |
+  Select the strategy for distributing Spot capacity across instance types and Availability Zones.
+
+  1. **lowest-price** — Launch Spot Instances from the cheapest pools. May reduce diversification.
+  2. **capacity-optimized** — Launch from the most available Spot capacity pools. Reduces interruptions.
+  3. **capacity-optimized-prioritized** — Same as capacity-optimized but respects the order of instance types as a preference.
+  4. **price-capacity-optimized** — Balances lowest price with high capacity availability. Recommended for most workloads.
