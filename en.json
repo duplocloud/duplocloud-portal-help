@@ -109,6 +109,13 @@
                 "ForceStatefulSet": "Enable this option to create the service as a StatefulSet.",
                 "AppName": "Optionally, enter an App Name to group services. This helps filter services belonging to the same app."
             },
+            "AddEditGlueSchema": {
+                "SchemaName": "Specify a unique name for the schema within the registry. Allowed characters- letters, numbers, hyphens, underscores, `$`, `#`, `.` (max 255 characters). Cannot be changed after creation.",
+                "DataFormat": "Select the serialization format for schema definitions.\n\n1. **AVRO** \u2014 Apache Avro format. Widely used for streaming data with Kafka.\n2. **JSON** \u2014 JSON Schema format.\n3. **PROTOBUF** \u2014 Protocol Buffers format. Efficient binary serialization.\nCannot be changed after creation.\n",
+                "Compatibility": "Controls which schema versions are compatible with this schema. Determines whether new versions can be registered.\n\n1. **NONE** \u2014 No compatibility check. Any version can be registered.\n2. **DISABLED** \u2014 Prevents new versions from being registered.\n3. **BACKWARD** \u2014 New version can read data written by the previous version.\n4. **BACKWARD_ALL** \u2014 New version can read data written by all previous versions.\n5. **FORWARD** \u2014 Previous version can read data written by the new version.\n6. **FORWARD_ALL** \u2014 All previous versions can read data written by the new version.\n7. **FULL** \u2014 Both BACKWARD and FORWARD compatibility with the previous version.\n8. **FULL_ALL** \u2014 Both BACKWARD_ALL and FORWARD_ALL compatibility.\nSee [AWS Glue Schema Registry compatibility](https://docs.aws.amazon.com/glue/latest/dg/schema-registry.html#schema-registry-compatibility) for details.\n",
+                "Description": "Optional description for the schema (max 2048 characters).",
+                "SchemaDefinition": "Enter the schema definition for the first version. The format must match the selected Data Format.\n```json\n{ \"type\": \"record\", \"name\": \"MyRecord\", \"fields\": [{ \"name\": \"id\", \"type\": \"int\" }] }\n```\nWhen editing, this field is read-only. Register a new version from the schema detail page to update the definition.\n"
+            },
             "emrClusterAdd": {
                 "Name": "Unique Cluster Name",
                 "ReleaseLabel": "Choose ReleaseLabel or to provide ReleaseLabel not in list choose Other.",
@@ -380,13 +387,6 @@
                 "customCachePathPattern0": "The pattern (for example, images/*.jpg ) that specifies which requests to apply the behavior to. When CloudFront receives a viewer request, the requested path is compared with path patterns in the order in which cache behaviors are listed in the distribution.",
                 "customTargetOriginId0": "Target Origin to apply the cache policy. CloudFront will use this origin as a path if the request URL matches the path pattern."
             },
-            "AddWorkspaceAgentForm": {
-                "name": "Specify a unique name for the agent. Use letters, numbers, hyphens, or underscores. Must start with a letter. Minimum 2, maximum 70 characters.",
-                "description": "Enter an optional description for the agent. Maximum 500 characters.",
-                "endPoint": "Specify the base URL of the agent endpoint. Example- `https://example.com`",
-                "path": "Specify the API path for the agent endpoint. Example- `api/sendMessage`",
-                "metaData": "Specify optional metadata for the agent in YAML format.\n```yaml\nkey: value\nanother_key: another_value\n```\n"
-            },
             "appcontainerappenv": {
                 "Name": "Enter the name of the Container App Environment.",
                 "WorkloadProfiles0": "Select a Workload Profile for this environment.",
@@ -396,6 +396,21 @@
                 "appLogDestinations": "Select where logs should be sent.",
                 "logAnalyticsWorkspaces": "Select the Log Analytics Workspace(s) for monitoring this environment.",
                 "SubnetId": "Select the subnet for this environment."
+            },
+            "AddEditGlueJob": {
+                "Name": "Specify a unique name for the Glue job. Use letters, numbers, periods, underscores, and hyphens (max 255 characters). Cannot be changed after creation.",
+                "CommandName": "Select the job type.\n\n1. **glueetl** \u2014 Apache Spark ETL job. Supports Spark transformations on large datasets.\n2. **pythonshell** \u2014 Python shell script. Lightweight, ideal for simple transformations or API calls.\n3. **glueray** \u2014 Ray-based distributed Python job. For ML workloads and distributed Python processing.\n",
+                "GlueVersion": "Select the AWS Glue version that determines the Spark and Python versions available.\n\n1. **4.0** \u2014 Spark 3.3, Python 3.10. Recommended for new jobs.\n2. **3.0** \u2014 Spark 3.1, Python 3.7.\n3. **2.0** \u2014 Spark 2.4, Python 3.7.\nSee [AWS Glue versions](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html) for details.\n",
+                "Role": "Enter the ARN or name of the IAM role that grants the job permission to access data sources, S3, and other AWS services. Format- `arn:aws:iam::<account-id>:role/<role-name>`.",
+                "ScriptLocation": "Enter the S3 path to the ETL script file. Format- `s3://bucket/path/script.py`.",
+                "PythonVersion": "Select the Python version to use. Python 3 is required for Glue 2.0+.",
+                "WorkerType": "Select the worker instance type for Spark and Ray jobs.\n\n1. **Standard** \u2014 4 vCPUs, 16 GB memory per worker.\n2. **G.1X** \u2014 4 vCPUs, 16 GB memory. Optimized for memory-intensive workloads.\n3. **G.2X** \u2014 8 vCPUs, 32 GB memory. For jobs requiring more memory per worker.\n4. **G.4X** \u2014 16 vCPUs, 64 GB memory.\n5. **G.8X** \u2014 32 vCPUs, 128 GB memory.\nSee [worker types](https://docs.aws.amazon.com/glue/latest/dg/add-job.html) for details.\n",
+                "NumberOfWorkers": "Enter the number of workers to allocate to the job. Minimum is 2. Higher values increase throughput but also cost.",
+                "MaxCapacity": "Select the maximum Data Processing Units (DPUs) for Python shell jobs. Use 0.0625 DPU for lightweight scripts or 1 DPU for larger workloads.",
+                "Timeout": "Optional maximum run time for the job in minutes. The job will be stopped if it exceeds this limit. Default is 2880 minutes (48 hours).",
+                "MaxRetries": "Optional number of times to retry the job if it fails. Enter a value between 0 and 10. Default is 0 (no retries).",
+                "MaxConcurrentRuns": "Optional maximum number of concurrent runs allowed for this job. Default is 1. Increase for parallel processing needs.",
+                "Description": "Optional description for the job (max 2048 characters)."
             },
             "devops-entity-add": {
                 "Name": "Enter a unique name for the Load Balancer.\nMust start with a letter and can include letters, numbers, and hyphens (-).\nMinimum 2 characters. Maximum 15 characters.\nExample: web-lb1\n",
@@ -497,8 +512,21 @@
                 "dataYaml": "```yaml\nconfigmaps: '200'\npods: '2'\n```\n",
                 "scopeSelectorYaml": "scopeSelector allows you to apply quotas only to specific subsets of resources\u2014like terminating pods, non-terminated pods.\n```yaml\n matchExpressions:\n - operator: In\n   scopeName: PriorityClass\n   values:\n     - middle\n```"
             },
+            "AddEditGlueTable": {
+                "Name": "Specify a unique name for the table within the database. Use only lowercase letters, numbers, hyphens, and underscores (max 255 characters). Cannot be changed after creation.",
+                "TableType": "Optional classification for the table type.\n\n1. **EXTERNAL_TABLE** \u2014 Table data is stored outside the Glue Data Catalog (e.g. in S3).\n2. **VIRTUAL_VIEW** \u2014 Represents a virtual view over other tables.\n3. Leave blank to let Glue infer the type from the crawler or data format.\n",
+                "Location": "Optional S3 path where the table's data is stored. Format- `s3://bucket/prefix/`.",
+                "Description": "Optional description for the table (max 2048 characters)."
+            },
             "AddS3TableBucket": {
                 "Name": "Specify a unique name for the S3 table bucket. Use only lowercase letters, numbers, and hyphens. Minimum 3 characters."
+            },
+            "AddEditGlueWorkflow": {
+                "WorkflowName": "Specify a unique name for the workflow (max 255 characters). Cannot be changed after creation.",
+                "MaxConcurrentRuns": "Optional maximum number of concurrent workflow runs. Leave blank for unlimited. Set to 1 to prevent overlapping runs.",
+                "Description": "Optional description for the workflow (max 2048 characters).",
+                "PropKey": "Enter the name of the default run property key. These key-value pairs are available to all jobs and crawlers in the workflow run via `$job.run.properties`.",
+                "PropVal": "Enter the value for the corresponding run property key."
             },
             "AddContainerAppBasic": {
                 "Name": "Enter a unique name for your container app. Must be 1-32 characters, lowercase letters, numbers, or hyphens.",
@@ -645,6 +673,11 @@
                 "Values": "Specify in yaml format. This field allows users to customize Helm charts. \nExample\n```yaml\n\n  replicaCount: 2\n  serviceAccount:\n    create: true\n\n```",
                 "ValuesFrom": "Specify the reference of ConfigMap and Secret resources from which to take values.\nExample\n```yaml\n\n- kind: ConfigMap\n  name: nginx-values\n  valuesKey: values.yaml\n- kind: Secret\n  name: nginx-secrets\n  valuesKey: secret-values.yaml\n\n```",
                 "Labels": "Specify labels\n```yaml\n\nteam: platform\napp.duplocloud.net/app-name: myapp-prod # label to group K8s resource by appname\n\n```\n\n  "
+            },
+            "AddGlueDatabase": {
+                "Name": "Specify a unique name for the Glue database. Use only lowercase letters, numbers, hyphens, and underscores (max 255 characters). Cannot be changed after creation.",
+                "Description": "Optional description for the database (max 2048 characters).",
+                "LocationUri": "Optional S3 URI that points to the default storage location for managed tables and Zero-ETL integrations. Format- `s3://my-bucket/prefix/`."
             },
             "AddAppRunnerServiceAdvanced": {
                 "AutoScalingConfigurationArn": "The Amazon Resource Name (ARN) of an App Runner auto scaling configuration resource to associate with your service. If not provided, App Runner associates the latest revision of a default auto scaling configuration.",
@@ -993,6 +1026,18 @@
                 "throughputMode": "Specifies the throughput mode for the file system, either bursting or provisioned. If you set ThroughputMode to provisioned, you must also set a value for ProvisionedThroughputInMibps. \nAfter you create the file system, you can decrease your file system's throughput in Provisioned Throughput mode or change between the throughput modes, as long as it\u2019s been more than 24 hours since the last decrease or throughput mode change.\n",
                 "Backup": "Specifies whether automatic backups are enabled on the file system that you are creating. Set the value to true to enable automatic backups. \nIf you are creating a file system that uses One Zone storage classes, automatic backups are enabled by default.\n",
                 "Encrypted": "A Boolean value that, if true, creates an encrypted file system. When creating an encrypted file system, you have the option of specifying an existing Key Management Service key (KMS key)."
+            },
+            "AddEditGlueTrigger": {
+                "TriggerName": "Specify a unique name for the trigger (max 255 characters). Cannot be changed after creation.",
+                "TriggerType": "Select how the trigger is activated.\n\n1. **SCHEDULED** \u2014 Fires on a recurring cron schedule.\n2. **CONDITIONAL** \u2014 Fires when specified job or crawler runs reach a defined state.\n3. **ON_DEMAND** \u2014 Fires manually when invoked.\n4. **EVENT** \u2014 Fires in response to EventBridge events.\n",
+                "Description": "Optional description for the trigger (max 2048 characters).",
+                "Schedule": "Specify the schedule using AWS Glue 6-field cron syntax. Format- `cron(minutes hours day-of-month month day-of-week year)`. Use `?` for either day-of-month or day-of-week (not both). Example- `cron(*/2 * * * ? *)` runs every 2 minutes. For help, click [here](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html).",
+                "PredicateLogic": "Select how multiple conditions are evaluated.\n\n1. **AND** \u2014 All conditions must be satisfied before the trigger fires.\n2. **ANY** \u2014 The trigger fires when any one condition is satisfied.\n",
+                "CondType": "Select whether the condition watches a Glue Job run or a Crawler run.",
+                "CondName": "Select the specific job or crawler to watch.",
+                "CondState": "Select the run state that satisfies this condition.\n\n**For Jobs:** SUCCEEDED, STOPPED, FAILED, TIMEOUT, ERROR\n**For Crawlers:** SUCCEEDED, CANCELLED, FAILED, ERROR\n",
+                "ActionType": "Select whether this action triggers a Glue Job or a Crawler.",
+                "ActionName": "Select the job or crawler to activate when the trigger fires."
             },
             "emrserverlsess_add_runjob_sub_form_script": {
                 "ScriptQueryInitFileBucket": "Choose S3 Bucket where the initialization script is stored.",
@@ -1389,12 +1434,31 @@
                 "UserSearchSubtree": "Specifies whether the directory search scope for user group includes the entire sub-tree.",
                 "RoleSearchSubtree": "Specifies whether the directory search scope for role includes the entire sub-tree."
             },
+            "AddEditGlueCrawler": {
+                "CrawlerName": "Specify a unique name for the crawler (max 255 characters). Cannot be changed after creation.",
+                "Role": "Enter the IAM role name or ARN that grants AWS Glue permission to access the data source and write results to the Data Catalog. Format- `arn:aws:iam::<account-id>:role/<role-name>` or just `<role-name>`.",
+                "DatabaseName": "Select the Glue Data Catalog database where crawler results (tables) will be stored.",
+                "DatabaseNameCustom": "Enter the name of the Glue database to use if it is not listed above.",
+                "TablePrefix": "Optional prefix added to the names of all tables created by the crawler (max 128 characters). Example- `raw_` produces table names like `raw_orders`.",
+                "Description": "Optional description for the crawler (max 2048 characters).",
+                "S3Path": "Enter the S3 path to crawl. The crawler will discover all data files under this path. Format- `s3://my-bucket/prefix/`.",
+                "S3Exclusions": "Optional comma-separated glob patterns for paths to exclude from crawling. Example- `**.log, tmp/**`.",
+                "Schedule": "Specify a schedule for the crawler using AWS Glue cron syntax. Format- `cron(minutes hours day-of-month month day-of-week year)`. Example- `cron(15 12 * * ? *)` runs daily at 12:15 UTC. For help, click [here](https://docs.aws.amazon.com/glue/latest/dg/monitor-data-warehouse-schedule.html).",
+                "RecrawlBehavior": "Controls how the crawler handles previously crawled data.\n\n1. **CRAWL_EVERYTHING** \u2014 Recrawls all folders and files on every run.\n2. **CRAWL_NEW_FOLDERS_ONLY** \u2014 Only crawls new S3 folders added since the last crawl.\n3. **CRAWL_EVENT_MODE** \u2014 Uses S3 event notifications to crawl only changed objects.\n",
+                "UpdateBehavior": "Controls how the crawler updates existing table schemas when it detects changes.\n\n1. **UPDATE_IN_DATABASE** \u2014 Updates the table schema in the Data Catalog to reflect changes.\n2. **LOG** \u2014 Logs the changes but does not update the schema.\n",
+                "DeleteBehavior": "Controls what happens when the crawler no longer finds previously crawled data.\n\n1. **DELETE_FROM_DATABASE** \u2014 Deletes the table from the Data Catalog.\n2. **LOG** \u2014 Logs the deletion but keeps the table.\n3. **DEPRECATE_IN_DATABASE** \u2014 Marks the table as deprecated.\n",
+                "Lineage": "Controls whether data lineage information is captured during crawls.\n\n1. **ENABLE** \u2014 Captures lineage metadata for crawled data.\n2. **DISABLE** \u2014 Does not capture lineage metadata.\n"
+            },
             "batchEnv": {
                 "OtherConfigurations": "All Other Create Compute Environment Request parameters as documented [here](https://docs.aws.amazon.com/batch/latest/APIReference/API_CreateComputeEnvironment.html).\nSample Value for customized EC2 configuration.\n```js\n{\n    \"ComputeResources\": {\n        \"Ec2Configuration\": [\n            {\n                \"ImageType\": \"ECS_AL2_NVIDIA\"\n            }\n        ]\n    }\n}\n```"
             },
             "AddSbPrivateEndpoint": {
                 "Name": "Specify Private EndPoint name.",
                 "SubnetId": "Select Subnet."
+            },
+            "AddEditGlueRegistry": {
+                "RegistryName": "Specify a unique name for the schema registry (max 255 characters). Cannot be changed after creation. Registries group related schemas together.",
+                "Description": "Optional description for the registry (min 2, max 2048 characters)."
             },
             "addResourcePeriodForm": {
                 "Name": "Enter a unique name for the period. Only letters, numbers, and hyphens are allowed.",
@@ -1446,12 +1510,53 @@
                 "enableDiskEncryption": "Select to enable encryption at rest for EBS volumes.",
                 "EncryptionKey": "Select KMS keys for disk encryption."
             },
+            "RegisterGlueSchemaVersion": {
+                "SchemaDefinition": "Enter the new schema definition to register as the next version. The format must match the schema's data format (AVRO, JSON, or PROTOBUF).\n\nThe definition will be validated against the schema's compatibility rules before registering. Example for AVRO-\n```json\n{ \"type\": \"record\", \"name\": \"MyRecord\", \"fields\": [{ \"name\": \"id\", \"type\": \"int\" }, { \"name\": \"name\", \"type\": \"string\" }] }\n```\nFor compatibility rules, see [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/schema-registry.html#schema-registry-compatibility).\n"
+            },
             "AddK8sHelmRepo": {
                 "Name": "Specify the name of the Helm Repository.",
                 "IntervalTime": "Specify the time interval for automatic updates in MM:SS.",
                 "URL": "Specify the Helm Repository URL. For example- `https://helm.github.io/examples`.",
                 "SourceType": "Select the sourcing repository. [Details](https://fluxcd.io/flux/components/source/helmrepositories/).",
                 "Secret": "Select a Kubernetes `dockerconfigjson` secret used to authenticate to a private container registry."
+            },
+            "AddEditGlueConnection": {
+                "ConnectionName": "Specify a unique name for the connection (max 255 characters). Cannot be changed after creation.",
+                "ConnectionType": "Select the type of data source this connection targets.\n\n1. **JDBC** \u2014 Generic JDBC connection for relational databases (MySQL, PostgreSQL, Oracle, SQL Server, etc.).\n2. **KAFKA** \u2014 Apache Kafka cluster, including Amazon MSK.\n3. **MONGODB** \u2014 MongoDB or MongoDB Atlas database.\n4. **NETWORK** \u2014 Private VPC network connection for resources not accessible via other types.\n5. **MARKETPLACE** \u2014 AWS Marketplace connector.\n6. **CUSTOM** \u2014 Custom connector with a JAR hosted in S3.\n",
+                "Description": "Optional description for the connection.",
+                "jdbcUrl": "Enter the JDBC connection URL for the data source. Format- `jdbc:<protocol>://<host>:<port>/<database-name>`. Example- `jdbc:mysql://myhost.rds.amazonaws.com:3306/mydb`.",
+                "jdbcEnforceSSL": "Enable to require SSL/TLS encryption for the JDBC connection. The server must support SSL.",
+                "jdbcDriverClassName": "Optional fully qualified JDBC driver class name when using a custom driver. Example- `com.mysql.jdbc.Driver`.",
+                "jdbcDriverS3Path": "Optional S3 path to the custom JDBC driver `.jar` file. Format- `s3://bucket/prefix/driver.jar`.",
+                "kafkaBootstrapServers": "Enter the comma-separated list of Kafka broker addresses. Format- `broker1:9092,broker2:9092`.",
+                "kafkaSslEnabled": "Enable to require SSL/TLS for the Kafka connection. The broker must be configured with SSL listeners.",
+                "kafkaSaslMechanism": "Select the authentication method for connecting to the Kafka broker.\n\n1. **NONE** \u2014 No authentication.\n2. **SCRAM-SHA-512** \u2014 SASL with SCRAM-SHA-512 password-based auth.\n3. **PLAIN** \u2014 SASL with plaintext username/password.\n4. **GSSAPI** \u2014 Kerberos authentication.\n5. **TLS** \u2014 Mutual TLS client certificate authentication.\n",
+                "kafkaTlsKeystoreLocation": "Enter the S3 path to the client keystore `.jks` file for TLS mutual authentication. Format- `s3://bucket/prefix/filename.jks`.",
+                "kafkaTlsKeystorePassword": "Optional password for the client keystore file.",
+                "kafkaTlsKeyPassword": "Optional password for the private key within the keystore.",
+                "kafkaCredentialType": "Select whether to provide credentials directly (username/password) or reference a secret stored in AWS Secrets Manager.",
+                "kafkaSaslUsername": "Enter the username for SASL/PLAIN or SASL/SCRAM-SHA-512 authentication.",
+                "kafkaSaslPassword": "Enter the password for SASL/PLAIN or SASL/SCRAM-SHA-512 authentication.",
+                "kafkaSecretArn": "Enter the ARN or name of the AWS Secrets Manager secret containing Kafka credentials. Format- `arn:aws:secretsmanager:<region>:<account-id>:secret:<name>`.",
+                "kafkaGssapiKeytab": "Enter the S3 path to the Kerberos keytab file. Format- `s3://bucket/prefix/filename.keytab`.",
+                "kafkaGssapiKrb5Conf": "Enter the S3 path to the Kerberos `krb5.conf` configuration file. Format- `s3://bucket/prefix/filename.conf`.",
+                "kafkaGssapiPrincipal": "Enter the Kerberos principal name for authentication. Example- `kafka/broker.example.com@REALM.COM`.",
+                "kafkaGssapiService": "Enter the Kerberos service name of the Kafka broker. Typically `kafka`.",
+                "mongoUri": "Enter the MongoDB connection URI. Use the `mongodb+srv://` protocol for Atlas clusters or `mongodb://` for self-hosted. Format- `mongodb+srv://server.example.com/database`.",
+                "connectorType": "Enter the connector type identifier as defined by the Marketplace connector. Example- `jdbc`.",
+                "connectorUrl": "Enter the S3 path to the Marketplace connector JAR file. Format- `s3://bucket/connector.jar`.",
+                "connectorClassName": "Enter the fully qualified class name of the Marketplace connector. Example- `com.example.Driver`.",
+                "marketplaceConnectionUrl": "Enter the endpoint URL for the data source as required by the Marketplace connector.",
+                "customConnectorUrl": "Enter the S3 path to the custom connector JAR file. Format- `s3://bucket/prefix/connector.jar`.",
+                "customConnectorClassName": "Enter the fully qualified Java class name of the custom connector. Allowed characters- letters, numbers, `$`, `_`, `.` (max 255 characters). Example- `com.example.region.MyDriver`.",
+                "customConnectionUrl": "Enter the JDBC base URL for the data source. Do not include credentials or additional parameters. Format- `jdbc:<protocol>://<host>:<port>/<database>/`.",
+                "useSecretId": "Enable to use a secret stored in AWS Secrets Manager instead of entering credentials directly.",
+                "username": "Enter the database username for authentication. Required for JDBC and MongoDB connections.",
+                "password": "Enter the database password for authentication. Required for JDBC and MongoDB connections.",
+                "secretId": "Enter the ARN or name of the AWS Secrets Manager secret containing database credentials. Format- `arn:aws:secretsmanager:<region>:<account-id>:secret:<name>`.",
+                "subnetId": "Enter the VPC subnet ID where the connection will be established. Required for NETWORK connections. Format- `subnet-xxxxxxxx`.",
+                "securityGroupIds": "Enter one or more VPC security group IDs (comma-separated) to associate with the connection. Required for NETWORK connections. Format- `sg-xxxxxxxx, sg-yyyyyyyy`.",
+                "availabilityZone": "Optional availability zone where the connection should run. Example- `us-east-1a`."
             },
             "AddPVC": {
                 "name": "Name for Persistent Volume Claim.",

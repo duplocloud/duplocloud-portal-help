@@ -1,0 +1,8 @@
+SchemaDefinition: |
+  Enter the new schema definition to register as the next version. The format must match the schema's data format (AVRO, JSON, or PROTOBUF).
+
+  The definition will be validated against the schema's compatibility rules before registering. Example for AVRO-
+  ```json
+  { "type": "record", "name": "MyRecord", "fields": [{ "name": "id", "type": "int" }, { "name": "name", "type": "string" }] }
+  ```
+  For compatibility rules, see [AWS documentation](https://docs.aws.amazon.com/glue/latest/dg/schema-registry.html#schema-registry-compatibility).
